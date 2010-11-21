@@ -42,10 +42,10 @@ public class Counter {
 
 	// Field //
 
-	private volatile int interval = 0;
-	private volatile int intervalHelper = 0;
-	private volatile int cnt = 0;
 	private final int initCnt;
+	private volatile int cnt = 0;
+	private volatile int interval = 1;
+	private volatile int intervalHelper = 0;
 	private final Runnable runner;
 
 	// Constructor //
@@ -88,7 +88,6 @@ public class Counter {
 	public Counter(int count) {
 		synchronized (Counter.class) {
 			this.cnt = count;
-			this.intervalHelper = count;
 			this.initCnt = count;
 			runner = new Runnable() {
 				public void run() {
@@ -112,7 +111,6 @@ public class Counter {
 	public Counter(int count, Runnable runner) {
 		synchronized (Counter.class) {
 			this.cnt = count;
-			this.intervalHelper = count;
 			this.initCnt = count;
 			this.runner = runner;
 		}
@@ -121,6 +119,8 @@ public class Counter {
 	// Private //
 
 	private void checkPerform() {
+//		System.err.println("intervalHelper="+intervalHelper);
+//		System.err.println("interval="+interval);
 		if (intervalHelper >= interval) {
 			perform();
 			intervalHelper = 0;
@@ -152,11 +152,11 @@ public class Counter {
 	 * </p>
 	 */
 	public synchronized void finish() {
-		if (interval != 0)
+		if (interval != intervalHelper)
 			perform();
-		intervalHelper = initCnt;
+		intervalHelper = 0;
 		cnt = initCnt;
-		interval = 0;
+		interval = 1;
 	}
 
 	/**
@@ -166,13 +166,13 @@ public class Counter {
 	 * 
 	 * @param interval
 	 *            number of counts {@link Counter#count()} has to be
-	 *            called before {@linkCounter#perform()} is called.
+	 *            called before {@link Counter#perform()} is called.
 	 * @throws NumberFormatException
 	 *             if {@code interval} < 1
 	 */
 	public synchronized void setInterval(int interval) {
-		if (interval < 0)
-			throw new NumberFormatException("interval must be >= 0");
+		if (interval < 1)
+			throw new NumberFormatException("interval must be >= 1");
 		this.interval = interval;
 	}
 
@@ -217,7 +217,7 @@ public class Counter {
 	 */
 	public synchronized void setCount(int count) {
 		this.cnt = count;
-		this.intervalHelper = count;
+		this.intervalHelper = 0;
 	}
 
 	// Override //

@@ -16,6 +16,7 @@ package net.sf.kerner.utils.callback;
 
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
+import java.util.concurrent.TimeUnit;
 
 /**
  * Prototype implementation for {@link AsyncCallBack}.
@@ -50,7 +51,9 @@ public abstract class AbstractAsyncCallBack<R, V> implements AsyncCallBack<R, V>
 	 * 
 	 */
 	public AbstractAsyncCallBack() {
+		synchronized (AbstractAsyncCallBack.class) {
 		exe = Executors.newCachedThreadPool();
+		}
 	}
 
 	/**
@@ -65,7 +68,9 @@ public abstract class AbstractAsyncCallBack<R, V> implements AsyncCallBack<R, V>
 	 *            that is used for execution
 	 */
 	public AbstractAsyncCallBack(ExecutorService exe) {
+		synchronized (AbstractAsyncCallBack.class) {
 		this.exe = exe;
+		}
 	}
 
 	// Private //
@@ -83,7 +88,7 @@ public abstract class AbstractAsyncCallBack<R, V> implements AsyncCallBack<R, V>
 	 *            parameter for this {@code AbstractAsyncCallBack}
 	 * 
 	 */
-	public void execute(final V value) {
+	public synchronized void execute(final V value) {
 		exe.execute(new Runnable() {
 			public void run() {
 				try {
@@ -93,5 +98,18 @@ public abstract class AbstractAsyncCallBack<R, V> implements AsyncCallBack<R, V>
 				}
 			}
 		});
+	}
+	
+	public synchronized void shutdown(){
+		exe.shutdown();
+	}
+	
+	public synchronized void shutdownAndWait(long timeout, TimeUnit unit) throws InterruptedException{
+		exe.shutdown();
+		exe.awaitTermination(timeout, unit);
+	}
+	
+	public synchronized void shutdownNow(){
+		exe.shutdownNow();
 	}
 }
