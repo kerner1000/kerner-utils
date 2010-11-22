@@ -57,7 +57,7 @@ public class Counter {
 	private volatile int interval = 1;
 	private volatile int intervalHelper = 0;
 	private volatile boolean performed = false;
-	private final Runnable runner;
+	private volatile Runnable runner;
 
 	// Constructor //
 
@@ -266,6 +266,16 @@ public class Counter {
 		if (interval != other.interval)
 			return false;
 		return true;
+	}
+	
+	/**
+	 * 
+	 * Set this {@code Counter} {@link Runnable}. 
+	 *
+	 * @param runner {@link Runnable} that is run every interval
+	 */
+	public synchronized void setRunnable(Runnable runner) {
+		this.runner = runner;
 	}
 
 	/**
