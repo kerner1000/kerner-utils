@@ -151,14 +151,13 @@ public class TimePeriod {
 
 	/**
 	 * <p>
-	 * Get duration of this {@code TimePeriod}. Time unit is
-	 * {@link TimePeriod#DEFAULT_TIME_UNIT}.
+	 * Get duration of this {@code TimePeriod}.
 	 * </p>
 	 * 
 	 * @return duration of this time period. Meaning stop point - start point
 	 */
 	public long getDuration() {
-		return getDuration(DEFAULT_TIME_UNIT);
+		return getDuration(timeUnit);
 	}
 
 	/**
