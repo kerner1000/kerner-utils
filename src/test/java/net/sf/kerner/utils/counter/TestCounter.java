@@ -12,13 +12,13 @@ import org.junit.BeforeClass;
 import org.junit.Test;
 
 /**
- *
+ * 
  * @author <a href="mailto:alex.kerner.24@googlemail.com">Alexander Kerner</a>
  * @version 2010-11-21
- *
+ * 
  */
 public class TestCounter {
-	
+
 	private Counter c1;
 	private Counter c2;
 	private volatile int performed = 0;
@@ -48,7 +48,7 @@ public class TestCounter {
 	public final void testHashCode() {
 		assertEquals(c1.hashCode(), c2.hashCode());
 	}
-	
+
 	/**
 	 * Test method for {@link net.sf.kerner.utils.counter.Counter#hashCode()}.
 	 */
@@ -57,7 +57,7 @@ public class TestCounter {
 		c1.count();
 		assertNotSame(c1.hashCode(), c2.hashCode());
 	}
-	
+
 	/**
 	 * Test method for {@link net.sf.kerner.utils.counter.Counter#hashCode()}.
 	 */
@@ -77,7 +77,7 @@ public class TestCounter {
 		c1.count();
 		assertEquals(1, c1.getCount());
 	}
-	
+
 	/**
 	 * Test method for {@link net.sf.kerner.utils.counter.Counter#Counter()}.
 	 */
@@ -87,7 +87,7 @@ public class TestCounter {
 		c1.count();
 		assertEquals(2, c1.getCount());
 	}
-	
+
 	/**
 	 * Test method for {@link net.sf.kerner.utils.counter.Counter#Counter()}.
 	 */
@@ -99,7 +99,8 @@ public class TestCounter {
 	}
 
 	/**
-	 * Test method for {@link net.sf.kerner.utils.counter.Counter#Counter(java.lang.Runnable)}.
+	 * Test method for
+	 * {@link net.sf.kerner.utils.counter.Counter#Counter(java.lang.Runnable)}.
 	 */
 	@Test
 	public final void testCounterRunnable() {
@@ -119,11 +120,13 @@ public class TestCounter {
 	}
 
 	/**
-	 * Test method for {@link net.sf.kerner.utils.counter.Counter#Counter(int, java.lang.Runnable)}.
+	 * Test method for
+	 * {@link net.sf.kerner.utils.counter.Counter#Counter(int, java.lang.Runnable)}
+	 * .
 	 */
 	@Test
 	public final void testCounterIntRunnable() {
-		c1 = new Counter(1,new Runnable() {
+		c1 = new Counter(1, new Runnable() {
 			public void run() {
 				// TODO Auto-generated method stub
 			}
@@ -135,7 +138,7 @@ public class TestCounter {
 	 */
 	@Test
 	public final void testCount() {
-		c1 = new Counter(1,new Runnable() {
+		c1 = new Counter(1, new Runnable() {
 			public void run() {
 				// TODO Auto-generated method stub
 			}
@@ -149,21 +152,21 @@ public class TestCounter {
 	 */
 	@Test
 	public final void testFinish() {
-		c1 = new Counter(0,new Runnable() {
+		c1 = new Counter(0, new Runnable() {
 			public void run() {
-//				System.err.println("performed");
+				// System.err.println("performed");
 				performed++;
 			}
 		});
 		c1.setInterval(11);
-		for(int i=0; i<10;i++){
+		for (int i = 0; i < 10; i++) {
 			c1.count();
 		}
-		assertFalse(performed);
-		c1.finish();
-		assertTrue(performed);
+		assertEquals(0, performed);
+		c1.count();
+		assertEquals(1, performed);
 	}
-	
+
 	/**
 	 * Test method for {@link net.sf.kerner.utils.counter.Counter#finish()}.
 	 */
@@ -171,15 +174,14 @@ public class TestCounter {
 	public final void testFinish01() {
 		c1 = new Counter(new Runnable() {
 			public void run() {
-//				System.err.println("performed");
-				performed = true;
+				performed++;
 			}
 		});
-		assertFalse(performed);
+		assertEquals(0, performed);
 		c1.finish();
-		assertTrue(performed);
+		assertEquals(1, performed);
 	}
-	
+
 	/**
 	 * Test method for {@link net.sf.kerner.utils.counter.Counter#finish()}.
 	 */
@@ -187,17 +189,16 @@ public class TestCounter {
 	public final void testFinish02() {
 		c1 = new Counter(new Runnable() {
 			public void run() {
-//				System.err.println("performed");
-				performed = true;
+				performed++;
 			}
 		});
-		assertFalse(performed);
+		assertEquals(0, performed);
 		c1.count();
 		c1.setInterval(10);
 		c1.finish();
-		assertTrue(performed);
+		assertEquals(1, performed);
 	}
-	
+
 	/**
 	 * Test method for {@link net.sf.kerner.utils.counter.Counter#finish()}.
 	 */
@@ -205,17 +206,16 @@ public class TestCounter {
 	public final void testFinish03() {
 		c1 = new Counter(new Runnable() {
 			public void run() {
-//				System.err.println("performed");
-				performed = true;
+				performed++;
 			}
 		});
-		assertFalse(performed);
+		assertEquals(0, performed);
 		c1.count();
-		assertTrue(performed);
+		assertEquals(1, performed);
 		c1.finish();
-		assertTrue(performed);
+		assertEquals(1, performed);
 	}
-	
+
 	/**
 	 * Test method for {@link net.sf.kerner.utils.counter.Counter#finish()}.
 	 */
@@ -229,131 +229,144 @@ public class TestCounter {
 		c1.setInterval(2);
 		c1.count();
 		c1.finish();
-		assertTrue(performed);
+		assertEquals(1, performed);
 	}
 
 	/**
-	 * Test method for {@link net.sf.kerner.utils.counter.Counter#setInterval(int)}.
+	 * Test method for
+	 * {@link net.sf.kerner.utils.counter.Counter#setInterval(int)}.
 	 */
 	@Test
 	public final void testSetInterval() {
-		c1 = new Counter(1,new Runnable() {
+		c1 = new Counter(1, new Runnable() {
 			public void run() {
-				performed = true;
+				performed++;
 			}
 		});
 		c1.setInterval(11);
 		assertEquals(11, c1.getInterval());
 	}
-	
+
 	/**
-	 * Test method for {@link net.sf.kerner.utils.counter.Counter#setInterval(int)}.
+	 * Test method for
+	 * {@link net.sf.kerner.utils.counter.Counter#setInterval(int)}.
 	 */
 	@Test
 	public final void testSetInterval01() {
-		c1 = new Counter(1,new Runnable() {
+		c1 = new Counter(1, new Runnable() {
 			public void run() {
-				performed = true;
+				performed++;
 			}
 		});
 		c1.setInterval(2);
 		c1.count();
-		assertFalse(performed);
+		assertEquals(0, performed);
 		c1.count();
-		assertTrue(performed);
-	}
-	
-	/**
-	 * Test method for {@link net.sf.kerner.utils.counter.Counter#setInterval(int)}.
-	 */
-	@Test(expected=NumberFormatException.class)
-	public final void testSetInterval02() {
-		c1.setInterval(0);
-	}
-	
-	/**
-	 * Test method for {@link net.sf.kerner.utils.counter.Counter#setInterval(int)}.
-	 */
-	@Test
-	public final void testSetInterval03() {
-		c1 = new Counter(1,new Runnable() {
-			public void run() {
-				performed = true;
-			}
-		});
-		c1.count();
-		assertTrue(performed);
-	}
-	
-	/**
-	 * Test method for {@link net.sf.kerner.utils.counter.Counter#setInterval(int)}.
-	 */
-	@Test
-	public final void testSetInterval04() {
-		c1 = new Counter(1,new Runnable() {
-			public void run() {
-				performed = true;
-			}
-		});
-		c1.setInterval(3);
-		c1.count();
-		c1.count();
-		c1.count();
-		assertTrue(performed);
-	}
-	
-	/**
-	 * Test method for {@link net.sf.kerner.utils.counter.Counter#setInterval(int)}.
-	 */
-	@Test
-	public final void testSetInterval05() {
-		c1 = new Counter(1,new Runnable() {
-			public void run() {
-				performed = true;
-			}
-		});
-		c1.setInterval(3);
-		c1.count();
-		c1.count();
-		assertFalse(performed);
-	}
-	
-	/**
-	 * Test method for {@link net.sf.kerner.utils.counter.Counter#setInterval(int)}.
-	 */
-	@Test
-	public final void testSetInterval06() {
-		c1 = new Counter(1,new Runnable() {
-			public void run() {
-				performed = true;
-			}
-		});
-		c1.count();
-		c1.count();
-		c1.setInterval(3);
-		c1.count();
-		assertTrue(performed);
-	}
-	
-	/**
-	 * Test method for {@link net.sf.kerner.utils.counter.Counter#setInterval(int)}.
-	 */
-	@Test
-	public final void testSetInterval07() {
-		c1 = new Counter(1,new Runnable() {
-			public void run() {
-				performed = true;
-			}
-		});
-		c1.count();
-		c1.count();
-		c1.setInterval(3);
-		c1.finish();
-		assertTrue(performed);
+		assertEquals(1, performed);
 	}
 
 	/**
-	 * Test method for {@link net.sf.kerner.utils.counter.Counter#getInterval()}.
+	 * Test method for
+	 * {@link net.sf.kerner.utils.counter.Counter#setInterval(int)}.
+	 */
+	@Test(expected = NumberFormatException.class)
+	public final void testSetInterval02() {
+		c1.setInterval(0);
+	}
+
+	/**
+	 * Test method for
+	 * {@link net.sf.kerner.utils.counter.Counter#setInterval(int)}.
+	 */
+	@Test
+	public final void testSetInterval03() {
+		c1 = new Counter(1, new Runnable() {
+			public void run() {
+				performed++;
+			}
+		});
+		c1.count();
+		assertEquals(1, performed);
+	}
+
+	/**
+	 * Test method for
+	 * {@link net.sf.kerner.utils.counter.Counter#setInterval(int)}.
+	 */
+	@Test
+	public final void testSetInterval04() {
+		c1 = new Counter(1, new Runnable() {
+			public void run() {
+				performed++;
+			}
+		});
+		c1.setInterval(3);
+		c1.count();
+		c1.count();
+		c1.count();
+		assertEquals(1, performed);
+	}
+
+	/**
+	 * Test method for
+	 * {@link net.sf.kerner.utils.counter.Counter#setInterval(int)}.
+	 */
+	@Test
+	public final void testSetInterval05() {
+		c1 = new Counter(1, new Runnable() {
+			public void run() {
+				performed++;
+			}
+		});
+		c1.setInterval(3);
+		c1.count();
+		c1.count();
+		assertEquals(0, performed);
+	}
+
+	/**
+	 * Test method for
+	 * {@link net.sf.kerner.utils.counter.Counter#setInterval(int)}.
+	 */
+	@Test
+	public final void testSetInterval06() {
+		c1 = new Counter(1, new Runnable() {
+			public void run() {
+				performed++;
+			}
+		});
+		c1.count(); // 1
+		c1.count(); // 2
+		c1.setInterval(3);
+		c1.count(); // 1
+		assertEquals(2, performed);
+		c1.count(); // 2
+		c1.count(); // 3
+		assertEquals(3, performed);
+	}
+
+	/**
+	 * Test method for
+	 * {@link net.sf.kerner.utils.counter.Counter#setInterval(int)}.
+	 */
+	@Test
+	public final void testSetInterval07() {
+		c1 = new Counter(1, new Runnable() {
+			public void run() {
+				performed++;
+			}
+		});
+		c1.count();
+		c1.count();
+		c1.setInterval(3);
+		c1.count();
+		c1.finish();
+		assertEquals(3, performed);
+	}
+
+	/**
+	 * Test method for {@link net.sf.kerner.utils.counter.Counter#getInterval()}
+	 * .
 	 */
 	@Test
 	public final void testGetInterval() {
@@ -369,15 +382,17 @@ public class TestCounter {
 	}
 
 	/**
-	 * Test method for {@link net.sf.kerner.utils.counter.Counter#getInitCount()}.
+	 * Test method for
+	 * {@link net.sf.kerner.utils.counter.Counter#getInitCount()}.
 	 */
 	@Test
 	public final void testGetInitCount() {
 		assertEquals(0, c1.getInitCount());
 	}
-	
+
 	/**
-	 * Test method for {@link net.sf.kerner.utils.counter.Counter#getInitCount()}.
+	 * Test method for
+	 * {@link net.sf.kerner.utils.counter.Counter#getInitCount()}.
 	 */
 	@Test
 	public final void testGetInitCount01() {
@@ -386,7 +401,8 @@ public class TestCounter {
 	}
 
 	/**
-	 * Test method for {@link net.sf.kerner.utils.counter.Counter#setCount(int)}.
+	 * Test method for {@link net.sf.kerner.utils.counter.Counter#setCount(int)}
+	 * .
 	 */
 	@Test
 	public final void testSetCount() {
@@ -403,15 +419,17 @@ public class TestCounter {
 	}
 
 	/**
-	 * Test method for {@link net.sf.kerner.utils.counter.Counter#equals(java.lang.Object)}.
+	 * Test method for
+	 * {@link net.sf.kerner.utils.counter.Counter#equals(java.lang.Object)}.
 	 */
 	@Test
 	public final void testEqualsObject() {
 		assertEquals(c1, c2);
 	}
-	
+
 	/**
-	 * Test method for {@link net.sf.kerner.utils.counter.Counter#equals(java.lang.Object)}.
+	 * Test method for
+	 * {@link net.sf.kerner.utils.counter.Counter#equals(java.lang.Object)}.
 	 */
 	@Test
 	public final void testEqualsObject01() {
@@ -419,9 +437,10 @@ public class TestCounter {
 		c2.count();
 		assertEquals(c1, c2);
 	}
-	
+
 	/**
-	 * Test method for {@link net.sf.kerner.utils.counter.Counter#equals(java.lang.Object)}.
+	 * Test method for
+	 * {@link net.sf.kerner.utils.counter.Counter#equals(java.lang.Object)}.
 	 */
 	@Test
 	public final void testEqualsObject02() {
@@ -434,30 +453,29 @@ public class TestCounter {
 	 * Test method for {@link net.sf.kerner.utils.counter.Counter#perform()}.
 	 */
 	@Test
-	
 	public final void testPerform() {
-		c1 = new Counter(0,new Runnable() {
+		c1 = new Counter(0, new Runnable() {
 			public void run() {
-//				System.err.println("performed");
-				performed = true;
+				// System.err.println("performed");
+				performed++;
 			}
 		});
 		c1.perform();
-		assertTrue(performed);
+		assertEquals(1, performed);
 	}
-	
+
 	/**
 	 * Test method for {@link net.sf.kerner.utils.counter.Counter#perform()}.
 	 */
 	@Test
 	public final void testPerform01() {
-		c1 = new Counter(0,new Runnable() {
+		c1 = new Counter(0, new Runnable() {
 			public void run() {
-//				System.err.println("performed");
-				performed = true;
+				// System.err.println("performed");
+				performed++;
 			}
 		});
 		c1.count();
-		assertTrue(performed);
+		assertEquals(1, performed);
 	}
 }

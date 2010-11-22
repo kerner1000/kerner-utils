@@ -17,8 +17,18 @@ package net.sf.kerner.utils.counter;
 
 /**
  * <p>
- * An {@code Counter} can be used to monitor program behavior or to keep track
- * of some progress, e.g. how many loop cycles have already been performed.
+ * A {@code Counter} can be used to monitor program behavior or to keep track of
+ * some progress, e.g. how many loop cycles have already been performed.
+ * </p>
+ * <p>
+ * A {@code Counter} can be initialized with a {@link Runnable}, which will be
+ * executed with given interval.<br>
+ * Per default the interval is {@code 1}, which means given {@link Runnable}
+ * will be executed (synchronously) with every count.
+ * </p>
+ * <p>
+ * Per default, a {@code Counter} will execute nothing with an interval of
+ * {@code 1}.
  * </p>
  * <p>
  * This class is fully threadsave.
@@ -46,6 +56,7 @@ public class Counter {
 	private volatile int cnt = 0;
 	private volatile int interval = 1;
 	private volatile int intervalHelper = 0;
+	private volatile boolean performed = false;
 	private final Runnable runner;
 
 	// Constructor //
@@ -119,16 +130,20 @@ public class Counter {
 	// Private //
 
 	private void checkPerform() {
-//		System.err.println("intervalHelper="+intervalHelper);
-//		System.err.println("interval="+interval);
-		if (intervalHelper >= interval) {
+//		System.err.println("intervalHelper=" + intervalHelper);
+//		System.err.println("interval=" + interval);
+//		System.err.println("count=" + cnt);
+		if (intervalHelper == interval) {
 			perform();
+			performed = true;
 			intervalHelper = 0;
+		}else{
+			performed = false;
 		}
 	}
 
 	// Protected //
-	
+
 	// Default //
 
 	// Public //
@@ -146,13 +161,14 @@ public class Counter {
 
 	/**
 	 * <p>
-	 * Resets this {@code Counter} and calls
-	 * {@link Counter#perform()} if there has been any counts after last
-	 * call of {@link Counter#perform()}.
+	 * Resets this {@code Counter} and calls {@link Counter#perform()} if there
+	 * has been any counts after last call of {@link Counter#perform()}.
 	 * </p>
 	 */
 	public synchronized void finish() {
-		if (interval != intervalHelper)
+		if (performed) {
+
+		} else
 			perform();
 		intervalHelper = 0;
 		cnt = initCnt;
@@ -165,8 +181,8 @@ public class Counter {
 	 * </p>
 	 * 
 	 * @param interval
-	 *            number of counts {@link Counter#count()} has to be
-	 *            called before {@link Counter#perform()} is called.
+	 *            number of counts {@link Counter#count()} has to be called
+	 *            before {@link Counter#perform()} is called.
 	 * @throws NumberFormatException
 	 *             if {@code interval} < 1
 	 */
@@ -257,7 +273,7 @@ public class Counter {
 	 * Performs action.
 	 * </p>
 	 */
-	public void perform(){
+	public void perform() {
 		runner.run();
 	}
 
