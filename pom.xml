@@ -162,13 +162,10 @@
 								<format>xml</format>
 							</formats>
 							<check>
-								<branchRate>50</branchRate>
-								<lineRate>50</lineRate>
-								<haltOnFailure>false</haltOnFailure>
-								<totalBranchRate>50</totalBranchRate>
-								<totalLineRate>50</totalLineRate>
-								<packageLineRate>50</packageLineRate>
-								<packageBranchRate>50</packageBranchRate>
+								<lineRate>70</lineRate>
+								<haltOnFailure>true</haltOnFailure>
+								<totalLineRate>70</totalLineRate>
+								<packageLineRate>70</packageLineRate>
 							</check>
 							<instrumentation>
 								<ignores>

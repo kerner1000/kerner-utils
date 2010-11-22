@@ -50,8 +50,8 @@ public class TestArrayUtils {
 	 */
 	@Test
 	public final void testArrayTrimByteArrayInt() {
-		int[] arr = new int[]{1,2,3,4};
-		assertArrayEquals(new int[]{1,2,3}, ArrayUtils.trim(arr, 3));
+		byte[] arr = new byte[]{1,2,3,4};
+		assertArrayEquals(new byte[]{1,2,3}, ArrayUtils.trim(arr, 3));
 		
 	}
 	
@@ -60,8 +60,8 @@ public class TestArrayUtils {
 	 */
 	@Test
 	public final void testArrayTrimByteArrayInt01() {
-		int[] arr = new int[4];
-		assertArrayEquals(new int[]{0,0,0}, ArrayUtils.trim(arr, 3));
+		byte[] arr = new byte[4];
+		assertArrayEquals(new byte[]{0,0,0}, ArrayUtils.trim(arr, 3));
 		
 	}
 
@@ -69,9 +69,36 @@ public class TestArrayUtils {
 	 * Test method for {@link net.sf.kerner.utils.ArrayUtils#trim(int[], int)}.
 	 */
 	@Test
-	@Ignore("Identical to int[]")
 	public final void testArrayTrimIntArrayInt() {
-		fail("Not yet implemented"); // TODO
+		int[] arr = new int[4];
+		assertArrayEquals(new int[]{0,0,0}, ArrayUtils.trim(arr, 3));
+	}
+	
+	/**
+	 * Test method for {@link net.sf.kerner.utils.ArrayUtils#trim(int[], int)}.
+	 */
+	@Test
+	public final void testArrayTrimIntArrayInt01() {
+		int[] arr = new int[4];
+		assertArrayEquals(new int[]{}, ArrayUtils.trim(arr, 0));
+	}
+	
+	/**
+	 * Test method for {@link net.sf.kerner.utils.ArrayUtils#trim(int[], int)}.
+	 */
+	@Test
+	public final void testArrayTrimIntArrayInt02() {
+		int[] arr = new int[4];
+		assertArrayEquals(arr, ArrayUtils.trim(arr, 9));
+	}
+	
+	/**
+	 * Test method for {@link net.sf.kerner.utils.ArrayUtils#trim(int[], int)}.
+	 */
+	@Test
+	public final void testArrayTrimIntArrayInt03() {
+		int[] arr = new int[4];
+		assertArrayEquals(new int[]{}, ArrayUtils.trim(arr, -1));
 	}
 
 }
