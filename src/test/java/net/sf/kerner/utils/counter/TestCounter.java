@@ -450,6 +450,26 @@ public class TestCounter {
 	}
 
 	/**
+	 * Test method for
+	 * {@link net.sf.kerner.utils.counter.Counter#equals(java.lang.Object)}.
+	 */
+	@Test
+	public final void testEqualsObject03() {
+		c1 = new Counter(1);
+		assertEquals(c1, c1);
+	}
+	
+	/**
+	 * Test method for
+	 * {@link net.sf.kerner.utils.counter.Counter#equals(java.lang.Object)}.
+	 */
+	@Test
+	public final void testEqualsObject04() {
+		c1 = new Counter(1);
+		assertNotSame(c1, null);
+	}
+	
+	/**
 	 * Test method for {@link net.sf.kerner.utils.counter.Counter#perform()}.
 	 */
 	@Test
