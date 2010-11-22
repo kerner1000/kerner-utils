@@ -106,7 +106,7 @@ public class TimePeriod {
 	 * @return start point of this time period
 	 */
 	public long getStart() {
-		return getStart(DEFAULT_TIME_UNIT);
+		return getStart(timeUnit);
 	}
 
 	/**
@@ -118,7 +118,7 @@ public class TimePeriod {
 	 * @return stop point of this time period
 	 */
 	public long getStop() {
-		return getStop(DEFAULT_TIME_UNIT);
+		return getStop(timeUnit);
 	}
 
 	/**
