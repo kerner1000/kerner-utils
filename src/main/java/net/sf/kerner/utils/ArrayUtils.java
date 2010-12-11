@@ -84,5 +84,13 @@ public class ArrayUtils {
 		System.arraycopy(array, 0, result, 0, size);
 		return result;
 	}
+	
+	public static boolean emptyArray(Object[] arr){
+		if(arr == null)
+			return true;
+		if(arr.length < 1)
+			return true;
+		return false;
+	}
 
 }
