@@ -149,7 +149,7 @@
 							</formats>
 							<check>
 								<lineRate>70</lineRate>
-								<haltOnFailure>true</haltOnFailure>
+								<haltOnFailure>false</haltOnFailure>
 								<totalLineRate>70</totalLineRate>
 								<packageLineRate>70</packageLineRate>
 							</check>
