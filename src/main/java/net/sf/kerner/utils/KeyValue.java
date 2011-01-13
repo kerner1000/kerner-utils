@@ -25,8 +25,7 @@ import java.util.Map.Entry;
  * 
  * 
  * @author <a href="mailto:alex.kerner.24@googlemail.com">Alexander Kerner</a>
- * @version 2010-12-28
- * @threadSave
+ * @version 2011-01-13
  * 
  * @param <K>
  *            type of {@code key}
