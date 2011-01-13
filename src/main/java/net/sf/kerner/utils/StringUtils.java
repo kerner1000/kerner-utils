@@ -11,12 +11,12 @@ public class StringUtils {
 	 * @param string String to check
 	 * @return true, if this string is null, empty or contains only whitespaces; false otherwise
 	 */
-	public static boolean emptyString(String s){
-		if(s == null)
+	public static boolean emptyString(String string){
+		if(string == null)
 			return true;
-		if(s.length() < 1)
+		if(string.length() < 1)
 			return true;
-		if(s.matches("\\s"))
+		if(string.matches("\\s"))
 			return true;
 		return false;
 	}
