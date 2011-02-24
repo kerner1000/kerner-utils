@@ -20,11 +20,11 @@ import org.junit.runners.Parameterized.Parameters;
 /**
  *
  * @author <a href="mailto:alex.kerner.24@googlemail.com">Alexander Kerner</a>
- * @version Feb 24, 2011
+ * @version 2011-02-24
  *
  */
 @RunWith(Parameterized.class)
-public class TestCoordinate {
+public class TestCoordinateGetSlope {
 	
 	private Coordinate x;
 	
@@ -52,7 +52,7 @@ public class TestCoordinate {
 	public static Collection<Object[]> getParams() {
 		return Arrays.asList(new Object[][] {
 				
-				// x, y
+				// x, y, result
 				
 				{new Coordinate(1,1), new Coordinate(2,2), 1},
 				{new Coordinate(1,1), new Coordinate(2,3), 2},
@@ -61,7 +61,7 @@ public class TestCoordinate {
 		});
 	}
 	
-	public TestCoordinate(Coordinate x, Coordinate y, double result) {
+	public TestCoordinateGetSlope(Coordinate x, Coordinate y, double result) {
 		this.x = x;
 		this.y = y;
 		this.result = result;
@@ -74,5 +74,7 @@ public class TestCoordinate {
 	public final void testGetSlope() {
 		assertEquals(result, Coordinate.getSlope(x, y),0 );
 	}
+	
+	
 
 }
