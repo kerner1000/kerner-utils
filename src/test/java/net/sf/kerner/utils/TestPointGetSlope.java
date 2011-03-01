@@ -58,6 +58,9 @@ public class TestPointGetSlope {
 				{new Point(1,1), new Point(2,3), 2},
 				{new Point(1,1), new Point(1,1), 0},
 				{new Point(1,1), new Point(3,2), 0.5},
+				{new Point(1,1), new Point(-1,-1), 1},
+				{new Point(-1,-1), new Point(-2,-3), 2},
+
 		});
 	}
 	
