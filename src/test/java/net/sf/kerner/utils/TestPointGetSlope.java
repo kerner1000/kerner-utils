@@ -20,15 +20,15 @@ import org.junit.runners.Parameterized.Parameters;
 /**
  *
  * @author <a href="mailto:alex.kerner.24@googlemail.com">Alexander Kerner</a>
- * @version 2011-02-24
+ * @version 2011-03-01
  *
  */
 @RunWith(Parameterized.class)
-public class TestCoordinateGetSlope {
+public class TestPointGetSlope {
 	
-	private Coordinate x;
+	private Point x;
 	
-	private Coordinate y;
+	private Point y;
 	
 	private double result;
 
@@ -54,25 +54,25 @@ public class TestCoordinateGetSlope {
 				
 				// x, y, result
 				
-				{new Coordinate(1,1), new Coordinate(2,2), 1},
-				{new Coordinate(1,1), new Coordinate(2,3), 2},
-				{new Coordinate(1,1), new Coordinate(1,1), 0},
-				{new Coordinate(1,1), new Coordinate(3,2), 0.5},
+				{new Point(1,1), new Point(2,2), 1},
+				{new Point(1,1), new Point(2,3), 2},
+				{new Point(1,1), new Point(1,1), 0},
+				{new Point(1,1), new Point(3,2), 0.5},
 		});
 	}
 	
-	public TestCoordinateGetSlope(Coordinate x, Coordinate y, double result) {
+	public TestPointGetSlope(Point x, Point y, double result) {
 		this.x = x;
 		this.y = y;
 		this.result = result;
 	}
 
 	/**
-	 * Test method for {@link net.sf.kerner.utils.Coordinate#getSlope(net.sf.kerner.utils.Coordinate, net.sf.kerner.utils.Coordinate)}.
+	 * Test method for {@link net.sf.kerner.utils.Point#getSlope(net.sf.kerner.utils.Point, net.sf.kerner.utils.Point)}.
 	 */
 	@Test
 	public final void testGetSlope() {
-		assertEquals(result, Coordinate.getSlope(x, y),0 );
+		assertEquals(result, Point.getSlope(x, y),0 );
 	}
 	
 	

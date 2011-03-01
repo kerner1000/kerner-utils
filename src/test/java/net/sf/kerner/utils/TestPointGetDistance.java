@@ -20,15 +20,15 @@ import org.junit.runners.Parameterized.Parameters;
 /**
  * 
  * @author <a href="mailto:alex.kerner.24@googlemail.com">Alexander Kerner</a>
- * @version 2011-02-24
+ * @version 2011-03-01
  * 
  */
 @RunWith(Parameterized.class)
-public class TestCoordinateGetDistance {
+public class TestPointGetDistance {
 
-	private Coordinate x;
+	private Point x;
 
-	private Coordinate y;
+	private Point y;
 
 	private double result;
 	
@@ -38,16 +38,16 @@ public class TestCoordinateGetDistance {
 				
 				// x, y, result
 				
-				{new Coordinate(1,1), new Coordinate(1,1), 0},
-				{new Coordinate(1,1), new Coordinate(1,2), 1},
-				{new Coordinate(1,1), new Coordinate(2,1), 1},
-				{new Coordinate(1,1), new Coordinate(2,2), 1.41},
-				{new Coordinate(0,0), new Coordinate(2,2), 2.82},
-				{new Coordinate(2,2), new Coordinate(0,0), 2.82},
+				{new Point(1,1), new Point(1,1), 0},
+				{new Point(1,1), new Point(1,2), 1},
+				{new Point(1,1), new Point(2,1), 1},
+				{new Point(1,1), new Point(2,2), 1.41},
+				{new Point(0,0), new Point(2,2), 2.82},
+				{new Point(2,2), new Point(0,0), 2.82},
 		});
 	}
 	
-	public TestCoordinateGetDistance(Coordinate x, Coordinate y, double result) {
+	public TestPointGetDistance(Point x, Point y, double result) {
 		this.x = x;
 		this.y = y;
 		this.result = result;
@@ -71,7 +71,7 @@ public class TestCoordinateGetDistance {
 
 	/**
 	 * Test method for
-	 * {@link net.sf.kerner.utils.Coordinate#getDistance(net.sf.kerner.utils.Coordinate)}
+	 * {@link net.sf.kerner.utils.Point#getDistance(net.sf.kerner.utils.Point)}
 	 * .
 	 */
 	@Test
