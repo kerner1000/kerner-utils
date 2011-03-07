@@ -1,5 +1,9 @@
 package net.sf.kerner.utils;
 
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.List;
+
 public class StringUtils {
 	
 	private StringUtils(){}
@@ -19,6 +23,14 @@ public class StringUtils {
 		if(string.matches("\\s"))
 			return true;
 		return false;
+	}
+	
+	public static List<String> getStringList(Collection<?> list){
+		final List<String> result = new ArrayList<String>();
+		for(Object o : list){
+			result.add(o.toString());
+		}
+		return result;
 	}
 
 }
