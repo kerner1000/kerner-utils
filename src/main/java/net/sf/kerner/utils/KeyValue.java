@@ -15,6 +15,7 @@ limitations under the License.
 
 package net.sf.kerner.utils;
 
+import java.io.Serializable;
 import java.util.Map.Entry;
 
 /**
@@ -32,9 +33,15 @@ import java.util.Map.Entry;
  * @param <V>
  *            type of {@code value}
  */
-public class KeyValue<K, V> implements Entry<K, V> {
+public class KeyValue<K, V> implements Entry<K, V>, Serializable {
 
 	// Fields //
+
+	/**
+	 * 
+	 *
+	 */
+	private static final long serialVersionUID = 6957331181589413101L;
 
 	/**
 	 * 
