@@ -30,7 +30,7 @@ public class TestAbstractAsyncCallBack {
 	
 	private volatile String res;
 	
-	private volatile Throwable failure;
+	private volatile Exception failure;
 
 	@BeforeClass
 	public static void setUpBeforeClass() throws Exception {
@@ -47,7 +47,7 @@ public class TestAbstractAsyncCallBack {
 		res = null;
 		call = new AbstractAsyncCallBack<String, String>() {
 			
-			public String run(String value) throws Throwable {
+			public String run(String value) throws Exception {
 				return "gut"+value;
 			}
 			
@@ -55,7 +55,7 @@ public class TestAbstractAsyncCallBack {
 				res = result;
 			}
 			
-			public void doOnFailure(Throwable t) {
+			public void doOnFailure(Exception t) {
 				failure = t;
 			}
 		};
@@ -72,7 +72,7 @@ public class TestAbstractAsyncCallBack {
 	public final void testAbstractAsyncCallBack() {
 		new AbstractAsyncCallBack<String, String>() {
 
-			public String run(String value) throws Throwable {
+			public String run(String value) throws Exception {
 				// TODO Auto-generated method stub
 				return null;
 			}
@@ -82,7 +82,7 @@ public class TestAbstractAsyncCallBack {
 				
 			}
 
-			public void doOnFailure(Throwable t) {
+			public void doOnFailure(Exception t) {
 				// TODO Auto-generated method stub
 				
 			}
@@ -94,9 +94,9 @@ public class TestAbstractAsyncCallBack {
 	 */
 	@Test
 	public final void testAbstractAsyncCallBackExecutorService() {
-		new AbstractAsyncCallBack<String, String>(Executors.newCachedThreadPool()) {
+		new AbstractAsyncCallBack<String, String>() {
 
-			public String run(String value) throws Throwable {
+			public String run(String value) throws Exception {
 				// TODO Auto-generated method stub
 				return null;
 			}
@@ -106,7 +106,7 @@ public class TestAbstractAsyncCallBack {
 				
 			}
 
-			public void doOnFailure(Throwable t) {
+			public void doOnFailure(Exception t) {
 				// TODO Auto-generated method stub
 				
 			}
@@ -118,21 +118,10 @@ public class TestAbstractAsyncCallBack {
 	 * @throws InterruptedException 
 	 */
 	@Test
-	public final void testExecute() throws InterruptedException {
-		call.execute("hallo");
-		call.shutdownAndWait(2000, TimeUnit.SECONDS);
-		assertEquals("gut"+"hallo", res);
-	}
-	
-	/**
-	 * Test method for {@link net.sf.kerner.utils.callback.AbstractAsyncCallBack#execute(java.lang.Object)}.
-	 * @throws InterruptedException 
-	 */
-	@Test
 	public final void testExecute01() throws InterruptedException {
-		call = new AbstractAsyncCallBack<String, String>(Executors.newCachedThreadPool()) {
+		call = new AbstractAsyncCallBack<String, String>() {
 
-			public String run(String value) throws Throwable {
+			public String run(String value) throws Exception {
 				throw new IllegalAccessException();
 			}
 
@@ -140,23 +129,11 @@ public class TestAbstractAsyncCallBack {
 				// TODO Auto-generated method stub
 			}
 
-			public void doOnFailure(Throwable t) {
+			public void doOnFailure(Exception t) {
 				failure = t;
 			}
 		};
 		call.execute("hallo");
-		call.shutdownAndWait(2000, TimeUnit.SECONDS);
 		assertEquals(IllegalAccessException.class, failure.getClass());
 	}
-	
-	/**
-	 * Test method for {@link net.sf.kerner.utils.callback.AbstractAsyncCallBack#execute(java.lang.Object)}.
-	 * @throws InterruptedException 
-	 */
-	@Test(expected=RejectedExecutionException.class)
-	public final void testExecute02() throws InterruptedException {
-		call.shutdown();
-		call.execute("hallo");
-	}
-
 }

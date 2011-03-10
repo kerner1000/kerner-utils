@@ -29,7 +29,7 @@ package net.sf.kerner.utils.callback;
  * </p>
  *
  * @author <a href="mailto:alex.kerner.24@googlemail.com">Alexander Kerner</a>
- * @version 2010-11-12
+ * @version 2011-03-10
  *
  * @param <R> type of result
  * @param <V> type of value
@@ -43,10 +43,10 @@ public interface AsyncCallBack<R, V> {
 	 * @param value
 	 *            parameter for execution
 	 * @return result of execution
-	 * @throws Throwable
+	 * @throws Exception
 	 *             if execution fails
 	 */
-	R run(V value) throws Throwable;
+	R run(V value) throws Exception;
 
 	/**
 	 * 
@@ -61,9 +61,9 @@ public interface AsyncCallBack<R, V> {
 	 * 
 	 * Perform on failure.
 	 * 
-	 * @param t
+	 * @param e
 	 *            cause for this {@code AsyncCallBack}'s execution failure
 	 */
-	void doOnFailure(Throwable t);
+	void doOnFailure(Exception e);
 
 }
