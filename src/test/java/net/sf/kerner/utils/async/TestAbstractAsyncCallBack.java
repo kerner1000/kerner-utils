@@ -1,13 +1,15 @@
 /**
  * 
  */
-package net.sf.kerner.utils.callback;
+package net.sf.kerner.utils.async;
 
 import static org.junit.Assert.assertEquals;
 
 import java.util.concurrent.Executors;
 import java.util.concurrent.RejectedExecutionException;
 import java.util.concurrent.TimeUnit;
+
+import net.sf.kerner.utils.async.AbstractAsyncCallBack;
 
 import org.junit.After;
 import org.junit.AfterClass;
@@ -66,7 +68,7 @@ public class TestAbstractAsyncCallBack {
 	}
 
 	/**
-	 * Test method for {@link net.sf.kerner.utils.callback.AbstractAsyncCallBack#AbstractAsyncCallBack()}.
+	 * Test method for {@link net.sf.kerner.utils.async.AbstractAsyncCallBack#AbstractAsyncCallBack()}.
 	 */
 	@Test
 	public final void testAbstractAsyncCallBack() {
@@ -90,7 +92,7 @@ public class TestAbstractAsyncCallBack {
 	}
 
 	/**
-	 * Test method for {@link net.sf.kerner.utils.callback.AbstractAsyncCallBack#AbstractAsyncCallBack(java.util.concurrent.ExecutorService)}.
+	 * Test method for {@link net.sf.kerner.utils.async.AbstractAsyncCallBack#AbstractAsyncCallBack(java.util.concurrent.ExecutorService)}.
 	 */
 	@Test
 	public final void testAbstractAsyncCallBackExecutorService() {
@@ -114,7 +116,7 @@ public class TestAbstractAsyncCallBack {
 	}
 
 	/**
-	 * Test method for {@link net.sf.kerner.utils.callback.AbstractAsyncCallBack#execute(java.lang.Object)}.
+	 * Test method for {@link net.sf.kerner.utils.async.AbstractAsyncCallBack#execute(java.lang.Object)}.
 	 * @throws InterruptedException 
 	 */
 	@Test
