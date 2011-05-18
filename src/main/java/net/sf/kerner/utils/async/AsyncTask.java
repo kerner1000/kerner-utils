@@ -34,7 +34,7 @@ package net.sf.kerner.utils.async;
  * @param <R> type of result
  * @param <V> type of value
  */
-public interface AsyncCallBack<R, V> {
+public interface AsyncTask<R, V> {
 
 	/**
 	 * 

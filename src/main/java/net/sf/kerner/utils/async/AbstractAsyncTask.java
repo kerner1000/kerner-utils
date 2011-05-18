@@ -1,6 +1,6 @@
 package net.sf.kerner.utils.async;
 
-public abstract class AbstractAsyncCallBack<R, V> implements AsyncCallBack<R, V> {
+public abstract class AbstractAsyncTask<R, V> implements AsyncTask<R, V> {
 
 	/**
 	 * 

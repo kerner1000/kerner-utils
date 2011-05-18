@@ -5,12 +5,6 @@ package net.sf.kerner.utils.async;
 
 import static org.junit.Assert.assertEquals;
 
-import java.util.concurrent.Executors;
-import java.util.concurrent.RejectedExecutionException;
-import java.util.concurrent.TimeUnit;
-
-import net.sf.kerner.utils.async.AbstractAsyncCallBack;
-
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
@@ -21,14 +15,12 @@ import org.junit.Test;
  * 
  *
  * @author <a href="mailto:alex.kerner.24@googlemail.com">Alexander Kerner</a>
- * @version 2010-11-21
+ * @version 2011-05-18
  *
  */
-public class TestAbstractAsyncCallBack {
+public class TestAbstractAsyncTask {
 	
-	private AbstractAsyncCallBack<String, String> call;
-	
-//	private volatile boolean success;
+	private AbstractAsyncTask<String, String> call;
 	
 	private volatile String res;
 	
@@ -47,7 +39,7 @@ public class TestAbstractAsyncCallBack {
 //		success = false;
 		failure = null;
 		res = null;
-		call = new AbstractAsyncCallBack<String, String>() {
+		call = new AbstractAsyncTask<String, String>() {
 			
 			public String run(String value) throws Exception {
 				return "gut"+value;
@@ -68,11 +60,11 @@ public class TestAbstractAsyncCallBack {
 	}
 
 	/**
-	 * Test method for {@link net.sf.kerner.utils.async.AbstractAsyncCallBack#AbstractAsyncCallBack()}.
+	 * Test method for {@link net.sf.kerner.utils.async.AbstractAsyncTask#AbstractAsyncCallBack()}.
 	 */
 	@Test
 	public final void testAbstractAsyncCallBack() {
-		new AbstractAsyncCallBack<String, String>() {
+		new AbstractAsyncTask<String, String>() {
 
 			public String run(String value) throws Exception {
 				// TODO Auto-generated method stub
@@ -92,11 +84,11 @@ public class TestAbstractAsyncCallBack {
 	}
 
 	/**
-	 * Test method for {@link net.sf.kerner.utils.async.AbstractAsyncCallBack#AbstractAsyncCallBack(java.util.concurrent.ExecutorService)}.
+	 * Test method for {@link net.sf.kerner.utils.async.AbstractAsyncTask#AbstractAsyncCallBack(java.util.concurrent.ExecutorService)}.
 	 */
 	@Test
 	public final void testAbstractAsyncCallBackExecutorService() {
-		new AbstractAsyncCallBack<String, String>() {
+		new AbstractAsyncTask<String, String>() {
 
 			public String run(String value) throws Exception {
 				// TODO Auto-generated method stub
@@ -116,12 +108,12 @@ public class TestAbstractAsyncCallBack {
 	}
 
 	/**
-	 * Test method for {@link net.sf.kerner.utils.async.AbstractAsyncCallBack#execute(java.lang.Object)}.
+	 * Test method for {@link net.sf.kerner.utils.async.AbstractAsyncTask#execute(java.lang.Object)}.
 	 * @throws InterruptedException 
 	 */
 	@Test
 	public final void testExecute01() throws InterruptedException {
-		call = new AbstractAsyncCallBack<String, String>() {
+		call = new AbstractAsyncTask<String, String>() {
 
 			public String run(String value) throws Exception {
 				throw new IllegalAccessException();
