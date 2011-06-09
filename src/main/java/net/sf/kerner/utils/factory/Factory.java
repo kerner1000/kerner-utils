@@ -17,7 +17,7 @@ package net.sf.kerner.utils.factory;
 
 /**
  * 
- * A {@code Factory} can be used to create an object of type {@code E}.
+ * A {@code Factory} is used to create a new instance of type {@code E}.
  * 
  * <p>
  * <b>Example:</b><br>
@@ -38,9 +38,9 @@ public interface Factory<E> {
 	
 	/**
 	 * 
-	 * Create an object of type {@code E}.
+	 * Create a new instance of type {@code E}.
 	 *
-	 * @return the newly created object
+	 * @return the newly created instance
 	 */
 	E create();
 
