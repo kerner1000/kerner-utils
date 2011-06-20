@@ -11,6 +11,11 @@ public class StringUtils {
 	public final static String NEW_LINE_STRING = System
 	.getProperty("line.separator");
 	
+	public static String getRandomString(){
+		final String result = Long.toHexString(Double.doubleToLongBits(Math.random()));
+		return result;
+	}
+	
 	/**
 	 * 
 	 * Check if a string is null, empty or contains only whitespaces.
