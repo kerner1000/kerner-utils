@@ -1,5 +1,5 @@
 /**********************************************************************
-Copyright (c) 2009-2010 Alexander Kerner. All rights reserved.
+Copyright (c) 2009-2011 Alexander Kerner. All rights reserved.
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
 You may obtain a copy of the License at
@@ -15,15 +15,15 @@ limitations under the License.
 
 package net.sf.kerner.utils;
 
+import java.io.File;
 import java.util.Locale;
 
 /**
  * 
- * 
  * General utility class.
  * 
  * @author <a href="mailto:alex.kerner.24@googlemail.com">Alexander Kerner</a>
- * @version 2010-11-19
+ * @version 2011-07-05
  * 
  */
 public class Utils {
@@ -37,13 +37,20 @@ public class Utils {
 			System.getProperty("user.language"));
 
 	/**
+	 * The working directory is the location in the file system from where the
+	 * java command was invoked.
+	 */
+	public static final File WORKING_DIR = new File(
+			System.getProperty("user.dir"));
+
+	/**
 	 * Number of CPUs that are currently available to this JVM.
 	 */
 	public static final int NUM_CPUS = Runtime.getRuntime()
 			.availableProcessors();
 
 	private Utils() {
-		
+
 	}
 
 	/**
