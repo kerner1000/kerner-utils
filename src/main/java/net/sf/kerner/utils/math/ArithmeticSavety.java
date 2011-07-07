@@ -15,6 +15,7 @@ limitations under the License.
 
 package net.sf.kerner.utils.math;
 
+import java.math.BigDecimal;
 import java.math.BigInteger;
 
 /**
@@ -46,6 +47,9 @@ public class ArithmeticSavety {
 			.valueOf(Long.MAX_VALUE);
 	public static final BigInteger BIG_MIN_LONG = BigInteger
 			.valueOf(Long.MIN_VALUE);
+	
+	public static final BigDecimal BIG_MAX_DECIMAL = BigDecimal.valueOf(Double.MAX_VALUE);
+	public static final BigDecimal BIG_MIN_DECIMAL = BigDecimal.valueOf(Double.MIN_VALUE);
 
 	/**
 	 * 
@@ -73,7 +77,12 @@ public class ArithmeticSavety {
 	 */
 	public static void rangeCheckLong(BigInteger b) {
 		if (b.compareTo(BIG_MAX_LONG) == 1 || b.compareTo(BIG_MIN_LONG) == -1)
-			throw new ArithmeticException("Long overflow");
+			throw new ArithmeticException("Double overflow");
+	}
+	
+	public static void rangeCheckDouble(BigDecimal b){
+		if (b.compareTo(BIG_MAX_DECIMAL) == 1 || b.compareTo(BIG_MIN_DECIMAL) == -1)
+			throw new ArithmeticException("Double overflow");
 	}
 
 	/**
@@ -148,6 +157,13 @@ public class ArithmeticSavety {
 				BigInteger.valueOf(b));
 		rangeCheckLong(bb);
 		return bb.longValue();
+	}
+	
+	public static double multiply(double a, double b) {
+		final BigDecimal bb = BigDecimal.valueOf(a).multiply(
+				BigDecimal.valueOf(b));
+		rangeCheckDouble(bb);
+		return bb.doubleValue();
 	}
 
 	/**
