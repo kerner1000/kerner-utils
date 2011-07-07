@@ -1,6 +1,6 @@
 package net.sf.kerner.utils.math;
 
-public interface Prefixable {
+public interface PrefixableLong {
 	
 	long toPicos(long units);
 	
