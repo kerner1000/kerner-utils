@@ -85,6 +85,13 @@ public class ArrayUtils {
 		return result;
 	}
 	
+	/**
+	 * 
+	 * Check weather an array is {@code null} or contains no elements.
+	 *
+	 * @param arr array to check
+	 * @return true, if {@code arr} is {@code null} or contains no elements
+	 */
 	public static boolean emptyArray(Object[] arr){
 		if(arr == null)
 			return true;
