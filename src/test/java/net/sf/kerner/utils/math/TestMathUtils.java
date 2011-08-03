@@ -5,6 +5,11 @@ package net.sf.kerner.utils.math;
 
 import static org.junit.Assert.*;
 
+import java.util.Arrays;
+import java.util.List;
+
+import net.sf.kerner.utils.Point;
+
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
@@ -18,22 +23,6 @@ import org.junit.Test;
  *
  */
 public class TestMathUtils {
-
-	@BeforeClass
-	public static void setUpBeforeClass() throws Exception {
-	}
-
-	@AfterClass
-	public static void tearDownAfterClass() throws Exception {
-	}
-
-	@Before
-	public void setUp() throws Exception {
-	}
-
-	@After
-	public void tearDown() throws Exception {
-	}
 
 	/**
 	 * Test method for {@link net.sf.kerner.utils.math.MathUtils#round(double, int)}.
@@ -89,5 +78,46 @@ public class TestMathUtils {
 	@Test
 	public final void testRound06() {
 		assertEquals(10000000.0000, MathUtils.round(10000000.0000123, 4), 0);
+	}
+	
+	@Test
+	public final void testGetPositionsOfExtremSlopes01(){
+		final List<Point> points = Arrays.asList();
+		final List<Integer> out = MathUtils.getPositionsOfExtremSlopes(points, 1);
+		assertNotNull(out);
+	}
+	
+	@Test
+	public final void testGetPositionsOfExtremSlopes02(){
+		final List<Point> points = Arrays.asList();
+		final List<Integer> out = MathUtils.getPositionsOfExtremSlopes(points, 1);
+		assertTrue(out.isEmpty());
+	}
+	
+	@Test(expected = IllegalArgumentException.class)
+	public final void testGetPositionsOfExtremSlopes03(){
+		final List<Point> points = Arrays.asList();
+		MathUtils.getPositionsOfExtremSlopes(points, -1);
+	}
+	
+	@Test
+	public final void testGetPositionsOfExtremSlopes04(){
+		final List<Point> points = Arrays.asList(new Point(0,0), new Point(1,1));
+		final List<Integer> out = MathUtils.getPositionsOfExtremSlopes(points, 0);
+		assertArrayEquals(new Integer[]{0}, out.toArray());
+	}
+	
+	@Test
+	public final void testGetPositionsOfExtremSlopes05(){
+		final List<Point> points = Arrays.asList(new Point(0,0), new Point(1,1), new Point(0,-1));
+		final List<Integer> out = MathUtils.getPositionsOfExtremSlopes(points, 1);
+		assertArrayEquals(new Integer[]{1}, out.toArray());
+	}
+	
+	@Test
+	public final void testGetPositionsOfExtremSlopes06(){
+		final List<Point> points = Arrays.asList(new Point(0,0), new Point(1,1), new Point(0,2.5));
+		final List<Integer> out = MathUtils.getPositionsOfExtremSlopes(points, 1);
+		assertArrayEquals(new Integer[]{1}, out.toArray());
 	}
 }
