@@ -83,14 +83,14 @@ public class TestMathUtils {
 	@Test
 	public final void testGetPositionsOfExtremSlopes01(){
 		final List<Point> points = Arrays.asList();
-		final List<Integer> out = MathUtils.getPositionsOfExtremSlopes(points, 1);
+		final List<Integer> out = MathUtils.getPositionsOfExtremSlopes(points, 1, true);
 		assertNotNull(out);
 	}
 	
 	@Test
 	public final void testGetPositionsOfExtremSlopes02(){
 		final List<Point> points = Arrays.asList();
-		final List<Integer> out = MathUtils.getPositionsOfExtremSlopes(points, 1);
+		final List<Integer> out = MathUtils.getPositionsOfExtremSlopes(points, 1, true);
 		assertTrue(out.isEmpty());
 	}
 	
@@ -103,21 +103,33 @@ public class TestMathUtils {
 	@Test
 	public final void testGetPositionsOfExtremSlopes04(){
 		final List<Point> points = Arrays.asList(new Point(0,0), new Point(1,1));
-		final List<Integer> out = MathUtils.getPositionsOfExtremSlopes(points, 0);
+		final List<Integer> out = MathUtils.getPositionsOfExtremSlopes(points, 0, true);
 		assertArrayEquals(new Integer[]{0}, out.toArray());
 	}
 	
 	@Test
 	public final void testGetPositionsOfExtremSlopes05(){
 		final List<Point> points = Arrays.asList(new Point(0,0), new Point(1,1), new Point(0,-1));
-		final List<Integer> out = MathUtils.getPositionsOfExtremSlopes(points, 1);
+		final List<Integer> out = MathUtils.getPositionsOfExtremSlopes(points, 1, true);
 		assertArrayEquals(new Integer[]{1}, out.toArray());
 	}
 	
 	@Test
 	public final void testGetPositionsOfExtremSlopes06(){
 		final List<Point> points = Arrays.asList(new Point(0,0), new Point(1,1), new Point(0,2.5));
-		final List<Integer> out = MathUtils.getPositionsOfExtremSlopes(points, 1);
+		final List<Integer> out = MathUtils.getPositionsOfExtremSlopes(points, 1, true);
 		assertArrayEquals(new Integer[]{1}, out.toArray());
+	}
+	
+	@Test
+	public final void testGetAverageSlope01(){
+		final List<Point> points = Arrays.asList(new Point(0,0), new Point(1,1), new Point(2,2));
+		assertEquals(1, MathUtils.getAverageSlope(points, false), 0);
+	}
+	
+	@Test
+	public final void testGetAverageSlope02(){
+		final List<Point> points = Arrays.asList(new Point(0,0), new Point(1,1), new Point(2,2), new Point(2,2));
+		assertEquals(0.666, MathUtils.getAverageSlope(points, false), 0.001);
 	}
 }
