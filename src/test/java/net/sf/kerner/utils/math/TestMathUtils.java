@@ -8,7 +8,6 @@ import static org.junit.Assert.*;
 import java.util.Arrays;
 import java.util.List;
 
-import net.sf.kerner.utils.Point;
 
 import org.junit.After;
 import org.junit.AfterClass;

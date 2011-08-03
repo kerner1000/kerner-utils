@@ -1,12 +1,14 @@
 /**
  * 
  */
-package net.sf.kerner.utils;
+package net.sf.kerner.utils.math;
 
 import static org.junit.Assert.*;
 
 import java.util.Arrays;
 import java.util.Collection;
+
+import net.sf.kerner.utils.math.Point;
 
 import org.junit.After;
 import org.junit.AfterClass;
@@ -71,7 +73,7 @@ public class TestPointGetSlope {
 	}
 
 	/**
-	 * Test method for {@link net.sf.kerner.utils.Point#getSlope(net.sf.kerner.utils.Point, net.sf.kerner.utils.Point)}.
+	 * Test method for {@link net.sf.kerner.utils.math.Point#getSlope(net.sf.kerner.utils.math.Point, net.sf.kerner.utils.math.Point)}.
 	 */
 	@Test
 	public final void testGetSlope() {

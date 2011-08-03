@@ -3,7 +3,6 @@ package net.sf.kerner.utils.math;
 import java.util.ArrayList;
 import java.util.List;
 
-import net.sf.kerner.utils.Point;
 import net.sf.kerner.utils.Utils;
 import net.sf.kerner.utils.counter.Counter;
 
