@@ -51,7 +51,7 @@ public class MathUtils {
 			if(absolute)
 				slope = Math.abs(slope);
 			
-			System.out.println("slope " + slope);
+//			System.out.println("slope " + slope);
 			
 			if(slope > maxSlope)
 				result.add(Integer.valueOf(i));
@@ -84,7 +84,7 @@ public class MathUtils {
 			last = p;
 		}
 		
-		System.out.println("returning " + result);
+//		System.out.println("returning " + result);
 		
 		return result;
 	}
