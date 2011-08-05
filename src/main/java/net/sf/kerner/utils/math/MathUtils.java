@@ -62,8 +62,8 @@ public class MathUtils {
 		return result;
 	}
 	
-	public static List<Integer> getPositionsOfExtremSlopes(List<? extends Point> points, double maxShift){
-		return getPositionsOfExtremSlopes(points, maxShift, true);
+	public static List<Integer> getPositionsOfExtremSlopes(List<? extends Point> points, double maxSlope){
+		return getPositionsOfExtremSlopes(points, maxSlope, true);
 	}
 	
 	public static List<Double> getSlopes(List<? extends Point> points, boolean absolute){
