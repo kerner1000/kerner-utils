@@ -1,7 +1,5 @@
 package net.sf.kerner.utils.time;
 
-import static org.junit.Assert.*;
-
 import net.sf.kerner.utils.time.StopWatch.AlreadyRunningException;
 import net.sf.kerner.utils.time.StopWatch.NotRunningException;
 
