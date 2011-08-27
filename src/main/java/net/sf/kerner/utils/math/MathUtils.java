@@ -32,5 +32,23 @@ public class MathUtils {
 //		System.out.println("result: " + result);
 		return result;
 	}
+	
+	public static int max(int[] values){
+		int result = Integer.MIN_VALUE;
+		for(int i : values){
+			if(i > result)
+			result = i;
+		}
+		return result;
+	}
+	
+	public static int min(int[] values){
+		int result = Integer.MAX_VALUE;
+		for(int i : values){
+			if(i < result)
+			result = i;
+		}
+		return result;
+	}
 
 }
