@@ -33,7 +33,7 @@ public class MathUtils {
 		return result;
 	}
 	
-	public static int max(int[] values){
+	public static int max(Integer... values){
 		int result = Integer.MIN_VALUE;
 		for(int i : values){
 			if(i > result)
@@ -42,7 +42,7 @@ public class MathUtils {
 		return result;
 	}
 	
-	public static int min(int[] values){
+	public static int min(Integer... values){
 		int result = Integer.MAX_VALUE;
 		for(int i : values){
 			if(i < result)
