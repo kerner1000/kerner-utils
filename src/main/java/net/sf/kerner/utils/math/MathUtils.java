@@ -35,7 +35,25 @@ public class MathUtils {
 		return result;
 	}
 	
-	public static double average(Collection<Double> values){
+	public static int max(Integer... values){
+		int result = Integer.MIN_VALUE;
+		for(int i : values){
+			if(i > result)
+			result = i;
+		}
+		return result;
+	}
+	
+	public static int min(Integer... values){
+		int result = Integer.MAX_VALUE;
+		for(int i : values){
+			if(i < result)
+			result = i;
+		}
+		return result;
+	}
+
+public static double average(Collection<Double> values){
 		return sum(values) / values.size();
 	}
 	
