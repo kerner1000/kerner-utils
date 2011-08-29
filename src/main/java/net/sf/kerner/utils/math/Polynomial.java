@@ -42,6 +42,17 @@ public class Polynomial {
 		return result;
 	}
 	
+	public synchronized Polynomial getDerivate(int nr){
+		if(nr < 1){
+			throw new IllegalArgumentException("nr must be >= 1");
+		}
+		Polynomial result = getDerivate();
+		for(int i = 1; i < nr; i++){
+			result = result.getDerivate();
+		}
+		return result;
+	}
+	
 	public synchronized double[] getPolynoms(){
 		final double[] result = new double[elements.size()];
 		for(int i=0;i<elements.size(); i++){
@@ -54,9 +65,9 @@ public class Polynomial {
 	public synchronized String toString() {
 		final StringBuilder sb = new StringBuilder();
 		for (int x = elements.size() - 1; x > -1; x--) {
-			sb.append(String.format("%10.6f", elements.get(x)) + (x > 0 ? "x^" + x + " + " : ""));
+			sb.append(String.format("%22.20f", elements.get(x)) + (x > 0 ? "x^" + x + "+" : ""));
 		}
-		return sb.toString();
+		return sb.toString().replaceAll("\\s", "");
 	}
 
 }
