@@ -1,5 +1,7 @@
 package net.sf.kerner.utils.math;
 
+import java.util.Collection;
+
 import net.sf.kerner.utils.counter.Counter;
 
 public class MathUtils {
@@ -30,6 +32,26 @@ public class MathUtils {
 		final double factor = Math.pow(10, decimalPlace);
 		final double result = Math.round(number * factor) / factor;
 //		System.out.println("result: " + result);
+		return result;
+	}
+	
+	public static double average(Collection<Double> values){
+		return sum(values) / values.size();
+	}
+	
+	public static double sum(Collection<Double> values){
+		double result = 0;
+		for(double d : values){
+			result += d;
+		}
+		return result;
+	}
+	
+	public static double sum(double[] values){
+		double result = 0;
+		for(double d : values){
+			result += d;
+		}
 		return result;
 	}
 
