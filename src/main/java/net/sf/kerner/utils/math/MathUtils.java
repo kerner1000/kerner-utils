@@ -66,6 +66,10 @@ public class MathUtils {
 	public static double sum(List<Double> values) {
 		double result = 0;
 		for (Double d : values) {
+			
+			// Ignore null values
+			
+			if(d != null)
 			result += d;
 		}
 		return result;
