@@ -306,7 +306,7 @@ public enum DoubleUnit implements PrefixableDouble {
 
 		@Override
 		public double convert(double units, DoubleUnit unit) {
-			return unit.toUnits(units);
+			return unit.toKilos(units);
 		}
 	},
 	MEGA {
@@ -354,6 +354,11 @@ public enum DoubleUnit implements PrefixableDouble {
 		public double toTeras(double units) {
 			return units / (C8 / C6);
 		}
+		
+		@Override
+		public double convert(double units, DoubleUnit unit) {
+			return unit.toMegas(units);
+		}
 	},
 	GIGA {
 		@Override
@@ -400,6 +405,11 @@ public enum DoubleUnit implements PrefixableDouble {
 		public double toTeras(double units) {
 			return units / (C8 / C7);
 		}
+		
+		@Override
+		public double convert(double units, DoubleUnit unit) {
+			return unit.toGigas(units);
+		}
 	},
 	TERA {
 		@Override
@@ -445,6 +455,11 @@ public enum DoubleUnit implements PrefixableDouble {
 		@Override
 		public double toTeras(double units) {
 			return units;
+		}
+		
+		@Override
+		public double convert(double units, DoubleUnit unit) {
+			return unit.toTeras(units);
 		}
 	};
 
