@@ -19,6 +19,11 @@ public class PropertyRuntimeException extends RuntimeException {
 		
 	}
 	
+	public PropertyRuntimeException(Properties pro) {
+		super();
+		this.pro = pro;
+	}
+	
 	public PropertyRuntimeException(String arg0, Properties pro) {
 		super(arg0);
 		this.pro = pro;
