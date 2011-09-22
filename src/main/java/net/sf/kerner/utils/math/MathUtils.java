@@ -1,5 +1,6 @@
 package net.sf.kerner.utils.math;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
@@ -60,7 +61,7 @@ public class MathUtils {
 	}
 	
 	public static double average(List<Double> values) {
-		return sum(values) / values.size();
+		return sum(values) / trimm(values).size();
 	}
 	
 	public static double sum(List<Double> values) {
@@ -74,8 +75,25 @@ public class MathUtils {
 		}
 		return result;
 	}
+	
+	static <V> List<V> trimm(List<V> list){
+		final List<V> result = new ArrayList<V>();
+		for(V o : list){
+			if(o != null)
+				result.add(o);
+		}
+		return result;
+	}
 
 	public static double sum(Double... values) {
 		return sum(Arrays.asList(values));
+	}
+	
+	public static Integer increment(Integer integer){
+		return Integer.valueOf(integer.intValue() + 1);
+	}
+	
+	public static Integer add(Integer integer1, Integer integer2){
+		return Integer.valueOf(integer1.intValue() + integer2.intValue());
 	}
 }
