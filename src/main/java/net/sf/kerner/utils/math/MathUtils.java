@@ -1,7 +1,6 @@
 package net.sf.kerner.utils.math;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
 import net.sf.kerner.utils.counter.Counter;
@@ -38,7 +37,7 @@ public class MathUtils {
 		return result;
 	}
 
-	public static int max(Integer... values) {
+	public static int max(int... values) {
 		int result = Integer.MIN_VALUE;
 		for (int i : values) {
 			if (i > result)
@@ -47,7 +46,7 @@ public class MathUtils {
 		return result;
 	}
 
-	public static int min(Integer... values) {
+	public static int min(int... values) {
 		int result = Integer.MAX_VALUE;
 		for (int i : values) {
 			if (i < result)
@@ -55,25 +54,26 @@ public class MathUtils {
 		}
 		return result;
 	}
-
-	public static double average(Double... values) {
-		return average(Arrays.asList(values));
+	
+	public static double mean(double... values) {
+		if(values.length < 1)
+			throw new IllegalArgumentException();
+		return sum(values) / values.length;
 	}
 	
-	public static double average(List<Double> values) {
-		return sum(values) / trimm(values).size();
-	}
-	
-	public static double sum(List<Double> values) {
+	public static double sum(double... values) {
 		double result = 0;
-		for (Double d : values) {
-			
-			// Ignore null values
-			
-			if(d != null)
+		for (double d : values) {
 			result += d;
 		}
 		return result;
+	}
+	
+	public static double stdDev(double... values){
+		double sumOfSquares = 0;
+		for(double d : values)
+			sumOfSquares += d * d;
+		return Math.sqrt(sum(values) /( values.length - 1));
 	}
 	
 	static <V> List<V> trimm(List<V> list){
@@ -83,10 +83,6 @@ public class MathUtils {
 				result.add(o);
 		}
 		return result;
-	}
-
-	public static double sum(Double... values) {
-		return sum(Arrays.asList(values));
 	}
 	
 	public static Integer increment(Integer integer){
