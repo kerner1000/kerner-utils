@@ -71,9 +71,10 @@ public class MathUtils {
 	
 	public static double stdDev(double... values){
 		double sumOfSquares = 0;
+		final double mean = mean(values);
 		for(double d : values)
-			sumOfSquares += d * d;
-		return Math.sqrt(sum(values) /( values.length - 1));
+			sumOfSquares += (d - mean) * (d - mean);
+		return Math.sqrt(sumOfSquares /( values.length - 1));
 	}
 	
 	static <V> List<V> trimm(List<V> list){

@@ -3,12 +3,10 @@
  */
 package net.sf.kerner.utils.math;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
 
 import java.util.Arrays;
 import java.util.Collection;
-
-import net.sf.kerner.utils.math.Point;
 
 import org.junit.After;
 import org.junit.AfterClass;

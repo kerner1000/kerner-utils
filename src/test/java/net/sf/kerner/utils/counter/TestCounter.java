@@ -3,7 +3,8 @@
  */
 package net.sf.kerner.utils.counter;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotSame;
 
 import org.junit.After;
 import org.junit.AfterClass;
