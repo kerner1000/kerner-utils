@@ -15,6 +15,7 @@ limitations under the License.
 
 package net.sf.kerner.utils;
 
+
 /**
  *  Utility class for array stuff.
  *
@@ -109,6 +110,28 @@ public class ArrayUtils {
 	
 	public static int[] toPrimitive(Integer[] arr){
 		final int[] result = new int[arr.length];
+		for(int i = 0; i < arr.length; i++)
+			result[i] = arr[i];
+		return result;
+	}
+	
+	public static Double toObject(double d){
+		return Double.valueOf(d);
+	}
+	
+	public static Double[] toObject(double[] arr){
+		final Double[] result = new Double[arr.length];
+		for(int i = 0; i < arr.length; i++)
+			result[i] = arr[i];
+		return result;
+	}
+	
+	public static Integer toObject(int i){
+		return Integer.valueOf(i);
+	}
+	
+	public static Integer[] toObject(int[] arr){
+		final Integer[] result = new Integer[arr.length];
 		for(int i = 0; i < arr.length; i++)
 			result[i] = arr[i];
 		return result;
