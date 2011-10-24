@@ -2,8 +2,6 @@ package net.sf.kerner.utils;
 
 import java.util.Properties;
 
-import net.sf.kerner.utils.StringUtils;
-
 public class PropertyRuntimeException extends RuntimeException {
 	
 	private static final long serialVersionUID = 71806291218857338L;
