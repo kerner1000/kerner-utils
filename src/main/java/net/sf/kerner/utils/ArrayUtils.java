@@ -93,7 +93,7 @@ public class ArrayUtils {
 	 * @param arr array to check
 	 * @return true, if {@code arr} is {@code null} or contains no elements
 	 */
-	public static boolean emptyArray(Object[] arr){
+	public static boolean emptyArray(Object... arr){
 		if(arr == null)
 			return true;
 		if(arr.length < 1)
