@@ -20,12 +20,12 @@ import java.util.List;
 
 /**
  * 
- * Provides static helper methods. 
+ * Provides static helper methods.
  * 
- *
+ * 
  * @author <a href="mailto:alex.kerner.24@googlemail.com">Alexander Kerner</a>
  * @version 2011-10-25
- *
+ * 
  */
 public class MathUtils {
 
@@ -47,7 +47,7 @@ public class MathUtils {
 		int c = 0;
 		while (n > 10) {
 			n = n / 10;
-			c ++;
+			c++;
 		}
 		decimalPlace = decimalPlace + c;
 		final double factor = Math.pow(10, decimalPlace);
@@ -55,7 +55,19 @@ public class MathUtils {
 		return result;
 	}
 
+	/**
+	 * 
+	 * Get maximum of given values.
+	 * 
+	 * @param values
+	 *            values to get maximum from
+	 * @return maximum value
+	 * @throws IllegalArgumentException
+	 *             if {@code values.length < 1}
+	 */
 	public static int max(int... values) {
+		if (values.length < 1)
+			throw new IllegalArgumentException();
 		int result = Integer.MIN_VALUE;
 		for (int i : values) {
 			if (i > result)
@@ -64,7 +76,19 @@ public class MathUtils {
 		return result;
 	}
 
+	/**
+	 * 
+	 * Get minimum of given values.
+	 * 
+	 * @param values
+	 *            values to get minimum from
+	 * @return minimum value
+	 * @throws IllegalArgumentException
+	 *             if {@code values.length < 1}
+	 */
 	public static int min(int... values) {
+		if (values.length < 1)
+			throw new IllegalArgumentException();
 		int result = Integer.MAX_VALUE;
 		for (int i : values) {
 			if (i < result)
@@ -72,13 +96,13 @@ public class MathUtils {
 		}
 		return result;
 	}
-	
+
 	public static double mean(double... values) {
-		if(values.length < 1)
+		if (values.length < 1)
 			throw new IllegalArgumentException();
 		return sum(values) / values.length;
 	}
-	
+
 	public static double sum(double... values) {
 		double result = 0;
 		for (double d : values) {
@@ -86,29 +110,29 @@ public class MathUtils {
 		}
 		return result;
 	}
-	
-	public static double stdDev(double... values){
+
+	public static double stdDev(double... values) {
 		double sumOfSquares = 0;
 		final double mean = mean(values);
-		for(double d : values)
+		for (double d : values)
 			sumOfSquares += (d - mean) * (d - mean);
-		return Math.sqrt(sumOfSquares /( values.length - 1));
+		return Math.sqrt(sumOfSquares / (values.length - 1));
 	}
-	
-	static <V> List<V> trimm(List<V> list){
+
+	static <V> List<V> trimm(List<V> list) {
 		final List<V> result = new ArrayList<V>();
-		for(V o : list){
-			if(o != null)
+		for (V o : list) {
+			if (o != null)
 				result.add(o);
 		}
 		return result;
 	}
-	
-	public static Integer increment(Integer integer){
+
+	public static Integer increment(Integer integer) {
 		return Integer.valueOf(integer.intValue() + 1);
 	}
-	
-	public static Integer add(Integer integer1, Integer integer2){
+
+	public static Integer add(Integer integer1, Integer integer2) {
 		return Integer.valueOf(integer1.intValue() + integer2.intValue());
 	}
 }
