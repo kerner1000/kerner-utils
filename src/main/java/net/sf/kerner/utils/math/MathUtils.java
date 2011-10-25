@@ -155,10 +155,36 @@ public class MathUtils {
 		return Math.sqrt(sumOfSquares / (values.length - 1));
 	}
 	
+	/**
+	 * 
+	 * Increment given {@link Integer} by {@code 1}. 
+	 *
+	 * @param integer {@link Integer} to increment
+	 * @return incremented {@link Integer}
+	 */
 	public static Integer increment(Integer integer) {
-		return Integer.valueOf(integer.intValue() + 1);
+		return increment(integer, 1);
+	}
+	
+	/**
+	 * 
+	 * Increment given {@link Integer} by {i}. 
+	 *
+	 * @param integer {@link Integer} to increment
+	 * @return incremented {@link Integer}
+	 */
+	public static Integer increment(Integer integer, int i) {
+		return Integer.valueOf(integer.intValue() + i);
 	}
 
+	/**
+	 * 
+	 * Add one {@link Integer} to another.
+	 *
+	 * @param integer1 first {@link Integer}
+	 * @param integer2 second {@link Integer}
+	 * @return sum of {@code integer1} and {@integer2}
+	 */
 	public static Integer add(Integer integer1, Integer integer2) {
 		return Integer.valueOf(integer1.intValue() + integer2.intValue());
 	}
