@@ -16,6 +16,7 @@ limitations under the License.
 package net.sf.kerner.utils.math;
 
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.List;
 
 /**
@@ -153,16 +154,7 @@ public class MathUtils {
 		}
 		return Math.sqrt(sumOfSquares / (values.length - 1));
 	}
-
-	static <V> List<V> trimm(List<V> list) {
-		final List<V> result = new ArrayList<V>();
-		for (V o : list) {
-			if (o != null)
-				result.add(o);
-		}
-		return result;
-	}
-
+	
 	public static Integer increment(Integer integer) {
 		return Integer.valueOf(integer.intValue() + 1);
 	}
