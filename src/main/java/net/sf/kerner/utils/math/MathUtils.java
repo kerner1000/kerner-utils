@@ -15,9 +15,6 @@ limitations under the License.
 
 package net.sf.kerner.utils.math;
 
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.List;
 
 /**
  * 
