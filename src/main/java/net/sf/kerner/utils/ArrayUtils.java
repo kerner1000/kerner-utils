@@ -15,26 +15,30 @@ limitations under the License.
 
 package net.sf.kerner.utils;
 
+import java.util.Arrays;
 
 /**
- *  Utility class for array stuff.
- *
+ * Utility class for array stuff.
+ * 
  * @author <a href="mailto:alex.kerner.24@googlemail.com">Alexander Kerner</a>
  * @version 2011-10-24
- *
+ * 
  */
 public class ArrayUtils {
-	
-	private ArrayUtils(){
-		
+
+	private ArrayUtils() {
+
 	}
-	
+
 	/**
 	 * 
-	 * Trim an array to given size. All elements with {@code index > size} will be discarded.
-	 *
-	 * @param array array that is trimmed
-	 * @param size the new length of the array
+	 * Trim an array to given size. All elements with {@code index > size} will
+	 * be discarded.
+	 * 
+	 * @param array
+	 *            array that is trimmed
+	 * @param size
+	 *            the new length of the array
 	 * @return the trimmed array
 	 */
 	public static char[] trim(char[] array, int size) {
@@ -47,13 +51,16 @@ public class ArrayUtils {
 		System.arraycopy(array, 0, result, 0, size);
 		return result;
 	}
-	
+
 	/**
 	 * 
-	 * Trim an array to given size. All elements with {@code index > size} will be discarded.
-	 *
-	 * @param array array that is trimmed
-	 * @param size the new length of the array
+	 * Trim an array to given size. All elements with {@code index > size} will
+	 * be discarded.
+	 * 
+	 * @param array
+	 *            array that is trimmed
+	 * @param size
+	 *            the new length of the array
 	 * @return the trimmed array
 	 */
 	public static byte[] trim(byte[] array, int size) {
@@ -66,13 +73,16 @@ public class ArrayUtils {
 		System.arraycopy(array, 0, result, 0, size);
 		return result;
 	}
-	
+
 	/**
 	 * 
-	 * Trim an array to given size. All elements with {@code index > size} will be discarded.
-	 *
-	 * @param array array that is trimmed
-	 * @param size the new length of the array
+	 * Trim an array to given size. All elements with {@code index > size} will
+	 * be discarded.
+	 * 
+	 * @param array
+	 *            array that is trimmed
+	 * @param size
+	 *            the new length of the array
 	 * @return the trimmed array
 	 */
 	public static int[] trim(int[] array, int size) {
@@ -85,54 +95,90 @@ public class ArrayUtils {
 		System.arraycopy(array, 0, result, 0, size);
 		return result;
 	}
-	
+
 	/**
 	 * 
 	 * Check weather an array is {@code null} or contains no elements.
-	 *
-	 * @param arr array to check
+	 * 
+	 * @param arr
+	 *            array to check
 	 * @return true, if {@code arr} is {@code null} or contains no elements
 	 */
-	public static boolean emptyArray(Object[] arr){
-		if(arr == null)
+	public static <T> boolean emptyArray(T[] arr) {
+		if (arr == null)
 			return true;
-		if(arr.length < 1)
+		if (arr.length < 1)
 			return true;
 		return false;
 	}
-	
-	public static double[] toPrimitive(Double[] arr){
+
+	/**
+	 * 
+	 * Check if an array
+	 * <ul>
+	 * <li>
+	 * is {@code null}</li>
+	 * <li>
+	 * is empty or</li>
+	 * <li>
+	 * contains only {@code null} elements.</li>
+	 * </ul>
+	 * 
+	 * @param arr
+	 *            array to check
+	 * @return true, if {@code arr} is {@code null}, empty or if it contains
+	 *         only {@code null} elements; {@code false} otherwise
+	 */
+	public static boolean nullArray(Object[] arr) {
+		if (emptyArray(arr))
+			return true;
+		for (Object o : arr) {
+			if (o != null) {
+				if (isArray(o))
+					return nullArray((Object[])o);
+				else
+					return false;
+			}
+		}
+		return true;
+	}
+
+	public static boolean isArray(Object o) {
+		return o.getClass().isArray();
+	}
+
+	public static double[] toPrimitive(Double[] arr) {
 		final double[] result = new double[arr.length];
-		for(int i = 0; i < arr.length; i++)
+		for (int i = 0; i < arr.length; i++)
 			result[i] = arr[i];
 		return result;
 	}
-	
-	public static int[] toPrimitive(Integer[] arr){
+
+	public static int[] toPrimitive(Integer[] arr) {
 		final int[] result = new int[arr.length];
-		for(int i = 0; i < arr.length; i++)
+		for (int i = 0; i < arr.length; i++)
 			result[i] = arr[i];
 		return result;
 	}
-	
-	public static Double toObject(double d){
+
+	public static Double toObject(double d) {
 		return Double.valueOf(d);
 	}
-	
-	public static Double[] toObject(double[] arr){
+
+	public static Double[] toObject(double[] arr) {
 		final Double[] result = new Double[arr.length];
-		for(int i = 0; i < arr.length; i++)
+		for (int i = 0; i < arr.length; i++)
 			result[i] = arr[i];
 		return result;
 	}
-	
-	public static Integer toObject(int i){
+
+	public static Integer toObject(int i) {
 		return Integer.valueOf(i);
 	}
-	
-	public static Integer[] toObject(int[] arr){
+
+	public static Integer[] toObject(int[] arr) {
 		final Integer[] result = new Integer[arr.length];
-		for(int i = 0; i < arr.length; i++)
+		for (int i = 0; i < arr.length; i++)
 			result[i] = arr[i];
 		return result;
 	}

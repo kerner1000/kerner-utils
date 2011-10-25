@@ -15,6 +15,9 @@ limitations under the License.
 
 package net.sf.kerner.utils.math;
 
+import java.util.Arrays;
+
+import net.sf.kerner.utils.ArrayUtils;
 
 /**
  * 
@@ -61,13 +64,13 @@ public class MathUtils {
 	 *            values to get maximum from
 	 * @return maximum value
 	 * @throws IllegalArgumentException
-	 *             if {@code values.length < 1}
+	 *             if {@code values.length < 1} or {@code values == null}
 	 */
-	public static int max(int... values) {
-		if (values.length < 1)
+	public static double max(double... values) {
+		if (values == null || values.length < 1)
 			throw new IllegalArgumentException();
-		int result = Integer.MIN_VALUE;
-		for (int i : values) {
+		double result = 0;
+		for (double i : values) {
 			if (i > result)
 				result = i;
 		}
@@ -82,13 +85,13 @@ public class MathUtils {
 	 *            values to get minimum from
 	 * @return minimum value
 	 * @throws IllegalArgumentException
-	 *             if {@code values.length < 1}
+	 *             if {@code values.length < 1} or {@code values == null}
 	 */
-	public static int min(int... values) {
-		if (values.length < 1)
+	public static double min(double... values) {
+		if (values == null || values.length < 1)
 			throw new IllegalArgumentException();
-		int result = Integer.MAX_VALUE;
-		for (int i : values) {
+		double result = 0;
+		for (double i : values) {
 			if (i < result)
 				result = i;
 		}
@@ -103,10 +106,10 @@ public class MathUtils {
 	 *            values to calculate the mean
 	 * @return mean of values
 	 * @throws IllegalArgumentException
-	 *             if {@code values.length < 1}
+	 *             if {@code values.length < 1} or {@code values == null}
 	 */
 	public static double mean(double... values) {
-		if (values.length < 1)
+		if (values == null || values.length < 1)
 			throw new IllegalArgumentException();
 		return sum(values) / values.length;
 	}
@@ -118,10 +121,10 @@ public class MathUtils {
 	 * @param values
 	 *            values to calculate the sum
 	 * @return sum of values * @throws IllegalArgumentException if
-	 *         {@code values.length < 1}
+	 *         {@code values.length < 1} or {@code values == null}
 	 */
 	public static double sum(double... values) {
-		if (values.length < 1)
+		if (values == null || values.length < 1)
 			throw new IllegalArgumentException();
 		double result = 0;
 		for (double d : values) {
@@ -138,10 +141,10 @@ public class MathUtils {
 	 *            values to calculate the standard deviation
 	 * @return sum of values
 	 * @throws IllegalArgumentException
-	 *             if {@code values.length < 1}
+	 *             if {@code values.length < 1} or {@code values == null}
 	 */
 	public static double stdDev(double... values) {
-		if (values.length < 1)
+		if (values == null || values.length < 1)
 			throw new IllegalArgumentException();
 		double sumOfSquares = 0;
 		final double mean = mean(values);
@@ -151,23 +154,25 @@ public class MathUtils {
 		}
 		return Math.sqrt(sumOfSquares / (values.length - 1));
 	}
-	
+
 	/**
 	 * 
-	 * Increment given {@link Integer} by {@code 1}. 
-	 *
-	 * @param integer {@link Integer} to increment
+	 * Increment given {@link Integer} by {@code 1}.
+	 * 
+	 * @param integer
+	 *            {@link Integer} to increment
 	 * @return incremented {@link Integer}
 	 */
 	public static Integer increment(Integer integer) {
 		return increment(integer, 1);
 	}
-	
+
 	/**
 	 * 
-	 * Increment given {@link Integer} by {i}. 
-	 *
-	 * @param integer {@link Integer} to increment
+	 * Increment given {@link Integer} by {i}.
+	 * 
+	 * @param integer
+	 *            {@link Integer} to increment
 	 * @return incremented {@link Integer}
 	 */
 	public static Integer increment(Integer integer, int i) {
@@ -177,9 +182,11 @@ public class MathUtils {
 	/**
 	 * 
 	 * Add one {@link Integer} to another.
-	 *
-	 * @param integer1 first {@link Integer}
-	 * @param integer2 second {@link Integer}
+	 * 
+	 * @param integer1
+	 *            first {@link Integer}
+	 * @param integer2
+	 *            second {@link Integer}
 	 * @return sum of {@code integer1} and {@integer2}
 	 */
 	public static Integer add(Integer integer1, Integer integer2) {
