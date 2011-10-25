@@ -97,13 +97,34 @@ public class MathUtils {
 		return result;
 	}
 
+	/**
+	 * 
+	 * Calculate the {@code mean} of given values.
+	 * 
+	 * @param values
+	 *            values to calculate the mean
+	 * @return mean of values
+	 * @throws IllegalArgumentException
+	 *             if {@code values.length < 1}
+	 */
 	public static double mean(double... values) {
 		if (values.length < 1)
 			throw new IllegalArgumentException();
 		return sum(values) / values.length;
 	}
 
+	/**
+	 * 
+	 * Calculate the {@code sum} of given values.
+	 * 
+	 * @param values
+	 *            values to calculate the sum
+	 * @return sum of values * @throws IllegalArgumentException if
+	 *         {@code values.length < 1}
+	 */
 	public static double sum(double... values) {
+		if (values.length < 1)
+			throw new IllegalArgumentException();
 		double result = 0;
 		for (double d : values) {
 			result += d;
@@ -111,11 +132,25 @@ public class MathUtils {
 		return result;
 	}
 
+	/**
+	 * 
+	 * Calculate the {@code standard deviation} of given values.
+	 * 
+	 * @param values
+	 *            values to calculate the standard deviation
+	 * @return sum of values
+	 * @throws IllegalArgumentException
+	 *             if {@code values.length < 1}
+	 */
 	public static double stdDev(double... values) {
+		if (values.length < 1)
+			throw new IllegalArgumentException();
 		double sumOfSquares = 0;
 		final double mean = mean(values);
-		for (double d : values)
-			sumOfSquares += (d - mean) * (d - mean);
+		for (double d : values) {
+			final double dd = d - mean;
+			sumOfSquares += (dd) * (dd);
+		}
 		return Math.sqrt(sumOfSquares / (values.length - 1));
 	}
 
