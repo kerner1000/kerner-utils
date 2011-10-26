@@ -49,37 +49,37 @@ public class TestArrayUtils2 {
 
 	@Test
 	public final void testNullArray01() {
-		assertTrue(ArrayUtils.emptyArray(null));
+		assertTrue(ArrayUtils.nullArray(null));
 	}
 	
 	@Test
 	public final void testNullArray02() {
-		assertTrue(ArrayUtils.emptyArray(new Object[]{}));
+		assertTrue(ArrayUtils.nullArray(new Object[]{}));
 	}
 	
 	@Test
 	public final void testNullArray03() {
-		assertTrue(ArrayUtils.emptyArray(new Object[]{null}));
+		assertTrue(ArrayUtils.nullArray(new Object[]{null}));
 	}
 	
 	@Test
 	public final void testNullArray04() {
-		assertTrue(ArrayUtils.emptyArray(null));
+		assertTrue(ArrayUtils.nullArray(null));
 	}
 	
 	@Test
 	public final void testNullArray05() {
-		assertTrue(ArrayUtils.emptyArray(new Object[]{new Object[]{null}}));
+		assertTrue(ArrayUtils.nullArray(new Object[]{new Object[]{null}}));
 	}
 	
 	@Test
 	public final void testNullArray06() {
-		assertFalse(ArrayUtils.emptyArray(new Object[]{new Object[]{new Integer(1)}}));
+		assertFalse(ArrayUtils.nullArray(new Object[]{new Object[]{new Integer(1)}}));
 	}
 	
 	@Test
 	public final void testNullArray07() {
-		assertFalse(ArrayUtils.emptyArray(new Object[]{new Integer(1)}));
+		assertFalse(ArrayUtils.nullArray(new Object[]{new Integer(1)}));
 	}
 
 	@Ignore
