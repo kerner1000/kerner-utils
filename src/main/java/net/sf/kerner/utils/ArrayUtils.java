@@ -15,13 +15,11 @@ limitations under the License.
 
 package net.sf.kerner.utils;
 
-import java.util.Arrays;
-
 /**
  * Utility class for array stuff.
  * 
  * @author <a href="mailto:alex.kerner.24@googlemail.com">Alexander Kerner</a>
- * @version 2011-10-24
+ * @version 2011-10-26
  * 
  */
 public class ArrayUtils {
@@ -104,7 +102,7 @@ public class ArrayUtils {
 	 *            array to check
 	 * @return true, if {@code arr} is {@code null} or contains no elements
 	 */
-	public static <T> boolean emptyArray(T[] arr) {
+	public static boolean emptyArray(Object[] arr) {
 		if (arr == null)
 			return true;
 		if (arr.length < 1)
@@ -135,7 +133,7 @@ public class ArrayUtils {
 		for (Object o : arr) {
 			if (o != null) {
 				if (isArray(o))
-					return nullArray((Object[])o);
+					return nullArray((Object[]) o);
 				else
 					return false;
 			}
@@ -143,6 +141,15 @@ public class ArrayUtils {
 		return true;
 	}
 
+	/**
+	 * 
+	 * Determines if this Class object represents an array class.
+	 * 
+	 * @param o
+	 *            Object to ckeck
+	 * @return {@code true}, if this object represents an array; {@code false}
+	 *         otherwise
+	 */
 	public static boolean isArray(Object o) {
 		return o.getClass().isArray();
 	}
@@ -167,6 +174,17 @@ public class ArrayUtils {
 
 	public static Double[] toObject(double[] arr) {
 		final Double[] result = new Double[arr.length];
+		for (int i = 0; i < arr.length; i++)
+			result[i] = arr[i];
+		return result;
+	}
+
+	public static Byte toObject(byte i) {
+		return Byte.valueOf(i);
+	}
+
+	public static Byte[] toObject(byte[] arr) {
+		final Byte[] result = new Byte[arr.length];
 		for (int i = 0; i < arr.length; i++)
 			result[i] = arr[i];
 		return result;

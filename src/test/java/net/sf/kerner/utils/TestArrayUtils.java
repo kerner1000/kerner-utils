@@ -14,7 +14,7 @@ import org.junit.Test;
 /**
  *
  * @author <a href="mailto:alex.kerner.24@googlemail.com">Alexander Kerner</a>
- * @version 2010-11-21
+ * @version 2011-10-26
  *
  */
 public class TestArrayUtils {
@@ -35,67 +35,52 @@ public class TestArrayUtils {
 	public void tearDown() throws Exception {
 	}
 
-	/**
-	 * Test method for {@link net.sf.kerner.utils.ArrayUtils#trim(char[], int)}.
-	 */
 	@Test
-	public final void testArrayTrimCharArrayInt() {
+	public final void testArrayTrimChar01() {
 		char[] arr = new char[4];
 		assertArrayEquals(new char[]{'\0','\0','\0'}, ArrayUtils.trim(arr, 3));
 	}
-
-	/**
-	 * Test method for {@link net.sf.kerner.utils.ArrayUtils#trim(byte[], int)}.
-	 */
+	
 	@Test
-	public final void testArrayTrimByteArrayInt() {
+	public final void testArrayTrimChar02() {
+		char[] arr = new char[]{};
+		assertArrayEquals(new char[]{}, ArrayUtils.trim(arr, 3));
+	}
+
+	@Test
+	public final void testArrayTrimByte01() {
 		byte[] arr = new byte[]{1,2,3,4};
 		assertArrayEquals(new byte[]{1,2,3}, ArrayUtils.trim(arr, 3));
 		
 	}
 	
-	/**
-	 * Test method for {@link net.sf.kerner.utils.ArrayUtils#trim(byte[], int)}.
-	 */
 	@Test
-	public final void testArrayTrimByteArrayInt01() {
+	public final void testArrayTrimByte02() {
 		byte[] arr = new byte[4];
 		assertArrayEquals(new byte[]{0,0,0}, ArrayUtils.trim(arr, 3));
 		
 	}
 
-	/**
-	 * Test method for {@link net.sf.kerner.utils.ArrayUtils#trim(int[], int)}.
-	 */
 	@Test
-	public final void testArrayTrimIntArrayInt() {
+	public final void testArrayTrimInt01() {
 		int[] arr = new int[4];
 		assertArrayEquals(new int[]{0,0,0}, ArrayUtils.trim(arr, 3));
 	}
 	
-	/**
-	 * Test method for {@link net.sf.kerner.utils.ArrayUtils#trim(int[], int)}.
-	 */
 	@Test
-	public final void testArrayTrimIntArrayInt01() {
+	public final void testArrayTrimInt02() {
 		int[] arr = new int[4];
 		assertArrayEquals(new int[]{}, ArrayUtils.trim(arr, 0));
 	}
 	
-	/**
-	 * Test method for {@link net.sf.kerner.utils.ArrayUtils#trim(int[], int)}.
-	 */
 	@Test
-	public final void testArrayTrimIntArrayInt02() {
+	public final void testArrayTrimInt03() {
 		int[] arr = new int[4];
 		assertArrayEquals(arr, ArrayUtils.trim(arr, 9));
 	}
-	
-	/**
-	 * Test method for {@link net.sf.kerner.utils.ArrayUtils#trim(int[], int)}.
-	 */
+
 	@Test
-	public final void testArrayTrimIntArrayInt03() {
+	public final void testArrayTrimInt04() {
 		int[] arr = new int[4];
 		assertArrayEquals(new int[]{}, ArrayUtils.trim(arr, -1));
 	}
