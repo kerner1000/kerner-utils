@@ -2,6 +2,8 @@ package net.sf.kerner.utils;
 
 import static org.junit.Assert.*;
 
+import java.util.Arrays;
+
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
@@ -88,10 +90,26 @@ public class TestArrayUtils2 {
 		fail("Not yet implemented"); // TODO
 	}
 
-	@Ignore
 	@Test
-	public final void testToPrimitiveDoubleArray() {
-		fail("Not yet implemented"); // TODO
+	public final void testToPrimitiveDoubleArray01() {
+		final Double[] arr = new Double[0];
+		final double[] r = ArrayUtils.toPrimitive(arr);
+		assertNotNull(r);
+		assertEquals(0, r.length);
+	}
+	
+	@Test
+	public final void testToPrimitiveDoubleArray02() {
+		final Double[] arr = new Double[]{Double.valueOf(1)};
+		final double[] r = ArrayUtils.toPrimitive(arr);
+		assertEquals(1, r.length);
+		assertEquals(Double.valueOf(1), arr[0]);
+	}
+	
+	@Test(expected = NullPointerException.class)
+	public final void testToPrimitiveDoubleArray03() {
+		final Double[] arr = new Double[]{Double.valueOf(1), null};
+		ArrayUtils.toPrimitive(arr);
 	}
 
 	@Ignore
