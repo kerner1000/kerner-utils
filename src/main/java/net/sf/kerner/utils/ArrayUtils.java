@@ -154,6 +154,15 @@ public class ArrayUtils {
 		return o.getClass().isArray();
 	}
 
+	/**
+	 * 
+	 * TODO description
+	 *
+	 * @param arr
+	 * @return
+	 * 
+	 * @throws NullPointerException if any of objects in array is {@code null}
+	 */
 	public static double[] toPrimitive(Double[] arr) {
 		final double[] result = new double[arr.length];
 		for (int i = 0; i < arr.length; i++)
