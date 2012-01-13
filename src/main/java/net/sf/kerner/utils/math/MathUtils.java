@@ -1,5 +1,5 @@
 /**********************************************************************
-Copyright (c) 2009-2011 Alexander Kerner. All rights reserved.
+Copyright (c) 2009-2012 Alexander Kerner. All rights reserved.
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
 You may obtain a copy of the License at
@@ -15,8 +15,6 @@ limitations under the License.
 
 package net.sf.kerner.utils.math;
 
-import java.util.Arrays;
-
 import net.sf.kerner.utils.ArrayUtils;
 
 /**
@@ -25,7 +23,7 @@ import net.sf.kerner.utils.ArrayUtils;
  * 
  * 
  * @author <a href="mailto:alex.kerner.24@googlemail.com">Alexander Kerner</a>
- * @version 2011-10-25
+ * @version 2012-01-13
  * 
  */
 public class MathUtils {
@@ -75,6 +73,20 @@ public class MathUtils {
 				result = i;
 		}
 		return result;
+	}
+	
+	/**
+	 * 
+	 * Get maximum of given values.
+	 * 
+	 * @param values
+	 *            values to get maximum from
+	 * @return maximum value
+	 * @throws IllegalArgumentException
+	 *             if {@code values.length < 1} or {@code values == null}
+	 */
+	public static Number max(Number... values) {
+		return max(ArrayUtils.toPrimitive(ArrayUtils.toDouble(values)));
 	}
 
 	/**
