@@ -210,7 +210,7 @@ public class ArrayUtils {
 		return result;
 	}
 	
-	public static Double[] toDouble(Number...numbers){
+	public static Double[] toDouble(Number... numbers){
 		final Double[] result = new Double[numbers.length];
 		for(int i = 0; i < result.length; i++){
 			result[i] = new Double(numbers[i].doubleValue());
