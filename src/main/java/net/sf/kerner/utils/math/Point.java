@@ -17,6 +17,8 @@ package net.sf.kerner.utils.math;
 
 /**
  * 
+ * @deprecated Use Point2D instead
+ * 
  * A Point in a two-dimensional coordinate system, defined by {@code double} Coordinates.
  * 
  * <p>
