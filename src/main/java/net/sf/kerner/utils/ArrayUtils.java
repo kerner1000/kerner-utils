@@ -1,5 +1,5 @@
 /**********************************************************************
-Copyright (c) 2009-2011 Alexander Kerner. All rights reserved.
+Copyright (c) 2009-2012 Alexander Kerner. All rights reserved.
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
 You may obtain a copy of the License at
@@ -19,7 +19,7 @@ package net.sf.kerner.utils;
  * Utility class for array stuff.
  * 
  * @author <a href="mailto:alex.kerner.24@googlemail.com">Alexander Kerner</a>
- * @version 2011-10-26
+ * @version 2012-01-13
  * 
  */
 public class ArrayUtils {
@@ -207,6 +207,14 @@ public class ArrayUtils {
 		final Integer[] result = new Integer[arr.length];
 		for (int i = 0; i < arr.length; i++)
 			result[i] = arr[i];
+		return result;
+	}
+	
+	public static Double[] toDouble(Number... numbers){
+		final Double[] result = new Double[numbers.length];
+		for(int i = 0; i < result.length; i++){
+			result[i] = new Double(numbers[i].doubleValue());
+		}
 		return result;
 	}
 
