@@ -16,6 +16,8 @@ limitations under the License.
 package net.sf.kerner.utils;
 
 import java.io.File;
+import java.util.Arrays;
+import java.util.Collection;
 import java.util.Locale;
 
 /**
@@ -68,5 +70,18 @@ public class Utils {
 			if (o == null)
 				throw new NullPointerException();
 		}
+	}
+	
+	public static int getHashCode(Collection<?> objects){
+		int result = 0;
+		for(Object o : objects){
+			if(o instanceof Collection)
+				result += getHashCode((Collection<?>) o);
+			else if (ArrayUtils.isArray(o))
+				result += getHashCode(Arrays.asList((Object[]) o));
+			else
+				result += o.hashCode();
+		}
+		return result;
 	}
 }
