@@ -3,6 +3,11 @@
  */
 package net.sf.kerner.utils;
 
+import static org.junit.Assert.assertEquals;
+
+import java.util.Arrays;
+import java.util.HashSet;
+
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
@@ -87,6 +92,21 @@ public class TestUtils {
 	@Test(expected=NullPointerException.class)
 	public final void testCheckForNull06() {
 		Utils.checkForNull(null,1);
+	}
+	
+	@Test
+	public final void testGetHashCodeCollectionOfObject01(){
+		assertEquals(6, Utils.getHashCode(Arrays.asList(1, 2, 3)));
+	}
+	
+	@Test
+	public final void testGetHashCodeCollectionOfObject02(){
+		assertEquals(7, Utils.getHashCode(Arrays.asList(1, 2, 3, new Integer[]{1})));
+	}
+	
+	@Test
+	public final void testGetHashCodeCollectionOfObject03(){
+		assertEquals(9, Utils.getHashCode(Arrays.asList(1, 2, 3, new Integer[]{1}, new HashSet<Integer>(Arrays.asList(2)))));
 	}
 
 }
