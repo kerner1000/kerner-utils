@@ -354,7 +354,7 @@ public enum LongUnit implements PrefixableLong {
 		public long toTeras(long units) {
 			return units / (C8 / C6);
 		}
-		
+
 		@Override
 		public long convert(long units, LongUnit unit) {
 			return unit.toMegas(units);
@@ -405,7 +405,7 @@ public enum LongUnit implements PrefixableLong {
 		public long toTeras(long units) {
 			return units / (C8 / C7);
 		}
-		
+
 		@Override
 		public long convert(long units, LongUnit unit) {
 			return unit.toGigas(units);
@@ -456,7 +456,7 @@ public enum LongUnit implements PrefixableLong {
 		public long toTeras(long units) {
 			return units;
 		}
-		
+
 		@Override
 		public long convert(long units, LongUnit unit) {
 			return unit.toTeras(units);

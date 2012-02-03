@@ -83,15 +83,15 @@ public class TimePeriod {
 		this.stop = stop;
 		this.timeUnit = DEFAULT_TIME_UNIT;
 	}
-	
+
 	// Private //
-	
+
 	// Protected //
-	
+
 	// Public //
-	
+
 	// Override //
-	
+
 	@Override
 	public String toString() {
 		return Long.toString(getDuration());

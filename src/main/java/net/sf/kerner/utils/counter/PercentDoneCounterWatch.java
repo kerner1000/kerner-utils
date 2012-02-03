@@ -2,10 +2,9 @@ package net.sf.kerner.utils.counter;
 
 import java.util.concurrent.TimeUnit;
 
-import org.slf4j.Logger;
-
-
 import net.sf.kerner.utils.time.StopWatch;
+
+import org.slf4j.Logger;
 
 public class PercentDoneCounterWatch extends PercentDoneCounter {
 

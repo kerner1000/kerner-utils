@@ -19,23 +19,28 @@ import net.sf.kerner.utils.transformer.Transformer;
 
 /**
  * 
- * A {@code Modifier} modifies one object of type {@code T} and returns the modified object which is of type {@code V extends T}.
+ * A {@code Modifier} modifies one object of type {@code T} and returns the
+ * modified object which is of type {@code V extends T}.
  * 
  * <p>
  * <b>Example:</b><br>
- *
+ * 
  * </p>
  * <p>
+ * 
  * <pre>
  * TODO example
  * </pre>
+ * 
  * </p>
- *
+ * 
  * @author <a href="mailto:alex.kerner.24@googlemail.com">Alexander Kerner</a>
  * @version 2010-11-14
- *
- * @param <T> type of input element
- * @param <V> type of output element
+ * 
+ * @param <T>
+ *            type of input element
+ * @param <V>
+ *            type of output element
  */
 public interface Modifier<T, V extends T> extends Transformer<T, V> {
 

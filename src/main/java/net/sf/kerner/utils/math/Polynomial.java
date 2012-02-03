@@ -14,17 +14,17 @@ public class Polynomial {
 	public Polynomial() {
 		this(10);
 	}
-	
-	public synchronized double calculate(double y){
+
+	public synchronized double calculate(double y) {
 		double result = 0;
 		for (int x = elements.size() - 1; x > -1; x--) {
 			double d = elements.get(x);
-//			System.out.println("d="+d + ",x="+x);
-			if(x > 0)
-			result += (d * Math.pow(y, x));
+			// System.out.println("d="+d + ",x="+x);
+			if (x > 0)
+				result += (d * Math.pow(y, x));
 			else
 				result += d;
-//			System.out.println("result="+result);
+			// System.out.println("result="+result);
 		}
 		return result;
 	}
@@ -37,25 +37,25 @@ public class Polynomial {
 		final Polynomial result = new Polynomial();
 		for (int i = 1; i < elements.size(); i++) {
 			double element = elements.get(i);
-			result.add(i-1, element * i);
+			result.add(i - 1, element * i);
 		}
 		return result;
 	}
-	
-	public synchronized Polynomial getDerivate(int nr){
-		if(nr < 1){
+
+	public synchronized Polynomial getDerivate(int nr) {
+		if (nr < 1) {
 			throw new IllegalArgumentException("nr must be >= 1");
 		}
 		Polynomial result = getDerivate();
-		for(int i = 1; i < nr; i++){
+		for (int i = 1; i < nr; i++) {
 			result = result.getDerivate();
 		}
 		return result;
 	}
-	
-	public synchronized double[] getPolynoms(){
+
+	public synchronized double[] getPolynoms() {
 		final double[] result = new double[elements.size()];
-		for(int i=0;i<elements.size(); i++){
+		for (int i = 0; i < elements.size(); i++) {
 			result[i] = elements.get(i);
 		}
 		return result;

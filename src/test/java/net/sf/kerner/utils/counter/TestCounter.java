@@ -459,7 +459,7 @@ public class TestCounter {
 		c1 = new Counter(1);
 		assertEquals(c1, c1);
 	}
-	
+
 	/**
 	 * Test method for
 	 * {@link net.sf.kerner.utils.counter.Counter#equals(java.lang.Object)}.
@@ -469,7 +469,7 @@ public class TestCounter {
 		c1 = new Counter(1);
 		assertNotSame(c1, null);
 	}
-	
+
 	/**
 	 * Test method for {@link net.sf.kerner.utils.counter.Counter#perform()}.
 	 */

@@ -354,7 +354,7 @@ public enum DoubleUnit implements PrefixableDouble {
 		public double toTeras(double units) {
 			return units / (C8 / C6);
 		}
-		
+
 		@Override
 		public double convert(double units, DoubleUnit unit) {
 			return unit.toMegas(units);
@@ -405,7 +405,7 @@ public enum DoubleUnit implements PrefixableDouble {
 		public double toTeras(double units) {
 			return units / (C8 / C7);
 		}
-		
+
 		@Override
 		public double convert(double units, DoubleUnit unit) {
 			return unit.toGigas(units);
@@ -456,7 +456,7 @@ public enum DoubleUnit implements PrefixableDouble {
 		public double toTeras(double units) {
 			return units;
 		}
-		
+
 		@Override
 		public double convert(double units, DoubleUnit unit) {
 			return unit.toTeras(units);

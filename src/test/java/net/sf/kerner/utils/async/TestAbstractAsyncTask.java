@@ -13,17 +13,17 @@ import org.junit.Test;
 
 /**
  * 
- *
+ * 
  * @author <a href="mailto:alex.kerner.24@googlemail.com">Alexander Kerner</a>
  * @version 2011-05-18
- *
+ * 
  */
 public class TestAbstractAsyncTask {
-	
+
 	private AbstractAsyncTask<String, String> call;
-	
+
 	private volatile String res;
-	
+
 	private volatile Exception failure;
 
 	@BeforeClass
@@ -36,19 +36,19 @@ public class TestAbstractAsyncTask {
 
 	@Before
 	public void setUp() throws Exception {
-//		success = false;
+		// success = false;
 		failure = null;
 		res = null;
 		call = new AbstractAsyncTask<String, String>() {
-			
+
 			public String run(String value) throws Exception {
-				return "gut"+value;
+				return "gut" + value;
 			}
-			
+
 			public void doOnSucess(String result) {
 				res = result;
 			}
-			
+
 			public void doOnFailure(Exception t) {
 				failure = t;
 			}
@@ -60,7 +60,9 @@ public class TestAbstractAsyncTask {
 	}
 
 	/**
-	 * Test method for {@link net.sf.kerner.utils.async.AbstractAsyncTask#AbstractAsyncCallBack()}.
+	 * Test method for
+	 * {@link net.sf.kerner.utils.async.AbstractAsyncTask#AbstractAsyncCallBack()}
+	 * .
 	 */
 	@Test
 	public final void testAbstractAsyncCallBack() {
@@ -73,18 +75,20 @@ public class TestAbstractAsyncTask {
 
 			public void doOnSucess(String result) {
 				// TODO Auto-generated method stub
-				
+
 			}
 
 			public void doOnFailure(Exception t) {
 				// TODO Auto-generated method stub
-				
+
 			}
 		};
 	}
 
 	/**
-	 * Test method for {@link net.sf.kerner.utils.async.AbstractAsyncTask#AbstractAsyncCallBack(java.util.concurrent.ExecutorService)}.
+	 * Test method for
+	 * {@link net.sf.kerner.utils.async.AbstractAsyncTask#AbstractAsyncCallBack(java.util.concurrent.ExecutorService)}
+	 * .
 	 */
 	@Test
 	public final void testAbstractAsyncCallBackExecutorService() {
@@ -97,19 +101,22 @@ public class TestAbstractAsyncTask {
 
 			public void doOnSucess(String result) {
 				// TODO Auto-generated method stub
-				
+
 			}
 
 			public void doOnFailure(Exception t) {
 				// TODO Auto-generated method stub
-				
+
 			}
 		};
 	}
 
 	/**
-	 * Test method for {@link net.sf.kerner.utils.async.AbstractAsyncTask#execute(java.lang.Object)}.
-	 * @throws InterruptedException 
+	 * Test method for
+	 * {@link net.sf.kerner.utils.async.AbstractAsyncTask#execute(java.lang.Object)}
+	 * .
+	 * 
+	 * @throws InterruptedException
 	 */
 	@Test
 	public final void testExecute01() throws InterruptedException {

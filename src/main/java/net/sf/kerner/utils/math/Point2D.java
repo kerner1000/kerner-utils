@@ -1,10 +1,9 @@
 package net.sf.kerner.utils.math;
 
-
 public class Point2D {
-	
+
 	protected final double x;
-	
+
 	protected final double y;
 
 	public Point2D(double x, double y) {
@@ -12,17 +11,19 @@ public class Point2D {
 		this.x = x;
 		this.y = y;
 	}
-	
+
 	public Point2D(Point2D template) {
 		this(template.getX(), template.getY());
 	}
-	
+
 	/**
 	 * 
 	 * Calculate the slope from one {@code Point} to another.
-	 *
-	 * @param one first {@code Point}
-	 * @param tow second {@code Point}
+	 * 
+	 * @param one
+	 *            first {@code Point}
+	 * @param tow
+	 *            second {@code Point}
 	 * @return the slope
 	 */
 	final public static double getSlope(Point2D one, Point2D tow) {
@@ -41,16 +42,15 @@ public class Point2D {
 	}
 
 	final public double getDistance(Point2D two) {
-		return Math.sqrt(Math.pow(getDeltaX(this, two), 2)
-				+ Math.pow(getDeltaY(this, two), 2));
+		return Math.sqrt(Math.pow(getDeltaX(this, two), 2) + Math.pow(getDeltaY(this, two), 2));
 	}
 
 	final public double getSlope(Point2D two) {
 		return getSlope(this, two);
 	}
-	
+
 	// Override //
-	
+
 	@Override
 	public int hashCode() {
 		final int prime = 31;
@@ -83,12 +83,12 @@ public class Point2D {
 		}
 		return true;
 	}
-	
+
 	@Override
 	public String toString() {
-		return "x="+getX() + ",y=" + getY();
+		return "x=" + getX() + ",y=" + getY();
 	}
-	
+
 	// Getter / Setter //
 
 	public double getX() {

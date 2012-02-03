@@ -157,11 +157,12 @@ public class ArrayUtils {
 	/**
 	 * 
 	 * TODO description
-	 *
+	 * 
 	 * @param arr
 	 * @return
 	 * 
-	 * @throws NullPointerException if any of objects in array is {@code null}
+	 * @throws NullPointerException
+	 *             if any of objects in array is {@code null}
 	 */
 	public static double[] toPrimitive(Double[] arr) {
 		final double[] result = new double[arr.length];
@@ -209,10 +210,10 @@ public class ArrayUtils {
 			result[i] = arr[i];
 		return result;
 	}
-	
-	public static Double[] toDouble(Number... numbers){
+
+	public static Double[] toDouble(Number... numbers) {
 		final Double[] result = new Double[numbers.length];
-		for(int i = 0; i < result.length; i++){
+		for (int i = 0; i < result.length; i++) {
 			result[i] = new Double(numbers[i].doubleValue());
 		}
 		return result;

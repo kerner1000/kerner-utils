@@ -44,8 +44,7 @@ public class TestArithmeticSavety {
 	 */
 	@Test
 	public final void testRangeCheckInteger() {
-		ArithmeticSavety.rangeCheckInteger(BigInteger
-				.valueOf(Integer.MAX_VALUE));
+		ArithmeticSavety.rangeCheckInteger(BigInteger.valueOf(Integer.MAX_VALUE));
 	}
 
 	/**
@@ -55,8 +54,8 @@ public class TestArithmeticSavety {
 	 */
 	@Test(expected = ArithmeticException.class)
 	public final void testRangeCheckInteger01() {
-		ArithmeticSavety.rangeCheckInteger(BigInteger
-				.valueOf(Integer.MAX_VALUE).add(BigInteger.ONE));
+		ArithmeticSavety.rangeCheckInteger(BigInteger.valueOf(Integer.MAX_VALUE)
+				.add(BigInteger.ONE));
 	}
 
 	/**
@@ -66,8 +65,8 @@ public class TestArithmeticSavety {
 	 */
 	@Test(expected = ArithmeticException.class)
 	public final void testRangeCheckInteger02() {
-		ArithmeticSavety.rangeCheckInteger(BigInteger
-				.valueOf(Integer.MIN_VALUE).subtract(BigInteger.ONE));
+		ArithmeticSavety.rangeCheckInteger(BigInteger.valueOf(Integer.MIN_VALUE).subtract(
+				BigInteger.ONE));
 	}
 
 	/**
@@ -87,8 +86,7 @@ public class TestArithmeticSavety {
 	 */
 	@Test(expected = ArithmeticException.class)
 	public final void testRangeCheckLong01() {
-		ArithmeticSavety.rangeCheckLong(BigInteger.valueOf(Long.MAX_VALUE).add(
-				BigInteger.ONE));
+		ArithmeticSavety.rangeCheckLong(BigInteger.valueOf(Long.MAX_VALUE).add(BigInteger.ONE));
 	}
 
 	/**
@@ -98,8 +96,8 @@ public class TestArithmeticSavety {
 	 */
 	@Test(expected = ArithmeticException.class)
 	public final void testRangeCheckLong02() {
-		ArithmeticSavety.rangeCheckLong(BigInteger.valueOf(Long.MIN_VALUE)
-				.subtract(BigInteger.ONE));
+		ArithmeticSavety
+				.rangeCheckLong(BigInteger.valueOf(Long.MIN_VALUE).subtract(BigInteger.ONE));
 	}
 
 	/**
@@ -126,8 +124,7 @@ public class TestArithmeticSavety {
 	 */
 	@Test
 	public final void testAddLong() {
-		assertEquals(2L,
-				ArithmeticSavety.addLong(Long.valueOf(1), Long.valueOf(1)));
+		assertEquals(2L, ArithmeticSavety.addLong(Long.valueOf(1), Long.valueOf(1)));
 	}
 
 	/**
@@ -172,8 +169,7 @@ public class TestArithmeticSavety {
 	 */
 	@Test
 	public final void testMultiplyLongLong() {
-		assertEquals(4L,
-				ArithmeticSavety.multiply(Long.valueOf(2), Long.valueOf(2)));
+		assertEquals(4L, ArithmeticSavety.multiply(Long.valueOf(2), Long.valueOf(2)));
 	}
 
 	/**
@@ -193,8 +189,7 @@ public class TestArithmeticSavety {
 	 */
 	@Test
 	public final void testIncrement01() {
-		assertEquals(Integer.valueOf(1),
-				ArithmeticSavety.increment(Integer.valueOf(0)));
+		assertEquals(Integer.valueOf(1), ArithmeticSavety.increment(Integer.valueOf(0)));
 	}
 
 	/**

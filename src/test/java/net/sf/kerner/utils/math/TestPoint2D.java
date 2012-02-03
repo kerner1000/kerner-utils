@@ -10,9 +10,9 @@ import org.junit.BeforeClass;
 import org.junit.Test;
 
 public class TestPoint2D {
-	
+
 	private Point2D p1;
-	
+
 	private Point2D p2;
 
 	@BeforeClass
@@ -25,7 +25,7 @@ public class TestPoint2D {
 
 	@Before
 	public void setUp() throws Exception {
-		
+
 	}
 
 	@After
@@ -34,29 +34,29 @@ public class TestPoint2D {
 
 	@Test
 	public final void testHashCode01() {
-		p1 = new Point2D(1,1);
-		p2 = new Point2D(1,1);
+		p1 = new Point2D(1, 1);
+		p2 = new Point2D(1, 1);
 		assertEquals(p1.hashCode(), p2.hashCode());
 	}
 
 	@Test
 	public final void testEqualsObject01() {
-		p1 = new Point2D(1,1);
-		p2 = new Point2D(1,1);
+		p1 = new Point2D(1, 1);
+		p2 = new Point2D(1, 1);
 		assertEquals(p1, p2);
 	}
-	
+
 	@Test
 	public final void testHashCode02() {
-		p1 = new Point2D(1,1);
-		p2 = new Point2D(1,2);
+		p1 = new Point2D(1, 1);
+		p2 = new Point2D(1, 2);
 		assertFalse(p1.hashCode() == p2.hashCode());
 	}
 
 	@Test
 	public final void testEqualsObject02() {
-		p1 = new Point2D(1,1);
-		p2 = new Point2D(1,2);
+		p1 = new Point2D(1, 1);
+		p2 = new Point2D(1, 2);
 		assertFalse(p1.equals(p2));
 	}
 

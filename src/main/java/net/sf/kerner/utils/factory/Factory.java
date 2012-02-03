@@ -21,25 +21,28 @@ package net.sf.kerner.utils.factory;
  * 
  * <p>
  * <b>Example:</b><br>
- *
+ * 
  * </p>
  * <p>
+ * 
  * <pre>
  * TODO example
  * </pre>
+ * 
  * </p>
- *
+ * 
  * @author <a href="mailto:alex.kerner.24@googlemail.com">Alexander Kerner</a>
  * @version 2010-11-12
- *
- * @param <E> type of object that is created
+ * 
+ * @param <E>
+ *            type of object that is created
  */
 public interface Factory<E> {
-	
+
 	/**
 	 * 
 	 * Create a new instance of type {@code E}.
-	 *
+	 * 
 	 * @return the newly created instance
 	 */
 	E create();

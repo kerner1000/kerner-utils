@@ -10,7 +10,7 @@ import org.junit.BeforeClass;
 import org.junit.Test;
 
 public class TestStopWatch {
-	
+
 	private StopWatch w;
 
 	@BeforeClass
@@ -35,7 +35,7 @@ public class TestStopWatch {
 	public final void testStart01() {
 		w.start();
 	}
-	
+
 	@Test(expected = AlreadyRunningException.class)
 	public final void testStart02() {
 		w.start();
@@ -46,7 +46,7 @@ public class TestStopWatch {
 	public final void testRound01() {
 		w.round();
 	}
-	
+
 	@Test
 	public final void testRound02() {
 		w.start();
@@ -57,7 +57,7 @@ public class TestStopWatch {
 	public final void testStop01() {
 		w.stop();
 	}
-	
+
 	@Test
 	public final void testStop02() {
 		w.start();

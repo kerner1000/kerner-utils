@@ -34,47 +34,47 @@ public class TestDoubleUnitKilo {
 
 	@Test
 	public final void testToPicos01() {
-		assertEquals(1.0E+15,u.toPicos(1),0);
+		assertEquals(1.0E+15, u.toPicos(1), 0);
 	}
 
 	@Test
 	public final void testToNanos() {
-		assertEquals(1.0E+12,u.toNanos(1),0);
+		assertEquals(1.0E+12, u.toNanos(1), 0);
 	}
 
 	@Test
 	public final void testToMicros01() {
-		assertEquals(1.0E+9,u.toMicros(1),0);
+		assertEquals(1.0E+9, u.toMicros(1), 0);
 	}
 
 	@Test
 	public final void testToMillis01() {
-		assertEquals(1.0E+6,u.toMillis(1),0);
+		assertEquals(1.0E+6, u.toMillis(1), 0);
 	}
 
 	@Test
 	public final void testToUnits01() {
-		assertEquals(1.0E+3,u.toUnits(1),0);
+		assertEquals(1.0E+3, u.toUnits(1), 0);
 	}
 
 	@Test
 	public final void testToKilos01() {
-		assertEquals(1,u.toKilos(1),0);
+		assertEquals(1, u.toKilos(1), 0);
 	}
 
 	@Test
 	public final void testToMegas01() {
-		assertEquals(1.0E-3,u.toMegas(1),0);
+		assertEquals(1.0E-3, u.toMegas(1), 0);
 	}
 
 	@Test
 	public final void testToGigas01() {
-		assertEquals(1.0E-6,u.toGigas(1),0);
+		assertEquals(1.0E-6, u.toGigas(1), 0);
 	}
 
 	@Test
 	public final void testToTeras01() {
-		assertEquals(1.0E-9,u.toTeras(1),0);
+		assertEquals(1.0E-9, u.toTeras(1), 0);
 	}
 
 	@Ignore("delegate method")

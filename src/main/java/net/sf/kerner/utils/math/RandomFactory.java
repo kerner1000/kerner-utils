@@ -19,37 +19,38 @@ import java.util.Random;
 
 /**
  * 
- * {@code RandomFactory} provides static methods to generate random numbers. 
+ * {@code RandomFactory} provides static methods to generate random numbers.
  * 
  * <p>
  * <b>Example:</b><br>
- *
+ * 
  * </p>
  * <p>
+ * 
  * <pre>
  * TODO example
  * </pre>
+ * 
  * </p>
- *
+ * 
  * @author <a href="mailto:alex.kerner.24@googlemail.com">Alexander Kerner</a>
  * @version 2011-02-15
- *
+ * 
  */
 public class RandomFactory {
-	
+
 	private final static Random R = new Random();
-	
-	private RandomFactory(){
-		
+
+	private RandomFactory() {
+
 	}
-	
+
 	/**
 	 * 
-	 * Generate a random {@code double} for which the following is true:
-	 * </p>
+	 * Generate a random {@code double} for which the following is true: </p>
 	 * {@code random = value +- delta}.
-	 *
-	 * @param value 
+	 * 
+	 * @param value
 	 * @param delta
 	 * @return new random [@code double}
 	 */
@@ -58,28 +59,28 @@ public class RandomFactory {
 		final double heigh = value + delta;
 		return generateBetween(low, heigh);
 	}
-	
+
 	/**
 	 * 
-	 * Generate a random {@code double} for which the following is true:
-	 * </p>
+	 * Generate a random {@code double} for which the following is true: </p>
 	 * {@code low <= random <= high}.
-	 *
-	 * @param low lower boundary, inclusive
-	 * @param high upper boundary, exclusive
+	 * 
+	 * @param low
+	 *            lower boundary, inclusive
+	 * @param high
+	 *            upper boundary, exclusive
 	 * @return new random [@code double}
 	 */
 	public static double generateBetween(final double low, final double high) {
 		return low + (high - low) * R.nextDouble();
 	}
-	
+
 	/**
 	 * 
-	 * Generate a random {@code int} for which the following is true:
-	 * </p>
+	 * Generate a random {@code int} for which the following is true: </p>
 	 * {@code random = value +- delta}.
-	 *
-	 * @param value 
+	 * 
+	 * @param value
 	 * @param delta
 	 * @return new random [@code int}
 	 */
@@ -88,15 +89,16 @@ public class RandomFactory {
 		final int heigh = value + delta;
 		return generateBetween(low, heigh);
 	}
-	
+
 	/**
 	 * 
-	 * Generate a random {@code int} for which the following is true:
-	 * </p>
+	 * Generate a random {@code int} for which the following is true: </p>
 	 * {@code low <= random <= high}.
-	 *
-	 * @param low lower boundary, inclusive
-	 * @param high upper boundary, inclusive
+	 * 
+	 * @param low
+	 *            lower boundary, inclusive
+	 * @param high
+	 *            upper boundary, inclusive
 	 * @return new random [@code int}
 	 */
 	public static int generateBetween(final int low, final int high) {

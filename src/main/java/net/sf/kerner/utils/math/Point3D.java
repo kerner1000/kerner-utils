@@ -1,8 +1,7 @@
 package net.sf.kerner.utils.math;
 
-
 public class Point3D extends Point2D {
-	
+
 	protected final double z;
 
 	public Point3D(double x, double y, double z) {
@@ -13,7 +12,7 @@ public class Point3D extends Point2D {
 	public Point3D(Point3D template) {
 		this(template.getX(), template.getY(), template.getZ());
 	}
-	
+
 	// Override //
 
 	@Override
@@ -27,7 +26,7 @@ public class Point3D extends Point2D {
 	}
 
 	@Override
-	public boolean equals(Object obj) {		
+	public boolean equals(Object obj) {
 		if (this == obj) {
 			return true;
 		}
@@ -43,14 +42,14 @@ public class Point3D extends Point2D {
 		}
 		return true;
 	}
-	
+
 	@Override
 	public String toString() {
 		return super.toString() + ",z=" + getZ();
 	}
-	
+
 	// Getter / Setter //
-	
+
 	public double getZ() {
 		return z;
 	}

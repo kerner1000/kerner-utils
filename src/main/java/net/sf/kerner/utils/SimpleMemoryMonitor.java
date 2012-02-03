@@ -9,7 +9,7 @@ public class SimpleMemoryMonitor implements MemoryMonitor {
 	private long average = 0;
 
 	private final LongUnit unit;
-	
+
 	private final long interval;
 
 	private final Object lock = new Object();
@@ -37,11 +37,11 @@ public class SimpleMemoryMonitor implements MemoryMonitor {
 		this.unit = unit;
 		this.interval = interval;
 	}
-	
+
 	public SimpleMemoryMonitor(long interval) {
 		this(DEFAULT_UNIT, interval);
 	}
-	
+
 	public SimpleMemoryMonitor() {
 		this(DEFAULT_UNIT, 2000);
 	}
@@ -52,7 +52,8 @@ public class SimpleMemoryMonitor implements MemoryMonitor {
 
 	public long getCurrentUsage(LongUnit unit) {
 		final long result = unit.convert(Runtime.getRuntime().totalMemory(), LongUnit.UNIT);
-//		System.out.println("convert from " + Runtime.getRuntime().totalMemory() + " to " + result);
+		// System.out.println("convert from " +
+		// Runtime.getRuntime().totalMemory() + " to " + result);
 		return result;
 	}
 
@@ -63,7 +64,7 @@ public class SimpleMemoryMonitor implements MemoryMonitor {
 	public synchronized long getMaxUsage(LongUnit unit) {
 		return this.unit.convert(max, unit);
 	}
-	
+
 	public synchronized long getAverageUsage() {
 		return getAverageUsage(this.unit);
 	}

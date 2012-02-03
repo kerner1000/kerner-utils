@@ -18,18 +18,18 @@ import org.junit.runners.Parameterized;
 import org.junit.runners.Parameterized.Parameters;
 
 /**
- *
+ * 
  * @author <a href="mailto:alex.kerner.24@googlemail.com">Alexander Kerner</a>
  * @version 2011-03-01
- *
+ * 
  */
 @RunWith(Parameterized.class)
 public class TestPointGetSlope {
-	
+
 	private Point x;
-	
+
 	private Point y;
-	
+
 	private double result;
 
 	@BeforeClass
@@ -47,23 +47,21 @@ public class TestPointGetSlope {
 	@After
 	public void tearDown() throws Exception {
 	}
-	
+
 	@Parameters
 	public static Collection<Object[]> getParams() {
 		return Arrays.asList(new Object[][] {
-				
+
 				// x, y, result
-				
-				{new Point(1,1), new Point(2,2), 1},
-				{new Point(1,1), new Point(2,3), 2},
-				{new Point(1,1), new Point(1,1), 0},
-				{new Point(1,1), new Point(3,2), 0.5},
-				{new Point(1,1), new Point(-1,-1), 1},
-				{new Point(-1,-1), new Point(-2,-3), 2},
+
+				{ new Point(1, 1), new Point(2, 2), 1 }, { new Point(1, 1), new Point(2, 3), 2 },
+				{ new Point(1, 1), new Point(1, 1), 0 }, { new Point(1, 1), new Point(3, 2), 0.5 },
+				{ new Point(1, 1), new Point(-1, -1), 1 },
+				{ new Point(-1, -1), new Point(-2, -3), 2 },
 
 		});
 	}
-	
+
 	public TestPointGetSlope(Point x, Point y, double result) {
 		this.x = x;
 		this.y = y;
@@ -71,13 +69,13 @@ public class TestPointGetSlope {
 	}
 
 	/**
-	 * Test method for {@link net.sf.kerner.utils.math.Point#getSlope(net.sf.kerner.utils.math.Point, net.sf.kerner.utils.math.Point)}.
+	 * Test method for
+	 * {@link net.sf.kerner.utils.math.Point#getSlope(net.sf.kerner.utils.math.Point, net.sf.kerner.utils.math.Point)}
+	 * .
 	 */
 	@Test
 	public final void testGetSlope() {
-		assertEquals(result, Point.getSlope(x, y),0 );
+		assertEquals(result, Point.getSlope(x, y), 0);
 	}
-	
-	
 
 }

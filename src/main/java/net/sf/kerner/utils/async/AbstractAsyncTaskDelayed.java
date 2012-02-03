@@ -1,10 +1,10 @@
 package net.sf.kerner.utils.async;
 
-
-public abstract class AbstractAsyncTaskDelayed<O, I, K> extends AbstractAsyncTask<O, I> implements BatchListener<K>{
+public abstract class AbstractAsyncTaskDelayed<O, I, K> extends AbstractAsyncTask<O, I> implements
+		BatchListener<K> {
 
 	private volatile O result;
-	
+
 	public void execute(final I value) {
 
 		try {
@@ -13,11 +13,11 @@ public abstract class AbstractAsyncTaskDelayed<O, I, K> extends AbstractAsyncTas
 			doOnFailure(e);
 		}
 	}
-	
+
 	public void allDone(boolean error) {
-		doOnSucess(result);		
+		doOnSucess(result);
 	}
-	
+
 	public void errorOccured(K identifier, Exception error) {
 		doOnFailure(error);
 	};

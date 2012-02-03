@@ -97,9 +97,9 @@ public class KeyValue<K, V> implements Entry<K, V> {
 		this.key = template.getKey();
 		this.value = template.getValue();
 	}
-	
+
 	// Override //
-	
+
 	@Override
 	public int hashCode() {
 		final int prime = 31;
@@ -117,7 +117,7 @@ public class KeyValue<K, V> implements Entry<K, V> {
 			return false;
 		if (getClass() != obj.getClass())
 			return false;
-		KeyValue<?,?> other = (KeyValue<?,?>) obj;
+		KeyValue<?, ?> other = (KeyValue<?, ?>) obj;
 		if (key == null) {
 			if (other.key != null)
 				return false;

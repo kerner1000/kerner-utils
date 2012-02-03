@@ -14,15 +14,15 @@ import org.junit.BeforeClass;
 import org.junit.Test;
 
 /**
- *
+ * 
  * @author <a href="mailto:alex.kerner.24@googlemail.com">Alexander Kerner</a>
  * @version 2010-11-22
- *
+ * 
  */
 public class TestTimePeriod {
 
 	private TimePeriod tp;
-	
+
 	@BeforeClass
 	public static void setUpBeforeClass() throws Exception {
 	}
@@ -40,7 +40,9 @@ public class TestTimePeriod {
 	}
 
 	/**
-	 * Test method for {@link net.sf.kerner.utils.time.TimePeriod#TimePeriod(long, long, java.util.concurrent.TimeUnit)}.
+	 * Test method for
+	 * {@link net.sf.kerner.utils.time.TimePeriod#TimePeriod(long, long, java.util.concurrent.TimeUnit)}
+	 * .
 	 */
 	@Test
 	public final void testTimePeriodLongLongTimeUnit() {
@@ -48,7 +50,8 @@ public class TestTimePeriod {
 	}
 
 	/**
-	 * Test method for {@link net.sf.kerner.utils.time.TimePeriod#TimePeriod(long, long)}.
+	 * Test method for
+	 * {@link net.sf.kerner.utils.time.TimePeriod#TimePeriod(long, long)}.
 	 */
 	@Test
 	public final void testTimePeriodLongLong() {
@@ -72,7 +75,7 @@ public class TestTimePeriod {
 		tp = new TimePeriod(1, 2, TimeUnit.SECONDS);
 		assertEquals(1, tp.getStart());
 	}
-	
+
 	/**
 	 * Test method for {@link net.sf.kerner.utils.time.TimePeriod#getStart()}.
 	 */
@@ -90,7 +93,7 @@ public class TestTimePeriod {
 		tp = new TimePeriod(1, 2, TimeUnit.SECONDS);
 		assertEquals(2, tp.getStop());
 	}
-	
+
 	/**
 	 * Test method for {@link net.sf.kerner.utils.time.TimePeriod#getStop()}.
 	 */
@@ -101,7 +104,9 @@ public class TestTimePeriod {
 	}
 
 	/**
-	 * Test method for {@link net.sf.kerner.utils.time.TimePeriod#getStart(java.util.concurrent.TimeUnit)}.
+	 * Test method for
+	 * {@link net.sf.kerner.utils.time.TimePeriod#getStart(java.util.concurrent.TimeUnit)}
+	 * .
 	 */
 	@Test
 	public final void testGetStartTimeUnit() {
@@ -110,16 +115,20 @@ public class TestTimePeriod {
 	}
 
 	/**
-	 * Test method for {@link net.sf.kerner.utils.time.TimePeriod#getStop(java.util.concurrent.TimeUnit)}.
+	 * Test method for
+	 * {@link net.sf.kerner.utils.time.TimePeriod#getStop(java.util.concurrent.TimeUnit)}
+	 * .
 	 */
 	@Test
 	public final void testGetStopTimeUnit() {
 		tp = new TimePeriod(1, 2, TimeUnit.SECONDS);
 		assertEquals(2000, tp.getStop(TimeUnit.MILLISECONDS));
 	}
-	
+
 	/**
-	 * Test method for {@link net.sf.kerner.utils.time.TimePeriod#getStop(java.util.concurrent.TimeUnit)}.
+	 * Test method for
+	 * {@link net.sf.kerner.utils.time.TimePeriod#getStop(java.util.concurrent.TimeUnit)}
+	 * .
 	 */
 	@Test
 	public final void testGetStopTimeUnit01() {
@@ -128,16 +137,18 @@ public class TestTimePeriod {
 	}
 
 	/**
-	 * Test method for {@link net.sf.kerner.utils.time.TimePeriod#getDuration()}.
+	 * Test method for {@link net.sf.kerner.utils.time.TimePeriod#getDuration()}
+	 * .
 	 */
 	@Test
 	public final void testGetDuration() {
 		tp = new TimePeriod(1, 2, TimeUnit.SECONDS);
 		assertEquals(1, tp.getDuration());
 	}
-	
+
 	/**
-	 * Test method for {@link net.sf.kerner.utils.time.TimePeriod#getDuration()}.
+	 * Test method for {@link net.sf.kerner.utils.time.TimePeriod#getDuration()}
+	 * .
 	 */
 	@Test
 	public final void testGetDuration01() {
@@ -146,23 +157,27 @@ public class TestTimePeriod {
 	}
 
 	/**
-	 * Test method for {@link net.sf.kerner.utils.time.TimePeriod#getDuration(java.util.concurrent.TimeUnit)}.
+	 * Test method for
+	 * {@link net.sf.kerner.utils.time.TimePeriod#getDuration(java.util.concurrent.TimeUnit)}
+	 * .
 	 */
 	@Test
 	public final void testGetDurationTimeUnit() {
 		tp = new TimePeriod(1, 2, TimeUnit.SECONDS);
 		assertEquals(1000, tp.getDuration(TimeUnit.MILLISECONDS));
-		
+
 	}
-	
+
 	/**
-	 * Test method for {@link net.sf.kerner.utils.time.TimePeriod#getDuration(java.util.concurrent.TimeUnit)}.
+	 * Test method for
+	 * {@link net.sf.kerner.utils.time.TimePeriod#getDuration(java.util.concurrent.TimeUnit)}
+	 * .
 	 */
 	@Test
 	public final void testGetDurationTimeUnit01() {
 		tp = new TimePeriod(1, 2);
 		assertEquals(1, tp.getDuration(TimeUnit.MILLISECONDS));
-		
+
 	}
 
 }

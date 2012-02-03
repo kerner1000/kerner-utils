@@ -20,19 +20,23 @@ package net.sf.kerner.utils.async;
  * 
  * <p>
  * <b>Example:</b><br>
- *
+ * 
  * </p>
  * <p>
+ * 
  * <pre>
  * TODO example
  * </pre>
+ * 
  * </p>
- *
+ * 
  * @author <a href="mailto:alex.kerner.24@googlemail.com">Alexander Kerner</a>
  * @version 2011-03-10
- *
- * @param <R> type of result
- * @param <V> type of value
+ * 
+ * @param <R>
+ *            type of result
+ * @param <V>
+ *            type of value
  */
 public interface AsyncTask<R, V> {
 

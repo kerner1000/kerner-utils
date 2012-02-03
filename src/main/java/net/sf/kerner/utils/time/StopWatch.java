@@ -21,37 +21,43 @@ package net.sf.kerner.utils.time;
  * 
  * <p>
  * <b>Example:</b><br>
- *
+ * 
  * </p>
  * <p>
+ * 
  * <pre>
  * TODO example
  * </pre>
+ * 
  * </p>
- *
+ * 
  * @author <a href="mailto:alex.kerner.24@googlemail.com">Alexander Kerner</a>
  * @version 2011-08-02
- *
+ * 
  */
 public class StopWatch {
-	
+
 	/**
 	 * 
-	 * An Exception to indicate that a {@code StopWatch} is already running and cannot be started.
+	 * An Exception to indicate that a {@code StopWatch} is already running and
+	 * cannot be started.
 	 * 
 	 * <p>
 	 * <b>Example:</b><br>
-	 *
+	 * 
 	 * </p>
 	 * <p>
+	 * 
 	 * <pre>
 	 * TODO example
 	 * </pre>
+	 * 
 	 * </p>
-	 *
-	 * @author <a href="mailto:alex.kerner.24@googlemail.com">Alexander Kerner</a>
+	 * 
+	 * @author <a href="mailto:alex.kerner.24@googlemail.com">Alexander
+	 *         Kerner</a>
 	 * @version 2011-08-02
-	 *
+	 * 
 	 */
 	public class AlreadyRunningException extends RuntimeException {
 
@@ -71,26 +77,30 @@ public class StopWatch {
 		public AlreadyRunningException(Throwable arg0) {
 			super(arg0);
 		}
-		
+
 	}
-	
+
 	/**
 	 * 
-	 * An Exception to indicate that a {@code StopWatch} is not running and cannot be stoped.
+	 * An Exception to indicate that a {@code StopWatch} is not running and
+	 * cannot be stoped.
 	 * 
 	 * <p>
 	 * <b>Example:</b><br>
-	 *
+	 * 
 	 * </p>
 	 * <p>
+	 * 
 	 * <pre>
 	 * TODO example
 	 * </pre>
+	 * 
 	 * </p>
-	 *
-	 * @author <a href="mailto:alex.kerner.24@googlemail.com">Alexander Kerner</a>
+	 * 
+	 * @author <a href="mailto:alex.kerner.24@googlemail.com">Alexander
+	 *         Kerner</a>
 	 * @version 2011-08-02
-	 *
+	 * 
 	 */
 	public class NotRunningException extends RuntimeException {
 
@@ -110,47 +120,53 @@ public class StopWatch {
 		public NotRunningException(Throwable cause) {
 			super(cause);
 		}
-		
+
 	}
-	
+
 	/**
 	 * 
 	 */
 	private long time = -1;
-	
+
 	/**
 	 * 
 	 * Start this {@code StopWatch}.
-	 *
-	 * @throws AlreadyRunningException if this this {@code StopWatch} is already running
+	 * 
+	 * @throws AlreadyRunningException
+	 *             if this this {@code StopWatch} is already running
 	 */
 	public synchronized void start() throws AlreadyRunningException {
-		if(time > 0) throw new AlreadyRunningException();
+		if (time > 0)
+			throw new AlreadyRunningException();
 		time = System.currentTimeMillis();
 	}
-	
+
 	/**
 	 * 
 	 * Retrieve time that has passed since starting this {@code StopWatch}.
-	 *
+	 * 
 	 * @return time time that has passed since starting this {@code StopWatch}
-	 * @throws NotRunningException if this {@code StopWatch} is not running
+	 * @throws NotRunningException
+	 *             if this {@code StopWatch} is not running
 	 */
 	public synchronized TimePeriod round() throws NotRunningException {
-		if(time < 0) throw new NotRunningException();
+		if (time < 0)
+			throw new NotRunningException();
 		return new TimePeriod(time, System.currentTimeMillis());
 	}
-	
+
 	/**
 	 * 
 	 * Stop this {@code StopWatch}.
-	 *
+	 * 
 	 * @return time that has passed since starting this {@code StopWatch}
-	 * @throws NotRunningException if this {@code StopWatch} is not running
+	 * @throws NotRunningException
+	 *             if this {@code StopWatch} is not running
 	 */
 	public synchronized TimePeriod stop() throws NotRunningException {
 		final long result = time;
-		if(result < 0) throw new NotRunningException();
+		if (result < 0)
+			throw new NotRunningException();
 		// reset
 		time = -1;
 		return new TimePeriod(result, System.currentTimeMillis());

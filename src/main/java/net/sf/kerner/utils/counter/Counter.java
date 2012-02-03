@@ -123,14 +123,14 @@ public class Counter {
 	// Private //
 
 	private void checkPerform() {
-//		System.err.println("intervalHelper=" + intervalHelper);
-//		System.err.println("interval=" + interval);
-//		System.err.println("count=" + cnt);
+		// System.err.println("intervalHelper=" + intervalHelper);
+		// System.err.println("interval=" + interval);
+		// System.err.println("count=" + cnt);
 		if (intervalHelper == interval) {
 			perform();
 			performed = true;
 			intervalHelper = 0;
-		}else{
+		} else {
 			performed = false;
 		}
 	}
@@ -260,17 +260,18 @@ public class Counter {
 			return false;
 		return true;
 	}
-	
+
 	/**
 	 * 
-	 * Set this {@code Counter} {@link Runnable}. 
-	 *
-	 * @param runner {@link Runnable} that is run every interval
+	 * Set this {@code Counter} {@link Runnable}.
+	 * 
+	 * @param runner
+	 *            {@link Runnable} that is run every interval
 	 */
 	public synchronized void addRunnable(Runnable runner) {
 		this.runner.add(runner);
 	}
-	
+
 	public synchronized void clearRunnables() {
 		this.runner.clear();
 	}
@@ -281,7 +282,7 @@ public class Counter {
 	 * </p>
 	 */
 	public synchronized void perform() {
-		for(Runnable r :runner){
+		for (Runnable r : runner) {
 			r.run();
 		}
 	}

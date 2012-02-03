@@ -11,7 +11,7 @@ import org.junit.Ignore;
 import org.junit.Test;
 
 public class TestDoubleUnitPico {
-	
+
 	private DoubleUnit u;
 
 	@BeforeClass
@@ -36,7 +36,7 @@ public class TestDoubleUnitPico {
 	public final void testToPicos01() {
 		assertEquals(1, u.toPicos(1), 0);
 	}
-	
+
 	@Test
 	public final void testToPicos02() {
 		assertEquals(1234, u.toPicos(1234), 0);
@@ -46,17 +46,17 @@ public class TestDoubleUnitPico {
 	public final void testToPicos03() {
 		assertEquals(0.04, u.toPicos(0.04), 0);
 	}
-	
+
 	@Test
 	public final void testToPicos04() {
 		assertEquals(0.06, u.toPicos(0.06), 0);
 	}
-	
+
 	@Test
 	public final void testToNanos01() {
 		assertEquals(1.0E-3, u.toNanos(1), 0);
 	}
-	
+
 	@Test
 	public final void testToNanos02() {
 		assertEquals(123456.789, u.toNanos(123456789), 0);

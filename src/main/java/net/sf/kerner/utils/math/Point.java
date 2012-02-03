@@ -19,19 +19,20 @@ package net.sf.kerner.utils.math;
  * 
  * @deprecated Use Point2D instead
  * 
- * A Point in a two-dimensional coordinate system, defined by {@code double} Coordinates.
+ *             A Point in a two-dimensional coordinate system, defined by
+ *             {@code double} Coordinates.
  * 
- * <p>
- * <b>Example:</b><br>
+ *             <p>
+ *             <b>Example:</b><br>
  * 
- * </p>
- * <p>
+ *             </p>
+ *             <p>
  * 
- * <pre>
+ *             <pre>
  * TODO example
  * </pre>
  * 
- * </p>
+ *             </p>
  * 
  * @author <a href="mailto:alex.kerner.24@googlemail.com">Alexander Kerner</a>
  * @version 2011-03-01
@@ -46,9 +47,11 @@ public class Point {
 	/**
 	 * 
 	 * Create a new {@code Point}, at given X- and Y-Coordinate.
-	 *
-	 * @param x X-Coordinate
-	 * @param y Y-Coordinate
+	 * 
+	 * @param x
+	 *            X-Coordinate
+	 * @param y
+	 *            Y-Coordinate
 	 */
 	public Point(double x, double y) {
 		this.y = y;
@@ -58,8 +61,9 @@ public class Point {
 	/**
 	 * 
 	 * Create new {@code Point}, which is a copy of given {@code Point}
-	 *
-	 * @param template {@code Point} to copy
+	 * 
+	 * @param template
+	 *            {@code Point} to copy
 	 */
 	public Point(Point template) {
 		this(template.x, template.y);
@@ -68,9 +72,11 @@ public class Point {
 	/**
 	 * 
 	 * Calculate the slope from one {@code Point} to another.
-	 *
-	 * @param one first {@code Point}
-	 * @param tow second {@code Point}
+	 * 
+	 * @param one
+	 *            first {@code Point}
+	 * @param tow
+	 *            second {@code Point}
 	 * @return the slope
 	 */
 	final public static double getSlope(Point one, Point tow) {

@@ -35,21 +35,18 @@ public class Utils {
 	 * 
 	 * @see Locale
 	 */
-	public static final Locale USER_LOCALE = new Locale(
-			System.getProperty("user.language"));
+	public static final Locale USER_LOCALE = new Locale(System.getProperty("user.language"));
 
 	/**
 	 * The working directory is the location in the file system from where the
 	 * java command was invoked.
 	 */
-	public static final File WORKING_DIR = new File(
-			System.getProperty("user.dir"));
+	public static final File WORKING_DIR = new File(System.getProperty("user.dir"));
 
 	/**
 	 * Number of CPUs that are currently available to this JVM.
 	 */
-	public static final int NUM_CPUS = Runtime.getRuntime()
-			.availableProcessors();
+	public static final int NUM_CPUS = Runtime.getRuntime().availableProcessors();
 
 	private Utils() {
 
@@ -71,11 +68,11 @@ public class Utils {
 				throw new NullPointerException();
 		}
 	}
-	
-	public static int getHashCode(Collection<?> objects){
+
+	public static int getHashCode(Collection<?> objects) {
 		int result = 0;
-		for(Object o : objects){
-			if(o instanceof Collection)
+		for (Object o : objects) {
+			if (o instanceof Collection)
 				result += getHashCode((Collection<?>) o);
 			else if (ArrayUtils.isArray(o))
 				result += getHashCode(Arrays.asList((Object[]) o));

@@ -1,5 +1,3 @@
-
-
 package net.sf.kerner.utils;
 
 import java.lang.management.ManagementFactory;
@@ -22,7 +20,7 @@ import javax.management.NotificationListener;
  * @version 2011-09-19
  */
 public class LowMemoryNotifier {
-	
+
 	public static interface Listener {
 		public void notice(long usedMemory, long maxMemory);
 	}
@@ -30,7 +28,7 @@ public class LowMemoryNotifier {
 	private static final MemoryPoolMXBean tenuredGenPool = findTenuredGenPool();
 
 	private final static LowMemoryNotifier instance = new LowMemoryNotifier();
-	
+
 	private final Collection<Listener> listeners = new ArrayList<Listener>();
 
 	private LowMemoryNotifier() {
@@ -38,8 +36,7 @@ public class LowMemoryNotifier {
 		final NotificationEmitter emitter = (NotificationEmitter) mbean;
 		emitter.addNotificationListener(new NotificationListener() {
 			public void handleNotification(Notification n, Object hb) {
-				if (n.getType().equals(
-						MemoryNotificationInfo.MEMORY_THRESHOLD_EXCEEDED)) {
+				if (n.getType().equals(MemoryNotificationInfo.MEMORY_THRESHOLD_EXCEEDED)) {
 					long maxMemory = tenuredGenPool.getUsage().getMax();
 					long usedMemory = tenuredGenPool.getUsage().getUsed();
 					for (Listener listener : listeners) {
@@ -79,8 +76,7 @@ public class LowMemoryNotifier {
 		for (MemoryPoolMXBean pool : ManagementFactory.getMemoryPoolMXBeans()) {
 			// I don't know whether this approach is better, or whether
 			// we should rather check for the pool name "Tenured Gen"?
-			if (pool.getType() == MemoryType.HEAP
-					&& pool.isUsageThresholdSupported()) {
+			if (pool.getType() == MemoryType.HEAP && pool.isUsageThresholdSupported()) {
 				return pool;
 			}
 		}

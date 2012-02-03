@@ -31,22 +31,20 @@ public class TestPointGetDistance {
 	private Point y;
 
 	private double result;
-	
+
 	@Parameters
 	public static Collection<Object[]> getParams() {
 		return Arrays.asList(new Object[][] {
-				
+
 				// x, y, result
-				
-				{new Point(1,1), new Point(1,1), 0},
-				{new Point(1,1), new Point(1,2), 1},
-				{new Point(1,1), new Point(2,1), 1},
-				{new Point(1,1), new Point(2,2), 1.41},
-				{new Point(0,0), new Point(2,2), 2.82},
-				{new Point(2,2), new Point(0,0), 2.82},
-		});
+
+				{ new Point(1, 1), new Point(1, 1), 0 }, { new Point(1, 1), new Point(1, 2), 1 },
+				{ new Point(1, 1), new Point(2, 1), 1 },
+				{ new Point(1, 1), new Point(2, 2), 1.41 },
+				{ new Point(0, 0), new Point(2, 2), 2.82 },
+				{ new Point(2, 2), new Point(0, 0), 2.82 }, });
 	}
-	
+
 	public TestPointGetDistance(Point x, Point y, double result) {
 		this.x = x;
 		this.y = y;
@@ -76,7 +74,7 @@ public class TestPointGetDistance {
 	 */
 	@Test
 	public final void testGetDistance() {
-		assertEquals(result, x.getDistance(y),0.01 );
+		assertEquals(result, x.getDistance(y), 0.01);
 	}
 
 }
