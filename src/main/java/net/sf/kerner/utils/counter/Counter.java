@@ -15,6 +15,9 @@ limitations under the License.
 
 package net.sf.kerner.utils.counter;
 
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  * <p>
  * A {@code Counter} can be used to monitor program behavior or to keep track of
@@ -57,7 +60,7 @@ public class Counter {
 	private volatile int interval = 1;
 	private volatile int intervalHelper = 0;
 	private volatile boolean performed = false;
-	private volatile Runnable runner;
+	private volatile List<Runnable> runner = new ArrayList<Runnable>();
 
 	// Constructor //
 
@@ -68,11 +71,6 @@ public class Counter {
 	public Counter() {
 		// all zero
 		initCnt = 0;
-		runner = new Runnable() {
-			public void run() {
-				// do nothing
-			}
-		};
 	}
 
 	/**
@@ -82,7 +80,7 @@ public class Counter {
 	public Counter(Runnable runner) {
 		// all zero
 		initCnt = 0;
-		this.runner = runner;
+		this.runner.add(runner);
 	}
 
 	/**
@@ -100,11 +98,6 @@ public class Counter {
 		synchronized (Counter.class) {
 			this.cnt = count;
 			this.initCnt = count;
-			runner = new Runnable() {
-				public void run() {
-					// do nothing
-				}
-			};
 		}
 	}
 
@@ -123,7 +116,7 @@ public class Counter {
 		synchronized (Counter.class) {
 			this.cnt = count;
 			this.initCnt = count;
-			this.runner = runner;
+			this.runner.add(runner);
 		}
 	}
 
@@ -274,8 +267,12 @@ public class Counter {
 	 *
 	 * @param runner {@link Runnable} that is run every interval
 	 */
-	public synchronized void setRunnable(Runnable runner) {
-		this.runner = runner;
+	public synchronized void addRunnable(Runnable runner) {
+		this.runner.add(runner);
+	}
+	
+	public synchronized void clearRunnables() {
+		this.runner.clear();
 	}
 
 	/**
@@ -283,8 +280,10 @@ public class Counter {
 	 * Performs action.
 	 * </p>
 	 */
-	public void perform() {
-		runner.run();
+	public synchronized void perform() {
+		for(Runnable r :runner){
+			r.run();
+		}
 	}
 
 }
