@@ -41,11 +41,6 @@ public class TestMathUtils2 {
 		MathUtils.min(new double[]{});
 	}
 	
-	@Test(expected=IllegalArgumentException.class)
-	public final void testMin02() {
-		MathUtils.min(null);
-	}
-	
 	@Test
 	public final void testMin03() {
 		assertEquals(0, MathUtils.min(new double[]{0,1}), 0);
@@ -82,11 +77,6 @@ public class TestMathUtils2 {
 		MathUtils.mean(new double[]{});
 	}
 	
-	@Test(expected=IllegalArgumentException.class)
-	public final void testMean02() {
-		MathUtils.mean(null);
-	}
-	
 	@Test
 	public final void testMean03() {
 		assertEquals(0.5, MathUtils.mean(new double[]{0,1}), 0);
@@ -102,11 +92,6 @@ public class TestMathUtils2 {
 		MathUtils.sum(new double[]{});
 	}
 	
-	@Test(expected=IllegalArgumentException.class)
-	public final void testSum02() {
-		MathUtils.sum(null);
-	}
-	
 	@Test
 	public final void testSum03() {
 		assertEquals(1, MathUtils.sum(new double[]{0,1}), 0);
@@ -120,11 +105,6 @@ public class TestMathUtils2 {
 	@Test(expected=IllegalArgumentException.class)
 	public final void testStdDev01() {
 		MathUtils.stdDev(new double[]{});
-	}
-	
-	@Test(expected=IllegalArgumentException.class)
-	public final void testStdDev02() {
-		MathUtils.stdDev(null);
 	}
 
 	/**
