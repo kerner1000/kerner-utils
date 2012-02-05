@@ -259,4 +259,8 @@ public class MathUtils {
 	public static Integer add(Integer integer1, Integer integer2) {
 		return Integer.valueOf(integer1.intValue() + integer2.intValue());
 	}
+	
+	public static double log2(double number){
+		return Math.log(number)/Math.log(2);
+	}
 }
