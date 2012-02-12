@@ -97,6 +97,11 @@ public class KeyValue<K, V> implements Entry<K, V> {
 		this.key = template.getKey();
 		this.value = template.getValue();
 	}
+	
+	@Override
+	public String toString() {
+		return key + "=" + value;
+	}
 
 	// Override //
 
