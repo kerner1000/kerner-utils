@@ -26,7 +26,7 @@ import net.sf.kerner.utils.ArrayUtils;
  * 
  * 
  * @author <a href="mailto:alex.kerner.24@googlemail.com">Alexander Kerner</a>
- * @version 2012-01-13
+ * @version 2012-02-12
  * 
  */
 public class MathUtils {
