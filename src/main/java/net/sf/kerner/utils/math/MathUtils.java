@@ -16,6 +16,7 @@ limitations under the License.
 package net.sf.kerner.utils.math;
 
 import java.util.Arrays;
+import java.util.List;
 
 import net.sf.kerner.utils.ArrayUtils;
 
@@ -126,6 +127,10 @@ public class MathUtils {
 		if (values == null || values.length < 1)
 			throw new IllegalArgumentException();
 		return sum(values) / values.length;
+	}
+	
+	public static double median(List<Double> values) {
+		return median(ArrayUtils.toPrimitive(values.toArray(new Double[values.size()])));
 	}
 
 	public static double median(double... values) {
