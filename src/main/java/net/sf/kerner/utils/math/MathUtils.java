@@ -105,7 +105,7 @@ public class MathUtils {
 	public static double min(double... values) {
 		if (values == null || values.length < 1)
 			throw new IllegalArgumentException();
-		double result = 0;
+		double result = Double.MAX_VALUE;
 		for (double i : values) {
 			if (i < result)
 				result = i;
