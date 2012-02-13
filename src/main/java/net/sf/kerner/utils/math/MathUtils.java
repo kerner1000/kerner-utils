@@ -88,7 +88,7 @@ public class MathUtils {
 	public static Number max(Number... values) {
 		return max(ArrayUtils.toPrimitive(ArrayUtils.toDouble(values)));
 	}
-
+	
 	/**
 	 * 
 	 * Get minimum of given values.
@@ -109,6 +109,20 @@ public class MathUtils {
 		}
 		return result;
 	}
+	
+	/**
+	 * 
+	 * Get minimum of given values.
+	 * 
+	 * @param values
+	 *            values to get minimum from
+	 * @return minimum value
+	 * @throws IllegalArgumentException
+	 *             if {@code values.length < 1} or {@code values == null}
+	 */
+	public static Number min(Number... values) {
+		return min(ArrayUtils.toPrimitive(ArrayUtils.toDouble(values)));
+	}
 
 	/**
 	 * 
@@ -124,6 +138,20 @@ public class MathUtils {
 		if (values == null || values.length < 1)
 			throw new IllegalArgumentException();
 		return sum(values) / values.length;
+	}
+	
+	/**
+	 * 
+	 * Calculate the {@code mean} of given values.
+	 * 
+	 * @param values
+	 *            values to calculate the mean
+	 * @return mean of values
+	 * @throws IllegalArgumentException
+	 *             if {@code values.length < 1} or {@code values == null}
+	 */
+	public static Number mean(Number... values) {
+		return mean(ArrayUtils.toPrimitive(ArrayUtils.toDouble(values)));
 	}
 
 	/**
@@ -143,6 +171,19 @@ public class MathUtils {
 			result += d;
 		}
 		return result;
+	}
+	
+	/**
+	 * 
+	 * Calculate the {@code sum} of given values.
+	 * 
+	 * @param values
+	 *            values to calculate the sum
+	 * @return sum of values * @throws IllegalArgumentException if
+	 *         {@code values.length < 1} or {@code values == null}
+	 */
+	public static Number sum(Number... values) {
+		return sum(ArrayUtils.toPrimitive(ArrayUtils.toDouble(values)));
 	}
 
 	/**
@@ -165,6 +206,20 @@ public class MathUtils {
 			sumOfSquares += (dd) * (dd);
 		}
 		return Math.sqrt(sumOfSquares / (values.length - 1));
+	}
+	
+	/**
+	 * 
+	 * Calculate the {@code standard deviation} of given values.
+	 * 
+	 * @param values
+	 *            values to calculate the standard deviation
+	 * @return sum of values
+	 * @throws IllegalArgumentException
+	 *             if {@code values.length < 1} or {@code values == null}
+	 */
+	public static Number stdDev(Number... values) {
+		return stdDev(ArrayUtils.toPrimitive(ArrayUtils.toDouble(values)));
 	}
 
 	/**
@@ -203,5 +258,9 @@ public class MathUtils {
 	 */
 	public static Integer add(Integer integer1, Integer integer2) {
 		return Integer.valueOf(integer1.intValue() + integer2.intValue());
+	}
+	
+	public static double log2(double number){
+		return Math.log(number)/Math.log(2);
 	}
 }
