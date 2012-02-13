@@ -43,6 +43,11 @@ public class TestMathUtils2 {
 	}
 	
 	@Test
+	public final void testMin02() {
+		assertEquals(2, MathUtils.min(new double[]{2,3,4}), 0);
+	}
+	
+	@Test
 	public final void testMin03() {
 		assertEquals(0, MathUtils.min(new double[]{0,1}), 0);
 	}

@@ -33,7 +33,7 @@
 			<item name="Download" href="http://sourceforge.net/projects/kerner-utils/files/" />
 			<item name="JavaDoc"
 				href="http://kerner-utils.sourceforge.net/apidocs/index.html" />
-			<item name="Test Coverage" href="http://jtables.sourceforge.net/cobertura/index.html" />
+			<item name="Test Coverage" href="http://kerner-utils.sourceforge.net/cobertura/index.html" />
 			<item name="Sourceforge" href="http://sourceforge.net/projects/kerner-utils/" />
 		</menu>
 		<menu ref="reports" />
