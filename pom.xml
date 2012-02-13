@@ -11,6 +11,10 @@
 	<name>Kerner Utilities</name>
 	<description>Commonly used utility classes.</description>
 	<url>http://kerner-utils.sourceforge.net/</url>
+	<issueManagement>
+		<system>JIRA</system>
+		<url>http://akerner.de:8090/</url>
+	</issueManagement>
 	<properties>
 		<jdk.version>1.5</jdk.version>
 	</properties>
