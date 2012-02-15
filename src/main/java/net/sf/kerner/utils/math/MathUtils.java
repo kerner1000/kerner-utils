@@ -157,6 +157,26 @@ public class MathUtils {
 	public static Number mean(Number... values) {
 		return mean(ArrayUtils.toPrimitive(ArrayUtils.toDouble(values)));
 	}
+	
+	public static double median(double... values) {
+		if (values == null || values.length < 1)
+			throw new IllegalArgumentException();
+
+		// TODO necessary?
+		double[] b = new double[values.length];
+		System.arraycopy(values, 0, b, 0, b.length);
+		Arrays.sort(b);
+
+		if (values.length % 2 == 0) {
+			return (b[(b.length / 2) - 1] + b[b.length / 2]) / 2;
+		} else {
+			return b[b.length / 2];
+		}
+	}
+	
+	public static double median(List<Double> values) {
+		return median(ArrayUtils.toPrimitive(values.toArray(new Double[values.size()])));
+	}
 
 	/**
 	 * 
