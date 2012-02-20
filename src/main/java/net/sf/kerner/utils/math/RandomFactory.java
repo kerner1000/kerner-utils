@@ -104,5 +104,11 @@ public class RandomFactory {
 	public static int generateBetween(final int low, final int high) {
 		return low + R.nextInt(high + 1 - low);
 	}
+	
+	public static boolean generateWithProbability(double probability){
+		return R.nextInt((int) (probability * 100)) == 0;
+	}
+	
+	
 
 }
