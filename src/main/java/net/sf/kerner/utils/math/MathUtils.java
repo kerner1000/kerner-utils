@@ -16,9 +16,6 @@ limitations under the License.
 package net.sf.kerner.utils.math;
 
 import java.util.Arrays;
-import java.util.List;
-
-import net.sf.kerner.utils.ArrayUtils;
 
 /**
  * 
@@ -26,7 +23,7 @@ import net.sf.kerner.utils.ArrayUtils;
  * 
  * 
  * @author <a href="mailto:alex.kerner.24@googlemail.com">Alexander Kerner</a>
- * @version 2012-02-12
+ * @version 2012-02-20
  * 
  */
 public class MathUtils {
@@ -78,20 +75,6 @@ public class MathUtils {
 		}
 		return result;
 	}
-
-	/**
-	 * 
-	 * Get maximum of given values.
-	 * 
-	 * @param values
-	 *            values to get maximum from
-	 * @return maximum value
-	 * @throws IllegalArgumentException
-	 *             if {@code values.length < 1} or {@code values == null}
-	 */
-	public static Number max(Number... values) {
-		return max(ArrayUtils.toPrimitive(ArrayUtils.toDouble(values)));
-	}
 	
 	/**
 	 * 
@@ -113,20 +96,6 @@ public class MathUtils {
 		}
 		return result;
 	}
-	
-	/**
-	 * 
-	 * Get minimum of given values.
-	 * 
-	 * @param values
-	 *            values to get minimum from
-	 * @return minimum value
-	 * @throws IllegalArgumentException
-	 *             if {@code values.length < 1} or {@code values == null}
-	 */
-	public static Number min(Number... values) {
-		return min(ArrayUtils.toPrimitive(ArrayUtils.toDouble(values)));
-	}
 
 	/**
 	 * 
@@ -144,20 +113,6 @@ public class MathUtils {
 		return sum(values) / values.length;
 	}
 	
-	/**
-	 * 
-	 * Calculate the {@code mean} of given values.
-	 * 
-	 * @param values
-	 *            values to calculate the mean
-	 * @return mean of values
-	 * @throws IllegalArgumentException
-	 *             if {@code values.length < 1} or {@code values == null}
-	 */
-	public static Number mean(Number... values) {
-		return mean(ArrayUtils.toPrimitive(ArrayUtils.toDouble(values)));
-	}
-	
 	public static double median(double... values) {
 		if (values == null || values.length < 1)
 			throw new IllegalArgumentException();
@@ -172,10 +127,6 @@ public class MathUtils {
 		} else {
 			return b[b.length / 2];
 		}
-	}
-	
-	public static double median(List<Double> values) {
-		return median(ArrayUtils.toPrimitive(values.toArray(new Double[values.size()])));
 	}
 
 	/**
@@ -195,19 +146,6 @@ public class MathUtils {
 			result += d;
 		}
 		return result;
-	}
-	
-	/**
-	 * 
-	 * Calculate the {@code sum} of given values.
-	 * 
-	 * @param values
-	 *            values to calculate the sum
-	 * @return sum of values * @throws IllegalArgumentException if
-	 *         {@code values.length < 1} or {@code values == null}
-	 */
-	public static Number sum(Number... values) {
-		return sum(ArrayUtils.toPrimitive(ArrayUtils.toDouble(values)));
 	}
 
 	/**
@@ -230,20 +168,6 @@ public class MathUtils {
 			sumOfSquares += (dd) * (dd);
 		}
 		return Math.sqrt(sumOfSquares / (values.length - 1));
-	}
-	
-	/**
-	 * 
-	 * Calculate the {@code standard deviation} of given values.
-	 * 
-	 * @param values
-	 *            values to calculate the standard deviation
-	 * @return sum of values
-	 * @throws IllegalArgumentException
-	 *             if {@code values.length < 1} or {@code values == null}
-	 */
-	public static Number stdDev(Number... values) {
-		return stdDev(ArrayUtils.toPrimitive(ArrayUtils.toDouble(values)));
 	}
 
 	/**
