@@ -16,6 +16,9 @@ limitations under the License.
 package net.sf.kerner.utils.math;
 
 import java.util.Arrays;
+import java.util.Collection;
+
+import net.sf.kerner.utils.ArrayUtils;
 
 /**
  * 
@@ -76,6 +79,10 @@ public class MathUtils {
 		return result;
 	}
 	
+	public static double max(Collection<Double> values) {
+		return max(ArrayUtils.toPrimitive(values.toArray(new Double[values.size()])));
+	}
+	
 	/**
 	 * 
 	 * Get minimum of given values.
@@ -96,6 +103,10 @@ public class MathUtils {
 		}
 		return result;
 	}
+	
+	public static double min(Collection<Double> values) {
+		return min(ArrayUtils.toPrimitive(values.toArray(new Double[values.size()])));
+	}
 
 	/**
 	 * 
@@ -113,6 +124,10 @@ public class MathUtils {
 		return sum(values) / values.length;
 	}
 	
+	public static double mean(Collection<Double> values) {
+		return mean(ArrayUtils.toPrimitive(values.toArray(new Double[values.size()])));
+	}
+	
 	public static double median(double... values) {
 		if (values == null || values.length < 1)
 			throw new IllegalArgumentException();
@@ -127,6 +142,10 @@ public class MathUtils {
 		} else {
 			return b[b.length / 2];
 		}
+	}
+	
+	public static double median(Collection<Double> values) {
+		return median(ArrayUtils.toPrimitive(values.toArray(new Double[values.size()])));
 	}
 
 	/**
@@ -146,6 +165,10 @@ public class MathUtils {
 			result += d;
 		}
 		return result;
+	}
+	
+	public static double sum(Collection<Double> values) {
+		return sum(ArrayUtils.toPrimitive(values.toArray(new Double[values.size()])));
 	}
 
 	/**
@@ -168,6 +191,10 @@ public class MathUtils {
 			sumOfSquares += (dd) * (dd);
 		}
 		return Math.sqrt(sumOfSquares / (values.length - 1));
+	}
+	
+	public static double stdDev(Collection<Double> values) {
+		return stdDev(ArrayUtils.toPrimitive(values.toArray(new Double[values.size()])));
 	}
 
 	/**
