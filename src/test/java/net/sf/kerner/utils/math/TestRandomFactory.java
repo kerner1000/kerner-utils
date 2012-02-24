@@ -17,6 +17,7 @@ package net.sf.kerner.utils.math;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
+import static org.junit.Assert.assertFalse;
 
 import org.junit.After;
 import org.junit.AfterClass;
@@ -103,6 +104,37 @@ public class TestRandomFactory {
 			// System.out.println(r);
 			assertTrue(r <= high);
 		}
+	}
+	
+	@Test
+	public void testGenerateWithPropability01() {
+		for (int i = 0; i < 10000; i++) {
+			final boolean r = RandomFactory.generateWithProbability(1);
+			assertTrue(r);
+		}
+	}
+	
+	@Test
+	public void testGenerateWithPropability02() {
+		for (int i = 0; i < 10000; i++) {
+			final boolean r = RandomFactory.generateWithProbability(0);
+			assertFalse(r);
+		}
+	}
+	
+	@Test
+	public void testGenerateWithPropability03() {
+		int happend = 0;
+		double prob = 0.01;
+		int multiplier = 1000;
+		for (int i = 0; i < 100 * multiplier; i++) {
+			final boolean r = RandomFactory.generateWithProbability(prob);
+			if(r){
+				happend++;
+			}
+		}
+		System.out.println(Math.round(happend / multiplier));
+		assertEquals(prob * 100, Math.round(happend / multiplier), 1);
 	}
 
 }

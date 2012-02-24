@@ -106,9 +106,19 @@ public class RandomFactory {
 	}
 	
 	public static boolean generateWithProbability(double probability){
-		return R.nextInt((int) (probability * 100)) == 0;
+		if(probability == 1)
+			return true;
+		if(probability == 0)
+			return false;
+		probability = (int) (probability * 100);
+		int result = R.nextInt((int) probability);
+		System.out.println("prob="+probability);
+		System.out.println("result="+result);
+		return  result == 0;
 	}
 	
-	
+	public static boolean generate(){
+		return R.nextBoolean();
+	}
 
 }
