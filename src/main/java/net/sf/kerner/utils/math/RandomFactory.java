@@ -15,6 +15,7 @@ limitations under the License.
 
 package net.sf.kerner.utils.math;
 
+import java.io.ObjectInputStream.GetField;
 import java.util.Random;
 
 /**
@@ -106,15 +107,15 @@ public class RandomFactory {
 	}
 	
 	public static boolean generateWithProbability(double probability){
-		if(probability == 1)
+		if(probability > 1)
 			return true;
-		if(probability == 0)
+		if(probability <= 0)
 			return false;
 		probability = (int) (probability * 100);
-		int result = R.nextInt((int) probability);
-		System.out.println("prob="+probability);
-		System.out.println("result="+result);
-		return  result == 0;
+		int result = generateBetween(0, 100);
+//		System.out.println("prob="+probability);
+//		System.out.println("result="+result);
+		return result <= probability;
 	}
 	
 	public static boolean generate(){

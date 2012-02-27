@@ -133,8 +133,7 @@ public class TestRandomFactory {
 				happend++;
 			}
 		}
-		System.out.println(Math.round(happend / multiplier));
-		assertEquals(prob * 100, Math.round(happend / multiplier), 1);
+		assertEquals(prob * 100, Math.round(happend / multiplier), 0);
 	}
 
 }
