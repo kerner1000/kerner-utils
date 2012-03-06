@@ -1,5 +1,5 @@
 /**********************************************************************
-Copyright (c) 2009-2011 Alexander Kerner. All rights reserved.
+Copyright (c) 2009-2012 Alexander Kerner. All rights reserved.
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
 You may obtain a copy of the License at
@@ -15,7 +15,6 @@ limitations under the License.
 
 package net.sf.kerner.utils.math;
 
-import java.io.ObjectInputStream.GetField;
 import java.util.Random;
 
 /**
@@ -35,7 +34,7 @@ import java.util.Random;
  * </p>
  * 
  * @author <a href="mailto:alex.kerner.24@googlemail.com">Alexander Kerner</a>
- * @version 2011-02-15
+ * @version 2012-03-06
  * 
  */
 public class RandomFactory {
