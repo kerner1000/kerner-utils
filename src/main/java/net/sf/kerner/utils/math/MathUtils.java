@@ -26,7 +26,7 @@ import net.sf.kerner.utils.ArrayUtils;
  * 
  * 
  * @author <a href="mailto:alex.kerner.24@googlemail.com">Alexander Kerner</a>
- * @version 2012-02-20
+ * @version 2012-03-06
  * 
  */
 public class MathUtils {
@@ -57,6 +57,12 @@ public class MathUtils {
 		return result;
 	}
 
+	public static boolean equals(double d1, double d2, int decimalPlace){
+		double d11 = round(d1, decimalPlace);
+		double d22 = round(d2, decimalPlace);
+		return Double.valueOf(d11).equals(Double.valueOf(d22));
+	}
+	
 	/**
 	 * 
 	 * Get maximum of given values.
@@ -196,6 +202,30 @@ public class MathUtils {
 	public static double stdDev(Collection<Double> values) {
 		return stdDev(ArrayUtils.toPrimitive(values.toArray(new Double[values.size()])));
 	}
+	
+	public static double getClosest(double number, double... values){
+		if (values == null || values.length < 1)
+			throw new IllegalArgumentException();
+		if(values.length == 1){
+			return values[0];
+		}
+		final double[] arr = ArrayUtils.copy(values);
+		Arrays.sort(arr);
+		double result = arr[0];
+		double diff = Math.abs(arr[0] - number);
+		for(int i=1; i<arr.length; i++){
+			double diff2 =  Math.abs(arr[i] - number);
+			if(diff2 < diff){
+				diff = diff2;
+				result = arr[i];
+			}
+		}
+		return result;
+	}
+	
+	public static double getClosest(double number, Collection<Double> values){
+		return getClosest(number, ArrayUtils.toPrimitive(values.toArray(new Double[values.size()])));
+	}
 
 	/**
 	 * 
@@ -238,4 +268,6 @@ public class MathUtils {
 	public static double log2(double number){
 		return Math.log(number)/Math.log(2);
 	}
+	
+	
 }
