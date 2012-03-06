@@ -15,11 +15,13 @@ limitations under the License.
 
 package net.sf.kerner.utils;
 
+import java.util.Collection;
+
 /**
  * Utility class for array stuff.
  * 
  * @author <a href="mailto:alex.kerner.24@googlemail.com">Alexander Kerner</a>
- * @version 2012-01-13
+ * @version 2012-03-06
  * 
  */
 public class ArrayUtils {
@@ -211,11 +213,39 @@ public class ArrayUtils {
 		return result;
 	}
 
+	public static Double[] toDouble(Collection<? extends Number> numbers) {
+		return toDouble(numbers.toArray(new Number[numbers.size()]));
+	}
+
 	public static Double[] toDouble(Number... numbers) {
 		final Double[] result = new Double[numbers.length];
 		for (int i = 0; i < result.length; i++) {
 			result[i] = new Double(numbers[i].doubleValue());
 		}
+		return result;
+	}
+
+	public static Object[] copy(Object[] array) {
+		Object[] result = new Object[array.length];
+		System.arraycopy(array, 0, result, 0, array.length);
+		return result;
+	}
+
+	public static double[] copy(double[] array) {
+		double[] result = new double[array.length];
+		System.arraycopy(array, 0, result, 0, array.length);
+		return result;
+	}
+
+	public static int[] copy(int[] array) {
+		int[] result = new int[array.length];
+		System.arraycopy(array, 0, result, 0, array.length);
+		return result;
+	}
+
+	public static byte[] copy(byte[] array) {
+		byte[] result = new byte[array.length];
+		System.arraycopy(array, 0, result, 0, array.length);
 		return result;
 	}
 
