@@ -22,6 +22,7 @@ public class TestAbstractAsyncTask {
 
 	private AbstractAsyncTask<String, String> call;
 
+	@SuppressWarnings("unused")
 	private volatile String res;
 
 	private volatile Exception failure;

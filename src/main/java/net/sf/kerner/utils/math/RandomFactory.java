@@ -1,5 +1,5 @@
 /**********************************************************************
-Copyright (c) 2009-2011 Alexander Kerner. All rights reserved.
+Copyright (c) 2009-2012 Alexander Kerner. All rights reserved.
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
 You may obtain a copy of the License at
@@ -34,7 +34,7 @@ import java.util.Random;
  * </p>
  * 
  * @author <a href="mailto:alex.kerner.24@googlemail.com">Alexander Kerner</a>
- * @version 2011-02-15
+ * @version 2012-03-06
  * 
  */
 public class RandomFactory {
@@ -106,15 +106,15 @@ public class RandomFactory {
 	}
 	
 	public static boolean generateWithProbability(double probability){
-		if(probability == 1)
+		if(probability > 1)
 			return true;
-		if(probability == 0)
+		if(probability <= 0)
 			return false;
 		probability = (int) (probability * 100);
-		int result = R.nextInt((int) probability);
-		System.out.println("prob="+probability);
-		System.out.println("result="+result);
-		return  result == 0;
+		int result = generateBetween(0, 100);
+//		System.out.println("prob="+probability);
+//		System.out.println("result="+result);
+		return result <= probability;
 	}
 	
 	public static boolean generate(){

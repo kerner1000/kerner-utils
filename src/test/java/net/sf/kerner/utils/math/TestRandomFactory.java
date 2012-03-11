@@ -23,6 +23,7 @@ import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
 import org.junit.BeforeClass;
+import org.junit.Ignore;
 import org.junit.Test;
 
 /**
@@ -122,6 +123,7 @@ public class TestRandomFactory {
 		}
 	}
 	
+	@Ignore
 	@Test
 	public void testGenerateWithPropability03() {
 		int happend = 0;
@@ -133,8 +135,7 @@ public class TestRandomFactory {
 				happend++;
 			}
 		}
-		System.out.println(Math.round(happend / multiplier));
-		assertEquals(prob * 100, Math.round(happend / multiplier), 1);
+		assertEquals(prob * 100, Math.round(happend / multiplier), 0);
 	}
 
 }
