@@ -17,25 +17,26 @@ package net.sf.kerner.utils.math;
 
 /**
  * 
- * @deprecated Use Point2D instead
  * 
- *             A Point in a two-dimensional coordinate system, defined by
- *             {@code double} Coordinates.
  * 
- *             <p>
- *             <b>Example:</b><br>
+ * A Point in a two-dimensional coordinate system, defined by {@code double}
+ * Coordinates.
  * 
- *             </p>
- *             <p>
+ * <p>
+ * <b>Example:</b><br>
  * 
- *             <pre>
+ * </p>
+ * <p>
+ * 
+ * <pre>
  * TODO example
  * </pre>
  * 
- *             </p>
+ * </p>
  * 
  * @author <a href="mailto:alex.kerner.24@googlemail.com">Alexander Kerner</a>
  * @version 2011-03-01
+ * @deprecated Use Point2D instead
  * 
  */
 public class Point {
@@ -95,8 +96,7 @@ public class Point {
 	}
 
 	final public double getDistance(Point two) {
-		return Math.sqrt(Math.pow(Point.getDeltaX(this, two), 2)
-				+ Math.pow(Point.getDeltaY(this, two), 2));
+		return Math.sqrt(Math.pow(Point.getDeltaX(this, two), 2) + Math.pow(Point.getDeltaY(this, two), 2));
 	}
 
 	final public double getSlope(Point two) {

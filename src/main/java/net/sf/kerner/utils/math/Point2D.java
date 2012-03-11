@@ -18,7 +18,7 @@ public class Point2D {
 
 	/**
 	 * 
-	 * Calculate the slope from one {@code Point} to another.
+	 * Calculate the slope from one {@code Point2D} to another.
 	 * 
 	 * @param one
 	 *            first {@code Point}
