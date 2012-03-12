@@ -172,6 +172,13 @@ public class ArrayUtils {
 			result[i] = arr[i];
 		return result;
 	}
+	
+	public static double[] toPrimitive(Number[] arr) {
+		final double[] result = new double[arr.length];
+		for (int i = 0; i < arr.length; i++)
+			result[i] = arr[i].doubleValue();
+		return result;
+	}
 
 	public static int[] toPrimitive(Integer[] arr) {
 		final int[] result = new int[arr.length];
