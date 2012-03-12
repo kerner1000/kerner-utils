@@ -85,8 +85,8 @@ public class MathUtils {
 		return result;
 	}
 	
-	public static double max(Collection<Double> values) {
-		return max(ArrayUtils.toPrimitive(values.toArray(new Double[values.size()])));
+	public static double max(Collection<? extends Number> values) {
+		return max(ArrayUtils.toPrimitive(values.toArray(new Number[values.size()])));
 	}
 	
 	/**
@@ -110,8 +110,8 @@ public class MathUtils {
 		return result;
 	}
 	
-	public static double min(Collection<Double> values) {
-		return min(ArrayUtils.toPrimitive(values.toArray(new Double[values.size()])));
+	public static double min(Collection<? extends Number> values) {
+		return min(ArrayUtils.toPrimitive(values.toArray(new Number[values.size()])));
 	}
 
 	/**
@@ -223,8 +223,8 @@ public class MathUtils {
 		return result;
 	}
 	
-	public static double getClosest(double number, Collection<Double> values){
-		return getClosest(number, ArrayUtils.toPrimitive(values.toArray(new Double[values.size()])));
+	public static double getClosest(double number, Collection<? extends Number> values){
+		return getClosest(number, ArrayUtils.toPrimitive(values.toArray(new Number[values.size()])));
 	}
 
 	/**
@@ -269,5 +269,15 @@ public class MathUtils {
 		return Math.log(number)/Math.log(2);
 	}
 	
+	public static double lower(double d1, double d2){
+		if(d1 < d2)
+			return d1;
+		else return d2;
+	}
 	
+	public static double higher(double d1, double d2){
+		if(d1 > d2)
+			return d1;
+		else return d2;
+	}
 }
