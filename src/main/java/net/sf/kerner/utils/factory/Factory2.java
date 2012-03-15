@@ -15,40 +15,8 @@ limitations under the License.
 
 package net.sf.kerner.utils.factory;
 
-/**
- * 
- * A {@code Factory2} is used to create a new instance of type {@code E}.
- * 
- * <p>
- * <b>Example:</b><br>
- * 
- * </p>
- * <p>
- * 
- * <pre>
- * TODO example
- * </pre>
- * 
- * </p>
- * 
- * @author <a href="mailto:alex.kerner.24@googlemail.com">Alexander Kerner</a>
- * @version 2012-03-15
- * 
- * @param <E>
- *            type of object that is created
- * @param <P>
- *            type of parameter that is needed for object creation
- */
 public interface Factory2<E, P> {
 
-	/**
-	 * 
-	 * Create a new instance of type {@code E}.
-	 * 
-	 * @param param
-	 *            parameter that is needed for object creation
-	 * @return the newly created instance
-	 */
 	E create(P param);
 
 }
