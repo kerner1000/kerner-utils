@@ -13,14 +13,12 @@ See the License for the specific language governing permissions and
 limitations under the License.
  ***********************************************************************/
 
-package net.sf.kerner.utils.modifier;
-
-import net.sf.kerner.utils.transformer.Transformer;
+package net.sf.kerner.utils;
 
 /**
  * 
- * A {@code Modifier} modifies one object of type {@code T} and returns the
- * modified object which is of type {@code V extends T}.
+ * A {@code Transformer} converts one object of type {@code T} to another object
+ * of type {@code V}.
  * 
  * <p>
  * <b>Example:</b><br>
@@ -35,13 +33,22 @@ import net.sf.kerner.utils.transformer.Transformer;
  * </p>
  * 
  * @author <a href="mailto:alex.kerner.24@googlemail.com">Alexander Kerner</a>
- * @version 2010-11-14
+ * @version 2010-11-12
  * 
  * @param <T>
  *            type of input element
  * @param <V>
  *            type of output element
  */
-public interface Modifier<T, V extends T> extends Transformer<T, V> {
+public interface Transformer<T, V> {
+
+	/**
+	 * Transform {@code element} to a new element of type {@code V}.
+	 * 
+	 * @param element
+	 *            element that is converted
+	 * @return resulting element
+	 */
+	V transform(T element);
 
 }
