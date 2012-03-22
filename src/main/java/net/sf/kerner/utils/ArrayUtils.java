@@ -172,7 +172,7 @@ public class ArrayUtils {
 			result[i] = arr[i];
 		return result;
 	}
-	
+
 	public static double[] toPrimitive(Number[] arr) {
 		final double[] result = new double[arr.length];
 		for (int i = 0; i < arr.length; i++)

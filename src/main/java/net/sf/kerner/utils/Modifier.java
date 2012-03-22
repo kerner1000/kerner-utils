@@ -15,7 +15,6 @@ limitations under the License.
 
 package net.sf.kerner.utils;
 
-
 /**
  * 
  * A {@code Modifier} modifies one object of type {@code T} and returns the

@@ -104,20 +104,20 @@ public class RandomFactory {
 	public static int generateBetween(final int low, final int high) {
 		return low + R.nextInt(high + 1 - low);
 	}
-	
-	public static boolean generateWithProbability(double probability){
-		if(probability > 1)
+
+	public static boolean generateWithProbability(double probability) {
+		if (probability > 1)
 			return true;
-		if(probability <= 0)
+		if (probability <= 0)
 			return false;
 		probability = (int) (probability * 100);
 		int result = generateBetween(0, 100);
-//		System.out.println("prob="+probability);
-//		System.out.println("result="+result);
+		// System.out.println("prob="+probability);
+		// System.out.println("result="+result);
 		return result <= probability;
 	}
-	
-	public static boolean generate(){
+
+	public static boolean generate() {
 		return R.nextBoolean();
 	}
 

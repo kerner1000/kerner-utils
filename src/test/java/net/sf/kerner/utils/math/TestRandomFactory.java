@@ -106,7 +106,7 @@ public class TestRandomFactory {
 			assertTrue(r <= high);
 		}
 	}
-	
+
 	@Test
 	public void testGenerateWithPropability01() {
 		for (int i = 0; i < 10000; i++) {
@@ -114,7 +114,7 @@ public class TestRandomFactory {
 			assertTrue(r);
 		}
 	}
-	
+
 	@Test
 	public void testGenerateWithPropability02() {
 		for (int i = 0; i < 10000; i++) {
@@ -122,7 +122,7 @@ public class TestRandomFactory {
 			assertFalse(r);
 		}
 	}
-	
+
 	@Ignore
 	@Test
 	public void testGenerateWithPropability03() {
@@ -131,7 +131,7 @@ public class TestRandomFactory {
 		int multiplier = 1000;
 		for (int i = 0; i < 100 * multiplier; i++) {
 			final boolean r = RandomFactory.generateWithProbability(prob);
-			if(r){
+			if (r) {
 				happend++;
 			}
 		}
