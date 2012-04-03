@@ -81,4 +81,14 @@ public class Utils {
 		}
 		return result;
 	}
+	
+	public static boolean equalsOnHashCode(Object o1, Object o2){
+		if(o1 == null){
+			throw new NullPointerException();
+		}
+		if(o2 == null){
+			return false;
+		}
+		return o1.hashCode() == o2.hashCode();
+	}
 }
