@@ -1,6 +1,6 @@
 package net.sf.kerner.utils.math;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
 
 import org.junit.After;
 import org.junit.AfterClass;
@@ -37,19 +37,19 @@ public class TestMathUtils3 {
 		double c = MathUtils.getClosest(0.9, 3, 2, 1);
 		assertEquals(1, c, 0);
 	}
-	
+
 	@Test
 	public final void testGetClosest03() {
 		double c = MathUtils.getClosest(0.9, 3, 1, 2, 1);
 		assertEquals(1, c, 0);
 	}
-	
+
 	@Test
 	public final void testGetClosest04() {
 		double c = MathUtils.getClosest(0.9, 3, 3, 1, 2, 1);
 		assertEquals(1, c, 0);
 	}
-	
+
 	@Test
 	public final void testGetClosest05() {
 		double c = MathUtils.getClosest(1.9, 0, 1, 2, 3);

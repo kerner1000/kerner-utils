@@ -57,12 +57,12 @@ public class MathUtils {
 		return result;
 	}
 
-	public static boolean equals(double d1, double d2, int decimalPlace){
+	public static boolean equals(double d1, double d2, int decimalPlace) {
 		double d11 = round(d1, decimalPlace);
 		double d22 = round(d2, decimalPlace);
 		return Double.valueOf(d11).equals(Double.valueOf(d22));
 	}
-	
+
 	/**
 	 * 
 	 * Get maximum of given values.
@@ -78,17 +78,17 @@ public class MathUtils {
 			throw new IllegalArgumentException();
 		double result = values[0];
 		for (double i : values) {
-			if (i > result){
+			if (i > result) {
 				result = i;
 			}
 		}
 		return result;
 	}
-	
-	public static double max(Collection<Double> values) {
-		return max(ArrayUtils.toPrimitive(values.toArray(new Double[values.size()])));
+
+	public static double max(Collection<? extends Number> values) {
+		return max(ArrayUtils.toPrimitive(values.toArray(new Number[values.size()])));
 	}
-	
+
 	/**
 	 * 
 	 * Get minimum of given values.
@@ -109,9 +109,9 @@ public class MathUtils {
 		}
 		return result;
 	}
-	
-	public static double min(Collection<Double> values) {
-		return min(ArrayUtils.toPrimitive(values.toArray(new Double[values.size()])));
+
+	public static double min(Collection<? extends Number> values) {
+		return min(ArrayUtils.toPrimitive(values.toArray(new Number[values.size()])));
 	}
 
 	/**
@@ -129,11 +129,11 @@ public class MathUtils {
 			throw new IllegalArgumentException();
 		return sum(values) / values.length;
 	}
-	
-	public static double mean(Collection<Double> values) {
-		return mean(ArrayUtils.toPrimitive(values.toArray(new Double[values.size()])));
+
+	public static double mean(Collection<? extends Number> values) {
+		return mean(ArrayUtils.toPrimitive(values.toArray(new Number[values.size()])));
 	}
-	
+
 	public static double median(double... values) {
 		if (values == null || values.length < 1)
 			throw new IllegalArgumentException();
@@ -149,9 +149,9 @@ public class MathUtils {
 			return b[b.length / 2];
 		}
 	}
-	
-	public static double median(Collection<Double> values) {
-		return median(ArrayUtils.toPrimitive(values.toArray(new Double[values.size()])));
+
+	public static double median(Collection<? extends Number> values) {
+		return median(ArrayUtils.toPrimitive(values.toArray(new Number[values.size()])));
 	}
 
 	/**
@@ -172,7 +172,7 @@ public class MathUtils {
 		}
 		return result;
 	}
-	
+
 	public static double sum(Collection<Double> values) {
 		return sum(ArrayUtils.toPrimitive(values.toArray(new Double[values.size()])));
 	}
@@ -188,8 +188,12 @@ public class MathUtils {
 	 *             if {@code values.length < 1} or {@code values == null}
 	 */
 	public static double stdDev(double... values) {
-		if (values == null || values.length < 1)
+		if (values == null || values.length < 1){
 			throw new IllegalArgumentException();
+		}
+		if(values.length == 1){
+			return 0;
+		}
 		double sumOfSquares = 0;
 		final double mean = mean(values);
 		for (double d : values) {
@@ -198,33 +202,33 @@ public class MathUtils {
 		}
 		return Math.sqrt(sumOfSquares / (values.length - 1));
 	}
-	
-	public static double stdDev(Collection<Double> values) {
-		return stdDev(ArrayUtils.toPrimitive(values.toArray(new Double[values.size()])));
+
+	public static double stdDev(Collection<? extends Number> values) {
+		return stdDev(ArrayUtils.toPrimitive(values.toArray(new Number[values.size()])));
 	}
-	
-	public static double getClosest(double number, double... values){
+
+	public static double getClosest(double number, double... values) {
 		if (values == null || values.length < 1)
 			throw new IllegalArgumentException();
-		if(values.length == 1){
+		if (values.length == 1) {
 			return values[0];
 		}
 		final double[] arr = ArrayUtils.copy(values);
 		Arrays.sort(arr);
 		double result = arr[0];
 		double diff = Math.abs(arr[0] - number);
-		for(int i=1; i<arr.length; i++){
-			double diff2 =  Math.abs(arr[i] - number);
-			if(diff2 < diff){
+		for (int i = 1; i < arr.length; i++) {
+			double diff2 = Math.abs(arr[i] - number);
+			if (diff2 < diff) {
 				diff = diff2;
 				result = arr[i];
 			}
 		}
 		return result;
 	}
-	
-	public static double getClosest(double number, Collection<Double> values){
-		return getClosest(number, ArrayUtils.toPrimitive(values.toArray(new Double[values.size()])));
+
+	public static double getClosest(double number, Collection<? extends Number> values) {
+		return getClosest(number, ArrayUtils.toPrimitive(values.toArray(new Number[values.size()])));
 	}
 
 	/**
@@ -264,10 +268,22 @@ public class MathUtils {
 	public static Integer add(Integer integer1, Integer integer2) {
 		return Integer.valueOf(integer1.intValue() + integer2.intValue());
 	}
-	
-	public static double log2(double number){
-		return Math.log(number)/Math.log(2);
+
+	public static double log2(double number) {
+		return Math.log(number) / Math.log(2);
 	}
-	
-	
+
+	public static double lower(double d1, double d2) {
+		if (d1 < d2)
+			return d1;
+		else
+			return d2;
+	}
+
+	public static double higher(double d1, double d2) {
+		if (d1 > d2)
+			return d1;
+		else
+			return d2;
+	}
 }
