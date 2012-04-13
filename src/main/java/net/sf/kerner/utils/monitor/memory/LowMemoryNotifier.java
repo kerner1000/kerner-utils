@@ -1,4 +1,4 @@
-package net.sf.kerner.utils;
+package net.sf.kerner.utils.monitor.memory;
 
 import java.lang.management.ManagementFactory;
 import java.lang.management.MemoryMXBean;

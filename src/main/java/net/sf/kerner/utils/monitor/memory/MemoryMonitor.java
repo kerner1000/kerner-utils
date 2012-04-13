@@ -1,4 +1,4 @@
-package net.sf.kerner.utils;
+package net.sf.kerner.utils.monitor.memory;
 
 import net.sf.kerner.utils.math.LongUnit;
 
