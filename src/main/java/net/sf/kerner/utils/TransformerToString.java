@@ -15,6 +15,6 @@ limitations under the License.
 
 package net.sf.kerner.utils;
 
-public interface ToStringTransformer extends Transformer<Object, String> {
+public interface TransformerToString extends Transformer<Object, String> {
 
 }

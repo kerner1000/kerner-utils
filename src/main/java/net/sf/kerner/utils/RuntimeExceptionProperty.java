@@ -2,45 +2,45 @@ package net.sf.kerner.utils;
 
 import java.util.Properties;
 
-public class PropertyRuntimeException extends RuntimeException {
+public class RuntimeExceptionProperty extends RuntimeException {
 
 	private static final long serialVersionUID = 71806291218857338L;
 
 	private final Properties pro;
 
-	public PropertyRuntimeException() {
+	public RuntimeExceptionProperty() {
 		this.pro = new Properties();
 	}
 
-	public PropertyRuntimeException(String arg0) {
+	public RuntimeExceptionProperty(String arg0) {
 		this(arg0, new Properties());
 
 	}
 
-	public PropertyRuntimeException(Properties pro) {
+	public RuntimeExceptionProperty(Properties pro) {
 		super();
 		this.pro = pro;
 	}
 
-	public PropertyRuntimeException(String arg0, Properties pro) {
+	public RuntimeExceptionProperty(String arg0, Properties pro) {
 		super(arg0);
 		this.pro = pro;
 	}
 
-	public PropertyRuntimeException(Throwable arg0) {
+	public RuntimeExceptionProperty(Throwable arg0) {
 		this(arg0, new Properties());
 	}
 
-	public PropertyRuntimeException(Throwable arg0, Properties pro) {
+	public RuntimeExceptionProperty(Throwable arg0, Properties pro) {
 		super(arg0);
 		this.pro = pro;
 	}
 
-	public PropertyRuntimeException(String arg0, Throwable arg1) {
+	public RuntimeExceptionProperty(String arg0, Throwable arg1) {
 		this(arg0, arg1, new Properties());
 	}
 
-	public PropertyRuntimeException(String arg0, Throwable arg1, Properties pro) {
+	public RuntimeExceptionProperty(String arg0, Throwable arg1, Properties pro) {
 		super(arg0, arg1);
 		this.pro = pro;
 	}

@@ -17,7 +17,7 @@ package net.sf.kerner.utils;
 
 /**
  * 
- * Default implementation for {@link ToStringTransformer}. It uses
+ * Default implementation for {@link TransformerToString}. It uses
  * {@link Object#toString()} to obtain string representation for each object.
  * </p>
  * 
@@ -37,7 +37,7 @@ package net.sf.kerner.utils;
  * @version Apr 13, 2012
  * 
  */
-public class ToStringTransformerDefault implements ToStringTransformer {
+public class TransformerToStringDefault implements TransformerToString {
 
 	/**
 	 * @return {@code element.toString()} or "null" if object is {@code null}

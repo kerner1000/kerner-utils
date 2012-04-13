@@ -3,6 +3,7 @@
  */
 package net.sf.kerner.utils;
 
+import static org.junit.Assert.*;
 import static org.junit.Assert.assertEquals;
 
 import java.util.Arrays;
@@ -17,7 +18,7 @@ import org.junit.Test;
 /**
  * 
  * @author <a href="mailto:alex.kerner.24@googlemail.com">Alexander Kerner</a>
- * @version 2010-11-21
+ * @version 2012-04-13
  * 
  */
 public class TestUtils {
@@ -38,83 +39,80 @@ public class TestUtils {
 	public void tearDown() throws Exception {
 	}
 
-	/**
-	 * Test method for
-	 * {@link net.sf.kerner.utils.Utils#checkForNull(java.lang.Object[])}.
-	 */
 	@Test
-	public final void testCheckForNull() {
+	public final void testCheckForNull01() {
 		Utils.checkForNull(new Object());
 	}
 
-	/**
-	 * Test method for
-	 * {@link net.sf.kerner.utils.Utils#checkForNull(java.lang.Object[])}.
-	 */
 	@Test
-	public final void testCheckForNull01() {
+	public final void testCheckForNull02() {
 		Utils.checkForNull(new Object(), new Object());
 	}
 
-	/**
-	 * Test method for
-	 * {@link net.sf.kerner.utils.Utils#checkForNull(java.lang.Object[])}.
-	 */
 	@Test
-	public final void testCheckForNull02() {
+	public final void testCheckForNull03() {
 		Utils.checkForNull(new Object(), 1);
 	}
 
-	/**
-	 * Test method for
-	 * {@link net.sf.kerner.utils.Utils#checkForNull(java.lang.Object[])}.
-	 */
 	@Test
-	public final void testCheckForNull03() {
+	public final void testCheckForNull04() {
 		Utils.checkForNull(0);
 	}
 
-	/**
-	 * Test method for
-	 * {@link net.sf.kerner.utils.Utils#checkForNull(java.lang.Object[])}.
-	 */
 	@Test(expected = NullPointerException.class)
-	public final void testCheckForNull04() {
+	public final void testCheckForNull05() {
 		Utils.checkForNull((Object[]) null);
 	}
 
-	/**
-	 * Test method for
-	 * {@link net.sf.kerner.utils.Utils#checkForNull(java.lang.Object[])}.
-	 */
 	@Test(expected = NullPointerException.class)
-	public final void testCheckForNull05() {
+	public final void testCheckForNull06() {
 		Utils.checkForNull(null, null);
 	}
 
-	/**
-	 * Test method for
-	 * {@link net.sf.kerner.utils.Utils#checkForNull(java.lang.Object[])}.
-	 */
 	@Test(expected = NullPointerException.class)
-	public final void testCheckForNull06() {
+	public final void testCheckForNull07() {
 		Utils.checkForNull(null, 1);
 	}
 
 	@Test
-	public final void testGetHashCodeCollectionOfObject01() {
-		assertEquals(6, Utils.getHashCode(Arrays.asList(1, 2, 3)));
+	public final void testDeepHashCode01() {
+		assertEquals(6, Utils.deepHashCode(Arrays.asList(1, 2, 3)));
 	}
 
 	@Test
-	public final void testGetHashCodeCollectionOfObject02() {
-		assertEquals(7, Utils.getHashCode(Arrays.asList(1, 2, 3, new Integer[] { 1 })));
+	public final void testDeepHashCode02() {
+		assertEquals(7, Utils.deepHashCode(Arrays.asList(1, 2, 3, new Integer[] { 1 })));
 	}
 
 	@Test
-	public final void testGetHashCodeCollectionOfObject03() {
-		assertEquals(9, Utils.getHashCode(Arrays.asList(1, 2, 3, new Integer[] { 1 },
-				new HashSet<Integer>(Arrays.asList(2)))));
+	public final void testDeepHashCode03() {
+		assertEquals(9,
+				Utils.deepHashCode(Arrays.asList(1, 2, 3, new Integer[] { 1 }, new HashSet<Integer>(Arrays.asList(2)))));
+	}
+	
+	@Test
+	public final void testEqualsOnHashCode01() {
+		assertFalse(Utils.equalsOnHashCode(new Object(), null));
+	}
+	
+	@Test
+	public final void testEqualsOnHashCode02() {
+		assertFalse(Utils.equalsOnHashCode(null, new Object()));
+	}
+	
+	@Test
+	public final void testEqualsOnHashCode03() {
+		assertTrue(Utils.equalsOnHashCode(null, null));
+	}
+	
+	@Test
+	public final void testEqualsOnHashCode04() {
+		assertTrue(Utils.equalsOnHashCode(1, 1));
+	}
+	
+	@Test
+	public final void testEqualsOnHashCode05() {
+		assertFalse(Utils.equalsOnHashCode(1, 2));
 	}
 
 }
