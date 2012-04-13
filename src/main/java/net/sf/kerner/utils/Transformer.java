@@ -1,5 +1,5 @@
 /**********************************************************************
-Copyright (c) 2009-2010 Alexander Kerner. All rights reserved.
+Copyright (c) 2009-2012 Alexander Kerner. All rights reserved.
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
 You may obtain a copy of the License at
@@ -33,7 +33,7 @@ package net.sf.kerner.utils;
  * </p>
  * 
  * @author <a href="mailto:alex.kerner.24@googlemail.com">Alexander Kerner</a>
- * @version 2010-11-12
+ * @version 2012-04-13
  * 
  * @param <T>
  *            type of input element
@@ -43,7 +43,7 @@ package net.sf.kerner.utils;
 public interface Transformer<T, V> {
 
 	/**
-	 * Transform {@code element} to a new element of type {@code V}.
+	 * Transform element of type {@code T} to a new element of type {@code V}.
 	 * 
 	 * @param element
 	 *            element that is converted
