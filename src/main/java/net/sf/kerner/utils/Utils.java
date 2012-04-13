@@ -1,5 +1,5 @@
 /**********************************************************************
-Copyright (c) 2009-2011 Alexander Kerner. All rights reserved.
+Copyright (c) 2009-2012 Alexander Kerner. All rights reserved.
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
 You may obtain a copy of the License at
@@ -25,15 +25,14 @@ import java.util.Locale;
  * General utility class.
  * 
  * @author <a href="mailto:alex.kerner.24@googlemail.com">Alexander Kerner</a>
- * @version 2011-07-05
+ * @version 2012-04-13
  * 
  */
 public class Utils {
 
 	/**
-	 * Locale of current user, e.g. "de", "en" or "fr".
+	 * {@link Locale} of current user, e.g. "de", "en" or "fr".
 	 * 
-	 * @see Locale
 	 */
 	public static final Locale USER_LOCALE = new Locale(System.getProperty("user.language"));
 
@@ -44,7 +43,7 @@ public class Utils {
 	public static final File WORKING_DIR = new File(System.getProperty("user.dir"));
 
 	/**
-	 * Number of CPUs that are currently available to this JVM.
+	 * Number of CPUs that are available to this JVM.
 	 */
 	public static final int NUM_CPUS = Runtime.getRuntime().availableProcessors();
 
@@ -69,24 +68,47 @@ public class Utils {
 		}
 	}
 
-	public static int getHashCode(Collection<?> objects) {
+	/**
+	 * 
+	 * Calculates hashCode of all elements in collection recursively, calling on
+	 * every object {@link Object#hashCode()} and add this to result.
+	 * 
+	 * @param objects
+	 *            Objects from which hashCode is calculated
+	 * @return deep hashCode for given {@link Collection} of objects
+	 */
+	public static int deepHashCode(Collection<?> objects) {
 		int result = 0;
 		for (Object o : objects) {
 			if (o instanceof Collection)
-				result += getHashCode((Collection<?>) o);
+				result += deepHashCode((Collection<?>) o);
 			else if (ArrayUtils.isArray(o))
-				result += getHashCode(Arrays.asList((Object[]) o));
+				result += deepHashCode(Arrays.asList((Object[]) o));
 			else
 				result += o.hashCode();
 		}
 		return result;
 	}
-	
-	public static boolean equalsOnHashCode(Object o1, Object o2){
-		if(o1 == null){
-			throw new NullPointerException();
+
+	/**
+	 * 
+	 * Check, weather one Object equals another by delegating to
+	 * {@link Object#hashCode()}. If one of both Objects is {@code null},
+	 * {@code false} is returned. If both Objects are{@code null}, {@code true}
+	 * is returned.
+	 * 
+	 * @param o1
+	 *            first Object
+	 * @param o2
+	 *            second Object
+	 * @return true, if both objects have same hashCode; false otherwise
+	 * 
+	 */
+	public static boolean equalsOnHashCode(Object o1, Object o2) {
+		if (o1 == null && o2 == null) {
+			return true;
 		}
-		if(o2 == null){
+		if (o2 == null || o1 == null) {
 			return false;
 		}
 		return o1.hashCode() == o2.hashCode();
