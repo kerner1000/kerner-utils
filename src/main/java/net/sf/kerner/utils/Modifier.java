@@ -1,5 +1,5 @@
 /**********************************************************************
-Copyright (c) 2009-2010 Alexander Kerner. All rights reserved.
+Copyright (c) 2009-2012 Alexander Kerner. All rights reserved.
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
 You may obtain a copy of the License at
@@ -17,7 +17,7 @@ package net.sf.kerner.utils;
 
 /**
  * 
- * A {@code Modifier} modifies one object of type {@code T} and returns the
+ * A {@code Modifier} modifies an object of type {@code T} and returns the
  * modified object which is of type {@code V extends T}.
  * 
  * <p>
@@ -33,7 +33,7 @@ package net.sf.kerner.utils;
  * </p>
  * 
  * @author <a href="mailto:alex.kerner.24@googlemail.com">Alexander Kerner</a>
- * @version 2010-11-14
+ * @version 2012-04-13
  * 
  * @param <T>
  *            type of input element
