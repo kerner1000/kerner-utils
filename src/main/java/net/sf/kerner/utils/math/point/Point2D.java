@@ -1,4 +1,4 @@
-package net.sf.kerner.utils.math;
+package net.sf.kerner.utils.math.point;
 
 public class Point2D {
 

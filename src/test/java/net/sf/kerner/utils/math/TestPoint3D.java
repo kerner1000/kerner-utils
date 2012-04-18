@@ -3,6 +3,8 @@ package net.sf.kerner.utils.math;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
 
+import net.sf.kerner.utils.math.point.Point3D;
+
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
