@@ -75,10 +75,10 @@
 					</check>
 					<instrumentation>
 						<ignores>
-							<ignore>**.*Exception.class</ignore>
+							<ignore>**.*Exception*</ignore>
 						</ignores>
 						<excludes>
-							<exclude>**/*Exception.class</exclude>
+							<exclude>**/*Exception*</exclude>
 						</excludes>
 					</instrumentation>
 				</configuration>
