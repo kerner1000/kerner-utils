@@ -18,7 +18,7 @@ package net.sf.kerner.utils;
 /**
  * 
  * A {@link View} to a {@link KeyValue}, which returns only the key from this
- * {@link Keyvalue}.
+ * {@link KeyValue}.
  * 
  * <p>
  * <b>Example:</b><br>
@@ -33,13 +33,16 @@ package net.sf.kerner.utils;
  * </p>
  * 
  * @author <a href="mailto:alex.kerner.24@googlemail.com">Alexander Kerner</a>
- * @version Apr 13, 2012
+ * @version 2012-04-25
  * 
  * @param <K>
  *            type of key
  */
 public class ViewKeyValueKey<K> implements View<KeyValue<K, ?>, K> {
 
+	/**
+	 * 
+	 */
 	public K transform(KeyValue<K, ?> element) {
 		return element.getKey();
 	}
