@@ -1,5 +1,5 @@
 /**********************************************************************
-Copyright (c) 2009-2010 Alexander Kerner. All rights reserved.
+Copyright (c) 2009-2012 Alexander Kerner. All rights reserved.
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
 You may obtain a copy of the License at
@@ -18,14 +18,14 @@ package net.sf.kerner.utils;
 import java.util.Map.Entry;
 
 /**
- * Simple Key-Value mapping.
+ * Simple key-value mapping.
  * <p>
  * {@code key} may not be {@code null}; {@code value} may be {@code null}.
  * </p>
  * 
  * 
  * @author <a href="mailto:alex.kerner.24@googlemail.com">Alexander Kerner</a>
- * @version 2011-01-13
+ * @version 2012-04-25
  * 
  * @param <K>
  *            type of {@code key}
@@ -33,8 +33,6 @@ import java.util.Map.Entry;
  *            type of {@code value}
  */
 public class KeyValue<K, V> implements Entry<K, V> {
-
-	// Fields //
 
 	/**
 	 * 
@@ -46,7 +44,7 @@ public class KeyValue<K, V> implements Entry<K, V> {
 	 */
 	private volatile V value;
 
-	// Constructor //
+	private volatile int hashCache;
 
 	/**
 	 * 
@@ -94,8 +92,7 @@ public class KeyValue<K, V> implements Entry<K, V> {
 	 *            {@code KeyValue} template
 	 */
 	public KeyValue(KeyValue<K, V> template) {
-		this.key = template.getKey();
-		this.value = template.getValue();
+		this(template.getKey(), template.getValue());
 	}
 
 	@Override
@@ -107,10 +104,12 @@ public class KeyValue<K, V> implements Entry<K, V> {
 
 	@Override
 	public int hashCode() {
-		final int prime = 31;
-		int result = 1;
-		result = prime * result + ((key == null) ? 0 : key.hashCode());
-		result = prime * result + ((value == null) ? 0 : value.hashCode());
+		int result = hashCache;
+		if (result == 0) {
+			final int prime = 31;
+			result = prime * result + ((key == null) ? 0 : key.hashCode());
+			result = prime * result + ((value == null) ? 0 : value.hashCode());
+		}
 		return result;
 	}
 
@@ -120,20 +119,7 @@ public class KeyValue<K, V> implements Entry<K, V> {
 			return true;
 		if (obj == null)
 			return false;
-		if (getClass() != obj.getClass())
-			return false;
-		KeyValue<?, ?> other = (KeyValue<?, ?>) obj;
-		if (key == null) {
-			if (other.key != null)
-				return false;
-		} else if (!key.equals(other.key))
-			return false;
-		if (value == null) {
-			if (other.value != null)
-				return false;
-		} else if (!value.equals(other.value))
-			return false;
-		return true;
+		return hashCode() == obj.hashCode();
 	}
 
 	// Implement //
@@ -156,7 +142,7 @@ public class KeyValue<K, V> implements Entry<K, V> {
 	 * Set the value for this key-value-mapping, return the previous value
 	 * mapped by this key-value-mapping
 	 */
-	public V setValue(V value) {
+	public synchronized V setValue(V value) {
 		final V result = this.value;
 		this.value = value;
 		return result;
