@@ -106,6 +106,7 @@ public class KeyValue<K, V> implements Entry<K, V> {
 	public int hashCode() {
 		int result = hashCache;
 		if (result == 0) {
+			result = 1;
 			final int prime = 31;
 			result = prime * result + ((key == null) ? 0 : key.hashCode());
 			result = prime * result + ((value == null) ? 0 : value.hashCode());
