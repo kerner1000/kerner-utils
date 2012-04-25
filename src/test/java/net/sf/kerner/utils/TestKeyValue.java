@@ -32,7 +32,7 @@ import org.junit.Test;
  * @version 2012-04-25
  * 
  */
-public class KeyValueTest {
+public class TestKeyValue {
 
 	private String key1;
 
