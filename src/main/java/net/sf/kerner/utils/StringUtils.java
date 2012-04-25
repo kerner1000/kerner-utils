@@ -33,7 +33,7 @@ package net.sf.kerner.utils;
  * </p>
  * 
  * @author <a href="mailto:alex.kerner.24@googlemail.com">Alexander Kerner</a>
- * @version Apr 13, 2012
+ * @version 2012-04-25
  * 
  */
 public class StringUtils {
