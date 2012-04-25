@@ -25,7 +25,7 @@ import java.util.Locale;
  * General utility class.
  * 
  * @author <a href="mailto:alex.kerner.24@googlemail.com">Alexander Kerner</a>
- * @version 2012-04-13
+ * @version 2012-04-25
  * 
  */
 public class Utils {
@@ -54,12 +54,12 @@ public class Utils {
 	/**
 	 * 
 	 * 
-	 * Simple helper method, that checks whether any of given objects is null.
+	 * Simple helper method, that checks whether any of given objects is {@code null}.
 	 * 
 	 * @param objects
-	 *            array of {@code Object}s that are checked
+	 *            array of {@code Object Objects} that are checked
 	 * @throws NullPointerException
-	 *             if any of given objects is null
+	 *             if any of given objects is {@code null}
 	 */
 	public static void checkForNull(Object... objects) {
 		for (Object o : objects) {
@@ -70,11 +70,11 @@ public class Utils {
 
 	/**
 	 * 
-	 * Calculates hashCode of all elements in collection recursively, calling on
+	 * Calculates {@link Object#hashCode()} of all elements in given collection recursively, calling on
 	 * every object {@link Object#hashCode()} and add this to result.
 	 * 
 	 * @param objects
-	 *            Objects from which hashCode is calculated
+	 *            Objects from which {@link Object#hashCode()} is calculated
 	 * @return deep hashCode for given {@link Collection} of objects
 	 */
 	public static int deepHashCode(Collection<?> objects) {
@@ -101,7 +101,7 @@ public class Utils {
 	 *            first Object
 	 * @param o2
 	 *            second Object
-	 * @return true, if both objects have same hashCode; false otherwise
+	 * @return {@code true}, if both objects have same hashCode; {@code false} otherwise
 	 * 
 	 */
 	public static boolean equalsOnHashCode(Object o1, Object o2) {
