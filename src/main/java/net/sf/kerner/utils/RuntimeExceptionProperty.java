@@ -36,7 +36,7 @@ import java.util.Properties;
  * </p>
  * 
  * @author <a href="mailto:alex.kerner.24@googlemail.com">Alexander Kerner</a>
- * @version Apr 13, 2012
+ * @version 2012-04-25
  * 
  */
 public class RuntimeExceptionProperty extends RuntimeException {
@@ -85,8 +85,10 @@ public class RuntimeExceptionProperty extends RuntimeException {
 	@Override
 	public String toString() {
 		final StringBuilder sb = new StringBuilder();
+		if(!pro.isEmpty()){
 		sb.append(pro.toString());
 		sb.append(StringUtils.NEW_LINE_STRING);
+		}
 		sb.append(super.toString());
 		return sb.toString();
 	}
