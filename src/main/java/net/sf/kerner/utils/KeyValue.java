@@ -115,11 +115,7 @@ public class KeyValue<K, V> implements Entry<K, V> {
 
 	@Override
 	public boolean equals(Object obj) {
-		if (this == obj)
-			return true;
-		if (obj == null)
-			return false;
-		return hashCode() == obj.hashCode();
+		return Utils.equalsOnHashCode(this, obj);
 	}
 
 	// Implement //
