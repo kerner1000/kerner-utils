@@ -158,11 +158,6 @@ public class ArrayUtils {
 
 	/**
 	 * 
-	 * TODO description
-	 * 
-	 * @param arr
-	 * @return
-	 * 
 	 * @throws NullPointerException
 	 *             if any of objects in array is {@code null}
 	 */

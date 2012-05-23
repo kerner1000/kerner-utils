@@ -52,8 +52,8 @@ public class ArithmeticSavety {
 	/**
 	 * 
 	 * 
-	 * Check if {@code {@link Integer#MIN_VALUE} <= {@code b} <=
-	 * {@link Integer#MAX_VALUE} .
+	 * Check if {@code {@link Integer#MIN_VALUE} <= b <=
+	 * {@link Integer#MAX_VALUE}} .
 	 * 
 	 * @param b
 	 *            {@code BigInteger} to check if in range
@@ -67,8 +67,8 @@ public class ArithmeticSavety {
 	/**
 	 * 
 	 * 
-	 * Check if {@code {@link Long#MIN_VALUE} <= {@code b} <=
-	 * {@link Long#MAX_VALUE} .
+	 * Check if {@code {@link Long#MIN_VALUE} <= b <=
+	 * {@link Long#MAX_VALUE}} .
 	 * 
 	 * @param b
 	 *            {@code BigInteger} to check if in range

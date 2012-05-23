@@ -275,7 +275,7 @@ public class MathUtils {
 	 *            first {@link Integer}
 	 * @param integer2
 	 *            second {@link Integer}
-	 * @return sum of {@code integer1} and {@integer2}
+	 * @return sum of {@code integer1} and {@code integer2}
 	 */
 	public static Integer add(Integer integer1, Integer integer2) {
 		return Integer.valueOf(integer1.intValue() + integer2.intValue());
