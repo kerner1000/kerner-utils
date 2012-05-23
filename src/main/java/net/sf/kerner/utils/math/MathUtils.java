@@ -134,6 +134,12 @@ public class MathUtils {
 		return mean(ArrayUtils.toPrimitive(values.toArray(new Number[values.size()])));
 	}
 
+	/**
+	 * Calculates the <a href="http://de.wikipedia.org/wiki/Visitor">median</a> of a collection of numbers.
+	 * 
+	 * @param values numbers to calculate median from
+	 * @return median for given numbers
+	 */
 	public static double median(double... values) {
 		if (values == null || values.length < 1)
 			throw new IllegalArgumentException();
@@ -150,6 +156,12 @@ public class MathUtils {
 		}
 	}
 
+	/**
+	 * Calculates the <a href="http://de.wikipedia.org/wiki/Visitor">median</a> of a collection of numbers.
+	 * 
+	 * @param values numbers to calculate median from
+	 * @return median for given numbers
+	 */
 	public static double median(Collection<? extends Number> values) {
 		return median(ArrayUtils.toPrimitive(values.toArray(new Number[values.size()])));
 	}

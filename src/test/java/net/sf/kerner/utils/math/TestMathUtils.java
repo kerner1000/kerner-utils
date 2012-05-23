@@ -5,6 +5,8 @@ package net.sf.kerner.utils.math;
 
 import static org.junit.Assert.assertEquals;
 
+import java.util.Arrays;
+
 import org.junit.Test;
 
 /**
@@ -76,6 +78,36 @@ public class TestMathUtils {
 	@Test
 	public final void testRound06() {
 		assertEquals(10000000.0000, MathUtils.round(10000000.0000123, 4), 0);
+	}
+	
+	@Test
+	public final void testMedian01() {
+		assertEquals(0, MathUtils.median(0), 0);
+	}
+	
+	@Test
+	public final void testMedian02() {
+		assertEquals(1, MathUtils.median(1), 0);
+	}
+	
+	@Test
+	public final void testMedian03() {
+		assertEquals(2, MathUtils.median(Arrays.asList(0,1,2,2,3,4)), 0);
+	}
+	
+	@Test
+	public final void testMedian04() {
+		assertEquals(2.5, MathUtils.median(Arrays.asList(0,1,3,2,3,4)), 0);
+	}
+	
+	@Test
+	public final void testMedian05() {
+		assertEquals(2.55, MathUtils.median(Arrays.asList(0,1,3.1,2,3.1,4)), 0);
+	}
+	
+	@Test
+	public final void testMedian06() {
+		assertEquals(26, MathUtils.median(Arrays.asList(21,26,33)), 0);
 	}
 
 }
