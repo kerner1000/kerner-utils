@@ -298,4 +298,18 @@ public class MathUtils {
 		else
 			return d2;
 	}
+	
+	public static double assertAboveEqual(double number, double value){
+		if(number < value){
+			return value;
+		}
+		return number;
+	}
+	
+	public static double assertBelowEqual(double number, double value){
+		if(number > value){
+			return value;
+		}
+		return number;
+	}
 }
