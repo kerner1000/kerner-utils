@@ -40,78 +40,78 @@ public class TestUtils {
 
     @Test
     public final void testCheckForNull01() {
-        Utils.checkForNull(new Object());
+        Util.checkForNull(new Object());
     }
 
     @Test
     public final void testCheckForNull02() {
-        Utils.checkForNull(new Object(), new Object());
+        Util.checkForNull(new Object(), new Object());
     }
 
     @Test
     public final void testCheckForNull03() {
-        Utils.checkForNull(new Object(), 1);
+        Util.checkForNull(new Object(), 1);
     }
 
     @Test
     public final void testCheckForNull04() {
-        Utils.checkForNull(0);
+        Util.checkForNull(0);
     }
 
     @Test(expected = NullPointerException.class)
     public final void testCheckForNull05() {
-        Utils.checkForNull((Object[]) null);
+        Util.checkForNull((Object[]) null);
     }
 
     @Test(expected = NullPointerException.class)
     public final void testCheckForNull06() {
-        Utils.checkForNull(null, null);
+        Util.checkForNull(null, null);
     }
 
     @Test(expected = NullPointerException.class)
     public final void testCheckForNull07() {
-        Utils.checkForNull(null, 1);
+        Util.checkForNull(null, 1);
     }
 
     @Test
     public final void testDeepHashCode01() {
-        assertEquals(6, Utils.deepHashCode(Arrays.asList(1, 2, 3)));
+        assertEquals(6, Util.deepHashCode(Arrays.asList(1, 2, 3)));
     }
 
     @Test
     public final void testDeepHashCode02() {
-        assertEquals(7, Utils.deepHashCode(Arrays.asList(1, 2, 3, new Integer[] { 1 })));
+        assertEquals(7, Util.deepHashCode(Arrays.asList(1, 2, 3, new Integer[] { 1 })));
     }
 
     @Test
     public final void testDeepHashCode03() {
         assertEquals(9,
-                Utils.deepHashCode(Arrays.asList(1, 2, 3, new Integer[] { 1 }, new HashSet<Integer>(Arrays.asList(2)))));
+                Util.deepHashCode(Arrays.asList(1, 2, 3, new Integer[] { 1 }, new HashSet<Integer>(Arrays.asList(2)))));
     }
 
     @Test
     public final void testEqualsOnHashCode01() {
-        assertFalse(Utils.equalsOnHashCode(new Object(), null));
+        assertFalse(Util.equalsOnHashCode(new Object(), null));
     }
 
     @Test
     public final void testEqualsOnHashCode02() {
-        assertFalse(Utils.equalsOnHashCode(null, new Object()));
+        assertFalse(Util.equalsOnHashCode(null, new Object()));
     }
 
     @Test
     public final void testEqualsOnHashCode03() {
-        assertTrue(Utils.equalsOnHashCode(null, null));
+        assertTrue(Util.equalsOnHashCode(null, null));
     }
 
     @Test
     public final void testEqualsOnHashCode04() {
-        assertTrue(Utils.equalsOnHashCode(1, 1));
+        assertTrue(Util.equalsOnHashCode(1, 1));
     }
 
     @Test
     public final void testEqualsOnHashCode05() {
-        assertFalse(Utils.equalsOnHashCode(1, 2));
+        assertFalse(Util.equalsOnHashCode(1, 2));
     }
 
 }

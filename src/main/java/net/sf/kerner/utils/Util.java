@@ -26,7 +26,7 @@ import java.util.Locale;
  * @author <a href="mailto:alex.kerner.24@googlemail.com">Alexander Kerner</a>
  * @version 2012-04-25
  */
-public class Utils {
+public class Util {
 
     /**
      * {@link Locale} of current user, e.g. "de", "en" or "fr".
@@ -43,7 +43,7 @@ public class Utils {
      */
     public static final int NUM_CPUS = Runtime.getRuntime().availableProcessors();
 
-    private Utils() {
+    private Util() {
 
     }
 
