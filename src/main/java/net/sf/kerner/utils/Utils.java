@@ -55,11 +55,21 @@ public class Utils {
      * @throws NullPointerException
      *             if any of given objects is {@code null}
      */
-    public static void checkForNull(final Object... objects) {
+    public static void checkForNull(final Object... objects) throws NullPointerException {
         checkForNull(null, objects);
     }
 
-    public static void checkForNull(final String message, final Object... objects) {
+    /**
+     * Simple helper method, that checks whether any of given objects is {@code null}.
+     * 
+     * @param objects
+     *            array of {@code Object Objects} that are checked
+     * @param Exception
+     *            detail message
+     * @throws NullPointerException
+     *             if any of given objects is {@code null}
+     */
+    public static void checkForNull(final String message, final Object... objects) throws NullPointerException {
         for (final Object o : objects) {
             if (o == null) {
                 if (message != null) {
@@ -83,19 +93,20 @@ public class Utils {
     public static int deepHashCode(final Collection<?> objects) {
         int result = 0;
         for (final Object o : objects) {
-            if (o instanceof Collection)
+            if (o instanceof Collection) {
                 result += deepHashCode((Collection<?>) o);
-            else if (ArrayUtils.isArray(o))
+            } else if (ArrayUtil.isArray(o)) {
                 result += deepHashCode(Arrays.asList((Object[]) o));
-            else
+            } else {
                 result += o.hashCode();
+            }
         }
         return result;
     }
 
     /**
      * Check, weather one Object equals another by delegating to {@link Object#hashCode()}. If one of both Objects is
-     * {@code null}, {@code false} is returned. If both Objects are{@code null}, {@code true} is returned.
+     * {@code null}, {@code false} is returned. If both Objects are {@code null}, {@code true} is returned.
      * 
      * @param o1
      *            first Object

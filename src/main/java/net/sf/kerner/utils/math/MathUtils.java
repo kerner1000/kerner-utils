@@ -18,7 +18,7 @@ package net.sf.kerner.utils.math;
 import java.util.Arrays;
 import java.util.Collection;
 
-import net.sf.kerner.utils.ArrayUtils;
+import net.sf.kerner.utils.ArrayUtil;
 
 /**
  * Provides static helper methods.
@@ -81,7 +81,7 @@ public class MathUtils {
     }
 
     public static double max(Collection<? extends Number> values) {
-        return max(ArrayUtils.toPrimitive(values.toArray(new Number[values.size()])));
+        return max(ArrayUtil.toPrimitive(values.toArray(new Number[values.size()])));
     }
 
     /**
@@ -105,7 +105,7 @@ public class MathUtils {
     }
 
     public static double min(Collection<? extends Number> values) {
-        return min(ArrayUtils.toPrimitive(values.toArray(new Number[values.size()])));
+        return min(ArrayUtil.toPrimitive(values.toArray(new Number[values.size()])));
     }
 
     /**
@@ -124,7 +124,7 @@ public class MathUtils {
     }
 
     public static double mean(Collection<? extends Number> values) {
-        return mean(ArrayUtils.toPrimitive(values.toArray(new Number[values.size()])));
+        return mean(ArrayUtil.toPrimitive(values.toArray(new Number[values.size()])));
     }
 
     /**
@@ -158,7 +158,7 @@ public class MathUtils {
      * @return median for given numbers
      */
     public static double median(Collection<? extends Number> values) {
-        return median(ArrayUtils.toPrimitive(values.toArray(new Number[values.size()])));
+        return median(ArrayUtil.toPrimitive(values.toArray(new Number[values.size()])));
     }
 
     /**
@@ -179,7 +179,7 @@ public class MathUtils {
     }
 
     public static double sum(Collection<Double> values) {
-        return sum(ArrayUtils.toPrimitive(values.toArray(new Double[values.size()])));
+        return sum(ArrayUtil.toPrimitive(values.toArray(new Double[values.size()])));
     }
 
     /**
@@ -208,7 +208,7 @@ public class MathUtils {
     }
 
     public static double stdDev(Collection<? extends Number> values) {
-        return stdDev(ArrayUtils.toPrimitive(values.toArray(new Number[values.size()])));
+        return stdDev(ArrayUtil.toPrimitive(values.toArray(new Number[values.size()])));
     }
 
     public static double getClosest(double number, double... values) {
@@ -217,7 +217,7 @@ public class MathUtils {
         if (values.length == 1) {
             return values[0];
         }
-        final double[] arr = ArrayUtils.copy(values);
+        final double[] arr = ArrayUtil.copy(values);
         Arrays.sort(arr);
         double result = arr[0];
         double diff = Math.abs(arr[0] - number);
@@ -232,7 +232,7 @@ public class MathUtils {
     }
 
     public static double getClosest(double number, Collection<? extends Number> values) {
-        return getClosest(number, ArrayUtils.toPrimitive(values.toArray(new Number[values.size()])));
+        return getClosest(number, ArrayUtil.toPrimitive(values.toArray(new Number[values.size()])));
     }
 
     /**
