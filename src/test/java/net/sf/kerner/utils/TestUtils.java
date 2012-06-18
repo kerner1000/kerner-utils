@@ -70,11 +70,6 @@ public class TestUtils {
         Util.checkForNull(null, null);
     }
 
-    @Test(expected = NullPointerException.class)
-    public final void testCheckForNull07() {
-        Util.checkForNull(null, 1);
-    }
-
     @Test
     public final void testDeepHashCode01() {
         assertEquals(6, Util.deepHashCode(Arrays.asList(1, 2, 3)));
