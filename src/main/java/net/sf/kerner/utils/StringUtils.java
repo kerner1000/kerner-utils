@@ -15,14 +15,10 @@ limitations under the License.
 
 package net.sf.kerner.utils;
 
-
 /**
- * 
  * Utility class for {@link String} related stuff.
- * 
  * <p>
  * <b>Example:</b><br>
- * 
  * </p>
  * <p>
  * 
@@ -34,45 +30,39 @@ package net.sf.kerner.utils;
  * 
  * @author <a href="mailto:alex.kerner.24@googlemail.com">Alexander Kerner</a>
  * @version 2012-04-25
- * 
  */
 public class StringUtils {
 
-	private StringUtils() {
-	}
+    private StringUtils() {
+    }
 
-	/**
-	 * System dependent new line string.
-	 */
-	public final static String NEW_LINE_STRING = System.getProperty("line.separator");
+    /**
+     * System dependent new line string.
+     */
+    public final static String NEW_LINE_STRING = System.getProperty("line.separator");
 
-	/**
-	 * 
-	 * 
-	 * 
-	 * @return a random {@code String}
-	 */
-	public static String getRandomString() {
-		final String result = Long.toHexString(Double.doubleToLongBits(Math.random()));
-		return result;
-	}
+    /**
+     * @return a random {@code String}
+     */
+    public static String getRandomString() {
+        final String result = Long.toHexString(Double.doubleToLongBits(Math.random()));
+        return result;
+    }
 
-	/**
-	 * 
-	 * Check if a string is {@code null}, empty or contains only whitespaces.
-	 * 
-	 * @param string
-	 *            {@code String} to check
-	 * @return true, if this {@code String} is {@code null}, empty or contains
-	 *         only whitespaces; false otherwise
-	 */
-	public static boolean emptyString(String string) {
-		if (string == null)
-			return true;
-		if (string.length() < 1)
-			return true;
-		if (string.matches("\\s"))
-			return true;
-		return false;
-	}
+    /**
+     * Check if a string is {@code null}, empty or contains only whitespaces.
+     * 
+     * @param string
+     *            {@code String} to check
+     * @return true, if this {@code String} is {@code null}, empty or contains only whitespaces; false otherwise
+     */
+    public static boolean emptyString(String string) {
+        if (string == null)
+            return true;
+        if (string.length() < 1)
+            return true;
+        if (string.matches("\\s"))
+            return true;
+        return false;
+    }
 }

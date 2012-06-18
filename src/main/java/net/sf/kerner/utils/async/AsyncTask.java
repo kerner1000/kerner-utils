@@ -17,10 +17,8 @@ package net.sf.kerner.utils.async;
 
 /**
  * Create an asynchronous callback.
- * 
  * <p>
  * <b>Example:</b><br>
- * 
  * </p>
  * <p>
  * 
@@ -32,7 +30,6 @@ package net.sf.kerner.utils.async;
  * 
  * @author <a href="mailto:alex.kerner.24@googlemail.com">Alexander Kerner</a>
  * @version 2011-03-10
- * 
  * @param <R>
  *            type of result
  * @param <V>
@@ -40,34 +37,31 @@ package net.sf.kerner.utils.async;
  */
 public interface AsyncTask<R, V> {
 
-	/**
-	 * 
-	 * Do something asynchronously.
-	 * 
-	 * @param value
-	 *            parameter for execution
-	 * @return result of execution
-	 * @throws Exception
-	 *             if execution fails
-	 */
-	R run(V value) throws Exception;
+    /**
+     * Do something asynchronously.
+     * 
+     * @param value
+     *            parameter for execution
+     * @return result of execution
+     * @throws Exception
+     *             if execution fails
+     */
+    R run(V value) throws Exception;
 
-	/**
-	 * 
-	 * Perform on success.
-	 * 
-	 * @param result
-	 *            result of execution
-	 */
-	void doOnSucess(R result);
+    /**
+     * Perform on success.
+     * 
+     * @param result
+     *            result of execution
+     */
+    void doOnSucess(R result);
 
-	/**
-	 * 
-	 * Perform on failure.
-	 * 
-	 * @param e
-	 *            cause for this {@code AsyncCallBack}'s execution failure
-	 */
-	void doOnFailure(Exception e);
+    /**
+     * Perform on failure.
+     * 
+     * @param e
+     *            cause for this {@code AsyncCallBack}'s execution failure
+     */
+    void doOnFailure(Exception e);
 
 }

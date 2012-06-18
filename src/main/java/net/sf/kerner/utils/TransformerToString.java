@@ -16,22 +16,20 @@ limitations under the License.
 package net.sf.kerner.utils;
 
 /**
- * 
  * Custom {@link Object#toString()} strategy.
- * 
  * <p>
  * <b>Example:</b><br>
- *
  * </p>
  * <p>
+ * 
  * <pre>
  * TODO example
  * </pre>
+ * 
  * </p>
- *
+ * 
  * @author <a href="mailto:alex.kerner.24@googlemail.com">Alexander Kerner</a>
  * @version 2012-04-25
- *
  */
 public interface TransformerToString extends Transformer<Object, String> {
 

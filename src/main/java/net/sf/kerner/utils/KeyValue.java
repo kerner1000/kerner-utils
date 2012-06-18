@@ -23,10 +23,8 @@ import java.util.Map.Entry;
  * {@code key} may not be {@code null}; {@code value} may be {@code null}.
  * </p>
  * 
- * 
  * @author <a href="mailto:alex.kerner.24@googlemail.com">Alexander Kerner</a>
  * @version 2012-04-25
- * 
  * @param <K>
  *            type of {@code key}
  * @param <V>
@@ -34,115 +32,111 @@ import java.util.Map.Entry;
  */
 public class KeyValue<K, V> implements Entry<K, V> {
 
-	/**
+    /**
 	 * 
 	 */
-	private final K key;
+    private final K key;
 
-	/**
+    /**
 	 * 
 	 */
-	private volatile V value;
+    private volatile V value;
 
-	private volatile int hashCache;
-
-	/**
+    /**
 	 * 
-	 * 
-	 * Create a new {@code KeyValue} object, using given key and value.
-	 * 
-	 * @param key
-	 *            key for this key-value-mapping
-	 * @param value
-	 *            value for this key-value-mapping
-	 * @throws NullPointerException
-	 *             if given {@code key} is {@code null}
 	 */
-	public KeyValue(K key, V value) {
-		if (key == null)
-			throw new NullPointerException("key must not be null");
-		this.key = key;
-		this.value = value;
-	}
+    private volatile int hashCache;
 
-	/**
-	 * 
-	 * 
-	 * Create a new {@code KeyValue} object, using given key.
-	 * 
-	 * @param key
-	 *            key for this key-value-mapping
-	 * @throws NullPointerException
-	 *             if given {@code key} is {@code null}
-	 */
-	public KeyValue(K key) {
-		if (key == null)
-			throw new NullPointerException("key must not be null");
-		this.key = key;
-		this.value = null;
-	}
+    /**
+     * Create a new {@code KeyValue} object, using given key and value.
+     * 
+     * @param key
+     *            key for this key-value-mapping
+     * @param value
+     *            value for this key-value-mapping
+     * @throws NullPointerException
+     *             if given {@code key} is {@code null}
+     */
+    public KeyValue(final K key, final V value) {
+        if (key == null)
+            throw new NullPointerException("key must not be null");
+        this.key = key;
+        this.value = value;
+    }
 
-	/**
-	 * 
-	 * 
-	 * Create a new {@code KeyValue} object, using given {@code KeyValue} as a
-	 * template.
-	 * 
-	 * @param template
-	 *            {@code KeyValue} template
-	 */
-	public KeyValue(KeyValue<K, V> template) {
-		this(template.getKey(), template.getValue());
-	}
+    /**
+     * Create a new {@code KeyValue} object, using given key.
+     * 
+     * @param key
+     *            key for this key-value-mapping
+     * @throws NullPointerException
+     *             if given {@code key} is {@code null}
+     */
+    public KeyValue(final K key) {
+        if (key == null)
+            throw new NullPointerException("key must not be null");
+        this.key = key;
+        this.value = null;
+    }
 
-	@Override
-	public String toString() {
-		return key + "=" + value;
-	}
+    /**
+     * Create a new {@code KeyValue} object, using given {@code KeyValue} as a template.
+     * 
+     * @param template
+     *            {@code KeyValue} template
+     */
+    public KeyValue(final KeyValue<K, V> template) {
+        this(template.getKey(), template.getValue());
+    }
 
-	// Override //
+    @Override
+    public String toString() {
+        return key + "=" + value;
+    }
 
-	@Override
-	public int hashCode() {
-		int result = hashCache;
-		if (result == 0) {
-			result = 1;
-			final int prime = 31;
-			result = prime * result + ((key == null) ? 0 : key.hashCode());
-			result = prime * result + ((value == null) ? 0 : value.hashCode());
-		}
-		return result;
-	}
+    // Override //
 
-	@Override
-	public boolean equals(Object obj) {
-		return Utils.equalsOnHashCode(this, obj);
-	}
+    @Override
+    public int hashCode() {
+        int result = hashCache;
+        if (result == 0) {
+            result = 17;
+            final int prime = 31;
+            result = prime * result + ((key == null) ? 0 : key.hashCode());
+            result = prime * result + ((value == null) ? 0 : value.hashCode());
+            hashCache = result;
+        }
+        return result;
+    }
 
-	// Implement //
+    @Override
+    public boolean equals(final Object obj) {
+        return Utils.equalsOnHashCode(this, obj);
+    }
 
-	/**
-	 * Return the key for this key-value-mapping
-	 */
-	public K getKey() {
-		return key;
-	}
+    // Implement //
 
-	/**
-	 * Return the value for this key-value-mapping
-	 */
-	public V getValue() {
-		return value;
-	}
+    /**
+     * Return the key for this key-value-mapping
+     */
+    public K getKey() {
+        return key;
+    }
 
-	/**
-	 * Set the value for this key-value-mapping, return the previous value
-	 * mapped by this key-value-mapping
-	 */
-	public synchronized V setValue(V value) {
-		final V result = this.value;
-		this.value = value;
-		return result;
-	}
+    /**
+     * Return the value for this key-value-mapping
+     */
+    public V getValue() {
+        return value;
+    }
+
+    /**
+     * Set the value for this key-value-mapping, return the previous value mapped by this key-value-mapping
+     */
+    public synchronized V setValue(final V value) {
+        final V result = this.value;
+        this.value = value;
+        return result;
+    }
 
 }

@@ -16,44 +16,42 @@ limitations under the License.
 package net.sf.kerner.utils;
 
 /**
- * 
  * A {@link RuntimeException} to indicate a missing property.
- * 
  * <p>
  * <b>Example:</b><br>
- *
  * </p>
  * <p>
+ * 
  * <pre>
  * TODO example
  * </pre>
+ * 
  * </p>
- *
+ * 
  * @author <a href="mailto:alex.kerner.24@googlemail.com">Alexander Kerner</a>
- * @version Apr 13, 2012
- *
+ * @version 2012-06-18
  */
-public class PropertyNotFoundException extends RuntimeException {
+public class ExceptionPropertyNotFound extends RuntimeException {
 
-	private static final long serialVersionUID = -4880504253227652735L;
+    private static final long serialVersionUID = -4880504253227652735L;
 
-	public PropertyNotFoundException() {
+    public ExceptionPropertyNotFound() {
 
-	}
+    }
 
-	public PropertyNotFoundException(String arg0, Throwable arg1) {
-		super(arg0, arg1);
+    public ExceptionPropertyNotFound(final String arg0, final Throwable arg1) {
+        super(arg0, arg1);
 
-	}
+    }
 
-	public PropertyNotFoundException(String arg0) {
-		super(arg0);
+    public ExceptionPropertyNotFound(final String arg0) {
+        super(arg0);
 
-	}
+    }
 
-	public PropertyNotFoundException(Throwable arg0) {
-		super(arg0);
+    public ExceptionPropertyNotFound(final Throwable arg0) {
+        super(arg0);
 
-	}
+    }
 
 }

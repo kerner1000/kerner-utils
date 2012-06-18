@@ -16,14 +16,10 @@ limitations under the License.
 package net.sf.kerner.utils;
 
 /**
- * 
- * Default implementation for {@link TransformerToString}. It uses
- * {@link Object#toString()} to obtain string representation for each object.
- * </p>
- * 
+ * Default implementation for {@link TransformerToString}. It uses {@link Object#toString()} to obtain string
+ * representation for each object. </p>
  * <p>
  * <b>Example:</b><br>
- * 
  * </p>
  * <p>
  * 
@@ -35,18 +31,17 @@ package net.sf.kerner.utils;
  * 
  * @author <a href="mailto:alex.kerner.24@googlemail.com">Alexander Kerner</a>
  * @version 2012-04-25
- * 
  */
 public class TransformerToStringDefault implements TransformerToString {
 
-	/**
-	 * @return {@code element.toString()} or "null" if object is {@code null}
-	 */
-	public String transform(Object element) {
-		if (element == null) {
-			return "null";
-		}
-		return element.toString();
-	}
+    /**
+     * @return {@code element.toString()} or "null" if object is {@code null}
+     */
+    public String transform(Object element) {
+        if (element == null) {
+            return "null";
+        }
+        return element.toString();
+    }
 
 }

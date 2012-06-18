@@ -4,24 +4,24 @@ import net.sf.kerner.utils.math.LongUnit;
 
 public interface MemoryMonitor {
 
-	static LongUnit DEFAULT_UNIT = LongUnit.UNIT;
+    static LongUnit DEFAULT_UNIT = LongUnit.UNIT;
 
-	LongUnit getUnit();
+    LongUnit getUnit();
 
-	long getCurrentUsage();
+    long getCurrentUsage();
 
-	long getCurrentUsage(LongUnit unit);
+    long getCurrentUsage(LongUnit unit);
 
-	long getMaxUsage();
+    long getMaxUsage();
 
-	long getMaxUsage(LongUnit unit);
+    long getMaxUsage(LongUnit unit);
 
-	long getAverageUsage();
+    long getAverageUsage();
 
-	long getAverageUsage(LongUnit unit);
+    long getAverageUsage(LongUnit unit);
 
-	void start();
+    void start();
 
-	long stop();
+    long stop();
 
 }

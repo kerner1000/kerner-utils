@@ -1,6 +1,6 @@
 package net.sf.kerner.utils;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
 
 import org.junit.After;
 import org.junit.AfterClass;
@@ -9,32 +9,32 @@ import org.junit.BeforeClass;
 import org.junit.Test;
 
 public class TestViewKeyValueValue {
-	
-	private KeyValue<String, String> k;
-	
-	private ViewKeyValueValue<String> v;
 
-	@BeforeClass
-	public static void setUpBeforeClass() throws Exception {
-	}
+    private KeyValue<String, String> k;
 
-	@AfterClass
-	public static void tearDownAfterClass() throws Exception {
-	}
+    private ViewKeyValueValue<String> v;
 
-	@Before
-	public void setUp() throws Exception {
-		v = new ViewKeyValueValue<String>();
-	}
+    @BeforeClass
+    public static void setUpBeforeClass() throws Exception {
+    }
 
-	@After
-	public void tearDown() throws Exception {
-	}
+    @AfterClass
+    public static void tearDownAfterClass() throws Exception {
+    }
 
-	@Test
-	public final void testTransform01() {
-		k = new KeyValue<String, String>("key", "value");
-		assertEquals("value", v.transform(k));
-	}
+    @Before
+    public void setUp() throws Exception {
+        v = new ViewKeyValueValue<String>();
+    }
+
+    @After
+    public void tearDown() throws Exception {
+    }
+
+    @Test
+    public final void testTransform01() {
+        k = new KeyValue<String, String>("key", "value");
+        assertEquals("value", v.transform(k));
+    }
 
 }

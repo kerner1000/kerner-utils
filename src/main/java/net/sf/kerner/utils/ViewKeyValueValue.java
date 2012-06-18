@@ -16,13 +16,9 @@ limitations under the License.
 package net.sf.kerner.utils;
 
 /**
- * 
- * A {@link View} to a {@link KeyValue}, which returns only the value from this
- * {@link KeyValue}.
- * 
+ * A {@link View} to a {@link KeyValue}, which returns only the value from this {@link KeyValue}.
  * <p>
  * <b>Example:</b><br>
- * 
  * </p>
  * <p>
  * 
@@ -34,18 +30,17 @@ package net.sf.kerner.utils;
  * 
  * @author <a href="mailto:alex.kerner.24@googlemail.com">Alexander Kerner</a>
  * @version 2012-04-25
- * 
  * @param <V>
  *            type of value
  */
 
 public class ViewKeyValueValue<V> implements View<KeyValue<?, V>, V> {
 
-	/**
+    /**
 	 * 
 	 */
-	public V transform(KeyValue<?, V> element) {
-		return element.getValue();
-	}
+    public V transform(KeyValue<?, V> element) {
+        return element.getValue();
+    }
 
 }

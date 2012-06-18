@@ -16,13 +16,10 @@ limitations under the License.
 package net.sf.kerner.utils;
 
 /**
- * 
- * A {@code Modifier} modifies an object of type {@code T} and returns the
- * modified object which is of type {@code V extends T}.
- * 
+ * A {@code Modifier} modifies an object of type {@code T} and returns the modified object which is of type
+ * {@code V extends T}.
  * <p>
  * <b>Example:</b><br>
- * 
  * </p>
  * <p>
  * 
@@ -34,7 +31,6 @@ package net.sf.kerner.utils;
  * 
  * @author <a href="mailto:alex.kerner.24@googlemail.com">Alexander Kerner</a>
  * @version 2012-04-13
- * 
  * @param <T>
  *            type of input element
  * @param <V>

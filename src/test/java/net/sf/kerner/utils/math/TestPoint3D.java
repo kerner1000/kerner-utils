@@ -2,7 +2,6 @@ package net.sf.kerner.utils.math;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
-
 import net.sf.kerner.utils.math.point.Point3D;
 
 import org.junit.After;
@@ -13,52 +12,52 @@ import org.junit.Test;
 
 public class TestPoint3D {
 
-	private Point3D p1;
+    private Point3D p1;
 
-	private Point3D p2;
+    private Point3D p2;
 
-	@BeforeClass
-	public static void setUpBeforeClass() throws Exception {
-	}
+    @BeforeClass
+    public static void setUpBeforeClass() throws Exception {
+    }
 
-	@AfterClass
-	public static void tearDownAfterClass() throws Exception {
-	}
+    @AfterClass
+    public static void tearDownAfterClass() throws Exception {
+    }
 
-	@Before
-	public void setUp() throws Exception {
-	}
+    @Before
+    public void setUp() throws Exception {
+    }
 
-	@After
-	public void tearDown() throws Exception {
-	}
+    @After
+    public void tearDown() throws Exception {
+    }
 
-	@Test
-	public final void testHashCode01() {
-		p1 = new Point3D(1, 1, 1);
-		p2 = new Point3D(1, 1, 1);
-		assertEquals(p1.hashCode(), p2.hashCode());
-	}
+    @Test
+    public final void testHashCode01() {
+        p1 = new Point3D(1, 1, 1);
+        p2 = new Point3D(1, 1, 1);
+        assertEquals(p1.hashCode(), p2.hashCode());
+    }
 
-	@Test
-	public final void testEqualsObject01() {
-		p1 = new Point3D(1, 1, 1);
-		p2 = new Point3D(1, 1, 1);
-		assertEquals(p1, p2);
-	}
+    @Test
+    public final void testEqualsObject01() {
+        p1 = new Point3D(1, 1, 1);
+        p2 = new Point3D(1, 1, 1);
+        assertEquals(p1, p2);
+    }
 
-	@Test
-	public final void testHashCode02() {
-		p1 = new Point3D(1, 1, 1);
-		p2 = new Point3D(1, 1, 2);
-		assertFalse(p1.hashCode() == p2.hashCode());
-	}
+    @Test
+    public final void testHashCode02() {
+        p1 = new Point3D(1, 1, 1);
+        p2 = new Point3D(1, 1, 2);
+        assertFalse(p1.hashCode() == p2.hashCode());
+    }
 
-	@Test
-	public final void testEqualsObject02() {
-		p1 = new Point3D(1, 1, 1);
-		p2 = new Point3D(1, 1, 2);
-		assertFalse(p1.equals(p2));
-	}
+    @Test
+    public final void testEqualsObject02() {
+        p1 = new Point3D(1, 1, 1);
+        p2 = new Point3D(1, 1, 2);
+        assertFalse(p1.equals(p2));
+    }
 
 }

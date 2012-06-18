@@ -16,14 +16,10 @@ limitations under the License.
 package net.sf.kerner.utils;
 
 /**
- * 
- * A {@code View} is a custom representation of another object. It is a
- * {@link Transformer}, that will transform any object of type {@code T} into a
- * view to this object of type {code V}.
- * 
+ * A {@code View} is a custom representation of another object. It is a {@link Transformer}, that will transform any
+ * object of type {@code T} into a view to this object of type {code V}.
  * <p>
  * <b>Example:</b><br>
- * 
  * </p>
  * <p>
  * 
@@ -35,7 +31,6 @@ package net.sf.kerner.utils;
  * 
  * @author <a href="mailto:alex.kerner.24@googlemail.com">Alexander Kerner</a>
  * @version Apr 13, 2012
- * 
  * @param <T>
  *            type of object from which a view is created
  * @param <V>

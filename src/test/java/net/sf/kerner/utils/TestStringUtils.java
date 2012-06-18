@@ -26,52 +26,50 @@ import org.junit.BeforeClass;
 import org.junit.Test;
 
 /**
- * 
  * @author <a href="mailto:alex.kerner.24@googlemail.com">Alexander Kerner</a>
  * @version 2011-01-13
- * 
  */
 public class TestStringUtils {
 
-	@BeforeClass
-	public static void setUpBeforeClass() throws Exception {
-	}
+    @BeforeClass
+    public static void setUpBeforeClass() throws Exception {
+    }
 
-	@AfterClass
-	public static void tearDownAfterClass() throws Exception {
-	}
+    @AfterClass
+    public static void tearDownAfterClass() throws Exception {
+    }
 
-	@Before
-	public void setUp() throws Exception {
-	}
+    @Before
+    public void setUp() throws Exception {
+    }
 
-	@After
-	public void tearDown() throws Exception {
-	}
+    @After
+    public void tearDown() throws Exception {
+    }
 
-	@Test
-	public final void testEmptyString() {
-		assertTrue(StringUtils.emptyString(null));
-	}
+    @Test
+    public final void testEmptyString() {
+        assertTrue(StringUtils.emptyString(null));
+    }
 
-	@Test
-	public final void testEmptyString01() {
-		assertTrue(StringUtils.emptyString(""));
-	}
+    @Test
+    public final void testEmptyString01() {
+        assertTrue(StringUtils.emptyString(""));
+    }
 
-	@Test
-	public final void testEmptyString02() {
-		assertTrue(StringUtils.emptyString(" "));
-	}
+    @Test
+    public final void testEmptyString02() {
+        assertTrue(StringUtils.emptyString(" "));
+    }
 
-	@Test
-	public final void testEmptyString03() {
-		assertFalse(StringUtils.emptyString(" a "));
-	}
-	
-	@Test
-	public final void testGetRandomString01() {
-		assertEquals(16, StringUtils.getRandomString().length());
-	}
+    @Test
+    public final void testEmptyString03() {
+        assertFalse(StringUtils.emptyString(" a "));
+    }
+
+    @Test
+    public final void testGetRandomString01() {
+        assertEquals(16, StringUtils.getRandomString().length());
+    }
 
 }
