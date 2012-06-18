@@ -35,7 +35,9 @@ package net.sf.kerner.utils;
  *            type of input element
  * @param <V>
  *            type of output element
+ * @deprecated use {@link Transformer} instead
  */
+@Deprecated
 public interface Modifier<T, V extends T> extends Transformer<T, V> {
 
 }
