@@ -21,96 +21,95 @@ import java.util.Collection;
 import java.util.Locale;
 
 /**
- * 
  * General utility class.
  * 
  * @author <a href="mailto:alex.kerner.24@googlemail.com">Alexander Kerner</a>
  * @version 2012-04-25
- * 
  */
 public class Utils {
 
-	/**
-	 * {@link Locale} of current user, e.g. "de", "en" or "fr".
-	 * 
-	 */
-	public static final Locale USER_LOCALE = new Locale(System.getProperty("user.language"));
+    /**
+     * {@link Locale} of current user, e.g. "de", "en" or "fr".
+     */
+    public static final Locale USER_LOCALE = new Locale(System.getProperty("user.language"));
 
-	/**
-	 * The working directory is the location in the file system from where the
-	 * java command was invoked.
-	 */
-	public static final File WORKING_DIR = new File(System.getProperty("user.dir"));
+    /**
+     * The working directory is the location in the file system from where the java command was invoked.
+     */
+    public static final File WORKING_DIR = new File(System.getProperty("user.dir"));
 
-	/**
-	 * Number of CPUs that are available to this JVM.
-	 */
-	public static final int NUM_CPUS = Runtime.getRuntime().availableProcessors();
+    /**
+     * Number of CPUs that are available to this JVM.
+     */
+    public static final int NUM_CPUS = Runtime.getRuntime().availableProcessors();
 
-	private Utils() {
+    private Utils() {
 
-	}
+    }
 
-	/**
-	 * 
-	 * 
-	 * Simple helper method, that checks whether any of given objects is {@code null}.
-	 * 
-	 * @param objects
-	 *            array of {@code Object Objects} that are checked
-	 * @throws NullPointerException
-	 *             if any of given objects is {@code null}
-	 */
-	public static void checkForNull(Object... objects) {
-		for (Object o : objects) {
-			if (o == null)
-				throw new NullPointerException();
-		}
-	}
+    /**
+     * Simple helper method, that checks whether any of given objects is {@code null}.
+     * 
+     * @param objects
+     *            array of {@code Object Objects} that are checked
+     * @throws NullPointerException
+     *             if any of given objects is {@code null}
+     */
+    public static void checkForNull(final Object... objects) {
+        checkForNull(null, objects);
+    }
 
-	/**
-	 * 
-	 * Calculates {@link Object#hashCode()} of all elements in given collection recursively, calling on
-	 * every object {@link Object#hashCode()} and add this to result.
-	 * 
-	 * @param objects
-	 *            Objects from which {@link Object#hashCode()} is calculated
-	 * @return deep hashCode for given {@link Collection} of objects
-	 */
-	public static int deepHashCode(Collection<?> objects) {
-		int result = 0;
-		for (Object o : objects) {
-			if (o instanceof Collection)
-				result += deepHashCode((Collection<?>) o);
-			else if (ArrayUtils.isArray(o))
-				result += deepHashCode(Arrays.asList((Object[]) o));
-			else
-				result += o.hashCode();
-		}
-		return result;
-	}
+    public static void checkForNull(final String message, final Object... objects) {
+        for (final Object o : objects) {
+            if (o == null) {
+                if (message != null) {
+                    throw new NullPointerException(message);
+                } else {
+                    throw new NullPointerException();
+                }
+            }
 
-	/**
-	 * 
-	 * Check, weather one Object equals another by delegating to
-	 * {@link Object#hashCode()}. If one of both Objects is {@code null},
-	 * {@code false} is returned. If both Objects are{@code null}, {@code true}
-	 * is returned.
-	 * 
-	 * @param o1
-	 *            first Object
-	 * @param o2
-	 *            second Object
-	 * @return {@code true}, if both objects have same hashCode; {@code false} otherwise
-	 * 
-	 */
-	public static boolean equalsOnHashCode(Object o1, Object o2) {
-		if (o1 == null && o2 == null) {
-			return true;
-		}
-		if (o2 == null || o1 == null) {
-			return false;
-		}
-		return o1.hashCode() == o2.hashCode();
-	}
+        }
+    }
+
+    /**
+     * Calculates {@link Object#hashCode()} of all elements in given collection recursively, calling on every object
+     * {@link Object#hashCode()} and add this to result.
+     * 
+     * @param objects
+     *            Objects from which {@link Object#hashCode()} is calculated
+     * @return deep hashCode for given {@link Collection} of objects
+     */
+    public static int deepHashCode(final Collection<?> objects) {
+        int result = 0;
+        for (final Object o : objects) {
+            if (o instanceof Collection)
+                result += deepHashCode((Collection<?>) o);
+            else if (ArrayUtils.isArray(o))
+                result += deepHashCode(Arrays.asList((Object[]) o));
+            else
+                result += o.hashCode();
+        }
+        return result;
+    }
+
+    /**
+     * Check, weather one Object equals another by delegating to {@link Object#hashCode()}. If one of both Objects is
+     * {@code null}, {@code false} is returned. If both Objects are{@code null}, {@code true} is returned.
+     * 
+     * @param o1
+     *            first Object
+     * @param o2
+     *            second Object
+     * @return {@code true}, if both objects have same hashCode; {@code false} otherwise
+     */
+    public static boolean equalsOnHashCode(final Object o1, final Object o2) {
+        if (o1 == null && o2 == null) {
+            return true;
+        }
+        if (o2 == null || o1 == null) {
+            return false;
+        }
+        return o1.hashCode() == o2.hashCode();
+    }
 }
