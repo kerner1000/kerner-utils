@@ -35,7 +35,9 @@ package net.sf.kerner.utils;
  *            type of object from which a view is created
  * @param <V>
  *            type of view object
+ * @deprecated use {@link Transformer} instead
  */
+@Deprecated
 public interface View<T, V> extends Transformer<T, V> {
 
 }

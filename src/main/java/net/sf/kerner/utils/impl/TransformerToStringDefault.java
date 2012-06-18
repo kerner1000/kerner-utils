@@ -13,7 +13,9 @@ See the License for the specific language governing permissions and
 limitations under the License.
  ***********************************************************************/
 
-package net.sf.kerner.utils;
+package net.sf.kerner.utils.impl;
+
+import net.sf.kerner.utils.TransformerToString;
 
 /**
  * Default implementation for {@link TransformerToString}. It uses {@link Object#toString()} to obtain string
