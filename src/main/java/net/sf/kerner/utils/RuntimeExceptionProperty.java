@@ -17,6 +17,8 @@ package net.sf.kerner.utils;
 
 import java.util.Properties;
 
+import net.sf.kerner.utils.impl.util.StringUtil;
+
 /**
  * A {@link RuntimeException} with an additional {@link Properties} field to store some additional properties that will
  * be printed together with stack trace if {@code toString()} method is called.

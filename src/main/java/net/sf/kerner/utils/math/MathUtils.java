@@ -18,7 +18,7 @@ package net.sf.kerner.utils.math;
 import java.util.Arrays;
 import java.util.Collection;
 
-import net.sf.kerner.utils.ArrayUtil;
+import net.sf.kerner.utils.impl.util.ArrayUtil;
 
 /**
  * Provides static helper methods.

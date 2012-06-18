@@ -17,6 +17,8 @@ package net.sf.kerner.utils;
 
 import java.util.Map.Entry;
 
+import net.sf.kerner.utils.impl.util.Util;
+
 /**
  * Simple key-value mapping.
  * <p>
