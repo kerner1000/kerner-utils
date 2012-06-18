@@ -2,6 +2,8 @@ package net.sf.kerner.utils;
 
 import static org.junit.Assert.assertTrue;
 
+import net.sf.kerner.utils.impl.ComparatorDoubleDefault;
+
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;

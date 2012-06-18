@@ -13,16 +13,16 @@ See the License for the specific language governing permissions and
 limitations under the License.
  ***********************************************************************/
 
-package net.sf.kerner.utils;
+package net.sf.kerner.utils.impl;
 
 import java.util.Comparator;
 
 /**
- * Default comparator for {@link Integer}.
+ * Default comparator for {@link Double}.
  * 
  * <pre>
  * 
- * public int compare(final Integer o1, final Integer o2) {
+ * public int compare(final Double o1, final Double o2) {
  *     return o1.compareTo(o2);
  * }
  * 
@@ -41,12 +41,12 @@ import java.util.Comparator;
  * @author <a href="mailto:alex.kerner.24@googlemail.com">Alexander Kerner</a>
  * @version 2012-06-18
  */
-public class ComparatorIntegerDefault implements Comparator<Integer> {
+public class ComparatorDoubleDefault implements Comparator<Double> {
 
     /**
      * 
      */
-    public int compare(final Integer o1, final Integer o2) {
+    public int compare(final Double o1, final Double o2) {
         return o1.compareTo(o2);
     }
 
