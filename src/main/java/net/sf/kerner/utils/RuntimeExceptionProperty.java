@@ -82,7 +82,7 @@ public class RuntimeExceptionProperty extends RuntimeException {
         final StringBuilder sb = new StringBuilder();
         if (!pro.isEmpty()) {
             sb.append(pro.toString());
-            sb.append(StringUtils.NEW_LINE_STRING);
+            sb.append(StringUtil.NEW_LINE_STRING);
         }
         sb.append(super.toString());
         return sb.toString();

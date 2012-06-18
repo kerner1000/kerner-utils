@@ -49,27 +49,27 @@ public class TestStringUtils {
 
     @Test
     public final void testEmptyString() {
-        assertTrue(StringUtils.emptyString(null));
+        assertTrue(StringUtil.emptyString(null));
     }
 
     @Test
     public final void testEmptyString01() {
-        assertTrue(StringUtils.emptyString(""));
+        assertTrue(StringUtil.emptyString(""));
     }
 
     @Test
     public final void testEmptyString02() {
-        assertTrue(StringUtils.emptyString(" "));
+        assertTrue(StringUtil.emptyString(" "));
     }
 
     @Test
     public final void testEmptyString03() {
-        assertFalse(StringUtils.emptyString(" a "));
+        assertFalse(StringUtil.emptyString(" a "));
     }
 
     @Test
     public final void testGetRandomString01() {
-        assertEquals(16, StringUtils.getRandomString().length());
+        assertEquals(16, StringUtil.getRandomString().length());
     }
 
 }

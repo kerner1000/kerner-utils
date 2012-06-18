@@ -31,9 +31,9 @@ package net.sf.kerner.utils;
  * @author <a href="mailto:alex.kerner.24@googlemail.com">Alexander Kerner</a>
  * @version 2012-04-25
  */
-public class StringUtils {
+public class StringUtil {
 
-    private StringUtils() {
+    private StringUtil() {
     }
 
     /**
