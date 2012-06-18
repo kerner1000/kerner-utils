@@ -15,6 +15,8 @@ limitations under the License.
 
 package net.sf.kerner.utils;
 
+import net.sf.kerner.utils.impl.KeyValue;
+
 /**
  * A {@link View} to a {@link KeyValue}, which returns only the key from this {@link KeyValue}.
  * <p>
