@@ -47,16 +47,12 @@ public class Util {
 
     }
 
-    /**
-     * Simple helper method, that checks whether any of given objects is {@code null}.
-     * 
-     * @param objects
-     *            array of {@code Object Objects} that are checked
-     * @throws NullPointerException
-     *             if any of given objects is {@code null}
-     */
     public static void checkForNull(final Object... objects) throws NullPointerException {
-        checkForNull(null, objects);
+        for (final Object o : objects) {
+            if (o == null) {
+                throw new NullPointerException();
+            }
+        }
     }
 
     /**
