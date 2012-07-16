@@ -60,29 +60,6 @@ public class Util {
     }
 
     /**
-     * Simple helper method, that checks whether any of given objects is {@code null}.
-     * 
-     * @param objects
-     *            array of {@code Object Objects} that are checked
-     * @param Exception
-     *            detail message
-     * @throws NullPointerException
-     *             if any of given objects is {@code null}
-     */
-    public static void checkForNull(final String message, final Object... objects) throws NullPointerException {
-        for (final Object o : objects) {
-            if (o == null) {
-                if (message != null) {
-                    throw new NullPointerException(message);
-                } else {
-                    throw new NullPointerException();
-                }
-            }
-
-        }
-    }
-
-    /**
      * Calculates {@link Object#hashCode()} of all elements in given collection recursively, calling on every object
      * {@link Object#hashCode()} and add this to result.
      * 
