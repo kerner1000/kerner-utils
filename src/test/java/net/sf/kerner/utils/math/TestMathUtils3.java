@@ -28,31 +28,31 @@ public class TestMathUtils3 {
 
     @Test
     public final void testGetClosest01() {
-        double c = MathUtils.getClosest(2.1, 3, 2, 1);
+        double c = UtilMath.getClosest(2.1, 3, 2, 1);
         assertEquals(2, c, 0);
     }
 
     @Test
     public final void testGetClosest02() {
-        double c = MathUtils.getClosest(0.9, 3, 2, 1);
+        double c = UtilMath.getClosest(0.9, 3, 2, 1);
         assertEquals(1, c, 0);
     }
 
     @Test
     public final void testGetClosest03() {
-        double c = MathUtils.getClosest(0.9, 3, 1, 2, 1);
+        double c = UtilMath.getClosest(0.9, 3, 1, 2, 1);
         assertEquals(1, c, 0);
     }
 
     @Test
     public final void testGetClosest04() {
-        double c = MathUtils.getClosest(0.9, 3, 3, 1, 2, 1);
+        double c = UtilMath.getClosest(0.9, 3, 3, 1, 2, 1);
         assertEquals(1, c, 0);
     }
 
     @Test
     public final void testGetClosest05() {
-        double c = MathUtils.getClosest(1.9, 0, 1, 2, 3);
+        double c = UtilMath.getClosest(1.9, 0, 1, 2, 3);
         assertEquals(2, c, 0);
     }
 }
