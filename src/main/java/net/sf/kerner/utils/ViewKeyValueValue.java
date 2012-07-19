@@ -15,6 +15,8 @@ limitations under the License.
 
 package net.sf.kerner.utils;
 
+import javax.swing.text.View;
+
 import net.sf.kerner.utils.impl.KeyValue;
 
 /**
@@ -36,12 +38,12 @@ import net.sf.kerner.utils.impl.KeyValue;
  *            type of value
  */
 
-public class ViewKeyValueValue<V> implements View<KeyValue<?, V>, V> {
+public class ViewKeyValueValue<V> implements Transformer<KeyValue<?, V>, V> {
 
     /**
 	 * 
 	 */
-    public V transform(KeyValue<?, V> element) {
+    public V transform(final KeyValue<?, V> element) {
         return element.getValue();
     }
 
