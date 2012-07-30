@@ -23,9 +23,9 @@ import java.util.Collection;
  * @author <a href="mailto:alex.kerner.24@googlemail.com">Alexander Kerner</a>
  * @version 2012-04-25
  */
-public class ArrayUtil {
+public class UtilArray {
 
-    private ArrayUtil() {
+    private UtilArray() {
 
     }
 

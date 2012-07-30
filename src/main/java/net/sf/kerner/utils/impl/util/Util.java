@@ -68,7 +68,7 @@ public class Util {
         for (final Object o : objects) {
             if (o instanceof Collection) {
                 result += deepHashCode((Collection<?>) o);
-            } else if (ArrayUtil.isArray(o)) {
+            } else if (UtilArray.isArray(o)) {
                 result += deepHashCode(Arrays.asList((Object[]) o));
             } else {
                 result += o.hashCode();

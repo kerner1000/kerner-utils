@@ -6,7 +6,7 @@ import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertTrue;
 import static org.junit.Assert.fail;
 
-import net.sf.kerner.utils.impl.util.ArrayUtil;
+import net.sf.kerner.utils.impl.util.UtilArray;
 
 import org.junit.After;
 import org.junit.AfterClass;
@@ -35,57 +35,57 @@ public class TestArrayUtils2 {
 
     @Test
     public final void testEmptyArray01() {
-        assertTrue(ArrayUtil.emptyArray(new Object[] {}));
+        assertTrue(UtilArray.emptyArray(new Object[] {}));
     }
 
     @Test
     public final void testEmptyArray02() {
-        assertTrue(ArrayUtil.emptyArray(null));
+        assertTrue(UtilArray.emptyArray(null));
     }
 
     @Test
     public final void testEmptyArray03() {
-        assertFalse(ArrayUtil.emptyArray(new Object[] { new Object() }));
+        assertFalse(UtilArray.emptyArray(new Object[] { new Object() }));
     }
 
     @Test
     public final void testEmptyArray04() {
-        assertFalse(ArrayUtil.emptyArray(new Object[] { new Object[] { new Integer(1) } }));
+        assertFalse(UtilArray.emptyArray(new Object[] { new Object[] { new Integer(1) } }));
     }
 
     @Test
     public final void testNullArray01() {
-        assertTrue(ArrayUtil.nullArray(null));
+        assertTrue(UtilArray.nullArray(null));
     }
 
     @Test
     public final void testNullArray02() {
-        assertTrue(ArrayUtil.nullArray(new Object[] {}));
+        assertTrue(UtilArray.nullArray(new Object[] {}));
     }
 
     @Test
     public final void testNullArray03() {
-        assertTrue(ArrayUtil.nullArray(new Object[] { null }));
+        assertTrue(UtilArray.nullArray(new Object[] { null }));
     }
 
     @Test
     public final void testNullArray04() {
-        assertTrue(ArrayUtil.nullArray(null));
+        assertTrue(UtilArray.nullArray(null));
     }
 
     @Test
     public final void testNullArray05() {
-        assertTrue(ArrayUtil.nullArray(new Object[] { new Object[] { null } }));
+        assertTrue(UtilArray.nullArray(new Object[] { new Object[] { null } }));
     }
 
     @Test
     public final void testNullArray06() {
-        assertFalse(ArrayUtil.nullArray(new Object[] { new Object[] { new Integer(1) } }));
+        assertFalse(UtilArray.nullArray(new Object[] { new Object[] { new Integer(1) } }));
     }
 
     @Test
     public final void testNullArray07() {
-        assertFalse(ArrayUtil.nullArray(new Object[] { new Integer(1) }));
+        assertFalse(UtilArray.nullArray(new Object[] { new Integer(1) }));
     }
 
     @Ignore
@@ -97,7 +97,7 @@ public class TestArrayUtils2 {
     @Test
     public final void testToPrimitiveDoubleArray01() {
         final Double[] arr = new Double[0];
-        final double[] r = ArrayUtil.toPrimitive(arr);
+        final double[] r = UtilArray.toPrimitive(arr);
         assertNotNull(r);
         assertEquals(0, r.length);
     }
@@ -105,7 +105,7 @@ public class TestArrayUtils2 {
     @Test
     public final void testToPrimitiveDoubleArray02() {
         final Double[] arr = new Double[] { Double.valueOf(1) };
-        final double[] r = ArrayUtil.toPrimitive(arr);
+        final double[] r = UtilArray.toPrimitive(arr);
         assertEquals(1, r.length);
         assertEquals(Double.valueOf(1), arr[0]);
     }
@@ -113,7 +113,7 @@ public class TestArrayUtils2 {
     @Test(expected = NullPointerException.class)
     public final void testToPrimitiveDoubleArray03() {
         final Double[] arr = new Double[] { Double.valueOf(1), null };
-        ArrayUtil.toPrimitive(arr);
+        UtilArray.toPrimitive(arr);
     }
 
     @Ignore
