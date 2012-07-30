@@ -18,9 +18,9 @@ package net.sf.kerner.utils.impl.util;
 import java.io.File;
 import java.io.FileNotFoundException;
 
-public class FileNameUtil {
+public class UtilFileName {
 
-    private FileNameUtil() {
+    private UtilFileName() {
     }
 
     /**
