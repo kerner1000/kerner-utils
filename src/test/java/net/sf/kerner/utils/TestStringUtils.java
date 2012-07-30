@@ -19,7 +19,7 @@ import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
 
-import net.sf.kerner.utils.impl.util.StringUtil;
+import net.sf.kerner.utils.impl.util.UtilString;
 
 import org.junit.After;
 import org.junit.AfterClass;
@@ -51,27 +51,27 @@ public class TestStringUtils {
 
     @Test
     public final void testEmptyString() {
-        assertTrue(StringUtil.emptyString(null));
+        assertTrue(UtilString.emptyString(null));
     }
 
     @Test
     public final void testEmptyString01() {
-        assertTrue(StringUtil.emptyString(""));
+        assertTrue(UtilString.emptyString(""));
     }
 
     @Test
     public final void testEmptyString02() {
-        assertTrue(StringUtil.emptyString(" "));
+        assertTrue(UtilString.emptyString(" "));
     }
 
     @Test
     public final void testEmptyString03() {
-        assertFalse(StringUtil.emptyString(" a "));
+        assertFalse(UtilString.emptyString(" a "));
     }
 
     @Test
     public final void testGetRandomString01() {
-        assertEquals(16, StringUtil.getRandomString().length());
+        assertEquals(16, UtilString.getRandomString().length());
     }
 
 }

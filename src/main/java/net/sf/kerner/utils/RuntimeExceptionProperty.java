@@ -17,7 +17,7 @@ package net.sf.kerner.utils;
 
 import java.util.Properties;
 
-import net.sf.kerner.utils.impl.util.StringUtil;
+import net.sf.kerner.utils.impl.util.UtilString;
 
 /**
  * A {@link RuntimeException} with an additional {@link Properties} field to store some additional properties that will
@@ -84,7 +84,7 @@ public class RuntimeExceptionProperty extends RuntimeException {
         final StringBuilder sb = new StringBuilder();
         if (!pro.isEmpty()) {
             sb.append(pro.toString());
-            sb.append(StringUtil.NEW_LINE_STRING);
+            sb.append(UtilString.NEW_LINE_STRING);
         }
         sb.append(super.toString());
         return sb.toString();
