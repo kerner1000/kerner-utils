@@ -29,6 +29,11 @@ import java.util.Locale;
 public class Util {
 
     /**
+     * Number of CPUs that are available to this JVM.
+     */
+    public static final int NUM_CPUS = Runtime.getRuntime().availableProcessors();
+
+    /**
      * {@link Locale} of current user, e.g. "de", "en" or "fr".
      */
     public static final Locale USER_LOCALE = new Locale(System.getProperty("user.language"));
@@ -37,15 +42,6 @@ public class Util {
      * The working directory is the location in the file system from where the java command was invoked.
      */
     public static final File WORKING_DIR = new File(System.getProperty("user.dir"));
-
-    /**
-     * Number of CPUs that are available to this JVM.
-     */
-    public static final int NUM_CPUS = Runtime.getRuntime().availableProcessors();
-
-    private Util() {
-
-    }
 
     public static void checkForNull(final Object... objects) throws NullPointerException {
         for (final Object o : objects) {
@@ -83,17 +79,21 @@ public class Util {
      * 
      * @param o1
      *            first Object
-     * @param o2
+     * @param obj
      *            second Object
      * @return {@code true}, if both objects have same hashCode; {@code false} otherwise
      */
-    public static boolean equalsOnHashCode(final Object o1, final Object o2) {
-        if (o1 == null && o2 == null) {
+    public static boolean equalsOnHashCode(final Object o1, final Object obj) {
+        if (o1 == null && obj == null) {
             return true;
         }
-        if (o2 == null || o1 == null) {
+        if (obj == null || o1 == null) {
             return false;
         }
-        return o1.hashCode() == o2.hashCode();
+        return o1.hashCode() == obj.hashCode();
+    }
+
+    private Util() {
+
     }
 }
