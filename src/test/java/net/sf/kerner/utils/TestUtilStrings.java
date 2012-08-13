@@ -31,7 +31,7 @@ import org.junit.Test;
  * @author <a href="mailto:alex.kerner.24@googlemail.com">Alexander Kerner</a>
  * @version 2011-01-13
  */
-public class TestStringUtils {
+public class TestUtilStrings {
 
     @BeforeClass
     public static void setUpBeforeClass() throws Exception {
