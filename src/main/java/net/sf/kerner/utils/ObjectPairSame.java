@@ -14,6 +14,10 @@ public class ObjectPairSame<T> extends ObjectPair<T, T> implements Iterable<T> {
 
     }
 
+    public ObjectPairSame<T> invert() {
+        return new ObjectPairSame<T>(getSecond(), getFirst());
+    }
+
     @SuppressWarnings("unchecked")
     public Iterator<T> iterator() {
         return Arrays.asList(getFirst(), getSecond()).iterator();
