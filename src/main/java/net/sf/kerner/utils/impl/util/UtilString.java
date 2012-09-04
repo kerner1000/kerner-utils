@@ -33,13 +33,27 @@ package net.sf.kerner.utils.impl.util;
  */
 public class UtilString {
 
-    private UtilString() {
-    }
-
     /**
      * System dependent new line string.
      */
     public final static String NEW_LINE_STRING = System.getProperty("line.separator");
+
+    /**
+     * Check if a string is {@code null}, empty or contains only whitespaces.
+     * 
+     * @param string
+     *            {@code String} to check
+     * @return true, if this {@code String} is {@code null}, empty or contains only whitespaces; false otherwise
+     */
+    public static boolean emptyString(final String string) {
+        if (string == null)
+            return true;
+        if (string.length() < 1)
+            return true;
+        if (string.matches("\\s"))
+            return true;
+        return false;
+    }
 
     /**
      * @return a random {@code String}
@@ -49,20 +63,10 @@ public class UtilString {
         return result;
     }
 
-    /**
-     * Check if a string is {@code null}, empty or contains only whitespaces.
-     * 
-     * @param string
-     *            {@code String} to check
-     * @return true, if this {@code String} is {@code null}, empty or contains only whitespaces; false otherwise
-     */
-    public static boolean emptyString(String string) {
-        if (string == null)
-            return true;
-        if (string.length() < 1)
-            return true;
-        if (string.matches("\\s"))
-            return true;
-        return false;
+    public static String replaceAllNewLine(final String string, final String replacement) {
+        return string.replaceAll("\\r\\n|\\r|\\n", replacement);
+    }
+
+    private UtilString() {
     }
 }
