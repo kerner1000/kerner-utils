@@ -67,6 +67,10 @@ public class UtilString {
         return string.replaceAll("\\r\\n|\\r|\\n", replacement);
     }
 
+    public static String trimAndReduceWhiteSpace(final String string) {
+        return string.trim().replaceAll("\\s+", " ");
+    }
+
     private UtilString() {
     }
 }
