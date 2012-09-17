@@ -19,14 +19,20 @@ import java.io.File;
 import java.util.Arrays;
 import java.util.Collection;
 import java.util.Locale;
+import java.util.Properties;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 /**
  * General utility class.
  * 
  * @author <a href="mailto:alex.kerner.24@googlemail.com">Alexander Kerner</a>
- * @version 2012-04-25
+ * @version 2012-09-17
  */
 public class Util {
+
+    private final static Logger logger = LoggerFactory.getLogger(Util.class);
 
     /**
      * Number of CPUs that are available to this JVM.
@@ -91,6 +97,27 @@ public class Util {
             return false;
         }
         return o1.hashCode() == obj.hashCode();
+    }
+
+    /**
+     * Load a property file as a resource stream and return the {@code version} property.
+     * 
+     * @param clazz
+     * @param propertiesFile
+     * @return version string or {@code n/a} if property could not be read
+     */
+    public static String readVersionFromProperties(final Class<?> clazz, final String propertiesFile) {
+        String result = "n/a";
+        try {
+            final Properties props = new Properties();
+            props.load(clazz.getResourceAsStream(propertiesFile));
+            result = props.getProperty("version");
+        } catch (final Exception e) {
+            if (logger.isErrorEnabled()) {
+                logger.error(e.getLocalizedMessage(), e);
+            }
+        }
+        return result;
     }
 
     private Util() {
