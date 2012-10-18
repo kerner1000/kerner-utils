@@ -11,6 +11,23 @@ import javax.swing.SwingConstants;
 
 public class UtilSwing {
 
+    public static JComponent buildInfoPanelEmptyBorderScroll(final JComponent content) {
+        final JPanel result = new JPanel(new BorderLayout());
+        result.setBorder(BorderFactory.createEmptyBorder());
+        final JScrollPane scroll = new JScrollPane(content);
+        result.add(scroll, BorderLayout.CENTER);
+        return result;
+    }
+
+    public static JComponent buildInfoPanelEmptyBorderScroll(final JComponent content, final int top, final int left,
+            final int bottom, final int right) {
+        final JPanel result = new JPanel(new BorderLayout());
+        result.setBorder(BorderFactory.createEmptyBorder(top, left, bottom, right));
+        final JScrollPane scroll = new JScrollPane(content);
+        result.add(scroll, BorderLayout.CENTER);
+        return result;
+    }
+
     public static JComponent buildInfoPanelTextBorder(final JComponent content, final String title) {
         final JPanel result = new JPanel(new BorderLayout());
         result.setBorder(BorderFactory.createTitledBorder(title));
@@ -30,6 +47,15 @@ public class UtilSwing {
         result.setBorder(BorderFactory.createTitledBorder(title));
         final JScrollPane scroll = new JScrollPane(content);
         result.add(scroll, BorderLayout.CENTER);
+        return result;
+    }
+
+    public static JComponent buildPanelEmptyBorder(final JComponent content, final int top, final int left,
+            final int bottom, final int right) {
+        final JPanel result = new JPanel(new BorderLayout());
+        result.setBorder(BorderFactory.createEmptyBorder(top, left, bottom, right));
+
+        result.add(content, BorderLayout.CENTER);
         return result;
     }
 
