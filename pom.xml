@@ -1,4 +1,5 @@
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 	<parent>
 		<groupId>org.sonatype.oss</groupId>
@@ -42,6 +43,11 @@
 		<developerConnection>scm:git:ssh://akerner@kerner-utils.git.sourceforge.net/gitroot/kerner-utils/kerner-utils</developerConnection>
 	</scm>
 	<distributionManagement>
+		<repository>
+			<id>ssh-repository</id>
+			<url>
+scpexe://frs.sourceforge.net:/home/frs/project/k/ke/kerner-utils</url>
+		</repository>
 		<site>
 			<id>sourceforge-kerner-utils</id>
 			<url>sftp://frs.sourceforge.net:/home/groups/k/ke/kerner-utils/htdocs</url>
@@ -114,6 +120,13 @@
 				</executions>
 			</plugin>
 		</plugins>
+		<extensions>
+			<extension>
+				<groupId>org.apache.maven.wagon</groupId>
+				<artifactId>wagon-ssh-external</artifactId>
+				<version>1.0-alpha-5</version>
+			</extension>
+		</extensions>
 	</build>
 	<dependencies>
 		<dependency>
