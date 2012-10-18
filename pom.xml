@@ -44,9 +44,9 @@
 	</scm>
 	<distributionManagement>
 		<repository>
-			<id>ssh-repository</id>
+			<id>sourceforge-kerner-utils</id>
 			<url>
-scpexe://frs.sourceforge.net:/home/frs/project/k/ke/kerner-utils</url>
+sftp://frs.sourceforge.net:/home/frs/project/k/ke/kerner-utils/files</url>
 		</repository>
 		<site>
 			<id>sourceforge-kerner-utils</id>
