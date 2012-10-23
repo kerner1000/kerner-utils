@@ -1,4 +1,4 @@
-package net.sf.kerner.utils;
+package net.sf.kerner.utils.exception;
 
 import java.io.Serializable;
 

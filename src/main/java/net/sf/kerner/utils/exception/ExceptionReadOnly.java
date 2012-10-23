@@ -1,8 +1,8 @@
-package net.sf.kerner.utils;
+package net.sf.kerner.utils.exception;
 
 import java.util.Properties;
 
-public class ExceptionReadOnly extends RuntimeExceptionProperty {
+public class ExceptionReadOnly extends ExceptionRuntimeProperty {
 
     private static final long serialVersionUID = 5406448987859843382L;
 

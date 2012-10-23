@@ -1,8 +1,8 @@
-package net.sf.kerner.utils;
+package net.sf.kerner.utils.exception;
 
 import java.util.Properties;
 
-public class ExceptionIllegalArgument extends RuntimeExceptionProperty {
+public class ExceptionIllegalArgument extends ExceptionRuntimeProperty {
 
     private static final long serialVersionUID = -209264429262542218L;
 

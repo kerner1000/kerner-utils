@@ -13,7 +13,7 @@ See the License for the specific language governing permissions and
 limitations under the License.
  ***********************************************************************/
 
-package net.sf.kerner.utils;
+package net.sf.kerner.utils.exception;
 
 import java.util.Properties;
 
@@ -36,45 +36,45 @@ import net.sf.kerner.utils.impl.util.UtilString;
  * @author <a href="mailto:alex.kerner.24@googlemail.com">Alexander Kerner</a>
  * @version 2012-04-25
  */
-public class RuntimeExceptionProperty extends RuntimeException {
+public class ExceptionRuntimeProperty extends RuntimeException {
 
     private static final long serialVersionUID = 71806291218857338L;
 
     private final Properties pro;
 
-    public RuntimeExceptionProperty() {
+    public ExceptionRuntimeProperty() {
         this.pro = new Properties();
     }
 
-    public RuntimeExceptionProperty(String arg0) {
+    public ExceptionRuntimeProperty(String arg0) {
         this(arg0, new Properties());
 
     }
 
-    public RuntimeExceptionProperty(Properties pro) {
+    public ExceptionRuntimeProperty(Properties pro) {
         super();
         this.pro = pro;
     }
 
-    public RuntimeExceptionProperty(String arg0, Properties pro) {
+    public ExceptionRuntimeProperty(String arg0, Properties pro) {
         super(arg0);
         this.pro = pro;
     }
 
-    public RuntimeExceptionProperty(Throwable arg0) {
+    public ExceptionRuntimeProperty(Throwable arg0) {
         this(arg0, new Properties());
     }
 
-    public RuntimeExceptionProperty(Throwable arg0, Properties pro) {
+    public ExceptionRuntimeProperty(Throwable arg0, Properties pro) {
         super(arg0);
         this.pro = pro;
     }
 
-    public RuntimeExceptionProperty(String arg0, Throwable arg1) {
+    public ExceptionRuntimeProperty(String arg0, Throwable arg1) {
         this(arg0, arg1, new Properties());
     }
 
-    public RuntimeExceptionProperty(String arg0, Throwable arg1, Properties pro) {
+    public ExceptionRuntimeProperty(String arg0, Throwable arg1, Properties pro) {
         super(arg0, arg1);
         this.pro = pro;
     }
