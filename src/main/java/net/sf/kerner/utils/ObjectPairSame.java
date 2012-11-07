@@ -2,6 +2,7 @@ package net.sf.kerner.utils;
 
 import java.util.Arrays;
 import java.util.Iterator;
+import java.util.List;
 
 public class ObjectPairSame<T> extends ObjectPair<T, T> implements Iterable<T> {
 
@@ -14,13 +15,17 @@ public class ObjectPairSame<T> extends ObjectPair<T, T> implements Iterable<T> {
 
     }
 
+    @SuppressWarnings("unchecked")
+    public List<T> asList() {
+        return Arrays.asList(getFirst(), getSecond());
+    }
+
     public ObjectPairSame<T> invert() {
         return new ObjectPairSame<T>(getSecond(), getFirst());
     }
 
-    @SuppressWarnings("unchecked")
     public Iterator<T> iterator() {
-        return Arrays.asList(getFirst(), getSecond()).iterator();
+        return asList().iterator();
     }
 
 }
