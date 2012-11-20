@@ -5,7 +5,6 @@ import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertTrue;
 import static org.junit.Assert.fail;
-
 import net.sf.kerner.utils.impl.util.UtilArray;
 
 import org.junit.After;
@@ -39,11 +38,6 @@ public class TestArrayUtils2 {
     }
 
     @Test
-    public final void testEmptyArray02() {
-        assertTrue(UtilArray.emptyArray(null));
-    }
-
-    @Test
     public final void testEmptyArray03() {
         assertFalse(UtilArray.emptyArray(new Object[] { new Object() }));
     }
@@ -51,6 +45,12 @@ public class TestArrayUtils2 {
     @Test
     public final void testEmptyArray04() {
         assertFalse(UtilArray.emptyArray(new Object[] { new Object[] { new Integer(1) } }));
+    }
+
+    @Ignore
+    @Test
+    public final void testIsArray() {
+        fail("Not yet implemented"); // TODO
     }
 
     @Test
@@ -90,7 +90,37 @@ public class TestArrayUtils2 {
 
     @Ignore
     @Test
-    public final void testIsArray() {
+    public final void testToObjectByte() {
+        fail("Not yet implemented"); // TODO
+    }
+
+    @Ignore
+    @Test
+    public final void testToObjectByteArray() {
+        fail("Not yet implemented"); // TODO
+    }
+
+    @Ignore
+    @Test
+    public final void testToObjectDouble() {
+        fail("Not yet implemented"); // TODO
+    }
+
+    @Ignore
+    @Test
+    public final void testToObjectDoubleArray() {
+        fail("Not yet implemented"); // TODO
+    }
+
+    @Ignore
+    @Test
+    public final void testToObjectInt() {
+        fail("Not yet implemented"); // TODO
+    }
+
+    @Ignore
+    @Test
+    public final void testToObjectIntArray() {
         fail("Not yet implemented"); // TODO
     }
 
@@ -119,42 +149,6 @@ public class TestArrayUtils2 {
     @Ignore
     @Test
     public final void testToPrimitiveIntegerArray() {
-        fail("Not yet implemented"); // TODO
-    }
-
-    @Ignore
-    @Test
-    public final void testToObjectDouble() {
-        fail("Not yet implemented"); // TODO
-    }
-
-    @Ignore
-    @Test
-    public final void testToObjectDoubleArray() {
-        fail("Not yet implemented"); // TODO
-    }
-
-    @Ignore
-    @Test
-    public final void testToObjectByte() {
-        fail("Not yet implemented"); // TODO
-    }
-
-    @Ignore
-    @Test
-    public final void testToObjectByteArray() {
-        fail("Not yet implemented"); // TODO
-    }
-
-    @Ignore
-    @Test
-    public final void testToObjectInt() {
-        fail("Not yet implemented"); // TODO
-    }
-
-    @Ignore
-    @Test
-    public final void testToObjectIntArray() {
         fail("Not yet implemented"); // TODO
     }
 
