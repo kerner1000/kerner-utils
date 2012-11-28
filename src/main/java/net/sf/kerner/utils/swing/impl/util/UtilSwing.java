@@ -1,6 +1,9 @@
 package net.sf.kerner.utils.swing.impl.util;
 
 import java.awt.BorderLayout;
+import java.awt.Component;
+import java.awt.Dimension;
+import java.awt.Toolkit;
 
 import javax.swing.BorderFactory;
 import javax.swing.JComponent;
@@ -57,6 +60,15 @@ public class UtilSwing {
 
         result.add(content, BorderLayout.CENTER);
         return result;
+    }
+
+    public static void center(final Component component) {
+        final Toolkit tk = Toolkit.getDefaultToolkit();
+        final Dimension screenSize = tk.getScreenSize();
+        final int screenHeight = screenSize.height;
+        final int screenWidth = screenSize.width;
+        component.setSize(screenWidth / 2, screenHeight / 2);
+        component.setLocation(screenWidth / 4, screenHeight / 4);
     }
 
     private UtilSwing() {
