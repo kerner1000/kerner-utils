@@ -13,19 +13,13 @@ public class ExceptionUnknownType extends RuntimeException {
         this.unknownType = unknownType;
     }
 
-    public ExceptionUnknownType(final Serializable unknownType, final String message, final Throwable cause,
-            final boolean enableSuppression, final boolean writableStackTrace) {
-        super(message, cause, enableSuppression, writableStackTrace);
+    public ExceptionUnknownType(final Serializable unknownType, final String message) {
+        super(message);
         this.unknownType = unknownType;
     }
 
     public ExceptionUnknownType(final Serializable unknownType, final String message, final Throwable cause) {
         super(message, cause);
-        this.unknownType = unknownType;
-    }
-
-    public ExceptionUnknownType(final Serializable unknownType, final String message) {
-        super(message);
         this.unknownType = unknownType;
     }
 

@@ -18,12 +18,6 @@ public class ExceptionRuntimeNotInitialized extends RuntimeException {
 
     }
 
-    public ExceptionRuntimeNotInitialized(final String message, final Throwable cause, final boolean enableSuppression,
-            final boolean writableStackTrace) {
-        super(message, cause, enableSuppression, writableStackTrace);
-
-    }
-
     public ExceptionRuntimeNotInitialized(final Throwable cause) {
         super(cause);
 
