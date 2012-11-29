@@ -22,7 +22,7 @@
 		<developer>
 			<id>kerner</id>
 			<name>Alexander Kerner</name>
-			<email>alex.kerner.24@googlemail.com</email>
+			<email>alexanderkerner24@googlemail.com</email>
 			<roles>
 				<role>Project Manager</role>
 				<role>Architect</role>
@@ -36,10 +36,10 @@
 		</license>
 	</licenses>
 	<scm>
-		<url>git://kerner-utils.git.sourceforge.net/gitroot/kerner-utils/kerner-utils 
+		<url>git://git.code.sf.net/p/kerner-utils/code 
 		</url>
-		<connection>scm:git:git://kerner-utils.git.sourceforge.net/gitroot/kerner-utils/kerner-utils</connection>
-		<developerConnection>scm:git:ssh://akerner@kerner-utils.git.sourceforge.net/gitroot/kerner-utils/kerner-utils</developerConnection>
+		<connection>scm:git:git://git://git.code.sf.net/p/kerner-utils/code</connection>
+		<developerConnection>scm:git:ssh://akerner@git://git.code.sf.net/p/kerner-utils/code</developerConnection>
 	</scm>
 	<distributionManagement>
 		<repository>
@@ -119,13 +119,6 @@ sftp://frs.sourceforge.net:/home/frs/project/k/ke/kerner-utils/releases</url>
 				</executions>
 			</plugin>
 		</plugins>
-		<extensions>
-			<extension>
-				<groupId>org.apache.maven.wagon</groupId>
-				<artifactId>wagon-ssh-external</artifactId>
-				<version>1.0-alpha-5</version>
-			</extension>
-		</extensions>
 	</build>
 	<dependencies>
 		<dependency>
