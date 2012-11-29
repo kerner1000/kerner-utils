@@ -36,17 +36,11 @@
 		</license>
 	</licenses>
 	<scm>
-		<url>git://git.code.sf.net/p/kerner-utils/code 
-		</url>
-		<connection>scm:git:git://git://git.code.sf.net/p/kerner-utils/code</connection>
+		<url>git://git.code.sf.net/p/kerner-utils/code</url>
+		<connection>scm:git://git.code.sf.net/p/kerner-utils/code</connection>
 		<developerConnection>scm:git:ssh://akerner@git://git.code.sf.net/p/kerner-utils/code</developerConnection>
 	</scm>
 	<distributionManagement>
-		<repository>
-			<id>sourceforge-kerner-utils</id>
-			<url>
-sftp://frs.sourceforge.net:/home/frs/project/k/ke/kerner-utils/releases</url>
-		</repository>
 		<site>
 			<id>sourceforge-kerner-utils</id>
 			<url>sftp://frs.sourceforge.net:/home/groups/k/ke/kerner-utils/htdocs</url>
@@ -124,7 +118,7 @@ sftp://frs.sourceforge.net:/home/frs/project/k/ke/kerner-utils/releases</url>
 		<dependency>
 			<groupId>junit</groupId>
 			<artifactId>junit</artifactId>
-			<version>4.10</version>
+			<version>4.11</version>
 			<scope>test</scope>
 		</dependency>
 		<dependency>
