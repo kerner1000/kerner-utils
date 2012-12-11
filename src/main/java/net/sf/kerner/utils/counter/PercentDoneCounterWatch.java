@@ -2,7 +2,6 @@ package net.sf.kerner.utils.counter;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.concurrent.TimeUnit;
 
 import net.sf.kerner.utils.time.StopWatch;
 import net.sf.kerner.utils.time.TimePeriod;
@@ -19,7 +18,7 @@ public class PercentDoneCounterWatch extends PercentDoneCounter implements Perce
 
     private final StopWatch watch = new StopWatch();
 
-    public PercentDoneCounterWatch(final int totalElements, final TimeUnit unit) {
+    public PercentDoneCounterWatch(final int totalElements) {
         super(totalElements);
         addListener(this);
         addRunnable(new Runnable() {
