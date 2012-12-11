@@ -37,16 +37,15 @@ package net.sf.kerner.utils.async;
  */
 public interface AsyncTask<R, V> {
 
+    void doBefore();
+
     /**
-     * Do something asynchronously.
+     * Perform on failure.
      * 
-     * @param value
-     *            parameter for execution
-     * @return result of execution
-     * @throws Exception
-     *             if execution fails
+     * @param e
+     *            cause for this {@code AsyncCallBack}'s execution failure
      */
-    R run(V value) throws Exception;
+    void doOnFailure(Exception e);
 
     /**
      * Perform on success.
@@ -57,11 +56,14 @@ public interface AsyncTask<R, V> {
     void doOnSucess(R result);
 
     /**
-     * Perform on failure.
+     * Do something asynchronously.
      * 
-     * @param e
-     *            cause for this {@code AsyncCallBack}'s execution failure
+     * @param value
+     *            parameter for execution
+     * @return result of execution
+     * @throws Exception
+     *             if execution fails
      */
-    void doOnFailure(Exception e);
+    R run(V value) throws Exception;
 
 }
