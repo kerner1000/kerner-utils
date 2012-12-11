@@ -12,6 +12,7 @@ public class PercentDoneCounter extends Counter {
     private final List<Listener> listeners = new ArrayList<Listener>();
 
     public PercentDoneCounter(final int totalElements) {
+        setInterval(totalElements / 100);
         addRunnable(new Runnable() {
             public void run() {
                 final double percent = (double) getCount() / (double) totalElements * 100;
