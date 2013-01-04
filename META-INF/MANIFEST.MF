@@ -1,5 +1,6 @@
 Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
+Bundle-RequiredExecutionEnvironment: J2SE-1.5
 Bundle-Name: kerner-utils
 Bundle-SymbolicName: net.sf.kerner-utils
 Bundle-Version: 0.17.1.SNAPSHOT
