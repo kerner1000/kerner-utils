@@ -29,7 +29,7 @@ package net.sf.kerner.utils.impl.util;
  * </p>
  * 
  * @author <a href="mailto:alex.kerner.24@googlemail.com">Alexander Kerner</a>
- * @version 2012-04-25
+ * @version 2013-02-16
  */
 public class UtilString {
 
@@ -43,14 +43,15 @@ public class UtilString {
      * 
      * @param string
      *            {@code String} to check
-     * @return true, if this {@code String} is {@code null}, empty or contains only whitespaces; false otherwise
+     * @return true, if this {@code String} is {@code null}, empty or contains
+     *         only whitespaces; false otherwise
      */
     public static boolean emptyString(final String string) {
         if (string == null)
             return true;
         if (string.length() < 1)
             return true;
-        if (string.matches("\\s"))
+        if (string.matches("\\s+"))
             return true;
         return false;
     }

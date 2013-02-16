@@ -1,6 +1,8 @@
 package net.sf.kerner.utils.impl.util;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertTrue;
 import static org.junit.Assert.fail;
 
 import org.junit.After;
@@ -28,10 +30,24 @@ public class TestUtilString {
     public void tearDown() throws Exception {
     }
 
-    @Ignore
     @Test
-    public final void testEmptyString() {
-        fail("Not yet implemented");
+    public final void testEmptyString01() {
+        assertTrue(UtilString.emptyString(null));
+    }
+
+    @Test
+    public final void testEmptyString02() {
+        assertTrue(UtilString.emptyString(""));
+    }
+
+    @Test
+    public final void testEmptyString03() {
+        assertTrue(UtilString.emptyString("  "));
+    }
+
+    @Test
+    public final void testEmptyString04() {
+        assertFalse(UtilString.emptyString("e"));
     }
 
     @Ignore
