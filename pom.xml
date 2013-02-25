@@ -40,12 +40,6 @@
 		<connection>scm:git://git.code.sf.net/p/kerner-utils/code</connection>
 		<developerConnection>scm:git:ssh://akerner@git.code.sf.net/p/kerner-utils/code</developerConnection>
 	</scm>
-	<distributionManagement>
-		<site>
-			<id>sourceforge-kerner-utils</id>
-			<url>sftp://frs.sourceforge.net:/home/groups/k/ke/kerner-utils/htdocs</url>
-		</site>
-	</distributionManagement>
 	<build>
 		<plugins>
 			<plugin>
