@@ -7,7 +7,7 @@
 	</parent>
 	<groupId>net.sf.kerner-utils</groupId>
 	<artifactId>kerner-utils</artifactId>
-	<version>0.17.2-SNAPSHOT</version>
+	<version>0.17.1-SNAPSHOT</version>
 	<name>Kerner Utilities</name>
 	<description>Commonly used utility classes.</description>
 	<url>http://kerner-utils.sourceforge.net/</url>
