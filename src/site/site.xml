@@ -1,23 +1,31 @@
 <?xml version="1.0" encoding="ISO-8859-1"?>
 <project name="Kerner-Utils">
+	<skin>
+		<groupId>org.apache.maven.skins</groupId>
+		<artifactId>maven-fluido-skin</artifactId>
+		<version>1.3.0</version>
+	</skin>
 	<body>
 
 		<head>
 			<!-- Piwik -->
 			<script type="text/javascript">
-				var pkBaseURL = (("https:" == document.location.protocol) ?
+				var pkBaseURL = (("https:" ==
+				document.location.protocol) ?
 				"https://sourceforge.net/apps/piwik/kerner-utils/" :
 				"http://sourceforge.net/apps/piwik/kerner-utils/");
 				document.write(unescape("%3Cscript src='" + pkBaseURL + "piwik.js'
 				type='text/javascript'%3E%3C/script%3E"));
-</script>
+			</script>
 			<script type="text/javascript">
 				try {
-				var piwikTracker = Piwik.getTracker(pkBaseURL + "piwik.php", 1);
+				var piwikTracker =
+				Piwik.getTracker(pkBaseURL + "piwik.php", 1);
 				piwikTracker.trackPageView();
 				piwikTracker.enableLinkTracking();
-				} catch( err ) {}
-</script>
+				}
+				catch( err ) {}
+			</script>
 			<noscript>
 				<p>
 					<img
@@ -33,7 +41,8 @@
 			<item name="Download" href="http://sourceforge.net/projects/kerner-utils/files/" />
 			<item name="JavaDoc"
 				href="http://kerner-utils.sourceforge.net/apidocs/index.html" />
-			<item name="Test Coverage" href="http://kerner-utils.sourceforge.net/cobertura/index.html" />
+			<item name="Test Coverage"
+				href="http://kerner-utils.sourceforge.net/cobertura/index.html" />
 			<item name="Sourceforge" href="http://sourceforge.net/projects/kerner-utils/" />
 		</menu>
 		<menu ref="reports" />
