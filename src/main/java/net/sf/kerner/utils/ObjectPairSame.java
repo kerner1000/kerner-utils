@@ -4,6 +4,11 @@ import java.util.Arrays;
 import java.util.Iterator;
 import java.util.List;
 
+/**
+ * 
+ @deprecated use {@link net.sf.kerner.uitls.ObjectPairSame} instead
+ */
+@Deprecated
 public class ObjectPairSame<T> extends ObjectPair<T, T> implements Iterable<T> {
 
     public ObjectPairSame() {
