@@ -13,14 +13,17 @@ See the License for the specific language governing permissions and
 limitations under the License.
  ***********************************************************************/
 
-package net.sf.kerner.utils;
+package net.sf.kerner.utils.impl;
 
+import java.util.Arrays;
+import java.util.Iterator;
 import java.util.List;
+
+import net.sf.kerner.utils.ObjectPairSame;
 
 /**
  * 
- * {@code ObjectPairSame} is an {@link ObjectPair}, where both {@code first} and
- * {@code second} object are of same type.
+ * Default implementation for {@link ObjectPairSame}.
  * 
  * <p>
  * <b>Example:</b><br>
@@ -43,16 +46,29 @@ import java.util.List;
  * @param <T>
  *            type of objects
  */
-public interface ObjectPairSame<T> extends ObjectPair<T, T>, Iterable<T> {
+public class ObjectPairSameImpl<T> extends ObjectPairImpl<T, T> implements ObjectPairSame<T> {
 
-    /**
-     * Returns a {@link List}, which contains two elements,
-     * {@link ObjectPairSame#getFirst()} and {@link ObjectPairSame#getSecond()},
-     * in this order.
-     * 
-     * @return a {@link List}, which contains {@link ObjectPairSame#getFirst()}
-     *         and {@link ObjectPairSame#getSecond()}
-     */
-    List<T> asList();
+    public ObjectPairSameImpl() {
+        super();
+    }
+
+    public ObjectPairSameImpl(final T first, final T second) {
+        super(first, second);
+
+    }
+
+    @SuppressWarnings("unchecked")
+    public List<T> asList() {
+        return Arrays.asList(getFirst(), getSecond());
+    }
+
+    @Override
+    public ObjectPairSameImpl<T> invert() {
+        return new ObjectPairSameImpl<T>(getSecond(), getFirst());
+    }
+
+    public Iterator<T> iterator() {
+        return asList().iterator();
+    }
 
 }
