@@ -19,6 +19,7 @@ import java.util.Arrays;
 import java.util.Iterator;
 import java.util.List;
 
+import net.sf.kerner.utils.ObjectPair;
 import net.sf.kerner.utils.ObjectPairSame;
 
 /**
@@ -50,6 +51,10 @@ public class ObjectPairSameImpl<T> extends ObjectPairImpl<T, T> implements Objec
 
     public ObjectPairSameImpl() {
         super();
+    }
+
+    public ObjectPairSameImpl(final ObjectPair<T, T> template) {
+        super(template);
     }
 
     public ObjectPairSameImpl(final T first, final T second) {

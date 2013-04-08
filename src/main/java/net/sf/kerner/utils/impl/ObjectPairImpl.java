@@ -44,6 +44,10 @@ public class ObjectPairImpl<F, S> implements ObjectPair<F, S> {
         this.second = second;
     }
 
+    public ObjectPairImpl(final ObjectPair<F, S> template) {
+        this(template.getFirst(), template.getSecond());
+    }
+
     /**
      * <b>Note:</b> A new {@code ObjectPairImpl} object is created, but
      * {@code first} and {@code second} objects are not cloned here. If this is
