@@ -45,9 +45,19 @@ public class Util {
     public static final Locale USER_LOCALE = new Locale(System.getProperty("user.language"));
 
     /**
-     * The working directory is the location in the file system from where the java command was invoked.
+     * The working directory is the location in the file system from where the
+     * java command was invoked.
      */
     public static final File WORKING_DIR = new File(System.getProperty("user.dir"));
+
+    public static int calculateHash(final Object... objects) {
+        int result = 17;
+        final int prime = 31;
+        for (final Object o : objects) {
+            result = prime * result + ((o == null) ? 0 : o.hashCode());
+        }
+        return result;
+    }
 
     public static void checkForNull(final Object... objects) throws NullPointerException {
         for (final Object o : objects) {
@@ -58,8 +68,9 @@ public class Util {
     }
 
     /**
-     * Calculates {@link Object#hashCode()} of all elements in given collection recursively, calling on every object
-     * {@link Object#hashCode()} and add this to result.
+     * Calculates {@link Object#hashCode()} of all elements in given collection
+     * recursively, calling on every object {@link Object#hashCode()} and add
+     * this to result.
      * 
      * @param objects
      *            Objects from which {@link Object#hashCode()} is calculated
@@ -80,14 +91,17 @@ public class Util {
     }
 
     /**
-     * Check, weather one Object equals another by delegating to {@link Object#hashCode()}. If one of both Objects is
-     * {@code null}, {@code false} is returned. If both Objects are {@code null}, {@code true} is returned.
+     * Check, weather one Object equals another by delegating to
+     * {@link Object#hashCode()}. If one of both Objects is {@code null},
+     * {@code false} is returned. If both Objects are {@code null}, {@code true}
+     * is returned.
      * 
      * @param o1
      *            first Object
      * @param obj
      *            second Object
-     * @return {@code true}, if both objects have same hashCode; {@code false} otherwise
+     * @return {@code true}, if both objects have same hashCode; {@code false}
+     *         otherwise
      */
     public static boolean equalsOnHashCode(final Object o1, final Object obj) {
         if (o1 == null && obj == null) {
@@ -100,7 +114,8 @@ public class Util {
     }
 
     /**
-     * Load a property file as a resource stream and return the {@code version} property.
+     * Load a property file as a resource stream and return the {@code version}
+     * property.
      * 
      * @param clazz
      * @param propertiesFile
