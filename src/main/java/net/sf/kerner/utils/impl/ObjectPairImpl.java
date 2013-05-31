@@ -19,11 +19,11 @@ import net.sf.kerner.utils.impl.util.Util;
  * 
  * </p>
  * <p>
- * last reviewed: 2013-04-03
+ * last reviewed: 2013-05-31
  * </p>
  * 
  * @author <a href="mailto:alexanderkerner24@gmail.com">Alexander Kerner</a>
- * @version 2013-04-03
+ * @version 2013-05-31
  * 
  * @param <F>
  *            type of first object
@@ -78,7 +78,7 @@ public class ObjectPairImpl<F, S> implements ObjectPair<F, S> {
 
     @Override
     public int hashCode() {
-        final int prime = 31;
+        final int prime = 97;
         int result = 1;
         result = prime * result + ((first == null) ? 0 : first.hashCode());
         result = prime * result + ((second == null) ? 0 : second.hashCode());
