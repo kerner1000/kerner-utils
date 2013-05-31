@@ -61,6 +61,9 @@ public class ThreadPoolExecutorNotifying extends ThreadPoolExecutor {
 
     @Override
     protected synchronized <T> RunnableFuture<T> newTaskFor(final Runnable runnable, final T value) {
+        if (identifier == null) {
+            identifier = "n/a";
+        }
         final FutureTaskNotifying<T> hannes = new FutureTaskNotifying<T>(runnable, value, new String(identifier));
         identifier = null;
         hannes.addAllListener(listeners);
