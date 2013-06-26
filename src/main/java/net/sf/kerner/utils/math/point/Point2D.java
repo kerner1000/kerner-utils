@@ -104,7 +104,7 @@ public class Point2D implements ObjectPair<Double, Double> {
         return result;
     }
 
-    public ObjectPair<Double, Double> invert() {
+    public Point2D invert() {
         return new Point2D(getY(), getX());
     }
 
