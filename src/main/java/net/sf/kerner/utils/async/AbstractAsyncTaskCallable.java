@@ -9,7 +9,7 @@ public abstract class AbstractAsyncTaskCallable<R, V> extends AbstractAsyncTask<
     /**
      * Don't override. Override {@link #run(Object)}
      */
-    public Void call() throws Exception {
+    public final Void call() throws Exception {
         execute(getValue());
         return null;
     }

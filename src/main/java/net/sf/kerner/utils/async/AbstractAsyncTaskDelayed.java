@@ -4,20 +4,29 @@ public abstract class AbstractAsyncTaskDelayed<O, I, K> extends AbstractAsyncTas
 
     private volatile O result;
 
-    public void execute(final I value) {
+    public void allDone(final boolean error) {
+        doOnSucess(result);
+    }
+
+    public void errorOccured(final K identifier, final Exception error) {
+        doOnFailure(error);
+    }
+
+    /**
+     * Execute this {@code AbstractAsyncCallBack}. <br>
+     * Don't override. Override {@link #run(Object)}
+     * 
+     * 
+     * @param value
+     *            parameter for this {@code AbstractAsyncCallBack}
+     */
+    @Override
+    public final void execute(final I value) {
 
         try {
             result = run(value);
         } catch (final Exception e) {
             doOnFailure(e);
         }
-    }
-
-    public void allDone(boolean error) {
-        doOnSucess(result);
-    }
-
-    public void errorOccured(K identifier, Exception error) {
-        doOnFailure(error);
     };
 }
