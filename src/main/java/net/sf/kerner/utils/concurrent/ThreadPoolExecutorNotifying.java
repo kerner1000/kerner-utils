@@ -10,8 +10,43 @@ import java.util.concurrent.RunnableFuture;
 import java.util.concurrent.ThreadFactory;
 import java.util.concurrent.ThreadPoolExecutor;
 import java.util.concurrent.TimeUnit;
+import java.util.concurrent.atomic.AtomicInteger;
 
 public class ThreadPoolExecutorNotifying extends ThreadPoolExecutor {
+
+    /**
+     * The thread factory
+     */
+    static class DefaultThreadFactory implements ThreadFactory {
+        private static final AtomicInteger poolNumber = new AtomicInteger(1);
+        private final ThreadGroup group;
+        private final AtomicInteger threadNumber = new AtomicInteger(1);
+        private String namePrefix;
+        private String id;
+
+        DefaultThreadFactory() {
+            final SecurityManager s = System.getSecurityManager();
+            group = (s != null) ? s.getThreadGroup() : Thread.currentThread().getThreadGroup();
+        }
+
+        public synchronized String getId() {
+            return id;
+        }
+
+        public Thread newThread(final Runnable r) {
+            namePrefix = "pool-" + poolNumber.getAndIncrement() + "-" + id + "-";
+            final Thread t = new Thread(group, r, namePrefix + threadNumber.getAndIncrement(), 0);
+            if (t.isDaemon())
+                t.setDaemon(false);
+            if (t.getPriority() != Thread.NORM_PRIORITY)
+                t.setPriority(Thread.NORM_PRIORITY);
+            return t;
+        }
+
+        public synchronized void setId(final String id) {
+            this.id = id;
+        }
+    }
 
     public static ThreadPoolExecutorNotifying build(final int numCPUs) {
         return new ThreadPoolExecutorNotifying(numCPUs, numCPUs, 0L, TimeUnit.MILLISECONDS,
@@ -19,6 +54,8 @@ public class ThreadPoolExecutorNotifying extends ThreadPoolExecutor {
     }
 
     private String identifier;
+
+    private final DefaultThreadFactory defaultThreadFactory = new DefaultThreadFactory();
 
     private final List<FutureTaskNotifying.ListenerDone> listeners = new ArrayList<FutureTaskNotifying.ListenerDone>();
 
@@ -32,19 +69,20 @@ public class ThreadPoolExecutorNotifying extends ThreadPoolExecutor {
         super(corePoolSize, maximumPoolSize, keepAliveTime, unit, workQueue, handler);
     }
 
-    public ThreadPoolExecutorNotifying(final int corePoolSize, final int maximumPoolSize, final long keepAliveTime,
-            final TimeUnit unit, final BlockingQueue<Runnable> workQueue, final ThreadFactory threadFactory) {
-        super(corePoolSize, maximumPoolSize, keepAliveTime, unit, workQueue, threadFactory);
-    }
-
-    public ThreadPoolExecutorNotifying(final int corePoolSize, final int maximumPoolSize, final long keepAliveTime,
-            final TimeUnit unit, final BlockingQueue<Runnable> workQueue, final ThreadFactory threadFactory,
-            final RejectedExecutionHandler handler) {
-        super(corePoolSize, maximumPoolSize, keepAliveTime, unit, workQueue, threadFactory, handler);
-    }
-
     public synchronized <T> void addListenerDone(final FutureTaskNotifying.ListenerDone listener) {
         listeners.add(listener);
+    }
+
+    @Override
+    protected void afterExecute(final Runnable r, final Throwable t) {
+        // TODO Auto-generated method stub
+        super.afterExecute(r, t);
+    }
+
+    @Override
+    protected void beforeExecute(final Thread t, final Runnable r) {
+        // TODO Auto-generated method stub
+        super.beforeExecute(t, r);
     }
 
     public synchronized String getIdentifier() {
@@ -52,9 +90,17 @@ public class ThreadPoolExecutorNotifying extends ThreadPoolExecutor {
     }
 
     @Override
+    public synchronized ThreadFactory getThreadFactory() {
+        defaultThreadFactory.setId(getIdentifier());
+        return defaultThreadFactory;
+    }
+
+    @Override
     protected synchronized <T> RunnableFuture<T> newTaskFor(final Callable<T> callable) {
+        if (identifier == null) {
+            identifier = "n/a";
+        }
         final FutureTaskNotifying<T> hannes = new FutureTaskNotifying<T>(callable, identifier);
-        identifier = null;
         hannes.addAllListener(listeners);
         return hannes;
     }
@@ -65,7 +111,6 @@ public class ThreadPoolExecutorNotifying extends ThreadPoolExecutor {
             identifier = "n/a";
         }
         final FutureTaskNotifying<T> hannes = new FutureTaskNotifying<T>(runnable, value, new String(identifier));
-        identifier = null;
         hannes.addAllListener(listeners);
         return hannes;
     }

@@ -39,7 +39,6 @@ public class FutureTaskNotifying<V> extends FutureTask<V> {
         for (final ListenerDone l : listeners) {
             addListener(l);
         }
-
     }
 
     public synchronized void addListener(final ListenerDone listener) {
