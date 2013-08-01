@@ -16,7 +16,8 @@ limitations under the License.
 package net.sf.kerner.utils;
 
 /**
- * A {@code Transformer} converts one object of type {@code T} to another object of type {@code V}.
+ * A {@code Transformer} converts one object of type {@code T} to another object
+ * of type {@code V}.
  * <p>
  * <b>Example:</b><br>
  * </p>
@@ -38,7 +39,7 @@ package net.sf.kerner.utils;
 public interface Transformer<T, V> {
 
     /**
-     * Transform element of type {@code T} to a new element of type {@code V}.
+     * Transforms element of type {@code T} to a new element of type {@code V}.
      * 
      * @param element
      *            element that is converted
