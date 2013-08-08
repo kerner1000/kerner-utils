@@ -21,7 +21,6 @@ public abstract class AbstractAsyncTaskCallableNotifying<R, V> extends AbstractA
     private final String identifier;
 
     public AbstractAsyncTaskCallableNotifying(final String identifier) {
-        super();
         this.identifier = identifier;
     }
 

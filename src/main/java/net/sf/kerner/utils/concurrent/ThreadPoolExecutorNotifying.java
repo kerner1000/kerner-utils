@@ -33,7 +33,7 @@ public class ThreadPoolExecutorNotifying extends ThreadPoolExecutor {
             return id;
         }
 
-        public Thread newThread(final Runnable r) {
+        public synchronized Thread newThread(final Runnable r) {
             namePrefix = "pool-" + poolNumber.getAndIncrement() + "-" + id + "-";
             final Thread t = new Thread(group, r, namePrefix + threadNumber.getAndIncrement(), 0);
             if (t.isDaemon())

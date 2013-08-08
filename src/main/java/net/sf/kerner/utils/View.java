@@ -1,7 +1,7 @@
 package net.sf.kerner.utils;
 
-public interface View<T> {
+public interface View<O> {
 
-    T getOriginal();
+    O getOriginal();
 
 }
