@@ -16,8 +16,11 @@ limitations under the License.
 package net.sf.kerner.utils.math;
 
 import java.math.BigInteger;
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collection;
+import java.util.Iterator;
+import java.util.List;
 
 import net.sf.kerner.utils.impl.util.UtilArray;
 
@@ -293,6 +296,18 @@ public class UtilMath {
         return Math.sqrt(sumOfSquares / (values.length - 1));
     }
 
+    public static Integer substract(final Integer integer, final int i) {
+        return Integer.valueOf(integer - i);
+    }
+
+    public static List<Integer> substract(final List<Integer> integers, final int i) {
+        final List<Integer> result = new ArrayList<Integer>();
+        for (final Integer integer : integers) {
+            result.add(substract(integer, i));
+        }
+        return result;
+    }
+
     public static double sum(final Collection<Double> values) {
         return sum(UtilArray.toPrimitive(values.toArray(new Double[values.size()])));
     }
@@ -316,5 +331,27 @@ public class UtilMath {
     }
 
     private UtilMath() {
+    }
+
+    public int getIndexOfMax(final List<? extends Number> values) {
+        Double result = values.iterator().next().doubleValue();
+        for (final Iterator<? extends Number> iterator = values.iterator(); iterator.hasNext();) {
+            final Double number = iterator.next().doubleValue();
+            if (number.compareTo(result) > 0) {
+                result = number;
+            }
+        }
+        return values.indexOf(result);
+    }
+
+    public int getIndexOfMin(final List<? extends Number> values) {
+        Double result = values.iterator().next().doubleValue();
+        for (final Iterator<? extends Number> iterator = values.iterator(); iterator.hasNext();) {
+            final Double number = iterator.next().doubleValue();
+            if (number.compareTo(result) < 0) {
+                result = number;
+            }
+        }
+        return values.indexOf(result);
     }
 }
