@@ -23,7 +23,7 @@ import net.sf.kerner.utils.impl.util.Util;
  * </p>
  * 
  * @author <a href="mailto:alexanderkerner24@gmail.com">Alexander Kerner</a>
- * @version 2013-05-31
+ * @version 2013-08-01
  * 
  * @param <F>
  *            type of first object
@@ -37,6 +37,11 @@ public class ObjectPairImpl<F, S> implements ObjectPair<F, S> {
     private S second;
 
     public ObjectPairImpl() {
+    }
+
+    public ObjectPairImpl(final F first) {
+        this.first = first;
+
     }
 
     public ObjectPairImpl(final F first, final S second) {
