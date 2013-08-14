@@ -15,6 +15,8 @@ limitations under the License.
 
 package net.sf.kerner.utils.impl.util;
 
+import java.util.Collection;
+
 /**
  * Utility class for {@link String} related stuff.
  * <p>
@@ -37,6 +39,15 @@ public class UtilString {
      * System dependent new line string.
      */
     public final static String NEW_LINE_STRING = System.getProperty("line.separator");
+
+    public static boolean allEmpty(final Collection<String> strings) {
+        for (final String s : strings) {
+            if (!emptyString(s)) {
+                return false;
+            }
+        }
+        return true;
+    }
 
     /**
      * Check if a string is {@code null}, empty or contains only whitespaces.
