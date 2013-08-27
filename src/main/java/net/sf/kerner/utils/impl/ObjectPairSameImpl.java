@@ -53,7 +53,7 @@ public class ObjectPairSameImpl<T> extends ObjectPairImpl<T, T> implements Objec
         super();
     }
 
-    public ObjectPairSameImpl(final ObjectPair<T, T> template) {
+    public ObjectPairSameImpl(final ObjectPair<? extends T, ? extends T> template) {
         super(template);
     }
 
