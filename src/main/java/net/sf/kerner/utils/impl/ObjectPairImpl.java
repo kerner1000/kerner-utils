@@ -49,7 +49,7 @@ public class ObjectPairImpl<F, S> implements ObjectPair<F, S> {
         this.second = second;
     }
 
-    public ObjectPairImpl(final ObjectPair<F, S> template) {
+    public ObjectPairImpl(final ObjectPair<? extends F, ? extends S> template) {
         this(template.getFirst(), template.getSecond());
     }
 
