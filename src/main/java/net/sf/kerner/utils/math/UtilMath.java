@@ -308,8 +308,8 @@ public class UtilMath {
         return result;
     }
 
-    public static double sum(final Collection<Double> values) {
-        return sum(UtilArray.toPrimitive(values.toArray(new Double[values.size()])));
+    public static double sum(final Collection<? extends Number> values) {
+        return sum(UtilArray.toPrimitive(values.toArray(new Number[values.size()])));
     }
 
     /**
