@@ -15,6 +15,7 @@ limitations under the License.
 
 package net.sf.kerner.utils.math;
 
+import java.math.BigDecimal;
 import java.math.BigInteger;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -22,7 +23,7 @@ import java.util.Collection;
 import java.util.Iterator;
 import java.util.List;
 
-import net.sf.kerner.utils.impl.util.UtilArray;
+import net.sf.kerner.utils.UtilArray;
 
 /**
  * Provides static helper methods.
@@ -330,6 +331,14 @@ public class UtilMath {
         return result;
     }
 
+    public static BigDecimal sumBig(final Collection<? extends BigDecimal> values) {
+        final BigDecimal result = BigDecimal.ZERO;
+        for (final BigDecimal n : values) {
+            result.add(n);
+        }
+        return result;
+    }
+
     private UtilMath() {
     }
 
@@ -354,4 +363,5 @@ public class UtilMath {
         }
         return values.indexOf(result);
     }
+
 }

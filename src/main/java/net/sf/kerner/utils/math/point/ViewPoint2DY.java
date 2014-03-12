@@ -1,6 +1,6 @@
 package net.sf.kerner.utils.math.point;
 
-import net.sf.kerner.utils.Transformer;
+import net.sf.kerner.utils.transformer.Transformer;
 
 public class ViewPoint2DY implements Transformer<Point2D, Double> {
 

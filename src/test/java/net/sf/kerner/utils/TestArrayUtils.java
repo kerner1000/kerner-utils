@@ -5,7 +5,6 @@ package net.sf.kerner.utils;
 
 import static org.junit.Assert.assertArrayEquals;
 
-import net.sf.kerner.utils.impl.util.UtilArray;
 
 import org.junit.After;
 import org.junit.AfterClass;

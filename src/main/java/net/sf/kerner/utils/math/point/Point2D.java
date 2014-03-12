@@ -1,6 +1,6 @@
 package net.sf.kerner.utils.math.point;
 
-import net.sf.kerner.utils.ObjectPair;
+import net.sf.kerner.utils.pair.ObjectPair;
 
 public class Point2D implements ObjectPair<Double, Double> {
 

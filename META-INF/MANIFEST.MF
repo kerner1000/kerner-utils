@@ -6,17 +6,21 @@ Bundle-SymbolicName: net.sf.kerner-utils
 Bundle-Version: 0.18.4.qualifier
 Export-Package: net.sf.kerner.utils;version="0.18.4.qualifier",
  net.sf.kerner.utils.async;version="0.18.4.qualifier",
+ net.sf.kerner.utils.comparator;version="0.18.4.qualifier",
  net.sf.kerner.utils.concurrent;version="0.18.4.qualifier",
  net.sf.kerner.utils.counter;version="0.18.4.qualifier",
+ net.sf.kerner.utils.equal;version="0.18.4.qualifier",
  net.sf.kerner.utils.exception;version="0.18.4.qualifier",
- net.sf.kerner.utils.impl;version="0.18.4.qualifier",
+ net.sf.kerner.utils.hash;version="0.18.4.qualifier",
  net.sf.kerner.utils.impl.util;version="0.18.4.qualifier",
- net.sf.kerner.utils.log,
+ net.sf.kerner.utils.log;version="0.18.4.qualifier",
  net.sf.kerner.utils.math;version="0.18.4.qualifier",
  net.sf.kerner.utils.math.point;version="0.18.4.qualifier",
  net.sf.kerner.utils.monitor.memory;version="0.18.4.qualifier",
- net.sf.kerner.utils.swing.impl;version="0.18.4.qualifier",
- net.sf.kerner.utils.swing.impl.util;version="0.18.4.qualifier",
- net.sf.kerner.utils.time;version="0.18.4.qualifier"
+ net.sf.kerner.utils.pair;version="0.18.4.qualifier",
+ net.sf.kerner.utils.progress;version="0.18.4.qualifier",
+ net.sf.kerner.utils.swing;version="0.18.4.qualifier",
+ net.sf.kerner.utils.time;version="0.18.4.qualifier",
+ net.sf.kerner.utils.transformer;version="0.18.4.qualifier"
 Import-Package: org.junit;resolution:=optional,
  org.slf4j

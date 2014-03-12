@@ -1,6 +1,6 @@
 package net.sf.kerner.utils.math.point;
 
-import net.sf.kerner.utils.Transformer;
+import net.sf.kerner.utils.transformer.Transformer;
 
 public class ViewPoint3DX implements Transformer<Point3D, Double> {
 

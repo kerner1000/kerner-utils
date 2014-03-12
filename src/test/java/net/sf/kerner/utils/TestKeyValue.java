@@ -19,7 +19,8 @@ import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotSame;
 import static org.junit.Assert.fail;
 
-import net.sf.kerner.utils.impl.KeyValue;
+
+import net.sf.kerner.utils.pair.KeyValue;
 
 import org.junit.After;
 import org.junit.AfterClass;

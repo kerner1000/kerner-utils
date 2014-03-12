@@ -5,7 +5,6 @@ import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertTrue;
 import static org.junit.Assert.fail;
-import net.sf.kerner.utils.impl.util.UtilArray;
 
 import org.junit.After;
 import org.junit.AfterClass;

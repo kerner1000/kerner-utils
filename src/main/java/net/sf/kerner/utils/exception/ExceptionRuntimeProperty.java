@@ -17,7 +17,7 @@ package net.sf.kerner.utils.exception;
 
 import java.util.Properties;
 
-import net.sf.kerner.utils.impl.util.UtilString;
+import net.sf.kerner.utils.UtilString;
 
 /**
  * A {@link RuntimeException} with an additional {@link Properties} field to store some additional properties that will

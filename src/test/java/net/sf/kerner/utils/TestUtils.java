@@ -4,13 +4,11 @@
 package net.sf.kerner.utils;
 
 import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertFalse;
-import static org.junit.Assert.assertTrue;
 
 import java.util.Arrays;
 import java.util.HashSet;
 
-import net.sf.kerner.utils.impl.util.Util;
+import net.sf.kerner.utils.hash.UtilHash;
 
 import org.junit.After;
 import org.junit.AfterClass;
@@ -72,43 +70,18 @@ public class TestUtils {
 
     @Test
     public final void testDeepHashCode01() {
-        assertEquals(6, Util.deepHashCode(Arrays.asList(1, 2, 3)));
+        assertEquals(6, UtilHash.deepHashCode(Arrays.asList(1, 2, 3)));
     }
 
     @Test
     public final void testDeepHashCode02() {
-        assertEquals(7, Util.deepHashCode(Arrays.asList(1, 2, 3, new Integer[] { 1 })));
+        assertEquals(7, UtilHash.deepHashCode(Arrays.asList(1, 2, 3, new Integer[] { 1 })));
     }
 
     @Test
     public final void testDeepHashCode03() {
-        assertEquals(9,
-                Util.deepHashCode(Arrays.asList(1, 2, 3, new Integer[] { 1 }, new HashSet<Integer>(Arrays.asList(2)))));
-    }
-
-    @Test
-    public final void testEqualsOnHashCode01() {
-        assertFalse(Util.equalsOnHashCode(new Object(), null));
-    }
-
-    @Test
-    public final void testEqualsOnHashCode02() {
-        assertFalse(Util.equalsOnHashCode(null, new Object()));
-    }
-
-    @Test
-    public final void testEqualsOnHashCode03() {
-        assertTrue(Util.equalsOnHashCode(null, null));
-    }
-
-    @Test
-    public final void testEqualsOnHashCode04() {
-        assertTrue(Util.equalsOnHashCode(1, 1));
-    }
-
-    @Test
-    public final void testEqualsOnHashCode05() {
-        assertFalse(Util.equalsOnHashCode(1, 2));
+        assertEquals(9, UtilHash.deepHashCode(Arrays.asList(1, 2, 3, new Integer[] { 1 },
+                new HashSet<Integer>(Arrays.asList(2)))));
     }
 
 }
