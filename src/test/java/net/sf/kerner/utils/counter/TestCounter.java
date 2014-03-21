@@ -1,3 +1,18 @@
+/*******************************************************************************
+ * Copyright 2010-1014 Alexander Kerner
+ * 
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ * 
+ *   http://www.apache.org/licenses/LICENSE-2.0
+ * 
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ ******************************************************************************/
 /**
  * 
  */
@@ -98,7 +113,8 @@ public class TestCounter {
     }
 
     /**
-     * Test method for {@link net.sf.kerner.utils.counter.Counter#Counter(java.lang.Runnable)}.
+     * Test method for
+     * {@link net.sf.kerner.utils.counter.Counter#Counter(java.lang.Runnable)}.
      */
     @Test
     public final void testCounterRunnable() {
@@ -118,7 +134,9 @@ public class TestCounter {
     }
 
     /**
-     * Test method for {@link net.sf.kerner.utils.counter.Counter#Counter(int, java.lang.Runnable)} .
+     * Test method for
+     * {@link net.sf.kerner.utils.counter.Counter#Counter(int, java.lang.Runnable)}
+     * .
      */
     @Test
     public final void testCounterIntRunnable() {
@@ -229,7 +247,8 @@ public class TestCounter {
     }
 
     /**
-     * Test method for {@link net.sf.kerner.utils.counter.Counter#setInterval(int)}.
+     * Test method for
+     * {@link net.sf.kerner.utils.counter.Counter#setInterval(int)}.
      */
     @Test
     public final void testSetInterval() {
@@ -243,7 +262,8 @@ public class TestCounter {
     }
 
     /**
-     * Test method for {@link net.sf.kerner.utils.counter.Counter#setInterval(int)}.
+     * Test method for
+     * {@link net.sf.kerner.utils.counter.Counter#setInterval(int)}.
      */
     @Test
     public final void testSetInterval01() {
@@ -260,7 +280,8 @@ public class TestCounter {
     }
 
     /**
-     * Test method for {@link net.sf.kerner.utils.counter.Counter#setInterval(int)}.
+     * Test method for
+     * {@link net.sf.kerner.utils.counter.Counter#setInterval(int)}.
      */
     @Test(expected = NumberFormatException.class)
     public final void testSetInterval02() {
@@ -268,7 +289,8 @@ public class TestCounter {
     }
 
     /**
-     * Test method for {@link net.sf.kerner.utils.counter.Counter#setInterval(int)}.
+     * Test method for
+     * {@link net.sf.kerner.utils.counter.Counter#setInterval(int)}.
      */
     @Test
     public final void testSetInterval03() {
@@ -282,7 +304,8 @@ public class TestCounter {
     }
 
     /**
-     * Test method for {@link net.sf.kerner.utils.counter.Counter#setInterval(int)}.
+     * Test method for
+     * {@link net.sf.kerner.utils.counter.Counter#setInterval(int)}.
      */
     @Test
     public final void testSetInterval04() {
@@ -299,7 +322,8 @@ public class TestCounter {
     }
 
     /**
-     * Test method for {@link net.sf.kerner.utils.counter.Counter#setInterval(int)}.
+     * Test method for
+     * {@link net.sf.kerner.utils.counter.Counter#setInterval(int)}.
      */
     @Test
     public final void testSetInterval05() {
@@ -315,7 +339,8 @@ public class TestCounter {
     }
 
     /**
-     * Test method for {@link net.sf.kerner.utils.counter.Counter#setInterval(int)}.
+     * Test method for
+     * {@link net.sf.kerner.utils.counter.Counter#setInterval(int)}.
      */
     @Test
     public final void testSetInterval06() {
@@ -335,7 +360,8 @@ public class TestCounter {
     }
 
     /**
-     * Test method for {@link net.sf.kerner.utils.counter.Counter#setInterval(int)}.
+     * Test method for
+     * {@link net.sf.kerner.utils.counter.Counter#setInterval(int)}.
      */
     @Test
     public final void testSetInterval07() {
@@ -353,7 +379,8 @@ public class TestCounter {
     }
 
     /**
-     * Test method for {@link net.sf.kerner.utils.counter.Counter#getInterval()} .
+     * Test method for {@link net.sf.kerner.utils.counter.Counter#getInterval()}
+     * .
      */
     @Test
     public final void testGetInterval() {
@@ -369,7 +396,8 @@ public class TestCounter {
     }
 
     /**
-     * Test method for {@link net.sf.kerner.utils.counter.Counter#getInitCount()}.
+     * Test method for
+     * {@link net.sf.kerner.utils.counter.Counter#getInitCount()}.
      */
     @Test
     public final void testGetInitCount() {
@@ -377,7 +405,8 @@ public class TestCounter {
     }
 
     /**
-     * Test method for {@link net.sf.kerner.utils.counter.Counter#getInitCount()}.
+     * Test method for
+     * {@link net.sf.kerner.utils.counter.Counter#getInitCount()}.
      */
     @Test
     public final void testGetInitCount01() {
@@ -386,7 +415,8 @@ public class TestCounter {
     }
 
     /**
-     * Test method for {@link net.sf.kerner.utils.counter.Counter#setCount(int)} .
+     * Test method for {@link net.sf.kerner.utils.counter.Counter#setCount(int)}
+     * .
      */
     @Test
     public final void testSetCount() {
@@ -403,7 +433,8 @@ public class TestCounter {
     }
 
     /**
-     * Test method for {@link net.sf.kerner.utils.counter.Counter#equals(java.lang.Object)}.
+     * Test method for
+     * {@link net.sf.kerner.utils.counter.Counter#equals(java.lang.Object)}.
      */
     @Test
     public final void testEqualsObject() {
@@ -411,7 +442,8 @@ public class TestCounter {
     }
 
     /**
-     * Test method for {@link net.sf.kerner.utils.counter.Counter#equals(java.lang.Object)}.
+     * Test method for
+     * {@link net.sf.kerner.utils.counter.Counter#equals(java.lang.Object)}.
      */
     @Test
     public final void testEqualsObject01() {
@@ -421,7 +453,8 @@ public class TestCounter {
     }
 
     /**
-     * Test method for {@link net.sf.kerner.utils.counter.Counter#equals(java.lang.Object)}.
+     * Test method for
+     * {@link net.sf.kerner.utils.counter.Counter#equals(java.lang.Object)}.
      */
     @Test
     public final void testEqualsObject02() {
@@ -431,7 +464,8 @@ public class TestCounter {
     }
 
     /**
-     * Test method for {@link net.sf.kerner.utils.counter.Counter#equals(java.lang.Object)}.
+     * Test method for
+     * {@link net.sf.kerner.utils.counter.Counter#equals(java.lang.Object)}.
      */
     @Test
     public final void testEqualsObject03() {
@@ -440,7 +474,8 @@ public class TestCounter {
     }
 
     /**
-     * Test method for {@link net.sf.kerner.utils.counter.Counter#equals(java.lang.Object)}.
+     * Test method for
+     * {@link net.sf.kerner.utils.counter.Counter#equals(java.lang.Object)}.
      */
     @Test
     public final void testEqualsObject04() {

@@ -1,18 +1,18 @@
-/**********************************************************************
-Copyright (c) 2009-2011 Alexander Kerner. All rights reserved.
-Licensed under the Apache License, Version 2.0 (the "License");
-you may not use this file except in compliance with the License.
-You may obtain a copy of the License at
-
-    http://www.apache.org/licenses/LICENSE-2.0
-
-Unless required by applicable law or agreed to in writing, software
-distributed under the License is distributed on an "AS IS" BASIS,
-WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-See the License for the specific language governing permissions and
-limitations under the License.
- ***********************************************************************/
-
+/*******************************************************************************
+ * Copyright 2010-1014 Alexander Kerner
+ * 
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ * 
+ *   http://www.apache.org/licenses/LICENSE-2.0
+ * 
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ ******************************************************************************/
 package net.sf.kerner.utils.time;
 
 /**
@@ -34,7 +34,8 @@ package net.sf.kerner.utils.time;
 public class StopWatch {
 
     /**
-     * An Exception to indicate that a {@code StopWatch} is already running and cannot be started.
+     * An Exception to indicate that a {@code StopWatch} is already running and
+     * cannot be started.
      * <p>
      * <b>Example:</b><br>
      * </p>
@@ -46,7 +47,8 @@ public class StopWatch {
      * 
      * </p>
      * 
-     * @author <a href="mailto:alex.kerner.24@googlemail.com">Alexander Kerner</a>
+     * @author <a href="mailto:alex.kerner.24@googlemail.com">Alexander
+     *         Kerner</a>
      * @version 2011-08-02
      */
     public class AlreadyRunningException extends RuntimeException {
@@ -71,7 +73,8 @@ public class StopWatch {
     }
 
     /**
-     * An Exception to indicate that a {@code StopWatch} is not running and cannot be stoped.
+     * An Exception to indicate that a {@code StopWatch} is not running and
+     * cannot be stoped.
      * <p>
      * <b>Example:</b><br>
      * </p>
@@ -83,7 +86,8 @@ public class StopWatch {
      * 
      * </p>
      * 
-     * @author <a href="mailto:alex.kerner.24@googlemail.com">Alexander Kerner</a>
+     * @author <a href="mailto:alex.kerner.24@googlemail.com">Alexander
+     *         Kerner</a>
      * @version 2011-08-02
      */
     public class NotRunningException extends RuntimeException {

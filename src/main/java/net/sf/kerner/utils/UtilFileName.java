@@ -1,18 +1,18 @@
-/**********************************************************************
-Copyright (c) 2009-2011 Alexander Kerner. All rights reserved.
-Licensed under the Apache License, Version 2.0 (the "License");
-you may not use this file except in compliance with the License.
-You may obtain a copy of the License at
-
-    http://www.apache.org/licenses/LICENSE-2.0
-
-Unless required by applicable law or agreed to in writing, software
-distributed under the License is distributed on an "AS IS" BASIS,
-WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-See the License for the specific language governing permissions and
-limitations under the License.
- ***********************************************************************/
-
+/*******************************************************************************
+ * Copyright 2010-1014 Alexander Kerner
+ * 
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ * 
+ *   http://www.apache.org/licenses/LICENSE-2.0
+ * 
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ ******************************************************************************/
 package net.sf.kerner.utils;
 
 import java.io.File;
@@ -33,11 +33,13 @@ public class UtilFileName {
      * @param newName
      *            new name for the file
      * @param keepExtension
-     *            if true, file extension will be appended to new name, if there was any.
+     *            if true, file extension will be appended to new name, if there
+     *            was any.
      * @return true, if operation was successful, false otherwise
      * @throws FileNotFoundException
      */
-    public static boolean renameFile(File file, String newName, boolean keepExtension) throws FileNotFoundException {
+    public static boolean renameFile(File file, String newName, boolean keepExtension)
+            throws FileNotFoundException {
         synchronized (file) {
 
             if (!file.isFile()) {
@@ -56,13 +58,16 @@ public class UtilFileName {
 
     /**
      * <p>
-     * Given a {@code File} named "hans.txt". newName is "peter". Returning {@code String} will be "peter.txt".
+     * Given a {@code File} named "hans.txt". newName is "peter". Returning
+     * {@code String} will be "peter.txt".
      * </p>
      * <p>
-     * Original name is "hans.txt.tex". newName is "peter". Returning {@code String} will be "peter.tex".
+     * Original name is "hans.txt.tex". newName is "peter". Returning
+     * {@code String} will be "peter.tex".
      * </p>
      * <p>
-     * Original name is "hans.txt.tex". newName is "peter.txt". Returning {@code String} will be "peter.txt.tex".
+     * Original name is "hans.txt.tex". newName is "peter.txt". Returning
+     * {@code String} will be "peter.txt.tex".
      * </p>
      * 
      * @param file
@@ -83,7 +88,8 @@ public class UtilFileName {
 
     public static File appendToFileName(File file, String string) {
         final String raw = getRawFileName(file);
-        final String nameNew = new StringBuilder().append(raw).append(string).append(getFileExtension(file)).toString();
+        final String nameNew = new StringBuilder().append(raw).append(string)
+                .append(getFileExtension(file)).toString();
         final File result = new File(file.getParent(), nameNew);
         return result;
     }

@@ -1,3 +1,18 @@
+/*******************************************************************************
+ * Copyright 2010-1014 Alexander Kerner
+ * 
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ * 
+ *   http://www.apache.org/licenses/LICENSE-2.0
+ * 
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ ******************************************************************************/
 package net.sf.kerner.utils.swing;
 
 import java.awt.Component;
@@ -67,7 +82,8 @@ public class TableColumnAdjuster implements PropertyChangeListener, TableModelLi
     }
 
     /*
-     * Toggle properties of the TableColumnAdjuster so the user can customize the functionality to their preferences
+     * Toggle properties of the TableColumnAdjuster so the user can customize
+     * the functionality to their preferences
      */
     class ToggleAction extends AbstractAction {
         private final boolean isToggleDynamic;
@@ -162,7 +178,8 @@ public class TableColumnAdjuster implements PropertyChangeListener, TableModelLi
     }
 
     /*
-     * Calculate the width based on the widest cell renderer for the given column.
+     * Calculate the width based on the widest cell renderer for the given
+     * column.
      */
     private int getColumnDataWidth(final int column) {
         if (!isColumnDataIncluded)
@@ -198,7 +215,8 @@ public class TableColumnAdjuster implements PropertyChangeListener, TableModelLi
             renderer = table.getTableHeader().getDefaultRenderer();
         }
 
-        final Component c = renderer.getTableCellRendererComponent(table, value, false, false, -1, column);
+        final Component c = renderer.getTableCellRendererComponent(table, value, false, false, -1,
+                column);
         return c.getPreferredSize().width;
     }
 
@@ -218,8 +236,8 @@ public class TableColumnAdjuster implements PropertyChangeListener, TableModelLi
     /*
      * Update the input and action maps with a new ColumnAction
      */
-    private void installColumnAction(final boolean isSelectedColumn, final boolean isAdjust, final String key,
-            final String keyStroke) {
+    private void installColumnAction(final boolean isSelectedColumn, final boolean isAdjust,
+            final String key, final String keyStroke) {
         final Action action = new ColumnAction(isSelectedColumn, isAdjust);
         final KeyStroke ks = KeyStroke.getKeyStroke(keyStroke);
         table.getInputMap().put(ks, key);
@@ -229,8 +247,8 @@ public class TableColumnAdjuster implements PropertyChangeListener, TableModelLi
     /*
      * Update the input and action maps with new ToggleAction
      */
-    private void installToggleAction(final boolean isToggleDynamic, final boolean isToggleLarger, final String key,
-            final String keyStroke) {
+    private void installToggleAction(final boolean isToggleDynamic, final boolean isToggleLarger,
+            final String key, final String keyStroke) {
         final Action action = new ToggleAction(isToggleDynamic, isToggleLarger);
         final KeyStroke ks = KeyStroke.getKeyStroke(keyStroke);
         table.getInputMap().put(ks, key);
@@ -293,7 +311,8 @@ public class TableColumnAdjuster implements PropertyChangeListener, TableModelLi
     }
 
     /*
-     * Indicate whether changes to the model should cause the width to be dynamically recalculated.
+     * Indicate whether changes to the model should cause the width to be
+     * dynamically recalculated.
      */
     public void setDynamicAdjustment(final boolean isDynamicAdjustment) {
         // May need to add or remove the TableModelListener when changed

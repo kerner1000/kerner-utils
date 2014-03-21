@@ -1,3 +1,18 @@
+/*******************************************************************************
+ * Copyright 2010-1014 Alexander Kerner
+ * 
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ * 
+ *   http://www.apache.org/licenses/LICENSE-2.0
+ * 
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ ******************************************************************************/
 /**
  * 
  */
@@ -36,7 +51,9 @@ public class TestArithmeticSavety {
     }
 
     /**
-     * Test method for {@link net.sf.kerner.utils.math.ArithmeticSavety#rangeCheckInteger(java.math.BigInteger)} .
+     * Test method for
+     * {@link net.sf.kerner.utils.math.ArithmeticSavety#rangeCheckInteger(java.math.BigInteger)}
+     * .
      */
     @Test
     public final void testRangeCheckInteger() {
@@ -44,23 +61,31 @@ public class TestArithmeticSavety {
     }
 
     /**
-     * Test method for {@link net.sf.kerner.utils.math.ArithmeticSavety#rangeCheckInteger(java.math.BigInteger)} .
+     * Test method for
+     * {@link net.sf.kerner.utils.math.ArithmeticSavety#rangeCheckInteger(java.math.BigInteger)}
+     * .
      */
     @Test(expected = ArithmeticException.class)
     public final void testRangeCheckInteger01() {
-        ArithmeticSavety.rangeCheckInteger(BigInteger.valueOf(Integer.MAX_VALUE).add(BigInteger.ONE));
+        ArithmeticSavety.rangeCheckInteger(BigInteger.valueOf(Integer.MAX_VALUE)
+                .add(BigInteger.ONE));
     }
 
     /**
-     * Test method for {@link net.sf.kerner.utils.math.ArithmeticSavety#rangeCheckInteger(java.math.BigInteger)} .
+     * Test method for
+     * {@link net.sf.kerner.utils.math.ArithmeticSavety#rangeCheckInteger(java.math.BigInteger)}
+     * .
      */
     @Test(expected = ArithmeticException.class)
     public final void testRangeCheckInteger02() {
-        ArithmeticSavety.rangeCheckInteger(BigInteger.valueOf(Integer.MIN_VALUE).subtract(BigInteger.ONE));
+        ArithmeticSavety.rangeCheckInteger(BigInteger.valueOf(Integer.MIN_VALUE).subtract(
+                BigInteger.ONE));
     }
 
     /**
-     * Test method for {@link net.sf.kerner.utils.math.ArithmeticSavety#rangeCheckLong(java.math.BigInteger)} .
+     * Test method for
+     * {@link net.sf.kerner.utils.math.ArithmeticSavety#rangeCheckLong(java.math.BigInteger)}
+     * .
      */
     @Test
     public final void testRangeCheckLong() {
@@ -68,7 +93,9 @@ public class TestArithmeticSavety {
     }
 
     /**
-     * Test method for {@link net.sf.kerner.utils.math.ArithmeticSavety#rangeCheckLong(java.math.BigInteger)} .
+     * Test method for
+     * {@link net.sf.kerner.utils.math.ArithmeticSavety#rangeCheckLong(java.math.BigInteger)}
+     * .
      */
     @Test(expected = ArithmeticException.class)
     public final void testRangeCheckLong01() {
@@ -76,15 +103,19 @@ public class TestArithmeticSavety {
     }
 
     /**
-     * Test method for {@link net.sf.kerner.utils.math.ArithmeticSavety#rangeCheckLong(java.math.BigInteger)} .
+     * Test method for
+     * {@link net.sf.kerner.utils.math.ArithmeticSavety#rangeCheckLong(java.math.BigInteger)}
+     * .
      */
     @Test(expected = ArithmeticException.class)
     public final void testRangeCheckLong02() {
-        ArithmeticSavety.rangeCheckLong(BigInteger.valueOf(Long.MIN_VALUE).subtract(BigInteger.ONE));
+        ArithmeticSavety
+                .rangeCheckLong(BigInteger.valueOf(Long.MIN_VALUE).subtract(BigInteger.ONE));
     }
 
     /**
-     * Test method for {@link net.sf.kerner.utils.math.ArithmeticSavety#addInt(int, int)}.
+     * Test method for
+     * {@link net.sf.kerner.utils.math.ArithmeticSavety#addInt(int, int)}.
      */
     @Test(expected = ArithmeticException.class)
     public final void testAddInt() {
@@ -92,7 +123,8 @@ public class TestArithmeticSavety {
     }
 
     /**
-     * Test method for {@link net.sf.kerner.utils.math.ArithmeticSavety#addInt(int, int)}.
+     * Test method for
+     * {@link net.sf.kerner.utils.math.ArithmeticSavety#addInt(int, int)}.
      */
     @Test(expected = ArithmeticException.class)
     public final void testAddInt01() {
@@ -100,7 +132,8 @@ public class TestArithmeticSavety {
     }
 
     /**
-     * Test method for {@link net.sf.kerner.utils.math.ArithmeticSavety#addLong(long, long)}.
+     * Test method for
+     * {@link net.sf.kerner.utils.math.ArithmeticSavety#addLong(long, long)}.
      */
     @Test
     public final void testAddLong() {
@@ -108,7 +141,8 @@ public class TestArithmeticSavety {
     }
 
     /**
-     * Test method for {@link net.sf.kerner.utils.math.ArithmeticSavety#addLong(long, long)}.
+     * Test method for
+     * {@link net.sf.kerner.utils.math.ArithmeticSavety#addLong(long, long)}.
      */
     @Test(expected = ArithmeticException.class)
     public final void testAddLong01() {
@@ -116,7 +150,8 @@ public class TestArithmeticSavety {
     }
 
     /**
-     * Test method for {@link net.sf.kerner.utils.math.ArithmeticSavety#addLong(long, long)}.
+     * Test method for
+     * {@link net.sf.kerner.utils.math.ArithmeticSavety#addLong(long, long)}.
      */
     @Test(expected = ArithmeticException.class)
     public final void testAddLong02() {
@@ -124,7 +159,8 @@ public class TestArithmeticSavety {
     }
 
     /**
-     * Test method for {@link net.sf.kerner.utils.math.ArithmeticSavety#multiply(int, int)}.
+     * Test method for
+     * {@link net.sf.kerner.utils.math.ArithmeticSavety#multiply(int, int)}.
      */
     @Test(expected = ArithmeticException.class)
     public final void testMultiplyIntInt() {
@@ -132,7 +168,8 @@ public class TestArithmeticSavety {
     }
 
     /**
-     * Test method for {@link net.sf.kerner.utils.math.ArithmeticSavety#multiply(int, int)}.
+     * Test method for
+     * {@link net.sf.kerner.utils.math.ArithmeticSavety#multiply(int, int)}.
      */
     @Test(expected = ArithmeticException.class)
     public final void testMultiplyIntInt01() {
@@ -140,7 +177,8 @@ public class TestArithmeticSavety {
     }
 
     /**
-     * Test method for {@link net.sf.kerner.utils.math.ArithmeticSavety#multiply(long, long)}.
+     * Test method for
+     * {@link net.sf.kerner.utils.math.ArithmeticSavety#multiply(long, long)}.
      */
     @Test
     public final void testMultiplyLongLong() {
@@ -148,7 +186,9 @@ public class TestArithmeticSavety {
     }
 
     /**
-     * Test method for {@link net.sf.kerner.utils.math.ArithmeticSavety#increment(java.lang.Integer)} .
+     * Test method for
+     * {@link net.sf.kerner.utils.math.ArithmeticSavety#increment(java.lang.Integer)}
+     * .
      */
     @Test(expected = ArithmeticException.class)
     public final void testIncrement() {
@@ -156,7 +196,9 @@ public class TestArithmeticSavety {
     }
 
     /**
-     * Test method for {@link net.sf.kerner.utils.math.ArithmeticSavety#increment(java.lang.Integer)} .
+     * Test method for
+     * {@link net.sf.kerner.utils.math.ArithmeticSavety#increment(java.lang.Integer)}
+     * .
      */
     @Test
     public final void testIncrement01() {
@@ -164,15 +206,20 @@ public class TestArithmeticSavety {
     }
 
     /**
-     * Test method for {@link net.sf.kerner.utils.math.ArithmeticSavety#add(java.lang.Integer, java.lang.Integer)} .
+     * Test method for
+     * {@link net.sf.kerner.utils.math.ArithmeticSavety#add(java.lang.Integer, java.lang.Integer)}
+     * .
      */
     @Test
     public final void testAdd() {
-        assertEquals(Integer.valueOf(1), ArithmeticSavety.add(Integer.valueOf(0), Integer.valueOf(1)));
+        assertEquals(Integer.valueOf(1),
+                ArithmeticSavety.add(Integer.valueOf(0), Integer.valueOf(1)));
     }
 
     /**
-     * Test method for {@link net.sf.kerner.utils.math.ArithmeticSavety#add(java.lang.Integer, java.lang.Integer)} .
+     * Test method for
+     * {@link net.sf.kerner.utils.math.ArithmeticSavety#add(java.lang.Integer, java.lang.Integer)}
+     * .
      */
     @Test(expected = ArithmeticException.class)
     public final void testAdd01() {
