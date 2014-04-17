@@ -1,3 +1,18 @@
+/*******************************************************************************
+ * Copyright 2010-1014 Alexander Kerner
+ * 
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ * 
+ *   http://www.apache.org/licenses/LICENSE-2.0
+ * 
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ ******************************************************************************/
 package net.sf.kerner.utils.swing;
 
 import java.awt.Component;
@@ -52,15 +67,15 @@ public class TableButton extends JButton implements TableCellRenderer, TableCell
         return "";
     }
 
-    public Component getTableCellEditorComponent(final JTable table, final Object value, final boolean isSelected,
-            final int row, final int col) {
+    public Component getTableCellEditorComponent(final JTable table, final Object value,
+            final boolean isSelected, final int row, final int col) {
         selectedRow = row;
         selectedColumn = col;
         return this;
     }
 
-    public Component getTableCellRendererComponent(final JTable table, final Object value, final boolean isSelected,
-            final boolean hasFocus, final int row, final int col) {
+    public Component getTableCellRendererComponent(final JTable table, final Object value,
+            final boolean isSelected, final boolean hasFocus, final int row, final int col) {
         return this;
     }
 

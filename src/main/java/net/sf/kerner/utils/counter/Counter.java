@@ -1,18 +1,18 @@
-/**********************************************************************
-Copyright (c) 2009-2010 Alexander Kerner. All rights reserved.
-Licensed under the Apache License, Version 2.0 (the "License");
-you may not use this file except in compliance with the License.
-You may obtain a copy of the License at
-
-    http://www.apache.org/licenses/LICENSE-2.0
-
-Unless required by applicable law or agreed to in writing, software
-distributed under the License is distributed on an "AS IS" BASIS,
-WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-See the License for the specific language governing permissions and
-limitations under the License.
- ***********************************************************************/
-
+/*******************************************************************************
+ * Copyright 2010-1014 Alexander Kerner
+ * 
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ * 
+ *   http://www.apache.org/licenses/LICENSE-2.0
+ * 
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ ******************************************************************************/
 package net.sf.kerner.utils.counter;
 
 import java.util.ArrayList;
@@ -20,16 +20,18 @@ import java.util.List;
 
 /**
  * <p>
- * A {@code Counter} can be used to monitor program behavior or to keep track of some progress, e.g. how many loop
- * cycles have already been performed.
+ * A {@code Counter} can be used to monitor program behavior or to keep track of
+ * some progress, e.g. how many loop cycles have already been performed.
  * </p>
  * <p>
- * A {@code Counter} can be initialized with a {@link Runnable}, which will be executed with given interval.<br>
- * Per default the interval is {@code 1}, which means given {@link Runnable} will be executed (synchronously) with every
- * count.
+ * A {@code Counter} can be initialized with a {@link Runnable}, which will be
+ * executed with given interval.<br>
+ * Per default the interval is {@code 1}, which means given {@link Runnable}
+ * will be executed (synchronously) with every count.
  * </p>
  * <p>
- * Per default, a {@code Counter} will execute nothing with an interval of {@code 1}.
+ * Per default, a {@code Counter} will execute nothing with an interval of
+ * {@code 1}.
  * </p>
  * <p>
  * This class is fully threadsave.
@@ -60,8 +62,8 @@ public class Counter {
     // Constructor //
 
     /**
-     * Create a new {@code Counter} that has initially performed zero counts and will do nothing on call of
-     * {@link Counter#perform()}.
+     * Create a new {@code Counter} that has initially performed zero counts and
+     * will do nothing on call of {@link Counter#perform()}.
      */
     public Counter() {
         // all zero
@@ -69,8 +71,8 @@ public class Counter {
     }
 
     /**
-     * Create a new {@code Counter} that has initially performed zero counts and will execute [@code runner} on call of
-     * {@link Counter#perform()}.
+     * Create a new {@code Counter} that has initially performed zero counts and
+     * will execute [@code runner} on call of {@link Counter#perform()}.
      */
     public Counter(Runnable runner) {
         // all zero
@@ -80,8 +82,10 @@ public class Counter {
 
     /**
      * <p>
-     * Construct a new {@code Counter} with has initially performed {@code count} counts and will do nothing on call of
-     * {@link Counter#perform()}. {@link Counter#getCount()} will return {@code count}.
+     * Construct a new {@code Counter} with has initially performed
+     * {@code count} counts and will do nothing on call of
+     * {@link Counter#perform()}. {@link Counter#getCount()} will return
+     * {@code count}.
      * </p>
      * 
      * @param count
@@ -96,8 +100,10 @@ public class Counter {
 
     /**
      * <p>
-     * Construct a new {@code Counter} with has initially performed {@code count} counts and will execute [@code runner}
-     * on call of {@link Counter#perform()}. {@link Counter#getCount()} will return {@code count}.
+     * Construct a new {@code Counter} with has initially performed
+     * {@code count} counts and will execute [@code runner} on call of
+     * {@link Counter#perform()}. {@link Counter#getCount()} will return
+     * {@code count}.
      * </p>
      * 
      * @param count
@@ -145,8 +151,8 @@ public class Counter {
 
     /**
      * <p>
-     * Resets this {@code Counter} and calls {@link Counter#perform()} if there has been any counts after last call of
-     * {@link Counter#perform()}.
+     * Resets this {@code Counter} and calls {@link Counter#perform()} if there
+     * has been any counts after last call of {@link Counter#perform()}.
      * </p>
      */
     public synchronized void finish() {
@@ -165,7 +171,8 @@ public class Counter {
      * </p>
      * 
      * @param interval
-     *            number of counts {@link Counter#count()} has to be called before {@link Counter#perform()} is called.
+     *            number of counts {@link Counter#count()} has to be called
+     *            before {@link Counter#perform()} is called.
      * @throws NumberFormatException
      *             if {@code interval} < 1
      */

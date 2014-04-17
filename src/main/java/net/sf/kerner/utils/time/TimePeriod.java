@@ -1,25 +1,26 @@
-/**********************************************************************
-Copyright (c) 2009-2010 Alexander Kerner. All rights reserved.
-Licensed under the Apache License, Version 2.0 (the "License");
-you may not use this file except in compliance with the License.
-You may obtain a copy of the License at
-
-    http://www.apache.org/licenses/LICENSE-2.0
-
-Unless required by applicable law or agreed to in writing, software
-distributed under the License is distributed on an "AS IS" BASIS,
-WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-See the License for the specific language governing permissions and
-limitations under the License.
- ***********************************************************************/
-
+/*******************************************************************************
+ * Copyright 2010-1014 Alexander Kerner
+ * 
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ * 
+ *   http://www.apache.org/licenses/LICENSE-2.0
+ * 
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ ******************************************************************************/
 package net.sf.kerner.utils.time;
 
 import java.util.concurrent.TimeUnit;
 
 /**
  * <p>
- * A {@code TimePeriod} represents a period of time, which has a start point, a stop point and a duration.
+ * A {@code TimePeriod} represents a period of time, which has a start point, a
+ * stop point and a duration.
  * </p>
  * <p>
  * This class is fully thread save.
@@ -47,7 +48,8 @@ public class TimePeriod {
 
     /**
      * <p>
-     * Constructs a new {@code TimePeriod} with given start point, stop point and time unit.
+     * Constructs a new {@code TimePeriod} with given start point, stop point
+     * and time unit.
      * </p>
      * 
      * @param start
@@ -66,7 +68,8 @@ public class TimePeriod {
 
     /**
      * <p>
-     * Constructs a new {@code TimePeriod} with given start point and stop point.
+     * Constructs a new {@code TimePeriod} with given start point and stop
+     * point.
      * </p>
      * 
      * @param start
@@ -95,7 +98,8 @@ public class TimePeriod {
 
     /**
      * <p>
-     * Returns the start point of this time period. Time unit is {@link TimePeriod#DEFAULT_TIME_UNIT}.
+     * Returns the start point of this time period. Time unit is
+     * {@link TimePeriod#DEFAULT_TIME_UNIT}.
      * </p>
      * 
      * @return start point of this time period
@@ -106,7 +110,8 @@ public class TimePeriod {
 
     /**
      * <p>
-     * Returns the stop point of this time period. Time unit is {@link TimePeriod#DEFAULT_TIME_UNIT}.
+     * Returns the stop point of this time period. Time unit is
+     * {@link TimePeriod#DEFAULT_TIME_UNIT}.
      * </p>
      * 
      * @return stop point of this time period
@@ -154,11 +159,13 @@ public class TimePeriod {
 
     /**
      * <p>
-     * Get duration of this {@code TimePeriod}, converted to given {@code TimeUnit}.
+     * Get duration of this {@code TimePeriod}, converted to given
+     * {@code TimeUnit}.
      * </p>
      * 
      * @param tu
-     *            {@link java.util.concurrent.TimeUnit} in which duration is measured
+     *            {@link java.util.concurrent.TimeUnit} in which duration is
+     *            measured
      * @return duration of this time period. Meaning stop point - start point.
      */
     public long getDuration(TimeUnit tu) {
