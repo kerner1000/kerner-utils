@@ -57,7 +57,7 @@ import java.util.Map.Entry;
  * @param <V>
  *            type of second object
  */
-public class KeyValue<K, V> implements Entry<K, V>, ObjectPair<K, V> {
+public class KeyValue<K, V> implements Entry<K, V>, Pair<K, V> {
 
     /**
 	 * 
@@ -118,7 +118,7 @@ public class KeyValue<K, V> implements Entry<K, V>, ObjectPair<K, V> {
     }
 
     /**
-     * In contrast to {@link ObjectPair}, {@code KeyValue(1,2)} does not equal
+     * In contrast to {@link Pair}, {@code KeyValue(1,2)} does not equal
      * {@code KeyValue(2,1)}.
      * 
      */
@@ -174,7 +174,7 @@ public class KeyValue<K, V> implements Entry<K, V>, ObjectPair<K, V> {
     }
 
     /**
-     * In contrast to {@link ObjectPair}, {@code KeyValue(1,2).hashCode()} does
+     * In contrast to {@link Pair}, {@code KeyValue(1,2).hashCode()} does
      * not equal {@code KeyValue(2,1).hashCode()}.
      * 
      */

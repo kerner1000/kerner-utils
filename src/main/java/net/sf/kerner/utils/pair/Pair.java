@@ -52,7 +52,7 @@ package net.sf.kerner.utils.pair;
  * @param <S>
  *            type of second object
  */
-public interface ObjectPair<F, S> {
+public interface Pair<F, S> {
 
     /**
      * clones this {@code ObjectPair}.
@@ -60,7 +60,7 @@ public interface ObjectPair<F, S> {
      * @return a new instance of {@code ObjectPair}, holding same {@code first}
      *         and {@code second} as this {@code ObjectPair}
      */
-    ObjectPair<F, S> clone();
+    Pair<F, S> clone();
 
     /**
      * In contrast to {@link KeyValue}, {@code ObjectPair(1,2)} equals
@@ -97,6 +97,6 @@ public interface ObjectPair<F, S> {
      * 
      * @return an inverted {@code ObjectPair}
      */
-    ObjectPair<S, F> invert();
+    Pair<S, F> invert();
 
 }

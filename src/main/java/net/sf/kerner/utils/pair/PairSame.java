@@ -19,7 +19,7 @@ import java.util.List;
 
 /**
  * 
- * {@code ObjectPairSame} is an {@link ObjectPair}, where both {@code first} and
+ * {@code ObjectPairSame} is an {@link Pair}, where both {@code first} and
  * {@code second} object are of same type.
  * 
  * <p>
@@ -43,15 +43,15 @@ import java.util.List;
  * @param <T>
  *            type of objects
  */
-public interface ObjectPairSame<T> extends ObjectPair<T, T>, Iterable<T> {
+public interface PairSame<T> extends Pair<T, T>, Iterable<T> {
 
     /**
      * Returns a {@link List}, which contains two elements,
-     * {@link ObjectPairSame#getFirst()} and {@link ObjectPairSame#getSecond()},
+     * {@link PairSame#getFirst()} and {@link PairSame#getSecond()},
      * in this order.
      * 
-     * @return a {@link List}, which contains {@link ObjectPairSame#getFirst()}
-     *         and {@link ObjectPairSame#getSecond()}
+     * @return a {@link List}, which contains {@link PairSame#getFirst()}
+     *         and {@link PairSame#getSecond()}
      */
     List<T> asList();
 

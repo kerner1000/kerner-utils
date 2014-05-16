@@ -34,9 +34,9 @@ public class TestObjectPairImplHashEquals {
     public static void tearDownAfterClass() throws Exception {
     }
 
-    private ObjectPairImpl o1;
+    private PairImpl o1;
 
-    private ObjectPairImpl o2;
+    private PairImpl o2;
 
     @Before
     public void setUp() throws Exception {
@@ -48,16 +48,16 @@ public class TestObjectPairImplHashEquals {
 
     @Test
     public final void test01() {
-        o1 = new ObjectPairImpl(1, 1);
-        o2 = new ObjectPairImpl(1, 1);
+        o1 = new PairImpl(1, 1);
+        o2 = new PairImpl(1, 1);
         assertEquals(o1, o2);
         assertEquals(o1.hashCode(), o2.hashCode());
     }
 
     @Test
     public final void test02() {
-        o1 = new ObjectPairImpl(1, 2);
-        o2 = new ObjectPairImpl(2, 1);
+        o1 = new PairImpl(1, 2);
+        o2 = new PairImpl(2, 1);
         assertEquals(o1, o2);
         assertEquals(o1.hashCode(), o2.hashCode());
     }

@@ -17,7 +17,7 @@ package net.sf.kerner.utils.pair;
 
 /**
  * 
- * Default implementation for {@link ObjectPair}.
+ * Default implementation for {@link Pair}.
  * 
  * <p>
  * <b>Example:</b><br>
@@ -52,39 +52,39 @@ package net.sf.kerner.utils.pair;
  * @param <S>
  *            type of second object
  */
-public class ObjectPairImpl<F, S> implements ObjectPair<F, S> {
+public class PairImpl<F, S> implements Pair<F, S> {
 
     private F first;
 
     private S second;
 
-    public ObjectPairImpl() {
+    public PairImpl() {
     }
 
-    public ObjectPairImpl(final F first) {
+    public PairImpl(final F first) {
         this.first = first;
 
     }
 
-    public ObjectPairImpl(final F first, final S second) {
+    public PairImpl(final F first, final S second) {
         this.first = first;
         this.second = second;
     }
 
-    public ObjectPairImpl(final ObjectPair<? extends F, ? extends S> template) {
+    public PairImpl(final Pair<? extends F, ? extends S> template) {
         this(template.getFirst(), template.getSecond());
     }
 
     /**
      * <b>Note:</b> A new {@code ObjectPairImpl} object is created, but
      * {@code first} and {@code second} objects are not cloned here. If this is
-     * desired, use {@link ObjectPairImpl#ObjectPairImpl(Object, Object)}
+     * desired, use {@link PairImpl#ObjectPairImpl(Object, Object)}
      * constructor to create a new instance and clone {@code first} and
      * {@code second} here also.
      */
     @Override
-    public ObjectPairImpl<F, S> clone() {
-        return new ObjectPairImpl<F, S>(getFirst(), getSecond());
+    public PairImpl<F, S> clone() {
+        return new PairImpl<F, S>(getFirst(), getSecond());
     }
 
     @Override
@@ -93,10 +93,10 @@ public class ObjectPairImpl<F, S> implements ObjectPair<F, S> {
             return true;
         if (obj == null)
             return false;
-        if (!(obj instanceof ObjectPair))
+        if (!(obj instanceof Pair))
             return false;
         @SuppressWarnings("rawtypes")
-        final ObjectPairImpl other = (ObjectPairImpl) obj;
+        final PairImpl other = (PairImpl) obj;
         if (first == null) {
             if (other.first != null)
                 return false;
@@ -127,8 +127,8 @@ public class ObjectPairImpl<F, S> implements ObjectPair<F, S> {
         return result;
     }
 
-    public ObjectPairImpl<S, F> invert() {
-        return new ObjectPairImpl<S, F>(getSecond(), getFirst());
+    public PairImpl<S, F> invert() {
+        return new PairImpl<S, F>(getSecond(), getFirst());
     }
 
     public void setFirst(final F first) {

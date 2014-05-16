@@ -15,9 +15,9 @@
  ******************************************************************************/
 package net.sf.kerner.utils.math.point;
 
-import net.sf.kerner.utils.pair.ObjectPair;
+import net.sf.kerner.utils.pair.Pair;
 
-public class Point2D implements ObjectPair<Double, Double> {
+public class Point2D implements Pair<Double, Double> {
 
     final public static double getDeltaX(final Point2D one, final Point2D two) {
         return two.x - one.x;

@@ -21,7 +21,7 @@ import java.util.List;
 
 /**
  * 
- * Default implementation for {@link ObjectPairSame}.
+ * Default implementation for {@link PairSame}.
  * 
  * <p>
  * <b>Example:</b><br>
@@ -44,17 +44,17 @@ import java.util.List;
  * @param <T>
  *            type of objects
  */
-public class ObjectPairSameImpl<T> extends ObjectPairImpl<T, T> implements ObjectPairSame<T> {
+public class PairSameImpl<T> extends PairImpl<T, T> implements PairSame<T> {
 
-    public ObjectPairSameImpl() {
+    public PairSameImpl() {
         super();
     }
 
-    public ObjectPairSameImpl(final ObjectPair<? extends T, ? extends T> template) {
+    public PairSameImpl(final Pair<? extends T, ? extends T> template) {
         super(template);
     }
 
-    public ObjectPairSameImpl(final T first, final T second) {
+    public PairSameImpl(final T first, final T second) {
         super(first, second);
 
     }
@@ -65,13 +65,13 @@ public class ObjectPairSameImpl<T> extends ObjectPairImpl<T, T> implements Objec
     }
 
     @Override
-    public ObjectPairSameImpl<T> clone() {
-        return new ObjectPairSameImpl<T>(this);
+    public PairSameImpl<T> clone() {
+        return new PairSameImpl<T>(this);
     }
 
     @Override
-    public ObjectPairSameImpl<T> invert() {
-        return new ObjectPairSameImpl<T>(getSecond(), getFirst());
+    public PairSameImpl<T> invert() {
+        return new PairSameImpl<T>(getSecond(), getFirst());
     }
 
     public Iterator<T> iterator() {
