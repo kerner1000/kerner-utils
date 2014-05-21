@@ -44,7 +44,7 @@ public class Cache<K, V> {
         return map.get(key);
     }
 
-    public int getCapacity() {
+    public synchronized int getCapacity() {
         return capacity;
     }
 
