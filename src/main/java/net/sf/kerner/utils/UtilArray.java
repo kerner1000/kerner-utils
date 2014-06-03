@@ -1,12 +1,12 @@
 /*******************************************************************************
  * Copyright (c) 2010-2014 Alexander Kerner. All rights reserved.
- * 
+ *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
- * 
+ *
  *   http://www.apache.org/licenses/LICENSE-2.0
- * 
+ *
  * Unless required by applicable law or agreed to in writing, software
  * distributed under the License is distributed on an "AS IS" BASIS,
  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
@@ -19,7 +19,7 @@ import java.util.Collection;
 
 /**
  * Utility class for array stuff.
- * 
+ *
  * @author <a href="mailto:alex.kerner.24@googlemail.com">Alexander Kerner</a>
  * @version 2012-11-20
  */
@@ -67,7 +67,7 @@ public class UtilArray {
 
     /**
      * Check weather an array is {@code null} or contains no elements.
-     * 
+     *
      * @param arr
      *            array to check
      * @return true, if {@code arr} is {@code null} or contains no elements
@@ -82,7 +82,7 @@ public class UtilArray {
 
     /**
      * Determines if this Class object represents an array class.
-     * 
+     *
      * @param o
      *            Object to ckeck
      * @return {@code true}, if this object represents an array; {@code false}
@@ -99,7 +99,7 @@ public class UtilArray {
      * <li>is empty or</li>
      * <li>contains only {@code null} elements.</li>
      * </ul>
-     * 
+     *
      * @param arr
      *            array to check
      * @return true, if {@code arr} is {@code null}, empty or if it contains
@@ -117,6 +117,14 @@ public class UtilArray {
             }
         }
         return true;
+    }
+
+    public static byte[] toBytesFromASCII(final char[] chars) {
+        final byte[] b = new byte[chars.length];
+        for (int i = 0; i < b.length; i++) {
+            b[i] = (byte) chars[i];
+        }
+        return b;
     }
 
     public static Double[] toDouble(final Collection<? extends Number> numbers) {
@@ -165,12 +173,12 @@ public class UtilArray {
     }
 
     /**
-     * 
+     *
      * Returns a {@code double} array containing the {@code double}
      * representation of given {@link Double} array. </p> Note:
      * {@code null values} in {@code arr} are ignored! Length of returned array
      * may be less than length of input array therefore.
-     * 
+     *
      * @param arr
      *            {@link Double} array to convert to {@code double} array
      * @return a {@code double} array containing the {@code double}
@@ -184,12 +192,12 @@ public class UtilArray {
     }
 
     /**
-     * 
+     *
      * Returns a {@code int} array containing the {@code int} representation of
      * given {@link Integer} array. </p> Note: {@code null values} in
      * {@code arr} are ignored! Length of returned array may be less than length
      * of input array therefore.
-     * 
+     *
      * @param arr
      *            {@link Integer} array to convert to {@code int} array
      * @return a {@code int} array containing the {@code int} representation of
@@ -205,12 +213,12 @@ public class UtilArray {
     }
 
     /**
-     * 
+     *
      * Returns a {@code double} array containing the {@code double}
      * representation of given {@link Number} array. </p> Note:
      * {@code null values} in {@code arr} are ignored! Length of returned array
      * may be less than length of input array therefore.
-     * 
+     *
      * @param arr
      *            {@link Number} array to convert to {@code double} array
      * @return a {@code double} array containing the {@code double}
@@ -229,7 +237,7 @@ public class UtilArray {
     /**
      * Trim an array to given size. All elements with {@code index > size} will
      * be discarded.
-     * 
+     *
      * @param array
      *            array that is trimmed
      * @param size
@@ -250,7 +258,7 @@ public class UtilArray {
     /**
      * Trim an array to given size. All elements with {@code index > size} will
      * be discarded.
-     * 
+     *
      * @param array
      *            array that is trimmed
      * @param size
@@ -271,7 +279,7 @@ public class UtilArray {
     /**
      * Trim an array to given size. All elements with {@code index > size} will
      * be discarded.
-     * 
+     *
      * @param array
      *            array that is trimmed
      * @param size
