@@ -85,17 +85,17 @@ public class TestUtils {
 
     @Test
     public final void testDeepHashCode01() {
-        assertEquals(6, UtilHash.deepHashCode(Arrays.asList(1, 2, 3)));
+        assertEquals(6, UtilHash.getDeepHash(Arrays.asList(1, 2, 3)));
     }
 
     @Test
     public final void testDeepHashCode02() {
-        assertEquals(7, UtilHash.deepHashCode(Arrays.asList(1, 2, 3, new Integer[] { 1 })));
+        assertEquals(7, UtilHash.getDeepHash(Arrays.asList(1, 2, 3, new Integer[] { 1 })));
     }
 
     @Test
     public final void testDeepHashCode03() {
-        assertEquals(9, UtilHash.deepHashCode(Arrays.asList(1, 2, 3, new Integer[] { 1 },
+        assertEquals(9, UtilHash.getDeepHash(Arrays.asList(1, 2, 3, new Integer[] { 1 },
                 new HashSet<Integer>(Arrays.asList(2)))));
     }
 
