@@ -1,12 +1,12 @@
 /*******************************************************************************
  * Copyright (c) 2010-2014 Alexander Kerner. All rights reserved.
- * 
+ *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
- * 
+ *
  *   http://www.apache.org/licenses/LICENSE-2.0
- * 
+ *
  * Unless required by applicable law or agreed to in writing, software
  * distributed under the License is distributed on an "AS IS" BASIS,
  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
@@ -17,6 +17,7 @@ package net.sf.kerner.utils.math;
 
 import java.math.BigDecimal;
 import java.math.BigInteger;
+import java.math.RoundingMode;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collection;
@@ -27,7 +28,7 @@ import net.sf.kerner.utils.UtilArray;
 
 /**
  * Provides static helper methods.
- * 
+ *
  * @author <a href="mailto:alex.kerner.24@googlemail.com">Alexander Kerner</a>
  * @version 2012-03-06
  */
@@ -35,7 +36,7 @@ public class UtilMath {
 
     /**
      * Add one {@link Integer} to another.
-     * 
+     *
      * @param integer1
      *            first {@link Integer}
      * @param integer2
@@ -110,7 +111,7 @@ public class UtilMath {
 
     /**
      * Increment given {@link Integer} by {@code 1}.
-     * 
+     *
      * @param integer
      *            {@link Integer} to increment
      * @return incremented {@link Integer}
@@ -121,7 +122,7 @@ public class UtilMath {
 
     /**
      * Increment given {@link Integer} by {i}.
-     * 
+     *
      * @param integer
      *            {@link Integer} to increment
      * @return incremented {@link Integer}
@@ -147,7 +148,7 @@ public class UtilMath {
 
     /**
      * Get maximum of given values.
-     * 
+     *
      * @param values
      *            values to get maximum from
      * @return maximum value
@@ -172,7 +173,7 @@ public class UtilMath {
 
     /**
      * Calculate the {@code mean} of given values.
-     * 
+     *
      * @param values
      *            values to calculate the mean
      * @return mean of values
@@ -188,7 +189,7 @@ public class UtilMath {
     /**
      * Calculates the <a href="http://de.wikipedia.org/wiki/Visitor">median</a>
      * of a collection of numbers.
-     * 
+     *
      * @param values
      *            numbers to calculate median from
      * @return median for given numbers
@@ -200,7 +201,7 @@ public class UtilMath {
     /**
      * Calculates the <a href="http://de.wikipedia.org/wiki/Visitor">median</a>
      * of a collection of numbers.
-     * 
+     *
      * @param values
      *            numbers to calculate median from
      * @return median for given numbers
@@ -227,7 +228,7 @@ public class UtilMath {
 
     /**
      * Get minimum of given values.
-     * 
+     *
      * @param values
      *            values to get minimum from
      * @return minimum value
@@ -248,24 +249,17 @@ public class UtilMath {
     /**
      * Round a floating point number ({@code double}) with an accuracy up to
      * given decimal place.
-     * 
+     *
      * @param number
      *            {@code double} that is rounded to given decimal place
      * @param decimalPlace
      *            decimal place to which given {@code double} is rounded
      * @return rounded {@code double}
      */
-    public static double round(final double number, int decimalPlace) {
-        int n = decimalPlace;
-        int c = 0;
-        while (n > 10) {
-            n = n / 10;
-            c++;
-        }
-        decimalPlace = decimalPlace + c;
-        final double factor = Math.pow(10, decimalPlace);
-        final double result = Math.round(number * factor) / factor;
-        return result;
+    public static double round(final double number, final int decimalPlaces) {
+        BigDecimal bd = new BigDecimal(Double.toString(number));
+        bd = bd.setScale(decimalPlaces, RoundingMode.HALF_UP);
+        return bd.doubleValue();
     }
 
     public static double stdDev(final Collection<? extends Number> values) {
@@ -274,7 +268,7 @@ public class UtilMath {
 
     /**
      * Calculate the {@code standard deviation} of given values.
-     * 
+     *
      * @param values
      *            values to calculate the standard deviation
      * @return sum of values
@@ -315,7 +309,7 @@ public class UtilMath {
 
     /**
      * Calculate the {@code sum} of given values.
-     * 
+     *
      * @param values
      *            values to calculate the sum
      * @return sum of values * @throws IllegalArgumentException if
