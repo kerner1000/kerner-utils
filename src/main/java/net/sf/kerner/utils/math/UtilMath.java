@@ -257,6 +257,9 @@ public class UtilMath {
      * @return rounded {@code double}
      */
     public static double round(final double number, final int decimalPlaces) {
+        if (Double.isNaN(number) || Double.isInfinite(number)) {
+            return number;
+        }
         BigDecimal bd = new BigDecimal(Double.toString(number));
         bd = bd.setScale(decimalPlaces, RoundingMode.HALF_UP);
         return bd.doubleValue();
