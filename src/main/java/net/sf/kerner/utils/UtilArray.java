@@ -15,6 +15,7 @@
  ******************************************************************************/
 package net.sf.kerner.utils;
 
+import java.util.Arrays;
 import java.util.Collection;
 
 /**
@@ -78,6 +79,14 @@ public class UtilArray {
         if (arr.length < 1)
             return true;
         return false;
+    }
+
+    public static <T> T[] fill(final T[] array, final int size) {
+        if (array.length >= size) {
+            return array;
+        }
+        final T[] result = Arrays.copyOf(array, size);
+        return result;
     }
 
     /**
