@@ -1,12 +1,12 @@
 /*******************************************************************************
  * Copyright (c) 2010-2014 Alexander Kerner. All rights reserved.
- * 
+ *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
- * 
+ *
  *   http://www.apache.org/licenses/LICENSE-2.0
- * 
+ *
  * Unless required by applicable law or agreed to in writing, software
  * distributed under the License is distributed on an "AS IS" BASIS,
  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
@@ -24,9 +24,9 @@ import org.slf4j.LoggerFactory;
 
 /**
  * General utility class.
- * 
+ *
  * @author <a href="mailto:alex.kerner.24@googlemail.com">Alexander Kerner</a>
- * 
+ *
  */
 public class Util {
 
@@ -56,10 +56,22 @@ public class Util {
         }
     }
 
+    public static String getToStringDelimiter() {
+        return ":";
+    }
+
+    public static String getToStringPostFix(final Class<?> c) {
+        return "";
+    }
+
+    public static String getToStringPreFix(final Class<?> c) {
+        return c.getSimpleName() + getToStringDelimiter();
+    }
+
     /**
      * Load a property file as a resource stream and return the {@code version}
      * property.
-     * 
+     *
      * @param clazz
      * @param propertiesFile
      * @return version string or {@code n/a} if property could not be read
