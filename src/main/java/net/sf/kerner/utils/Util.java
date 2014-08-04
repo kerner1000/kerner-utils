@@ -16,6 +16,8 @@
 package net.sf.kerner.utils;
 
 import java.io.File;
+import java.io.PrintWriter;
+import java.io.StringWriter;
 import java.util.Locale;
 import java.util.Properties;
 
@@ -54,6 +56,17 @@ public class Util {
                 throw new NullPointerException();
             }
         }
+    }
+
+    public static String getCurrentStackTraceString() {
+        return getStackTraceString(new Exception());
+    }
+
+    public static String getStackTraceString(final Throwable t) {
+        final StringWriter sw = new StringWriter();
+        final PrintWriter pw = new PrintWriter(sw);
+        t.printStackTrace(pw);
+        return sw.toString();
     }
 
     public static String getToStringDelimiter() {
