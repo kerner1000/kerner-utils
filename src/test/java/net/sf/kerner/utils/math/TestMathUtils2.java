@@ -52,27 +52,27 @@ public class TestMathUtils2 {
 
     @Test(expected = IllegalArgumentException.class)
     public final void testMin01() {
-        UtilMath.min(new double[] {});
+        UtilMath.getMin(new double[] {});
     }
 
     @Test
     public final void testMin02() {
-        assertEquals(2, UtilMath.min(new double[] { 2, 3, 4 }), 0);
+        assertEquals(2, UtilMath.getMin(new double[] { 2, 3, 4 }), 0);
     }
 
     @Test
     public final void testMin03() {
-        assertEquals(0, UtilMath.min(new double[] { 0, 1 }), 0);
+        assertEquals(0, UtilMath.getMin(new double[] { 0, 1 }), 0);
     }
 
     @Test
     public final void testMin04() {
-        assertEquals(-1, UtilMath.min(new double[] { 0, -1 }), 0);
+        assertEquals(-1, UtilMath.getMin(new double[] { 0, -1 }), 0);
     }
 
     @Test(expected = IllegalArgumentException.class)
     public final void testMax01() {
-        UtilMath.max(new double[] {});
+        UtilMath.getMax(new double[] {});
     }
 
     @Ignore
@@ -83,27 +83,27 @@ public class TestMathUtils2 {
 
     @Test
     public final void testMax03() {
-        assertEquals(1, UtilMath.max(new double[] { 0, 1 }), 0);
+        assertEquals(1, UtilMath.getMax(new double[] { 0, 1 }), 0);
     }
 
     @Test
     public final void testMax04() {
-        assertEquals(0, UtilMath.max(new double[] { 0, -1 }), 0);
+        assertEquals(0, UtilMath.getMax(new double[] { 0, -1 }), 0);
     }
 
     @Test(expected = IllegalArgumentException.class)
     public final void testMean01() {
-        UtilMath.mean(new double[] {});
+        UtilMath.getMean(new double[] {});
     }
 
     @Test
     public final void testMean03() {
-        assertEquals(0.5, UtilMath.mean(new double[] { 0, 1 }), 0);
+        assertEquals(0.5, UtilMath.getMean(new double[] { 0, 1 }), 0);
     }
 
     @Test
     public final void testMean04() {
-        assertEquals(-1, UtilMath.mean(new double[] { -1, -1 }), 0);
+        assertEquals(-1, UtilMath.getMean(new double[] { -1, -1 }), 0);
     }
 
     @Test(expected = IllegalArgumentException.class)
@@ -123,7 +123,7 @@ public class TestMathUtils2 {
 
     @Test(expected = IllegalArgumentException.class)
     public final void testStdDev01() {
-        UtilMath.stdDev(new double[] {});
+        UtilMath.getStdDev(new double[] {});
     }
 
     /**

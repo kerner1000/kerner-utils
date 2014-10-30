@@ -95,32 +95,32 @@ public class TestMathUtils {
 
     @Test
     public final void testMedian01() {
-        assertEquals(0, UtilMath.median(0), 0);
+        assertEquals(0, UtilMath.getMedian(0), 0);
     }
 
     @Test
     public final void testMedian02() {
-        assertEquals(1, UtilMath.median(1), 0);
+        assertEquals(1, UtilMath.getMedian(1), 0);
     }
 
     @Test
     public final void testMedian03() {
-        assertEquals(2, UtilMath.median(Arrays.asList(0, 1, 2, 2, 3, 4)), 0);
+        assertEquals(2, UtilMath.getMedian(Arrays.asList(0, 1, 2, 2, 3, 4)), 0);
     }
 
     @Test
     public final void testMedian04() {
-        assertEquals(2.5, UtilMath.median(Arrays.asList(0, 1, 3, 2, 3, 4)), 0);
+        assertEquals(2.5, UtilMath.getMedian(Arrays.asList(0, 1, 3, 2, 3, 4)), 0);
     }
 
     @Test
     public final void testMedian05() {
-        assertEquals(2.55, UtilMath.median(Arrays.asList(0, 1, 3.1, 2, 3.1, 4)), 0);
+        assertEquals(2.55, UtilMath.getMedian(Arrays.asList(0, 1, 3.1, 2, 3.1, 4)), 0);
     }
 
     @Test
     public final void testMedian06() {
-        assertEquals(26, UtilMath.median(Arrays.asList(21, 26, 33)), 0);
+        assertEquals(26, UtilMath.getMedian(Arrays.asList(21, 26, 33)), 0);
     }
 
 }

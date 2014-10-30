@@ -102,11 +102,200 @@ public class UtilMath {
         return result;
     }
 
-    public static double higher(final double d1, final double d2) {
+    public static double getHigher(final double d1, final double d2) {
         if (d1 > d2)
             return d1;
         else
             return d2;
+    }
+
+    public static double getLower(final double d1, final double d2) {
+        if (d1 < d2)
+            return d1;
+        else
+            return d2;
+    }
+
+    /**
+     * Get maximum of given values.
+     *
+     * @param values
+     *            values to get maximum from
+     * @return maximum value
+     * @throws IllegalArgumentException
+     *             if {@code values.length < 1} or {@code values == null}
+     */
+    public static double getMax(final Collection<? extends Number> values) {
+        return getMax(UtilArray.toPrimitive(values.toArray(new Number[values.size()])));
+    }
+
+    /**
+     * Get maximum of given values.
+     *
+     * @param values
+     *            values to get maximum from
+     * @return maximum value
+     * @throws IllegalArgumentException
+     *             if {@code values.length < 1} or {@code values == null}
+     */
+    public static double getMax(final double... values) {
+        if (values == null || values.length < 1)
+            throw new IllegalArgumentException();
+        double result = values[0];
+        for (final double i : values) {
+            if (i > result) {
+                result = i;
+            }
+        }
+        return result;
+    }
+
+    /**
+     * Calculate the {@code mean} of given values.
+     *
+     * @param values
+     *            values to calculate the mean
+     * @return mean of values
+     * @throws IllegalArgumentException
+     *             if {@code values.length < 1} or {@code values == null}
+     */
+    public static double getMean(final Collection<? extends Number> values) {
+        return getMean(UtilArray.toPrimitive(values.toArray(new Number[values.size()])));
+    }
+
+    /**
+     * Calculate the {@code mean} of given values.
+     *
+     * @param values
+     *            values to calculate the mean
+     * @return mean of values
+     * @throws IllegalArgumentException
+     *             if {@code values.length < 1} or {@code values == null}
+     */
+    public static double getMean(final double... values) {
+        if (values == null || values.length < 1)
+            throw new IllegalArgumentException();
+        return sum(values) / values.length;
+    }
+
+    /**
+     * Calculates the <a href="http://de.wikipedia.org/wiki/Visitor">median</a>
+     * of a collection of numbers.
+     *
+     * @param values
+     *            numbers to calculate median from
+     * @return median for given numbers
+     */
+    public static double getMedian(final Collection<? extends Number> values) {
+        return getMedian(UtilArray.toPrimitive(values.toArray(new Number[values.size()])));
+    }
+
+    /**
+     * Calculates the <a href="http://de.wikipedia.org/wiki/Visitor">median</a>
+     * of a collection of numbers.
+     *
+     * @param values
+     *            numbers to calculate median from
+     * @return median for given numbers
+     */
+    public static double getMedian(final double... values) {
+        if (values == null || values.length < 1)
+            throw new IllegalArgumentException();
+
+        // TODO necessary?
+        final double[] b = new double[values.length];
+        System.arraycopy(values, 0, b, 0, b.length);
+        Arrays.sort(b);
+
+        if (values.length % 2 == 0) {
+            return (b[(b.length / 2) - 1] + b[b.length / 2]) / 2;
+        } else {
+            return b[b.length / 2];
+        }
+    }
+
+    /**
+     * Get minimum of given values.
+     *
+     * @param values
+     *            values to get minimum from
+     * @return minimum value
+     * @throws IllegalArgumentException
+     *             if {@code values.length < 1} or {@code values == null}
+     */
+    public static double getMin(final Collection<? extends Number> values) {
+        return getMin(UtilArray.toPrimitive(values.toArray(new Number[values.size()])));
+    }
+
+    /**
+     * Get minimum of given values.
+     *
+     * @param values
+     *            values to get minimum from
+     * @return minimum value
+     * @throws IllegalArgumentException
+     *             if {@code values.length < 1} or {@code values == null}
+     */
+    public static double getMin(final double... values) {
+        if (values == null || values.length < 1)
+            throw new IllegalArgumentException();
+        double result = values[0];
+        for (final double i : values) {
+            if (i < result)
+                result = i;
+        }
+        return result;
+    }
+
+    /**
+     * Calculate the {@code standard deviation} of given values.
+     *
+     * @param values
+     *            values to calculate the standard deviation
+     * @return the {@code standard deviation} of given values
+     * @throws IllegalArgumentException
+     *             if {@code values.length < 1} or {@code values == null}
+     */
+    public static double getStdDev(final Collection<? extends Number> values) {
+        return getStdDev(UtilArray.toPrimitive(values.toArray(new Number[values.size()])));
+    }
+
+    /**
+     * Calculate the {@code standard deviation} of given values.
+     *
+     * @param values
+     *            values to calculate the standard deviation for
+     * @return the {@code standard deviation} of given values
+     * @throws IllegalArgumentException
+     *             if {@code values.length < 1} or {@code values == null}
+     */
+    public static double getStdDev(final double... values) {
+        return Math.sqrt(getVariance(values));
+    }
+
+    /**
+     *
+     * @param values
+     *            to calculate the variance for
+     * @return the variance of given values
+     *
+     * @throws IllegalArgumentException
+     *             if {@code values.length < 1} or {@code values == null}
+     */
+    public static double getVariance(final double... values) {
+        if (values == null || values.length < 1) {
+            throw new IllegalArgumentException();
+        }
+        if (values.length == 1) {
+            return 0;
+        }
+        double sumOfSquares = 0;
+        final double mean = getMean(values);
+        for (final double d : values) {
+            final double dd = d - mean;
+            sumOfSquares += (dd) * (dd);
+        }
+        return sumOfSquares / (values.length - 1);
     }
 
     /**
@@ -135,117 +324,6 @@ public class UtilMath {
         return Math.log(number) / Math.log(2);
     }
 
-    public static double lower(final double d1, final double d2) {
-        if (d1 < d2)
-            return d1;
-        else
-            return d2;
-    }
-
-    public static double max(final Collection<? extends Number> values) {
-        return max(UtilArray.toPrimitive(values.toArray(new Number[values.size()])));
-    }
-
-    /**
-     * Get maximum of given values.
-     *
-     * @param values
-     *            values to get maximum from
-     * @return maximum value
-     * @throws IllegalArgumentException
-     *             if {@code values.length < 1} or {@code values == null}
-     */
-    public static double max(final double... values) {
-        if (values == null || values.length < 1)
-            throw new IllegalArgumentException();
-        double result = values[0];
-        for (final double i : values) {
-            if (i > result) {
-                result = i;
-            }
-        }
-        return result;
-    }
-
-    public static double mean(final Collection<? extends Number> values) {
-        return mean(UtilArray.toPrimitive(values.toArray(new Number[values.size()])));
-    }
-
-    /**
-     * Calculate the {@code mean} of given values.
-     *
-     * @param values
-     *            values to calculate the mean
-     * @return mean of values
-     * @throws IllegalArgumentException
-     *             if {@code values.length < 1} or {@code values == null}
-     */
-    public static double mean(final double... values) {
-        if (values == null || values.length < 1)
-            throw new IllegalArgumentException();
-        return sum(values) / values.length;
-    }
-
-    /**
-     * Calculates the <a href="http://de.wikipedia.org/wiki/Visitor">median</a>
-     * of a collection of numbers.
-     *
-     * @param values
-     *            numbers to calculate median from
-     * @return median for given numbers
-     */
-    public static double median(final Collection<? extends Number> values) {
-        return median(UtilArray.toPrimitive(values.toArray(new Number[values.size()])));
-    }
-
-    /**
-     * Calculates the <a href="http://de.wikipedia.org/wiki/Visitor">median</a>
-     * of a collection of numbers.
-     *
-     * @param values
-     *            numbers to calculate median from
-     * @return median for given numbers
-     */
-    public static double median(final double... values) {
-        if (values == null || values.length < 1)
-            throw new IllegalArgumentException();
-
-        // TODO necessary?
-        final double[] b = new double[values.length];
-        System.arraycopy(values, 0, b, 0, b.length);
-        Arrays.sort(b);
-
-        if (values.length % 2 == 0) {
-            return (b[(b.length / 2) - 1] + b[b.length / 2]) / 2;
-        } else {
-            return b[b.length / 2];
-        }
-    }
-
-    public static double min(final Collection<? extends Number> values) {
-        return min(UtilArray.toPrimitive(values.toArray(new Number[values.size()])));
-    }
-
-    /**
-     * Get minimum of given values.
-     *
-     * @param values
-     *            values to get minimum from
-     * @return minimum value
-     * @throws IllegalArgumentException
-     *             if {@code values.length < 1} or {@code values == null}
-     */
-    public static double min(final double... values) {
-        if (values == null || values.length < 1)
-            throw new IllegalArgumentException();
-        double result = values[0];
-        for (final double i : values) {
-            if (i < result)
-                result = i;
-        }
-        return result;
-    }
-
     /**
      * Round a floating point number ({@code double}) with an accuracy up to
      * given decimal place.
@@ -263,35 +341,6 @@ public class UtilMath {
         BigDecimal bd = new BigDecimal(Double.toString(number));
         bd = bd.setScale(decimalPlaces, RoundingMode.HALF_UP);
         return bd.doubleValue();
-    }
-
-    public static double stdDev(final Collection<? extends Number> values) {
-        return stdDev(UtilArray.toPrimitive(values.toArray(new Number[values.size()])));
-    }
-
-    /**
-     * Calculate the {@code standard deviation} of given values.
-     *
-     * @param values
-     *            values to calculate the standard deviation
-     * @return sum of values
-     * @throws IllegalArgumentException
-     *             if {@code values.length < 1} or {@code values == null}
-     */
-    public static double stdDev(final double... values) {
-        if (values == null || values.length < 1) {
-            throw new IllegalArgumentException();
-        }
-        if (values.length == 1) {
-            return 0;
-        }
-        double sumOfSquares = 0;
-        final double mean = mean(values);
-        for (final double d : values) {
-            final double dd = d - mean;
-            sumOfSquares += (dd) * (dd);
-        }
-        return Math.sqrt(sumOfSquares / (values.length - 1));
     }
 
     public static Integer substract(final Integer integer, final int i) {
