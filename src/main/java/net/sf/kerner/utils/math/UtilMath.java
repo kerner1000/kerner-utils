@@ -139,15 +139,7 @@ public class UtilMath {
      *             if {@code values.length < 1} or {@code values == null}
      */
     public static double getMax(final double... values) {
-        if (values == null || values.length < 1)
-            throw new IllegalArgumentException();
-        double result = values[0];
-        for (final double i : values) {
-            if (i > result) {
-                result = i;
-            }
-        }
-        return result;
+        return new StatisticsDescriptiveGaussianDistributionImpl(values).getMax();
     }
 
     /**
@@ -173,9 +165,7 @@ public class UtilMath {
      *             if {@code values.length < 1} or {@code values == null}
      */
     public static double getMean(final double... values) {
-        if (values == null || values.length < 1)
-            throw new IllegalArgumentException();
-        return sum(values) / values.length;
+        return new StatisticsDescriptiveGaussianDistributionImpl(values).getMean();
     }
 
     /**
@@ -190,28 +180,8 @@ public class UtilMath {
         return getMedian(UtilArray.toPrimitive(values.toArray(new Number[values.size()])));
     }
 
-    /**
-     * Calculates the <a href="http://de.wikipedia.org/wiki/Visitor">median</a>
-     * of a collection of numbers.
-     *
-     * @param values
-     *            numbers to calculate median from
-     * @return median for given numbers
-     */
     public static double getMedian(final double... values) {
-        if (values == null || values.length < 1)
-            throw new IllegalArgumentException();
-
-        // TODO necessary?
-        final double[] b = new double[values.length];
-        System.arraycopy(values, 0, b, 0, b.length);
-        Arrays.sort(b);
-
-        if (values.length % 2 == 0) {
-            return (b[(b.length / 2) - 1] + b[b.length / 2]) / 2;
-        } else {
-            return b[b.length / 2];
-        }
+        return new StatisticsDescriptiveGaussianDistributionImpl(values).getMedian();
     }
 
     /**
@@ -237,14 +207,7 @@ public class UtilMath {
      *             if {@code values.length < 1} or {@code values == null}
      */
     public static double getMin(final double... values) {
-        if (values == null || values.length < 1)
-            throw new IllegalArgumentException();
-        double result = values[0];
-        for (final double i : values) {
-            if (i < result)
-                result = i;
-        }
-        return result;
+        return new StatisticsDescriptiveGaussianDistributionImpl(values).getMin();
     }
 
     /**
@@ -283,19 +246,7 @@ public class UtilMath {
      *             if {@code values.length < 1} or {@code values == null}
      */
     public static double getVariance(final double... values) {
-        if (values == null || values.length < 1) {
-            throw new IllegalArgumentException();
-        }
-        if (values.length == 1) {
-            return 0;
-        }
-        double sumOfSquares = 0;
-        final double mean = getMean(values);
-        for (final double d : values) {
-            final double dd = d - mean;
-            sumOfSquares += (dd) * (dd);
-        }
-        return sumOfSquares / (values.length - 1);
+        return new StatisticsDescriptiveGaussianDistributionImpl(values).getVariance();
     }
 
     /**
@@ -320,8 +271,24 @@ public class UtilMath {
         return Integer.valueOf(integer.intValue() + i);
     }
 
+    /**
+     *
+     * @param number
+     *            number of logarithm
+     * @param base
+     *            base of logarithm
+     * @return the logarithm with base {@code base} of {@code number}
+     */
+    public static double log(final double number, final double base) {
+        return Math.log(number) / Math.log(base);
+    }
+
+    public static double log10(final double number) {
+        return log(number, 10);
+    }
+
     public static double log2(final double number) {
-        return Math.log(number) / Math.log(2);
+        return log(number, 2);
     }
 
     /**
@@ -368,13 +335,7 @@ public class UtilMath {
      *         {@code values.length < 1} or {@code values == null}
      */
     public static double sum(final double... values) {
-        if (values == null || values.length < 1)
-            throw new IllegalArgumentException();
-        double result = 0;
-        for (final double d : values) {
-            result += d;
-        }
-        return result;
+        return new StatisticsDescriptiveGaussianDistributionImpl(values).getSum();
     }
 
     public static BigDecimal sumBig(final Collection<? extends BigDecimal> values) {
