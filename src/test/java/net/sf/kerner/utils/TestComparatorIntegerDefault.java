@@ -16,7 +16,6 @@
 package net.sf.kerner.utils;
 
 import static org.junit.Assert.assertTrue;
-
 import net.sf.kerner.utils.comparator.ComparatorIntegerDefault;
 
 import org.junit.After;
