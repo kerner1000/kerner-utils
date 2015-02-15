@@ -15,7 +15,7 @@
  ******************************************************************************/
 package net.sf.kerner.utils;
 
-public class SetterOnlyOnce<T> implements View<T> {
+public class SetterOnlyOnce<T> {
 
     private final boolean strict;
 
@@ -29,7 +29,7 @@ public class SetterOnlyOnce<T> implements View<T> {
         this.strict = strict;
     }
 
-    public T getOriginal() {
+    public T get() {
         return t;
     }
 

@@ -5,6 +5,10 @@ import java.util.Arrays;
 public class StatisticsDescriptiveGaussianDistributionImpl implements
         StatisticsDescriptiveGaussianDistribution {
 
+    public static double getCoefficientOfVariation(final double standardDeviation, final double mean) {
+        return standardDeviation / mean;
+    }
+
     public static double getStandardDeviation(final double variance) {
         return Math.sqrt(variance);
     }
@@ -30,6 +34,10 @@ public class StatisticsDescriptiveGaussianDistributionImpl implements
         System.arraycopy(values, 0, b, 0, b.length);
         Arrays.sort(b);
         this.values = b;
+    }
+
+    public double getCoefficientOfVariation() {
+        return getCoefficientOfVariation(getStandardDeviation(), getMean());
     }
 
     public double getMax() {

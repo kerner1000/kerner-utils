@@ -16,7 +16,6 @@
 package net.sf.kerner.utils;
 
 import static org.junit.Assert.assertEquals;
-
 import net.sf.kerner.utils.transformer.TransformerToStringDefault;
 
 import org.junit.After;
