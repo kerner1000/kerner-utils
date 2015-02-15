@@ -102,6 +102,15 @@ public class UtilMath {
         return result;
     }
 
+    public static double getCV(final Collection<? extends Number> values) {
+        return getCV(UtilArray.toPrimitive(values.toArray(new Number[values.size()])));
+    }
+
+    public static double getCV(final double[] values) {
+        return new StatisticsDescriptiveGaussianDistributionImpl(values)
+                .getCoefficientOfVariation();
+    }
+
     public static double getHigher(final double d1, final double d2) {
         if (d1 > d2)
             return d1;
