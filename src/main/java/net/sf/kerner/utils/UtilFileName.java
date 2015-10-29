@@ -49,7 +49,7 @@ import java.io.FileNotFoundException;
 public class UtilFileName {
 
 	public static File appendToFileName(File file, String string) {
-		final String raw = getRawFileName(file);
+		final String raw = getRawFileName(file.getName());
 		final String nameNew = new StringBuilder().append(raw).append(string).append(getFileExtension(file.getName()))
 				.toString();
 		final File result = new File(file.getParent(), nameNew);
@@ -102,8 +102,14 @@ public class UtilFileName {
 		return newName + ext;
 	}
 
-	public static String getRawFileName(File file) {
-		final String fileName = file.getName();
+	/**
+	 *
+	 * @param fileName
+	 *            file name
+	 * @return the 'raw file name', i.e. the file name without the file
+	 *         extension or the original file name if there is no extension
+	 */
+	public static String getRawFileName(String fileName) {
 		final int posOfExt = fileName.lastIndexOf(".");
 		if (posOfExt < 0) {
 			return fileName;
