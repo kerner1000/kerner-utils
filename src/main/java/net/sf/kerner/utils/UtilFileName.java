@@ -50,25 +50,26 @@ public class UtilFileName {
 
 	public static File appendToFileName(File file, String string) {
 		final String raw = getRawFileName(file.getName());
-		final String nameNew = new StringBuilder().append(raw).append(string).append(getFileExtension(file.getName()))
-				.toString();
+		final String nameNew = new StringBuilder().append(raw).append(string).append(getFileExtension(file)).toString();
 		final File result = new File(file.getParent(), nameNew);
 		return result;
 	}
 
 	/**
 	 *
-	 * @param fileName
-	 *            file name
+	 *
 	 * @return the file name's extension, e.g. 'txt' or 'mp3' or an zero-length
 	 *         string if there is no file name extension
+	 *
+	 * @deprecated Use {@link org.apache.commons.io.FileNameUtils#getExtension}
 	 */
-	public static String getFileExtension(String fileName) {
-		final int posOfExt = fileName.lastIndexOf(".");
+	@Deprecated
+	public static String getFileExtension(File file) {
+		final int posOfExt = file.getName().lastIndexOf(".");
 		if (posOfExt < 0) {
 			return "";
 		}
-		final String result = fileName.substring(posOfExt, fileName.length());
+		final String result = file.getName().substring(posOfExt, file.getName().length());
 		return result;
 	}
 
@@ -139,7 +140,7 @@ public class UtilFileName {
 				throw new FileNotFoundException("cannot access file \"" + file + "\"");
 			}
 
-			final String fileNameExtension = getFileExtension(file.getName());
+			final String fileNameExtension = getFileExtension(file);
 
 			if (keepExtension) {
 				return file.renameTo(new File(file.getParentFile(), newName + fileNameExtension));
