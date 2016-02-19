@@ -8,10 +8,14 @@
 	</parent>
 	<groupId>net.sf.kerner-utils</groupId>
 	<artifactId>kerner-utils</artifactId>
-	<version>1.2.4-SNAPSHOT</version>
+	<version>1.2.3-SNAPSHOT</version>
 	<name>Kerner Utilities</name>
 	<description>Commonly used utility classes.</description>
 	<url>http://kerner-utils.sourceforge.net/</url>
+	<organization>
+		<name>Silico Sciences</name>
+		<url>silico-sciences.com</url>
+	</organization>
 	<issueManagement>
 		<system>JIRA</system>
 		<url>http://akerner.de:8090/browse/KERNERUTILS</url>
@@ -45,7 +49,7 @@
 		<site>
 			<id>sourceforge-kerner-utils</id>
 			<url>scp://shell.sourceforge.net/home/project-web/kerner-utils/htdocs
-            </url>
+			</url>
 		</site>
 	</distributionManagement>
 	<build>
@@ -84,22 +88,61 @@
 					</execution>
 				</executions>
 			</plugin>
-
+<!-- 			<plugin> -->
+<!-- 				<artifactId>maven-javadoc-plugin</artifactId> -->
+<!-- 				<version>2.10.3</version> -->
+<!-- 				<executions> -->
+<!-- 					<execution> -->
+<!-- 						<id>attach-javadocs</id> -->
+<!-- 						<goals> -->
+<!-- 							<goal>jar</goal> -->
+<!-- 						</goals> -->
+<!-- 					</execution> -->
+<!-- 				</executions> -->
+<!-- 			</plugin> -->
+<!-- 			<plugin> -->
+<!-- 				<artifactId>maven-assembly-plugin</artifactId> -->
+<!-- 				<version>2.4</version> -->
+<!-- 				<configuration> -->
+<!-- 					<descriptorRefs> -->
+<!-- 						<descriptorRef>jar-with-dependencies</descriptorRef> -->
+<!-- 					</descriptorRefs> -->
+<!-- 				</configuration> -->
+<!-- 				<executions> -->
+<!-- 					<execution> -->
+<!-- 						<id>dist-assembly</id> -->
+<!-- 						<phase>package</phase> -->
+<!-- 						<goals> -->
+<!-- 							<goal>single</goal> -->
+<!-- 						</goals> -->
+<!-- 					</execution> -->
+<!-- 				</executions> -->
+<!-- 			</plugin> -->
 			<plugin>
-				<artifactId>maven-assembly-plugin</artifactId>
-				<version>2.4</version>
-				<configuration>
-					<descriptorRefs>
-						<descriptorRef>jar-with-dependencies</descriptorRef>
-					</descriptorRefs>
-				</configuration>
+				<groupId>org.codehaus.mojo</groupId>
+				<artifactId>build-helper-maven-plugin</artifactId>
+				<version>1.9.1</version>
 				<executions>
 					<execution>
-						<id>dist-assembly</id>
-						<phase>package</phase>
+						<id>set-osgi-version</id>
+						<phase>verify</phase>
 						<goals>
-							<goal>single</goal>
+							<goal>parse-version</goal>
 						</goals>
+					</execution>
+					<execution>
+						<id>regex-property</id>
+						<phase>verify</phase>
+						<goals>
+							<goal>regex-property</goal>
+						</goals>
+						<configuration>
+							<name>hans</name>
+							<value>${parsedVersion.osgiVersion}</value>
+							<regex>SNAPSHOT</regex>
+							<replacement>qualifier</replacement>
+							<failIfNoMatch>false</failIfNoMatch>
+						</configuration>
 					</execution>
 				</executions>
 			</plugin>
@@ -107,6 +150,15 @@
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-jar-plugin</artifactId>
 				<version>2.3.2</version>
+				<configuration>
+					<archive>
+						<manifestFile>META-INF/MANIFEST.MF</manifestFile>
+						<manifestEntries>
+							<Bundle-Description>${project.description}</Bundle-Description>
+							<Implementation-Version>${project.version}</Implementation-Version>
+						</manifestEntries>
+					</archive>
+				</configuration>
 			</plugin>
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
@@ -121,22 +173,19 @@
 						</goals>
 					</execution>
 				</executions>
-			</plugin>
-			<plugin>
-				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-javadoc-plugin</artifactId>
-				<version>2.9</version>
-				<executions>
-					<execution>
-						<id>attach-javadocs</id>
-						<goals>
-							<goal>jar</goal>
-						</goals>
-						<configuration>
-							<additionalparam>-Xdoclint:none</additionalparam>
-						</configuration>
-					</execution>
-				</executions>
+				<configuration>
+					<archive>
+						<manifestEntries>
+							<Bundle-ManifestVersion>2</Bundle-ManifestVersion>
+							<Bundle-Name>${project.name}</Bundle-Name>
+							<Bundle-Description>${project.description}</Bundle-Description>
+							<Bundle-SymbolicName>${project.groupId}.${project.artifactId}.source</Bundle-SymbolicName>
+							<Bundle-Vendor>${project.organization.name}</Bundle-Vendor>
+							<Bundle-Version>${hans}</Bundle-Version>
+							<Eclipse-SourceBundle>${project.groupId}.${project.artifactId};version="${hans}";roots:="."</Eclipse-SourceBundle>
+						</manifestEntries>
+					</archive>
+				</configuration>
 			</plugin>
 		</plugins>
 	</build>
