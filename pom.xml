@@ -15,10 +15,6 @@
 		<name>Silico Sciences</name>
 		<url>silico-sciences.com</url>
 	</organization>
-	<issueManagement>
-		<system>JIRA</system>
-		<url>http://akerner.de:8090/browse/KERNERUTILS</url>
-	</issueManagement>
 	<properties>
 		<java.version>1.5</java.version>
 	</properties>
@@ -67,7 +63,7 @@
 			</plugin>
 			<plugin>
 				<artifactId>maven-compiler-plugin</artifactId>
-				<version>3.1</version>
+				<version>3.3</version>
 				<configuration>
 					<source>${java.version}</source>
 					<target>${java.version}</target>
